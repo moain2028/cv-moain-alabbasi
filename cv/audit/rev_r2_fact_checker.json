@@ -1,0 +1,153 @@
+{
+ "verdict": "The headline numbers in all three documents match the verified sheet, but each one contains unverified links, stack items, client and city attributions, and wording that overstates status. The services profile is the weakest: it presents prototypes and lab-tested work as delivered client work.",
+ "score_10": 6,
+ "issues": [
+  {
+   "file": "services_ar",
+   "where": "Section heading «أعمال منفذة» with the rows «نظام نقاط بيع ونظام ERP» and «منصور AI»",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "«أعمال منفذة» tells a Saudi buyer these were delivered to clients. The verified facts show something different: the POS has built modules plus a print field test, the Keif ads platform is only at 'phase 0 done', and Mansur AI is a private repo. No client delivery or deployment is documented, so a prospect who asks for a reference will catch this.",
+   "fix": "Rename the heading to «نماذج من أعمالنا». Change the POS row to: «نظام نقاط بيع يعمل على قاعدة Oracle القائمة لنظام YemenSoft Onyx Pro، جُرّبت فيه الطباعة على طابعة Bixolon SPP-R310 عبر البلوتوث»"
+  },
+  {
+   "file": "services_ar",
+   "where": "«نظام نقاط بيع ونظام ERP بديل عن YemenSoft Onyx Pro ... يطبع على طابعات Bixolon الحرارية»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'ERP' implies a full ERP was built. The verified built modules are auth, bills, catalog, customers, reports, returns and shifts, which is POS scope. The plural «طابعات Bixolon» also overstates the testing: only one model (SPP-R310) was field-tested.",
+   "fix": "«نظام نقاط بيع بديل عن YemenSoft Onyx Pro (مبيعات، مرتجعات، ورديات، تقارير) على قاعدة Oracle القائمة، يطبع على طابعة Bixolon SPP-R310 عبر البلوتوث»"
+  },
+  {
+   "file": "cv_en",
+   "where": "«Google Ads tooling for Keif Al-Diafa (Jeddah) — persistent OAuth connector ...; phase 1 of a multi-client ads platform»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Three problems: (1) Neither the client relationship nor 'Jeddah' appears in the verified facts. (2) 'persistent' is unverified. (3) The bullet merges two repos with different status: keif-aldiafa-ads-platform is phase 0 done, and ads-agency-platform is phase 1 done. Read together, the Keif work appears more advanced than it is.",
+   "fix": "«Google Ads tooling — keif-aldiafa-ads-platform (phase 0 done): OAuth to Google Ads and Search Console, free-form GAQL, Arabic dashboard — Hono, Cloudflare D1. ads-agency-platform (phase 1 done): multi-tenant SaaS with live Google Ads API data, 12-table schema, dashboard — Next.js 15, Prisma, PostgreSQL 16»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "«أدوات Google Ads لشركة كيف الضيافة في جدة»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "This repeats the unverified client attribution and city. It also omits that the Keif platform is only at phase 0.",
+   "fix": "«أدوات Google Ads: منصة keif-aldiafa (المرحلة 0 مكتملة) بربط OAuth مع Google Ads وSearch Console ولوحة عربية، ومنصة متعددة العملاء (المرحلة الأولى مكتملة) ببيانات حية من الواجهة الرسمية»"
+  },
+  {
+   "file": "services_ar",
+   "where": "«كيف الضيافة (جدة)» and «قهوجيين جدة — qahwajeen.com — موقع خدمات يستهدف البحث المحلي في جدة»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Only the fact that these sites are live (HTTP 200) is verified. Jeddah, the local-SEO targeting and client ownership are not.",
+   "fix": "Change the labels to «كيف الضيافة» and «قهوجيين». Change the description to «qahwajeen.com — موقع خدمات ضيافة يعمل فعليا»"
+  },
+  {
+   "file": "cv_en",
+   "where": "Links «github.com/MoTechSys/Idhaat-Platform», «github.com/MoTechSys/ghaida», «github.com/MoTechSys/S-ACM-Project»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "These repo URLs are not in the verified sheet. Only Project-Basira, mohanad-web-app-2, Sijilati and my-bro are confirmed. A dead or private link on a CV costs credibility immediately.",
+   "fix": "Confirm that each URL resolves publicly. If one is not verified, remove the link and keep only the project name, e.g. «Idhaat»."
+  },
+  {
+   "file": "cv_en",
+   "where": "POS stack «— NestJS 10, React 19, Oracle PL/SQL, BullMQ, OpenAPI»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "BullMQ and OpenAPI are not in the verified POS stack. An interviewer may ask what queue jobs the POS runs. The Arabic CV repeats BullMQ.",
+   "fix": "«— NestJS 10, React 19, Oracle PL/SQL (existing YSPOS23 schema)», applied in both cv_en and cv_ar."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«مع توثيق سبب فشل مسار USB لطابعة Xprinter على ويندوز والبدائل المعتمدة»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "«والبدائل المعتمدة» (approved alternatives) is not verified, and the English version does not say it. This is an EN/AR inconsistency.",
+   "fix": "«مع توثيق فشل مسار USB لطابعة Xprinter على ويندوز بسبب التعريف»"
+  },
+  {
+   "file": "services_ar",
+   "where": "Service 2 «الحضور والانصراف والرواتب» / «يقرأ أجهزة البصمة ZKTeco الحالية دون استبدالها»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'الرواتب' implies payroll calculation, but only WPS file export is verified. The claim that it reads 'existing ZKTeco devices' in general is also too broad: testing covered one live iFace950.",
+   "fix": "Heading: «الحضور والانصراف وملفات حماية الأجور». Bullet: «يسحب البصمات من أجهزة ZKTeco (جُرّب على iFace950) دون استبدالها»"
+  },
+  {
+   "file": "cv_en",
+   "where": "Basira: «byte-exactly ... from licensed corpora; an optional LLM only proposes spans and reads images (OCR)» and stack «Python, FastAPI, React 19»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'byte-exactly', 'licensed corpora', OCR and the stack are not in the verified facts. The Arabic CV repeats «مصادر مرخصة». Licensing in particular is a claim an Islamic-content reviewer will probe.",
+   "fix": "«Verifies Quran and Hadith quotations against 71,987 records; 150/150 evaluation cases, 0/500 false alarms, 78.54% on IslamicEval 2025 subtask 1B (dev). 487 tests (345 backend, 110 bot, 32 frontend). REST API, MCP server, Telegram bot @BasiraCheckBot; entry to the AI in Service of Islamic Content Challenge 2026, Track 4.» Also remove «من مصادر مرخصة» in cv_ar."
+  },
+  {
+   "file": "cv_en",
+   "where": "Mansur AI: «ReAct executor», «(working, episodic, procedural, semantic)», «skills saved from successful runs», «SQLite»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The verified facts list planner/executor/verifier/learner and 'hierarchical memory' only. The memory tiers, ReAct, skill saving and SQLite are unverified. The Arabic CV also claims «يحفظ تجاربه الناجحة كمهارات».",
+   "fix": "«planner, executor, verifier and learner orchestrated with LangGraph; 13 agents, 38 tools, model router with fallback and cost tracking, hierarchical memory; FastAPI + WebSocket Arabic UI. 82 passing tests. — Python, LangGraph, FastAPI, WebSocket»"
+  },
+  {
+   "file": "cv_en",
+   "where": "Ai_Alabbasi «(Claude, GPT-5, DeepSeek or a local model); task planner» and Skills «OpenAI, Anthropic, Gemini», «RAG», «Docker», «pytest»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "None of these specific model names, nor RAG, Docker or pytest, appear in the verified facts. Gemini in particular appears nowhere in the projects.",
+   "fix": "Change the Ai_Alabbasi line to «Coding agent with a swappable model backend; CodeAct sandboxed Python; hybrid search FTS5 + vectors fused by RRF.» Remove «OpenAI, Anthropic, Gemini», «RAG», «Docker» and «pytest» from Skills unless the candidate can point to a repo."
+  },
+  {
+   "file": "cv_en",
+   "where": "«Go, PostgreSQL, Python (pyzk), systemd»; «foreground service»; «releases signed with cosign in GitHub Actions»; «single-command»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "systemd, the Android foreground service, GitHub Actions and the single-command install are not in the verified facts. Only 'cosign keyless-signed releases' and the dual-SIM gateway are verified.",
+   "fix": "Attendance: «— Go 1.26, PostgreSQL, Python (pyzk)». Nexus: «native Android SMS gateway (dual SIM)». CLI: «cross-platform motech-cli that joins the NetBird mesh; cosign keyless-signed releases»"
+  },
+  {
+   "file": "cv_en",
+   "where": "keif-publisher «generates posts from a media archive ... dry-run and kill switch on by default. — Python, FastAPI, APScheduler»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The verified facts say only that dry-run is the default and that a kill switch exists. 'media archive' and the stack are unverified, and 'kill switch on by default' is illogical. The Arabic version has the same stack line.",
+   "fix": "«AI content generation with a human approval gate and scheduled publishing; dry-run by default, with a kill switch.» Remove the stack unless it is confirmed."
+  },
+  {
+   "file": "cv_en",
+   "where": "Idhaat «self-hosted Jitsi», «in chunks», «protected player»; Grocery Ledger «accounting and POS app ... PDF/Excel export»; SOC «including automatic blocking of SSH brute-force attacks»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "These details go beyond the verified facts. The SSH auto-block claim also appears in cv_ar. An interviewer asking for the specific use case would expose it if it cannot be shown.",
+   "fix": "Idhaat: «fallback to Jitsi secured by JWT; recordings upload to Cloudflare R2 during class». Grocery: «Offline Android app: barcode by camera (ML Kit) or USB/Bluetooth HID scanner, append-only ledgers. 157 tests, v2.2.1.» SOC: «14 use cases verified in a lab.»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "«نظام حضور وانصراف مؤسسي» and «من أجهزة iFace950» / summary «يطبع على طابعات حرارية»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«مؤسسي» (enterprise) and the plural device and printer wording overstate the evidence: one live iFace950 (11 users, 3,118 punches) and one Bixolon printer.",
+   "fix": "«نظام حضور وانصراف متعدد الفروع ... جُرّب على جهاز iFace950 فعلي (11 مستخدما، 3,118 بصمة)» and «يطبع على طابعة حرارية عبر البلوتوث»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Basira entry lacks «github.com/MoTechSys/Project-Basira»; SOC tools list omits «Wazuh 4.14.7» and «MikroTik syslog»; other projects lack repo links",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The Arabic CV is inconsistent with the English one. The verified public repo links that prove the work are missing, and the SOC entry drops verified details.",
+   "fix": "Add «· github.com/MoTechSys/Project-Basira» after basirapp.site. Add the verified repo links for دفتر البقالة (mohanad-web-app-2) and سجل (Sijilati). Change the SOC list to «(Wazuh 4.14.7, Suricata, YARA, VirusTotal, auditd, MikroTik syslog)»."
+  },
+  {
+   "file": "cv_en",
+   "where": "Header «Sana’a, Yemen ·» on its own line, then «Remote (GMT+3) · ...»; cv_ar «عمل عن بعد وفق توقيت / السعودية · واتساب»",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The contact line wraps badly. A dangling «·» sits on line 1 in English, and the Arabic phrase is split mid-phrase, which looks careless at the top of the page.",
+   "fix": "EN: put «Sana’a, Yemen · Remote (GMT+3)» on line 1 and the contact links on line 2, with `.contact{white-space:nowrap}` on each item. AR: line 1 «صنعاء، اليمن · عمل عن بعد وفق توقيت السعودية», line 2 the contacts."
+  }
+ ],
+ "reviewer": "fact_checker",
+ "model": "claude-opus-5-5",
+ "seconds": 73.1
+}

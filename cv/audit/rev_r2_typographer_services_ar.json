@@ -1,0 +1,153 @@
+{
+ "verdict": "A competent, well-structured one-page services sheet whose main weaknesses are a top-heavy page (12.6 mm top vs 32.9 mm bottom), an almost flat hierarchy between section heads and card titles, over-long measures in the intro and the ERP row, visually oversized Latin inside Naskh runs, and an orphaned single-bullet fifth card.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "services_ar",
+   "where": "Whole page – margins_mm top 12.6 / bottom 32.9, vertical_fill 92.6%",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Content hugs the top edge and leaves ~20 mm of dead space under the blue CTA band; the page reads as unfinished and the header has no breathing room above the 21.9 pt title.",
+   "fix": "Set page padding to `17mm 15.5mm 17mm 15.5mm` (currently ~12.6mm top) and raise inter-section spacing from the current ≈4.5 mm to `section + section { margin-top: 7mm }`. This absorbs the surplus and centres the block vertically."
+  },
+  {
+   "file": "services_ar",
+   "where": "Type scale – sizes 8.96 / 10.05 / 11.75 / 12.74 / 21.9 pt; section heads 'خدماتنا', 'أعمال منفذة', 'طريقة العمل', 'التزاماتنا' vs card titles '1. أنظمة نقاط البيع…'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Section heads (12.74 pt) and card titles (11.75 pt) differ by only 1 pt, so the two levels blur; the tagline is also 12.74 pt, the same size as a section head. Meanwhile the jump 12.74→21.9 is a 1.7× gap with nothing in between.",
+   "fix": "Use a consistent scale: `h1{font-size:22pt} .tagline{font-size:12pt;font-weight:600} h2{font-size:14.5pt} h3.card-title{font-size:11.5pt} body{font-size:10.5pt} .meta,.audience{font-size:9.5pt}`."
+  },
+  {
+   "file": "services_ar",
+   "where": "Intro paragraph 'نبني لمنشأتك نظاما أو تطبيقا أو موقعا…' and row 'نظام نقاط بيع ونظام ERP — بديل عن YemenSoft Onyx Pro … عبر البلوتوث' (chars_per_full_line max 132)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "At 10 pt across the full 180 mm text block a line holds ~130 characters; Arabic reads best at 55–75 characters. The eye loses the return sweep, especially with the bidi switches (YemenSoft, Oracle, Bixolon) in the ERP row.",
+   "fix": "Intro: `.intro{max-width:150mm;font-size:10.5pt;line-height:1.6}`. Projects table: `td.desc{max-width:118mm}` and allow the ERP row to wrap to two lines, or shorten to 'بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة، مع طباعة بلوتوث على Bixolon'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Card 5 '5. وكلاء الذكاء الاصطناعي والأتمتة' – single bullet 'بوت تيليجرام يرد ويتحقق، ووكلاء ينشرون المحتوى بعد موافقتك، وخوادم MCP تربط أنظمتك بالوكلاء الأذكياء'",
+   "severity": "major",
+   "category": "layout",
+   "problem": "The only full-width card carries one 95-character bullet; it looks like an afterthought and breaks the 3-bullet rhythm of cards 1–4 while stretching the measure far beyond the other cards' ~45 characters.",
+   "fix": "Split into three bullets matching the other cards (all verified): '• بوت تيليجرام يرد على الأسئلة ويتحقق من النصوص' / '• وكلاء ينشرون المحتوى بعد موافقتك، مع إيقاف فوري وتجربة بلا نشر' / '• خوادم MCP تربط أنظمتك بالوكلاء الأذكياء'. Then `.card:last-child ul{columns:2;column-gap:10mm}` so the full-width card keeps the same line length as the others."
+  },
+  {
+   "file": "services_ar",
+   "where": "Mixed runs e.g. 'Flutter لأندرويد، وأندرويد أصلي بلغة Kotlin', 'يقرأ أجهزة البصمة ZKTeco', 'لوحات متابعة لحملات Google Ads'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "IBM Plex Sans has a tall x-height and heavier stroke than Noto Naskh's low tooth height, so Latin words at the same nominal 10 pt look ~10–12% bigger and darker than the Arabic around them, pulling the eye to every brand name.",
+   "fix": "Wrap Latin in a span or use the font-size-adjust mechanism: `:lang(en), .latin{font-family:'IBM Plex Sans';font-size:0.92em;position:relative;top:0.02em}`; if the generator supports it, `font-size-adjust:0.47` on the Latin face gives the same optical size automatically."
+  },
+  {
+   "file": "services_ar",
+   "where": "Body leading – 10.05 pt / 14.93 pt (ratio 1.49) in cards and bullets",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Noto Naskh has long descenders (ي، ن، ع) and stacked vowels; at 1.49 the descenders of one line touch the ascenders of the next in dense lines like 'طباعة فواتير عربية على الطابعات الحرارية وقراءة الباركود', giving a cramped grey texture.",
+   "fix": "`body{line-height:1.62}` (≈16.3 pt at 10.05 pt); keep `h2,h3{line-height:1.3}`. Compensate the extra ~12 lines of height by trimming section margins to the 7 mm proposed above."
+  },
+  {
+   "file": "services_ar",
+   "where": "Separators – blue header rule, grey underline below each h2, 6 table rules in 'أعمال منفذة', card borders, 4 grey process boxes, blue CTA band",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Six different separator devices on one A4 page compete with each other; the table rules directly under an h2 underline create a double line at 'أعمال منفذة'.",
+   "fix": "Drop the h2 underline rules (`h2{border-bottom:none;padding-bottom:0}`) and keep hierarchy by size/colour; keep table rules but lighten them to `border-bottom:0.5pt solid #d9dde3`; remove card borders in favour of a tint: `.card{border:0;background:#f6f8fa}` so cards and process boxes share one device."
+  },
+  {
+   "file": "services_ar",
+   "where": "Audience lines in grey at 8.96 pt, e.g. 'المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات', 'أي منشأة لديها عمل يدوي متكرر'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Naskh at 9 pt in #566173 is the smallest and lightest text on the page (12.6% of glyphs) and carries the key targeting message; the reader also has no label telling them this grey line is 'who it is for'.",
+   "fix": "`.audience{font-size:9.5pt;color:#48515f}` and prefix each with a label: 'يناسب: المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات'."
+  },
+  {
+   "file": "services_ar",
+   "where": "'ورديات وإجازات وتقارير بصيغتي CSV و Excel' and 'مرتبطة بحسابي Google Ads و Search Console'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "The conjunction واو is written as a detached word followed by a space; in Arabic orthography it is attached to the following word, Latin or not. A Saudi reader notices the error immediately.",
+   "fix": "Replace with 'بصيغتي CSV وExcel' and 'بحسابي Google Ads وSearch Console' (no space after و; wrap the Latin in `<span dir=\"ltr\">` so the واو stays glued)."
+  },
+  {
+   "file": "services_ar",
+   "where": "Contact line extracted as 'واتساب‪alabbasi.uk | moain.learn@gmail.com | +967 770 941 666 :‬'",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "The whole contact line is one bidi run, so pdftotext pulls the colon away from 'واتساب' and glues the LTR items together; phone and email still extract intact, but the label/value pairing is lost and some parsers read 'alabbasi.uk' as the WhatsApp value.",
+   "fix": "Mark each item as its own isolated run: `<span>واتساب: <bdi dir=\"ltr\">+967 770 941 666</bdi></span> <span class=\"sep\">|</span> <bdi dir=\"ltr\">moain.learn@gmail.com</bdi> …` and separate items with `<span dir=\"rtl\"> | </span>`."
+  },
+  {
+   "file": "services_ar",
+   "where": "Horizontal margins – left 17.5 mm vs right 14.5 mm",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "A 3 mm asymmetry with no gutter justification; in an RTL document the start (right) margin should be at least equal to the end margin, and the cards/rules visibly sit closer to the right edge.",
+   "fix": "`@page{margin:0} body{padding:17mm 15.5mm}` and check that no container has `max-width` + `margin-inline-end:auto` pulling content rightwards."
+  },
+  {
+   "file": "services_ar",
+   "where": "'التزاماتنا' – 4th bullet 'رد خلال يوم عمل واحد، ونكون متاحين خلال أوقات الدوام في السعودية.'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "Bullets 1–3 follow a 'lead: explanation' pattern (الشفرة ملكك:، بياناتك عندك:، دعم لمدة ثلاثة أشهر:) but the 4th breaks it with a comma after the bold lead, so the list rhythm collapses on the last item.",
+   "fix": "Rewrite as 'التواصل: رد خلال يوم عمل واحد، ونكون متاحين خلال أوقات الدوام في السعودية.' with 'التواصل:' in the same bold."
+  },
+  {
+   "file": "services_ar",
+   "where": "'دعم لمدة ثلاثة أشهر: نصلح عيوب البرمجة دون تكلفة إضافية.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The three-month free bug-fix warranty is a commercial commitment not present in the verified facts sheet; it is binding once printed, so it must be confirmed by the candidate before publication.",
+   "fix": "Confirm with the candidate; if not confirmed, change to 'دعم بعد التسليم: نصلح عيوب البرمجة المتفق عليها في العرض المكتوب.'"
+  },
+  {
+   "file": "services_ar",
+   "where": "'كيف الضيافة (جدة)' and 'قهوجيين جدة — موقع خدمات يستهدف البحث المحلي في جدة'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The facts sheet verifies only that keifaldiafa.com and qahwajeen.com return HTTP 200; the Jeddah location and 'local search targeting' claim are unverified.",
+   "fix": "Either keep only what the sites themselves state (verify on the live pages) or reduce to 'كيف الضيافة — keifaldiafa.com: موقع ضيافة يعمل فعليا، مع منصة مرتبطة بحسابي Google Ads وSearch Console' and 'قهوجيين — qahwajeen.com: موقع خدمات يعمل فعليا'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Row 'بصيرة — basirapp.site منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث، مع واجهة API وبوت تيليجرام'",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "The one project with hard, verified proof numbers is presented without any of them, while the services sheet elsewhere promises reliability; a Saudi buyer of AI automation needs exactly this evidence.",
+   "fix": "Replace with 'بصيرة — basirapp.site: منصة تتحقق من الآيات والأحاديث على 71,987 سجلا، 0 إنذار كاذب من 500 اختبار، مع واجهة API وبوت تيليجرام @BasiraCheckBot' (all figures verified)."
+  },
+  {
+   "file": "services_ar",
+   "where": "Process boxes 'طريقة العمل' – e.g. '4. تشغيل ودعم / تدريب ووثائق بالعربية وتسليم / الشفرة كاملة'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The two-line descriptions break unevenly (long first line, 2-word second line) in boxes 3 and 4, leaving near-orphan last lines inside small equal-height boxes.",
+   "fix": "`.step p{text-wrap:balance;max-width:34mm}` or hard-break as 'تدريب ووثائق بالعربية / وتسليم الشفرة كاملة' and 'ترى كل مرحلة تعمل / قبل الانتقال إلى التالية'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Header 'معين العباسي' at 8.96 pt in #566173 on the contact line",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "For a one-person studio the engineer's name is the trust anchor, yet it is the smallest grey text on the page while the brand 'العباسي تك' is 21.9 pt; Saudi clients hire the person, not the trade name.",
+   "fix": "Set the name as a 12 pt semibold line under the title: `.person{font-size:12pt;font-weight:600;color:#16202e}` → 'م. معين العباسي — مهندس برمجيات، صنعاء (عمل عن بعد)' and keep only WhatsApp/email/site in the grey meta line."
+  },
+  {
+   "file": "services_ar",
+   "where": "Font pairing – IBM Plex Sans (Latin) + Noto Naskh Arabic",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A grotesque sans paired with a calligraphic Naskh gives two textures on every mixed line (see brand names in cards). The Naskh is justified for extraction reliability, but a sans Arabic with the same ToUnicode behaviour would unify the page.",
+   "fix": "Optional: test Noto Sans Arabic (same Noto build pipeline, only lam-alef ligatures, one glyph → one codepoint like Noto Naskh). Keep extraction correct by (1) embedding as a full OTF/TTF via the same renderer, (2) `font-feature-settings:'liga' 0,'dlig' 0`, (3) validating with `pdftotext -layout services_ar.pdf - | diff - source.txt` for zero diff before adopting. If any diff appears, stay with Noto Naskh and apply the 0.92em Latin compensation above."
+  }
+ ],
+ "reviewer": "typographer_services_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 162.1
+}

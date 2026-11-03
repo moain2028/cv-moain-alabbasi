@@ -1,0 +1,1218 @@
+[
+ {
+  "verdict": "A strong, evidence-dense CV with unusually concrete, repo-backed engineering detail, but a hiring manager will doubt one sub-1-year founder entry carrying 15+ systems, several stack and skill claims are not on the verified sheet, and two overfilled pages hide the AI-agent and security story.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_en",
+    "where": "TECHNICAL SKILLS: 'Docker', 'pytest', 'Gemini', 'GitHub Actions', 'ESC/POS via Bluetooth and Web Serial'",
+    "severity": "critical",
+    "category": "fact",
+    "problem": "These five items are not in the verified facts. Docker, pytest and Gemini appear in no README. GitHub Actions is not stated; only 'cosign keyless-signed releases' is verified. The verified printing fact is 'Arabic raster printing over Bluetooth via Web Serial', not ESC/POS. In a technical interview, any one of these that cannot be shown in a repo undermines every other claim on the page.",
+    "fix": "Remove the items or get the candidate to confirm them with a repo. Safe lines: 'DevOps: Cloudflare (Pages, D1, R2), Linux, cosign keyless-signed releases; Vitest, Playwright' · 'Integration: ZKTeco (pyzk, TCP/4370), Arabic raster receipt printing via Bluetooth SPP + Web Serial, Google Ads API, Search Console API' · 'AI & agents: … model routing with fallback; Claude, GPT-5, DeepSeek, local models'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Project stacks: '— Go, PostgreSQL, SSH, NetBird' (Secure remote access); '— Go, PostgreSQL, Python (pyzk), systemd' (Motech Attendance); 'cosign-signed releases from GitHub Actions'",
+    "severity": "critical",
+    "category": "fact",
+    "problem": "None of these is verified. PostgreSQL is not listed for the remote-access project (verified: Go, SSH, NetBird). systemd is not listed for attendance (verified: Go, PostgreSQL, pyzk). GitHub Actions is not stated for the CLI releases.",
+    "fix": "Secure remote access stack: '— Go, SSH, NetBird, cosign'. Attendance stack: '— Go, PostgreSQL, Python (pyzk)'. Replace the CLI clause with 'cross-platform CLI (motech-cli) with cosign keyless-signed releases that joins the NetBird mesh'."
+   },
+   {
+    "file": "cv_en",
+    "where": "'PDF/Excel export' (Grocery Ledger); 'MCP-ready tooling' and 'Arabic/English posts' (Moain Promoter AI); 'self-hosted Jitsi (JWT per lesson)' (Idhaat); 'in their native language' (Ghaida); 'Ai_Alabbasi (private repository)'; 'public dev set' (Basira)",
+    "severity": "critical",
+    "category": "fact",
+    "problem": "Each phrase adds detail beyond the verified sheet. Verified: Grocery Ledger has barcode input and append-only ledgers, with no export mentioned. Promoter has 7 agents, 6 platforms and Next.js/Celery/Redis/Playwright, with nothing on MCP or languages. Idhaat has a 'Jitsi fallback with JWT', with nothing on self-hosting or per-lesson tokens. Ghaida's language support is not stated. Ai_Alabbasi is not documented as private. Basira's score is '(dev)', not a 'public' dev set. These are small embellishments, but each is a credibility leak.",
+    "fix": "Grocery Ledger: '…USB/Bluetooth HID scanner, append-only ledgers. 157 passing tests, v2.2.1.' Promoter: 'Seven specialised agents under an orchestrator generate posts for six platforms; Next.js dashboard; Celery + Redis job queue; Playwright automation.' Idhaat: '…with Jitsi fallback (JWT)'. Ghaida: 'Household guidebook for domestic workers with AI voice for every sentence; offline PWA with admin panel; API tests 27/27.' Ai_Alabbasi: drop '(private repository)' unless confirmed. Basira: '(IslamicEval 2025 subtask 1B, dev set)'."
+   },
+   {
+    "file": "cv_en",
+    "where": "'Founder & Software Engineer · Alabbasi Tech … 2026 – Present' with seven bullets, followed by 9 more projects",
+    "severity": "critical",
+    "category": "strategy",
+    "problem": "In the 7-second scan, a reader sees under one year of total experience, all self-employed, with roughly 16 systems listed. That ratio triggers 'AI-generated or inflated' suspicion. The reader also cannot tell which items are delivered client work and which are prototypes or phase-0 builds. The only named client is Keif Al-Diafa. Founder-only histories also raise 'will he leave to run his company?' concerns for full-time remote roles.",
+    "fix": "Keep at most 5 bullets under Alabbasi Tech: POS, Attendance, Nexus Notify, Secure remote access, Google Ads tooling. Move keif-publisher and the hospitality sites to SELECTED PROJECTS. Add a verified status at the end of each bullet, for example 'Status: field-tested on a live iFace950', 'Status: phase 1 complete', 'Status: phase 0 done', 'Status: printing field-tested on Bixolon'. Do not add client names beyond Keif Al-Diafa (Jeddah). Ask the candidate which systems are in production use, and add only what he confirms."
+   },
+   {
+    "file": "cv_en",
+    "where": "Section 'GRADUATION PROJECT (TEAM)' with no EDUCATION section anywhere",
+    "severity": "major",
+    "category": "content",
+    "problem": "A graduation project with no degree, university or year makes a recruiter assume the candidate is unfinished or hiding something. Greenhouse, Workday and Taleo also populate an Education field that is currently empty, and some knockout filters require it. University, degree and year are UNKNOWN in the verified sheet, so they cannot be filled in here.",
+    "fix": "Ask the candidate for university, degree and graduation year (or expected year), and add them only once confirmed: 'EDUCATION — [Degree], [University], [Year]', with the SOC project as a sub-entry. Until then, keep the current heading and do not invent anything."
+   },
+   {
+    "file": "cv_en",
+    "where": "Title line 'Software Engineer · Full-Stack Systems · AI Agents (LangGraph, MCP)'",
+    "severity": "major",
+    "category": "ats",
+    "problem": "The target is 'Software Engineer / AI Engineer', but the exact phrase 'AI Engineer' never appears in the CV. Recruiters search Lever and Greenhouse by title string, and 'Full-Stack Systems' is not a searchable title.",
+    "fix": "'Full-Stack Software Engineer · AI Engineer (LLM Agents, LangGraph, MCP)'"
+   },
+   {
+    "file": "cv_en",
+    "where": "SUMMARY: 'Built a POS on an existing Oracle database with Bluetooth receipt printing, a ZKTeco attendance system … Fully remote, Saudi time zone.'",
+    "severity": "major",
+    "category": "content",
+    "problem": "The summary is a 70-word inventory that repeats the Experience section. It gives no positioning, says nothing about engineering quality or security, and 'Saudi time zone' means little to an international reader. The strongest differentiators are missing: verification-first AI (the LLM never decides), 487 tests, and signed agents with encryption.",
+    "fix": "'Full-stack and AI engineer (TypeScript, Python, Go) and founder of Alabbasi Tech. I build business systems on real hardware and legacy data (Oracle POS, ZKTeco attendance with KSA/UAE WPS export) and LLM agents with guardrails: LangGraph multi-agent systems, MCP servers, sandboxed execution and human approval gates. Flagship: Basira, an Arabic quotation verifier with 0/500 false alarms and 487 automated tests. Remote, GMT+3 (overlaps EU mornings and full Gulf day).'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Mansur AI: 'Arabic multi-agent system: planner, ReAct executor, verifier and learner … 82 passing tests.'",
+    "severity": "major",
+    "category": "content",
+    "problem": "The verified safety features (sandboxed shell, HTTP tools with SSRF protection) are left out. They are exactly the overlap between AI-agent and security roles, and they lift the project from 'demo' to 'production-minded'. The 'Arabic' prefix also reads as language-limited; the verified Arabic element is the UI.",
+    "fix": "'Multi-agent system orchestrated with LangGraph (planner, ReAct executor, verifier, learner): 13 agents, 38 tools, sandboxed shell, HTTP tools with SSRF protection, model router with fallback and cost tracking, hierarchical SQLite memory (working, episodic, procedural, semantic); saves successful runs as reusable skills. 82 passing tests; FastAPI + WebSocket Arabic UI.'"
+   },
+   {
+    "file": "cv_en",
+    "where": "TECHNICAL SKILLS 'Security' and 'AI & agents' rows",
+    "severity": "major",
+    "category": "ats",
+    "problem": "The Security row lists only SOC tooling. The application-security keywords the CV already proves are never surfaced in Skills, where ATS keyword matching weights terms. The AI row misses common JD terms that are proven: LLM evaluation, human-in-the-loop, ReAct, CodeAct, sandboxed code execution, OCR.",
+    "fix": "'Security: SSRF protection, sandboxed execution, AES-256-GCM key encryption, Authenticode and cosign code signing, SSH key rotation, OAuth, JWT; Wazuh (SIEM), Suricata (IDS), YARA, auditd, Autopsy, FTK Imager' · 'AI & agents: LLM agents, LangGraph, ReAct, CodeAct, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5 + vectors, RRF), model routing with fallback, LLM evaluation, human-in-the-loop approval'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Experience bullets, e.g. 'Motech Attendance — built to replace…' and 'POS … documented why Xprinter USB fails on Windows (driver)'",
+    "severity": "major",
+    "category": "content",
+    "problem": "The bullets are action plus scope but rarely end with a result. Verified outcomes exist but are buried or missing ('11 users'). The POS bullet leads its outcome with a failure (Xprinter) rather than the proven success. 'iFace950 devices' (plural) overstates the verified test on one live device.",
+    "fix": "Attendance: '…Field-tested on a live iFace950 (11 users, 3,118 punches) with idempotent ingest.' and change 'iFace950 devices' to 'ZKTeco iFace950 terminals (TCP/4370)'. POS: 'Built a web POS on the existing Oracle YSPOS23 schema with no data migration (auth, bills, catalog, customers, returns, shifts, reports; OpenAPI). Field-tested Arabic raster receipt printing on a Bixolon SPP-R310 over Bluetooth via Web Serial.' Drop the Xprinter clause or keep it for interview."
+   },
+   {
+    "file": "cv_en",
+    "where": "Layout metrics: vertical_fill 103.5% / 103.9%, bottom margin 4.8 mm; large blank gap at the bottom of page 1 after Basira",
+    "severity": "major",
+    "category": "layout",
+    "problem": "Both pages overflow their frames, so the footer sits almost on the paper edge and print or PDF viewers may clip it. Meanwhile page 1 ends with about 25% white space because the Mansur block is set to avoid breaking, which pushes the best AI project off the first page.",
+    "fix": "CSS: '@page { size: A4; margin: 14mm 18mm 14mm 18mm; }' 'body { line-height: 1.35; }' 'section + section { margin-top: 3.5mm; }' Allow project blocks to break: '.project { break-inside: auto; }' with '.project-title { break-after: avoid; }'. Freeing space through the cuts in other issues should bring both pages under 98% fill."
+   },
+   {
+    "file": "cv_en",
+    "where": "TECHNICAL SKILLS extracted as 'Programming\\n\\nTypeScript, Python…' and 'Frontend & mobile React 19…'",
+    "severity": "minor",
+    "category": "ats",
+    "problem": "The two-column table makes pdftotext split labels from values inconsistently: some on separate lines, some merged. Workday and Taleo parsers can attach skills to the wrong category or drop the row.",
+    "fix": "Render each row as a single text line in normal flow: '<p><strong>Backend:</strong> NestJS, FastAPI, Hono…</p>'. Use no table or grid, and keep the colon after each label."
+   },
+   {
+    "file": "cv_en",
+    "where": "Ai_Alabbasi: 'model backend swapped from one config file … — Python, SQLite FTS5'",
+    "severity": "minor",
+    "category": "content",
+    "problem": "The verified README says the model is swapped 'with one line' and includes RAG plus local/Daytona/E2B sandboxes. These are strong AI-engineer keywords that are currently omitted. The 'SQLite FTS5' tail is also orphaned on its own line.",
+    "fix": "'Coding agent whose model is swapped with one line (Claude, GPT-5, DeepSeek or a local model); planner with todo list, CodeAct execution in local/Daytona/E2B sandboxes, RAG with hybrid FTS5 + vector retrieval fused by RRF. — Python'"
+   },
+   {
+    "file": "cv_en",
+    "where": "'Nexus Notify — designed a multi-tenant, multi-channel notification platform behind one API'",
+    "severity": "minor",
+    "category": "language",
+    "problem": "'Designed' reads as architecture-only, leaving the reader unsure whether it was built. Every other bullet says 'built', so this one looks weaker or unfinished.",
+    "fix": "'Nexus Notify — built a multi-tenant, multi-channel notification platform behind one unified API, with an Angular 22 dashboard and a native Kotlin/Compose Android SMS gateway (foreground service, dual SIM).'"
+   },
+   {
+    "file": "cv_en",
+    "where": "'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com; Android apps…'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The bullet has no action verb, so the candidate's role is unclear. qahwajeen.com is live but no repo was found, so authorship is unverifiable. Including it invites a 'show me the code' question that cannot be answered.",
+    "fix": "'Built websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and Android apps for Keif Al-Diafa and Asoul Al-Diafa (Flutter + Kotlin, v2.6.0, signed APK releases with remote lock).' Keep qahwajeen.com only if the candidate confirms he built it."
+   },
+   {
+    "file": "cv_en",
+    "where": "GRADUATION PROJECT: '…automatic blocking of SSH brute-force attacks. Digital forensics lab with Autopsy and FTK Imager.'",
+    "severity": "minor",
+    "category": "content",
+    "problem": "The forensics lab is a separate verified item but is appended to the team SOC project, which implies it was part of that project. The candidate's own role in the team is also not stated, and interviewers will ask.",
+    "fix": "End the SOC entry at '…including automatic blocking of SSH brute-force attacks (UC-11, verified live).' Add a separate line: 'Digital forensics lab — Autopsy, FTK Imager, registry, event-log and browser forensics.' Ask the candidate for his specific role and add it only once confirmed."
+   },
+   {
+    "file": "cv_en",
+    "where": "Repo links 'github.com/MoTechSys/mohanad-web-app-2' and 'github.com/MoTechSys/my-bro'",
+    "severity": "minor",
+    "category": "strategy",
+    "problem": "Hiring managers click links. A personal-name repo and 'my-bro' read as unpolished or someone else's work, which undercuts the 'Grocery Ledger' and 'SOC' labels.",
+    "fix": "Rename the repos on GitHub (old URLs redirect automatically), for example to 'grocery-ledger' and 'soc-wazuh-lab', then update the CV links. If not renamed, keep the links as they are; do not invent new URLs."
+   },
+   {
+    "file": "cv_en",
+    "where": "Languages: 'English (technical reading and writing)'",
+    "severity": "minor",
+    "category": "strategy",
+    "problem": "For an international remote role, this wording signals the candidate may not handle spoken stand-ups or client calls, and many recruiters reject on it. His actual level is not in the verified sheet.",
+    "fix": "Ask the candidate. If he confirms he can do spoken meetings, use 'English (professional working proficiency)'. Otherwise keep the current wording. Do not upgrade it without confirmation."
+   }
+  ],
+  "reviewer": "recruiter_intl",
+  "model": "claude-opus-5-5",
+  "seconds": 109.7
+ },
+ {
+  "verdict": "أرشحه لمقابلة تقنية ومشروع تجريبي محدود؛ فالأعمال الموثقة والعربية المهنية تبنيان الثقة، لكن ملف الخدمات أقرب إلى عرض مهندس مستقل منه إلى مورد جاهز للاعتماد، بسبب نسب أعمال غير مثبتة والتزامات تجارية غير محددة.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "services_ar",
+    "where": "«العباسي تك» و«معين العباسي | واتساب»",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "لا يوضح الملف أن مقدم الخدمة يعمل من صنعاء، ولا يحدد الطرف الذي سيوقع العقد ويصدر مستندات الدفع. تأسيس العباسي تك مؤكد، لكن التسجيل القانوني وبلده غير موثقين؛ ونطاق .uk لا يثبت وجود شركة بريطانية. هذه فجوة أساسية لاعتماد مورد خارج السعودية.",
+    "fix": "استبدل سطر التعريف بـ«معين العباسي — مؤسس ومهندس برمجيات، العباسي تك منذ 2026 | صنعاء، اليمن | تنفيذ عن بُعد فقط». وأضف ضمن خطوات التعاقد: «قبل التعاقد: تحديد الطرف المتعاقد، وبيانات الفوترة، وعملة الدفع وآليته في العرض المكتوب». لا تضف صفة شركة مسجلة أو بلد تسجيل دون مستند."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«علامات ضيافة سعودية: مواقع keifaldiafa.com وasoulaldiafa.com وqahwajeen.com»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "نسبة qahwajeen.com إلى أعمال المرشح غير موثقة؛ المؤكد فقط أن الموقع يعمل. إدراجه ضمن الخبرة يوحي بأن المرشح نفذه، وهو ادعاء يحتاج دليلاً مستقلاً.",
+    "fix": "استبدل الفقرة بـ«مواقع وتطبيقات ضيافة: موقعا keifaldiafa.com وasoulaldiafa.com، وتطبيقا أندرويد لكيف الضيافة وأصول الضيافة بإصدارات موقعة رقمياً»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«نماذج من أعمالنا — قهوجيين — qahwajeen.com»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "وجود الموقع على الإنترنت لا يثبت علاقة المورد به. عرضه كمرجع تجاري دون إثبات يضعف الثقة في بقية نماذج الأعمال.",
+    "fix": "احذف صف «قهوجيين — qahwajeen.com — موقع خدمات ضيافة يعمل فعلياً» من جدول الأعمال إلى أن تتوفر وثيقة تثبت دور المرشح فيه."
+   },
+   {
+    "file": "services_ar",
+    "where": "«الشفرة والبيانات ملكك بالكامل» و«فلا تبقى مرتبطاً بنا» و«يمكنك تصديرها كاملة في أي وقت»",
+    "severity": "major",
+    "category": "content",
+    "problem": "هذه التزامات غير مثبتة بصيغتها المطلقة. قد يتضمن المشروع مكونات مفتوحة المصدر وخدمات خارجية، كما أن تسليم الشفرة لا يلغي اعتماد التشغيل عليها. قابلية تصدير جميع البيانات في أي وقت تحتاج تنفيذاً واختباراً، وليست نتيجة تلقائية لملكية البيانات.",
+    "fix": "استبدل هذه العبارات بـ«يحدد العقد حقوق الشفرة المطورة للمشروع وتسليمها، مع بيان تراخيص المكونات الخارجية واعتماديات التشغيل. وتُحدد ملكية البيانات وآلية تصديرها وصيغها ضمن نطاق التسليم واختبارات القبول»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«دعم لمدة ثلاثة أشهر» و«رد خلال يوم عمل واحد» و«نكون متاحين خلال أوقات الدوام في السعودية»",
+    "severity": "major",
+    "category": "content",
+    "problem": "مدة الدعم وزمن الرد والتفرغ خلال الدوام غير موثقة في ورقة الحقائق. يمكن اقتراحها تجارياً، لكن عرضها كالتزام قائم دون تعريف أيام العمل وبداية الضمان والفرق بين العيب والتغيير يجعل توقعات العميل مفتوحة.",
+    "fix": "استبدل البنود بـ«تُحدد في العرض مدة ضمان عيوب البرمجة وبدايتها، وساعات الدعم بتوقيت السعودية، وزمن الاستجابة بحسب أولوية البلاغ. وتُفصل طلبات التغيير عن إصلاح العيوب». واستبدل «نعمل عن بعد وفق توقيت السعودية» بـ«نعمل عن بُعد، وتُحدد ساعات التواصل في العرض»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«أدوات Google Ads لشركة كيف الضيافة في جدة ... في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "تدمج العبارة مشروعين وتوحي بأن المنصة متعددة العملاء مرحلة لاحقة من مشروع العميل نفسه. المؤكد أن أداة كيف الضيافة أنجزت المرحلة صفر، وأن المنصة متعددة العملاء أنجزت المرحلة الأولى؛ العلاقة التسلسلية ونسبة المشروع الثاني للعميل غير موثقتين.",
+    "fix": "استبدل الفقرة بـ«أداة كيف الضيافة في جدة: ربط عبر OAuth مع Google Ads وSearch Console، واستعلامات GAQL ولوحة عربية؛ المرحلة صفر مكتملة باستخدام Hono وCloudflare D1. مشروع منفصل: منصة Google Ads متعددة العملاء؛ المرحلة الأولى مكتملة، ببيانات API حية وقاعدة من 12 جدولاً، باستخدام Next.js 15 وPrisma وPostgreSQL 16»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«الحضور والانصراف وحماية الأجور» و«أنظمة نقاط البيع وإدارة الأعمال»",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "تصدير WPS موثق، لكنه لا يثبت قبول الملفات لدى بنك العميل أو المنصة المعنية. كذلك لا توجد معلومات تثبت توافق نظام نقاط البيع مع متطلبات الفوترة الإلكترونية السعودية. هذه ليست مخالفات مثبتة، لكنها شروط شراء مهمة لا يجوز أن يستنتج العميل تحققها من العناوين.",
+    "fix": "غيّر العنوان إلى «الحضور والانصراف وتصدير ملفات حماية الأجور». وأضف أسفل الخدمتين: «يُتحقق ضمن نطاق المشروع من قبول ملفات حماية الأجور لدى جهة الاستخدام، ومن متطلبات الفوترة الإلكترونية والربط المطلوبة لنظام نقاط البيع؛ ولا يُفترض تحققها بمجرد توفر التصدير أو الطباعة»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«طباعة فواتير عربية على الطابعات الحرارية» و«العمل على قاعدة بياناتك الحالية أو ترحيلها» و«يقرأ أجهزة البصمة ZKTeco دون استبدالها»",
+    "severity": "major",
+    "category": "content",
+    "problem": "الصياغة تعمم توافق الأجهزة وقواعد البيانات. الإثبات المتاح محدد: Bixolon عبر Bluetooth، وقاعدة Oracle YSPOS23، وجهاز iFace950؛ وهناك فشل USB موثق مع Xprinter. الترحيل والتوافق مع بقية الطرازات غير موثقين.",
+    "fix": "استبدل البنود بـ«طباعة عربية مثبتة على Bixolon SPP-R310 عبر Bluetooth؛ تُختبر الطرازات الأخرى قبل اعتمادها»، و«خبرة مثبتة بالعمل على قاعدة Oracle YSPOS23 القائمة؛ ويُقيّم دعم القواعد الأخرى أو ترحيلها قبل التسعير»، و«تكامل مُجرّب مع ZKTeco iFace950؛ ويُختبر توافق جهاز العميل قبل الالتزام بعدم استبداله»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«وفق توقيت السعودية»؛ «Ai_Alabbasi (مستودع خاص)» و«من ملف إعداد واحد»؛ «يكتبون منشورات بالعربية والإنجليزية»؛ «بلغتهن الأم»؛ «مشغل محمي»؛ «Go, PostgreSQL, SSH, NetBird»؛ «Docker, GitHub Actions ... pytest»؛ «العربية اللغة الأم، والإنجليزية قراءة وكتابة تقنية»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "هذه التفاصيل غير موثقة في ورقة الحقائق: التزام ساعات السعودية، وخصوصية مستودع Ai_Alabbasi وآلية التبديل بملف إعداد واحد، ولغتا منشورات Promoter، ودعم اللغات الأم في غيداء، وحماية مشغل إضاءات تحديداً، واستخدام PostgreSQL في الوصول عن بُعد، ومهارات Docker وGitHub Actions وpytest، ومستويات اللغات. قد تكون صحيحة، لكن لا يصح اعتمادها كمعلومات متحققة.",
+    "fix": "استخدم «عمل عن بُعد فقط»؛ و«Ai_Alabbasi — وكيل برمجة يدعم تبديل النموذج السحابي أو المحلي»؛ و«سبعة وكلاء متخصصين مع منسق رئيسي لدعم العمل على ست منصات»؛ و«دليل منزلي للعاملات مع صوت لكل جملة»؛ و«مشغل يعرض علامة مائية متحركة باسم الطالب ورقمه». احذف PostgreSQL من سطر الوصول عن بُعد، واحذف Docker وGitHub Actions وpytest ومستويات اللغات حتى يؤكدها المرشح."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«الخبرة العملية — مؤسس ومهندس برمجيات · العباسي تك» والقائمة التي تليها",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "الدور والخبرة السوقية مؤكدان، لكن جمع كل الأنظمة تحت الخبرة العملية دون تمييز يوحي بأن جميعها مشاريع عملاء مسلمة أو مستخدمة إنتاجياً. المستودعات تثبت التنفيذ التقني، لا عدد العملاء أو حالة التشغيل التجاري لكل مشروع.",
+    "fix": "أبقِ سطر الوظيفة، ثم استخدم عنوانين فرعيين: «أعمال لجهات محددة: كيف الضيافة وأصول الضيافة» و«أنظمة ومشاريع تقنية». تحت نظام الحضور أضف الحالة الموثقة: «اختبار على جهاز فعلي: 11 مستخدماً و3,118 بصمة»، واحتفظ بحالات مراحل منصات الإعلانات كما هي موثقة، دون وصف بقية الأنظمة بأنها مسلمة لعملاء."
+   },
+   {
+    "file": "services_ar",
+    "where": "«طريقة العمل — عرض مكتوب» و«تشغيل ودعم»",
+    "severity": "major",
+    "category": "content",
+    "problem": "وجود مراحل وسعر ثابت إشارة جيدة، لكن لا توجد معايير قبول أو آلية تغيير نطاق أو تحديد لتكاليف الاستضافة والخدمات الخارجية. كما أن المكالمة المجانية لنصف ساعة والتصور المجاني والتدريب والوثائق العربية عروض غير مؤكدة في ورقة الحقائق، وليست سجلاً مثبتاً لطريقة العمل.",
+    "fix": "استبدل عنوان القسم بـ«آلية تعاقد مقترحة»، واجعل خطواته: «1. تحديد الاحتياج والمتطلبات»، «2. عرض يحدد النطاق والاستثناءات والسعر والدفعات وتكاليف الخدمات الخارجية»، «3. تسليم مرحلي وفق معايير قبول مكتوبة وآلية لطلبات التغيير»، «4. تسليم الشفرة والحسابات والوثائق والتدريب بحسب العقد». واستبدل الدعوة الختامية بـ«أرسل وصفاً مختصراً لاحتياجك لتحديد نطاق العمل والخطوة التالية»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«بياناتك عندك» وخدمات الحضور وبوابة SMS والوصول إلى حسابات Google",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "ملكية البيانات لا توضح مكان استضافتها أو صلاحيات المهندس البعيد أو ما إذا كانت ستُنقل خارج السعودية أو إلى خدمات ذكاء اصطناعي. بالنسبة لبيانات الموظفين والعملاء، هذه فجوة تقييم مورد وليست تفصيلاً يؤجل إلى ما بعد التنفيذ؛ ولا توجد أدلة تسمح بادعاء امتثال شامل لنظام حماية البيانات الشخصية.",
+    "fix": "أضف بنداً إجرائياً: «قبل التنفيذ، يُوثق موقع الاستضافة، وصلاحيات الوصول عن بُعد، والخدمات الخارجية المستخدمة، وأي نقل للبيانات خارج المملكة، وآلية النسخ الاحتياطي وحذف الوصول عند انتهاء العقد، وفق متطلبات العميل والمتطلبات النظامية المنطبقة»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«تهيئة تقنية لمحركات البحث (SEO)» و«تطبيقات للموظفين والمناديب» و«بوت تيليجرام يرد على العملاء ويتحقق من النصوص»",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "تلك الاستخدامات غير موثقة كأعمال منفذة في ورقة الحقائق، خصوصاً الرد على العملاء؛ البوت الموثق يتحقق من الاقتباسات. عرضها كخدمات مستقبلية ممكن، لكن يلزم فصلها عن الخبرة المثبتة.",
+    "fix": "استبدل «خدماتنا» بـ«خدمات مقترحة بحسب نطاق المشروع»، واستبدل وصف البوت بـ«تكاملات Telegram وخوادم MCP؛ ومن الأعمال الموثقة بوت بصيرة للتحقق من الاقتباسات الشرعية». احذف بند SEO ما لم يؤكده المرشح، وغيّر بند التطبيقات إلى «تطبيقات أندرويد، بما فيها تطبيقات تعمل دون إنترنت وبوابة SMS»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«بصيرة — منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث»",
+    "severity": "minor",
+    "category": "content",
+    "problem": "تخفي العبارة أهم عنصر ثقة في المنتج، وقد توحي بأن النموذج اللغوي يصدر الحكم الشرعي أو النصي. الآلية الموثقة تعتمد المطابقة الحرفية، والنموذج لا يقرر النتيجة.",
+    "fix": "استبدل الوصف بـ«منصة للتحقق من الاقتباسات القرآنية والحديثية بالمطابقة الحرفية مع مصادر مرخصة؛ النموذج اللغوي يقترح مواضع الاقتباس ولا يصدر الحكم، مع واجهة API وبوت تيليجرام»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«مشروع التخرج (جماعي)»",
+    "severity": "minor",
+    "category": "content",
+    "problem": "المشروع الجماعي موثق، لكنه لا يثبت الحصول على درجة أو اسم الجامعة أو سنة التخرج. غياب بيانات التعليم يمنع حسم شروط وظيفة تتطلب مؤهلاً محدداً، ولا يجوز ملء هذا الفراغ بافتراض أن المشروع يعني التخرج.",
+    "fix": "غيّر العنوان إلى «مشروع جماعي في الأمن السيبراني — SOC»، واحتفظ بوصف المختبر. لا تضف جامعة أو درجة أو سنة؛ تُطلب وثائق المؤهل من المرشح بصورة منفصلة قبل تقييم استيفاء شرط التعليم."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«نظام نقاط بيع» و«نظام حضور وانصراف مؤسسي» و«بصيرة»",
+    "severity": "minor",
+    "category": "strategy",
+    "problem": "رابط GitHub العام جيد، لكنه يترك مسؤول التقييم يبحث بنفسه عن أهم الأدلة. الأعداد والاختبارات موثقة في READMEs وليست شهادة تدقيق مستقل؛ تسهيل الوصول إلى المصدر يزيد قيمة هذه الإشارات.",
+    "fix": "أضف تحت المشاريع، كرابط نصي قابل للنقر: «المصدر: github.com/MoTechSys/motech-pos»، و«المصدر: github.com/MoTechSys/motech-attendance»، و«المصدر ونتائج التقييم: github.com/MoTechSys/Project-Basira». استخدم في بصيرة عبارة «بحسب تقييمات المشروع المنشورة» قبل الأرقام."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«المهارات التقنية» في نص pdftotext؛ تظهر «لغات البرمجة» و«الواجهة الخلفية» قبل قائمتيهما، وينفصل عنوان «قواعد البيانات» عن قيمه",
+    "severity": "minor",
+    "category": "ats",
+    "problem": "الجدول مقروء بصرياً، لكن استخراج النص يفصل بعض الفئات عن محتواها، ما يضعف فهمه في أنظمة الفرز والنسخ النصي. المشكلة ليست في العربية نفسها بل في ترتيب عناصر المستند.",
+    "fix": "استبدل جدول المهارات بعناصر متتابعة، كل عنصر يحتوي العنوان والقيم معاً في ترتيب DOM نفسه، مثل «قواعد البيانات: PostgreSQL, Oracle, SQLite, Cloudflare D1». استخدم `.skill-row { display: block; direction: rtl; } .skill-values { direction: ltr; unicode-bidi: isolate; }`، ثم أعد اختبار pdftotext للتأكد من بقاء كل عنوان ملاصقاً لقيمه."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«نبذة مهنية» وقسم «مشاريع مختارة»؛ سطرا «Flutter» المنفردان؛ الهامش السفلي المقاس 4.1 مم",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "الخط والتباين جيدان، لكن كثرة المشاريع والتكرار تجعل الوثيقة أقرب إلى فهرس تقني. كما أن التذييل قريب من حافة الطباعة. لا تظهر الصور قصاً واضحاً، لذلك نسبة الامتلاء المقاسة فوق 100% لا تكفي وحدها للحكم بوجود محتوى مقصوص.",
+    "fix": "اختصر النبذة إلى «مهندس برمجيات ومؤسس العباسي تك منذ 2026، أطور أنظمة أعمال وتطبيقات ويب وجوال وتكاملات أجهزة ووكلاء ذكاء اصطناعي. أعمل عن بُعد من صنعاء، اليمن». ادمج Flutter في عنواني «دفتر البقالة — Flutter» و«سجل — Flutter»، وانقل غيداء وS-ACM إلى ملف الأعمال. اضبط الطباعة على `@page { size: A4; margin: 14mm 18mm 14mm; }` مع إبقاء التذييل على بعد لا يقل عن 10 مم من الحافة وعدم تصغير خط المتن."
+   }
+  ],
+  "reviewer": "hr_saudi",
+  "model": "gpt-6-astra",
+  "seconds": 114.9
+ },
+ {
+  "verdict": "Clean, restrained single-column Plex layout with a sound three-colour palette, undermined by an over-long 99-character measure, a section heading orphaned at the foot of page 1 with its content on page 2, nine one-to-three-word runt lines from the inline tech-stack tails, a 4.8 mm footer margin, and a handful of unverifiable stack claims; the Arabic files were not supplied so the Latin/Naskh pairing could not be judged.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_en",
+    "where": "Page 1 heading 'AI AGENTS & APPLIED AI' → page 2 starts with 'Mansur AI (private repository)'",
+    "severity": "major",
+    "category": "layout",
+    "problem": "The section heading and Basira sit on page 1 while Mansur AI, Ai_Alabbasi and Moain Promoter AI open page 2 with no heading above them; a reader who starts at page 2 (common when pages are printed or previewed separately) cannot tell these are AI-agent entries. Page 1 also leaves ~26 mm empty above the footer, almost exactly the height of the Mansur AI block, so the break is a near miss rather than a necessity.",
+    "fix": "Add `h2 { break-after: avoid; page-break-after: avoid; } .entry, li { break-inside: avoid; }` and tighten body leading from 14.25pt to `p, li, td { line-height: 1.38; }` (13.8pt) plus `.entry { margin-bottom: 4pt; }` so Mansur AI closes page 1. If it still does not fit, start page 2 with `<h2 class=\"cont\">AI Agents &amp; Applied AI (continued)</h2>` styled identically."
+   },
+   {
+    "file": "cv_en",
+    "where": "Whole body, e.g. 'iFace950 devices over TCP into a central multi-tenant service with idempotent ingest; shifts, leave balances,'",
+    "severity": "major",
+    "category": "typography",
+    "problem": "Measured median 99 characters per line (max 109) at 10pt on a 170 mm text block. Anything above ~85 characters forces the eye to track back across a long return and makes dense 5-line paragraphs tiring; this CV is almost entirely such paragraphs.",
+    "fix": "Narrow the text block: `@page { margin: 18mm 24mm 12mm 24mm; }` (text width 162 mm ≈ 93 chars) and set `p, li { text-wrap: pretty; hyphens: auto; -webkit-hyphens: auto; lang=\"en\" }` on the body. Combined with the tech-stack change below this reduces the perceived measure further without adding pages."
+   },
+   {
+    "file": "cv_en",
+    "where": "Runt lines: 'PL/SQL, OpenAPI', 'SSH, NetBird', 'Prisma, PostgreSQL 16', 'FastAPI, APScheduler', 'lock). — Flutter, Kotlin', 'WebSocket, SQLite', 'SQLite FTS5', 'Tailwind 4', '17, Prisma, Redis/BullMQ…'",
+    "severity": "major",
+    "category": "typography",
+    "problem": "The 9pt grey stack tail is appended inline after the em dash, so it wraps and leaves nine orphan lines of one to three words. These runts break vertical rhythm, waste a full 14pt line each (~9 lines ≈ 32 mm across the document) and make the grey metadata look accidental.",
+    "fix": "Make the stack a non-breaking unit that drops whole to the next line only when needed: `.stack { display: inline-block; white-space: normal; font-size: 9pt; color: #566173; }` and remove the leading ' — ' from the HTML, using `.stack::before { content: \"— \"; }`. Alternatively render it as its own line with `display: block; margin-top: 1pt;` for consistency across all 16 entries."
+   },
+   {
+    "file": "cv_en",
+    "where": "Footer 'Moain Al-Abbasi — 1/2' and 'Moain Al-Abbasi — 2/2'; measured bottom margin 4.8 mm",
+    "severity": "major",
+    "category": "layout",
+    "problem": "The footer baseline sits 4.8 mm from the trim edge, inside the non-printable zone of most office printers (5–6 mm). It will be clipped or trigger scale-to-fit, shrinking the whole page. Top margin is 14.3 mm against 20 mm sides, so the page also looks top-heavy.",
+    "fix": "`@page { margin: 18mm 24mm 14mm 24mm; } .footer { position: fixed; bottom: 7mm; right: 24mm; font-size: 8.5pt; color: #566173; }`"
+   },
+   {
+    "file": "cv_en",
+    "where": "Header contact line: 'Sana’a, Yemen · Remote (GMT+3) · WhatsApp +967 770 941 666 · moain.learn@gmail.com ·' / 'github.com/MoTechSys · alabbasi.uk'",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The line wraps so that the separator dot '·' dangles at the end of line 1 before the break — a visible rag fault in the most looked-at area of the page. The split is also arbitrary (email alone on line 1, two URLs on line 2).",
+    "fix": "Build the contact line from inline items with `.contact span { white-space: nowrap; } .contact span + span::before { content: \"\\00a0·\\00a0\"; color: #566173; }` so the dot travels with the following item, and force the intended break with `<br>` after the email: line 1 = location · Remote (GMT+3) · WhatsApp · email; line 2 = github.com/MoTechSys · alabbasi.uk."
+   },
+   {
+    "file": "cv_en",
+    "where": "Type scale: subtitle 'Software Engineer · Full-Stack Systems · AI Agents (LangGraph, MCP)' at 11.6pt vs section heads 'SUMMARY', 'EXPERIENCE' at 12.49pt",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "11.6pt and 12.49pt differ by 7 %, below the ~15 % needed for the eye to read them as separate steps; the blue semibold subtitle therefore competes with the uppercase section heads and the scale reads as five accidental sizes (9 / 10 / 11.6 / 12.49 / 22).",
+    "fix": "Use a four-step scale: `h1 { font-size: 22pt; } .subtitle { font-size: 12pt; font-weight: 600; } h2 { font-size: 11pt; letter-spacing: 0.06em; text-transform: uppercase; } body { font-size: 10pt; } .meta, .stack { font-size: 9pt; }`. Uppercase at 11pt with tracking reads as large as 12.5pt untracked while restoring hierarchy."
+   },
+   {
+    "file": "cv_en",
+    "where": "'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "qahwajeen.com is live but the facts sheet records 'no repo found'; listing it alongside two verified builds implies authorship that cannot be verified by a reviewer or client.",
+    "fix": "Remove ' and qahwajeen.com' or change to 'websites keifaldiafa.com and asoulaldiafa.com (Next.js 14, Jeddah)' only."
+   },
+   {
+    "file": "cv_en",
+    "where": "Skills row 'AI & agents … OpenAI, Anthropic, Gemini' and 'DevOps  Docker, …'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "Gemini and Docker appear nowhere in the verified facts (Ai_Alabbasi lists Claude / GPT-5 / DeepSeek / local model). Unverifiable items in a skills matrix are exactly what technical interviewers probe.",
+    "fix": "Replace 'OpenAI, Anthropic, Gemini' with 'OpenAI, Anthropic, DeepSeek, local models'; delete 'Docker, ' unless a repo shows a Dockerfile (unverified)."
+   },
+   {
+    "file": "cv_en",
+    "where": "'Moain Promoter AI — Seven specialised agents under an orchestrator write Arabic/English posts for six platforms; Next.js dashboard; MCP-ready tooling.'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'Arabic/English posts' and 'MCP-ready tooling' are not in the verified README summary (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright).",
+    "fix": "'Seven specialised agents under an orchestrator publish to six platforms; Next.js dashboard. — Python, Celery, Redis, Playwright'"
+   },
+   {
+    "file": "cv_en",
+    "where": "'Grocery Ledger … Offline Android accounting and POS app for small shops: … PDF/Excel export.'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'POS' and 'PDF/Excel export' are not among the verified Grocery Ledger facts (Flutter Android, offline, v2.2.1, 157 tests, barcode via ML Kit or HID scanner, append-only ledgers).",
+    "fix": "'Offline Android ledger app for small shops: barcode by camera (ML Kit) or USB/Bluetooth HID scanner, append-only ledgers. 157 passing tests, v2.2.1. — Flutter'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Stack tails: 'Go, PostgreSQL, Python (pyzk), systemd' and 'Go, PostgreSQL, SSH, NetBird' and 'cosign-signed releases from GitHub Actions'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'systemd' (attendance), 'PostgreSQL' (remote access) and 'GitHub Actions' are not in the verified facts for those repos.",
+    "fix": "Attendance tail: '— Go 1.26, PostgreSQL, Python (pyzk)'. Remote access: '…cross-platform CLI with cosign keyless-signed releases. — Go, SSH, NetBird'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Skills table, row 'Frontend & mobile React 19, Next.js, …'",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "The label column is sized to its longest label, so 'Frontend & mobile' touches the value column with ~2 mm gutter while shorter labels leave 10 mm; the table reads as unevenly set and the two-line rows ('Frontend & mobile', 'AI & agents') have no hanging alignment cue.",
+    "fix": "`table.skills td:first-child { width: 36mm; padding-right: 5mm; vertical-align: top; } table.skills td { padding: 1.5pt 0; }` and shorten the label to 'Frontend' (mobile items are already distinguished by the semicolon)."
+   },
+   {
+    "file": "cv_en",
+    "where": "Page bottoms: page 1 blank ≈26 mm above footer after '— Python, FastAPI, React 19'; page 2 blank ≈21 mm after 'Arabic (native), English…'",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Both pages end ~10 % short, which together with the orphaned heading signals that pagination was not tuned; the eye reads the pages as 'ran out' rather than designed. (The reported 103 % vertical_fill includes the footer and does not reflect the visible gaps.)",
+    "fix": "After moving Mansur AI to page 1 (issue 1), balance page 2 with `h2 { margin-top: 14pt; margin-bottom: 6pt; }` and `table.skills td { padding: 2pt 0; }` so the skills matrix breathes and the last line lands ≈12 mm above the footer rather than 21 mm."
+   },
+   {
+    "file": "cv_en",
+    "where": "Blue #0b4f8a used for section heads, subtitle, phone '+967 770 941 666', email, every URL and '2026 – Present' grey beside black employer line",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The accent blue does double duty as structural colour (headings) and interactive colour (links). In 'Basira · basirapp.site · github.com/MoTechSys/Project-Basira' the two blue URLs outweigh the bold black title, and the blue phone number reads as a hyperlink. Contrast values (8.4:1, 6.26:1) are fine; the issue is semantic.",
+    "fix": "Keep headings in #0b4f8a; set links to body colour with a subtle underline: `a { color: #16202e; text-decoration: underline; text-decoration-color: #9aa5b5; text-underline-offset: 2px; }` and set the phone number as plain text `span.phone { color: #16202e; }` (keep `href=\"https://wa.me/967770941666\"` for the PDF link)."
+   },
+   {
+    "file": "cv_en",
+    "where": "Bulleted Experience entries ('‣ POS replacing YemenSoft Onyx Pro — …') vs unbulleted project entries ('Idhaat · github.com/…' + paragraph)",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Two different entry grammars: run-in bold title + em dash inside a bullet, versus a standalone bold title line with middle-dot links. The bullets hang 4 mm into the margin on page 1 only, so the left edge of page 1 is visually different from page 2.",
+    "fix": "Drop the bullet glyphs and give Experience entries the same anatomy as projects: `.entry h3 { font-weight: 600; margin: 5pt 0 0; } .entry p { margin: 0; }` with the stack tail per issue 3. If bullets are kept, use `ul { padding-left: 0; } li { padding-left: 4mm; text-indent: -4mm; }` so the marker sits inside the measure, not in the margin."
+   },
+   {
+    "file": "cv_en",
+    "where": "Header rule under contact line (dark, ~1.5pt) and section rules (light grey, hairline)",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "Header rule is correct, but section rules sit only ~2 pt under the cap height of the heading and 12 px above the first body line, so each rule visually attaches to the text below rather than to its heading; the heading floats.",
+    "fix": "`h2 { padding-bottom: 3pt; border-bottom: 0.5pt solid #c9d0da; margin-bottom: 7pt; }` and remove any separate `<hr>`; the rule then belongs to the heading."
+   },
+   {
+    "file": "cv_en",
+    "where": "'Ghaida … Household guidebook for domestic workers in their native language with AI voice for every sentence'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'in their native language' is not among the verified Ghaida facts (household book, AI voice per sentence, offline PWA, admin panel).",
+    "fix": "'Household guidebook for domestic workers with AI voice for every sentence; offline PWA with admin panel.'"
+   },
+   {
+    "file": "cv_ar",
+    "where": "cv_ar.pdf and services_ar.pdf — not supplied in this review bundle",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The Arabic CV and services profile (metrics and images) were not provided, so Noto Naskh Arabic / IBM Plex Sans pairing, RTL punctuation, mixed-direction runs (Latin stack names inside Arabic lines) and Arabic leading could not be judged. Noto Naskh Arabic is correctly retained for text-layer fidelity; no alternative is proposed because any substitute would need re-testing with pdftotext before adoption.",
+    "fix": "When reviewed, start from: `html[lang=ar] body { font-family: 'Noto Naskh Arabic'; font-size: 11pt; line-height: 1.7; } .latin { font-family: 'IBM Plex Sans'; font-size: 0.92em; unicode-bidi: isolate; direction: ltr; }` — Naskh at 10pt has a visibly smaller x-height than Plex, and isolating Latin tokens prevents punctuation (‘·’, ‘—’, parentheses) flipping at run boundaries while keeping extraction order correct."
+   }
+  ],
+  "reviewer": "typographer_cv_en",
+  "model": "claude-fable-5-1",
+  "seconds": 171.7
+ },
+ {
+  "verdict": "A disciplined, well-leaded Naskh/Plex layout with correct visual bidi, but the page box is overfull (4.1 mm bottom margin, 103–104% fill), Latin runs look a size larger than the Arabic, the ATS text order of punctuation around Latin tokens is scrambled, and a handful of claims (qahwajeen.com, Docker/GitHub Actions/pytest, Ai_Alabbasi privacy) are not in the verified facts.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_ar",
+    "where": "Both pages — footer 'معين العباسي — 1/2' / '2/2'; metrics bottom margin 4.1 mm, vertical_fill 103.4% and 104.3%",
+    "severity": "critical",
+    "category": "layout",
+    "problem": "Content box is taller than the page (fill >100%) and the footer sits 4.1 mm from the trim edge — inside the unprintable zone of most office printers and visually cramped against a 13.4 mm top margin. Side margins 18 mm vs top 13.4 mm vs bottom 4.1 mm give no consistent frame.",
+    "fix": "@page { size: A4; margin: 16mm 18mm 18mm 18mm; } body { font-size: 10.5pt; line-height: 1.5; } .footer { position: fixed; bottom: 8mm; right: 18mm; } (or use @page @bottom-right { content: 'معين العباسي · ' counter(page) '/' counter(pages); }). Together with the two line-saving fixes below (merge 'Flutter' stack lines, drop the duplicated remote-work sentence) this brings both pages to ≤100%."
+   },
+   {
+    "file": "cv_ar",
+    "where": "All body text with inline Latin, e.g. 'يعمل مباشرة على قاعدة بيانات Oracle القائمة', 'من أجهزة ZKTeco', 'بمعيار AES-256-GCM'",
+    "severity": "major",
+    "category": "typography",
+    "problem": "IBM Plex Sans has a large x-height; Noto Naskh Arabic has small loops and a low tooth height. At the same 10.93 pt the Latin words read ~1 size larger and darker than the surrounding Arabic, so every brand name 'pops' and breaks the grey of the paragraph.",
+    "fix": "Keep Noto Naskh (extraction verified) and optically shrink the Latin only: @font-face { font-family: 'Plex Latin'; src: url(IBMPlexSans-Regular.ttf); size-adjust: 91%; unicode-range: U+0000-024F, U+2000-206F; } then body { font-family: 'Plex Latin', 'Noto Naskh Arabic'; font-size: 11pt; }. size-adjust changes only rendering scale, not the cmap/ToUnicode, so pdftotext output is unchanged. Optional alternative pairing: IBM Plex Sans Arabic (same design DNA, matching x-height) — adopt only if (1) embedded as TTF with full cmap, (2) font-feature-settings: 'rlig' 1, 'liga' 0, 'dlig' 0, 'calt' 0 so no lam-alef/ligature glyphs lacking ToUnicode entries appear, and (3) pdftotext output diffs 100% against the source string."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Extracted text: 'واتساب‪alabbasi.uk · github.com/MoTechSys · moain.learn@gmail.com · +967 770 941 666 :', '‪ :YemenSoft Onyx Pro‬', ')‪Go, PostgreSQL, Python (pyzk‬', '‪ ،NetBird‬', '‪ ،CSV/Excel‬'",
+    "severity": "major",
+    "category": "ats",
+    "problem": "Visually the colon, Arabic comma and parentheses are placed correctly, but the Latin runs are not isolated, so the ATS text stream puts the colon after the whole contact line, the colon before 'YemenSoft', the Arabic comma before 'NetBird' and the closing paren before 'Go'. Parsers read ':YemenSoft Onyx Pro' and ')Go, PostgreSQL, Python (pyzk' — stack lines and the WhatsApp number may be mis-tokenised.",
+    "fix": ".stack, .contact .latin { direction: ltr; unicode-bidi: isolate; text-align: right; } and wrap every inline Latin token in <bdi>…</bdi> (or <span dir=\"ltr\">). For the header: <span>واتساب:</span> <bdi>+967 770 941 666</bdi> · <bdi>moain.learn@gmail.com</bdi> · <bdi>github.com/MoTechSys</bdi> · <bdi>alabbasi.uk</bdi>. Re-run pdftotext and confirm 'واتساب: +967 770 941 666' and 'Python (pyzk)' come out in order."
+   },
+   {
+    "file": "cv_ar",
+    "where": "First experience bullet: '…عبر البلوتوث باستخدام Web' / 'Serial، مع توثيق سبب فشل…'",
+    "severity": "major",
+    "category": "typography",
+    "problem": "The two-word technical term 'Web Serial' is split across a line break, leaving 'Web' stranded at the left edge of line 2 and 'Serial،' opening line 3 — the reader has to rejoin the API name mentally.",
+    "fix": "Mark multi-word Latin terms as unbreakable: <span class=\"nb\">Web Serial</span>, with .nb { white-space: nowrap; } — apply also to 'YemenSoft Onyx Pro', 'Bixolon SPP-R310', 'Search Console', 'Cloudflare D1', 'Moain Promoter AI'."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Experience bullet 'علامات ضيافة سعودية: مواقع keifaldiafa.com وasoulaldiafa.com وqahwajeen.com'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Facts sheet: qahwajeen.com is live but 'no repo found'. Listing it among the candidate's built sites is unverified and a Saudi client could check it.",
+    "fix": "Replace with 'علامات ضيافة سعودية في جدة: موقعا keifaldiafa.com وasoulaldiafa.com، وتطبيقا أندرويد لكيف الضيافة وأصول الضيافة بإصدارات موقعة رقميا مع قفل عن بعد.' and drop 'وqahwajeen.com'."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Skills row 'النشر والجودة: Docker, GitHub Actions, Cloudflare, pytest, Playwright'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "'Docker', 'GitHub Actions' and 'pytest' appear nowhere in the verified repository facts; the only named test frameworks are Vitest (Basira frontend, Idhaat) and unnamed backend/bot suites. Unverifiable skills dilute the credibility of the measured ones.",
+    "fix": "Replace the row value with 'Cloudflare (Pages, D1, R2), Vitest, Playwright, cosign'. If Docker/GitHub Actions are genuinely used, add them only after a README/workflow file is confirmed."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Page 2 top: 'منصور AI (مستودع خاص)' starts the page with no section heading; 'وكلاء الذكاء الاصطناعي' heading + Basira are the last block of page 1",
+    "severity": "major",
+    "category": "layout",
+    "problem": "The AI-agents section is cut after its first item; page 2 opens with a bare bold title and a 10.93 pt paragraph at the very top, so a reader starting on page 2 (or a split PDF viewer) has no idea which section these belong to. Also h2 → p runs are not protected.",
+    "fix": "h2 { break-after: avoid; } .project, li { break-inside: avoid; } and emit a continuation heading at the top of page 2: <h2 class=\"cont\">وكلاء الذكاء الاصطناعي (تابع)</h2> with .cont { font-size: 11pt; color: #566173; border-bottom: none; margin: 0 0 6pt; }. Alternatively set the whole section to break-before: page after reducing body to 10.5pt/15.75pt so page 1 ends on the 'علامات ضيافة سعودية' bullet."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Header: name 21.86 pt, subtitle 'مهندس برمجيات · أنظمة أعمال متكاملة · وكلاء ذكاء اصطناعي' 13.42 pt; section heads 'نبذة مهنية', 'الخبرة العملية' 12.72 pt",
+    "severity": "major",
+    "category": "typography",
+    "problem": "Hierarchy inversion: the blue subtitle (13.42 pt) is larger than the blue section headings (12.72 pt), and both share the same #0b4f8a as hyperlinks, so three different roles read as one level. Name is only 2× body — low for a résumé masthead.",
+    "fix": "h1 { font-size: 24pt; line-height: 1.15; color: #16202e; } .subtitle { font-size: 12pt; font-weight: 600; color: #16202e; } h2 { font-size: 14pt; font-weight: 700; color: #0b4f8a; border-bottom: 0.6pt solid #c9d1dc; padding-bottom: 3pt; margin: 14pt 0 7pt; } a { color: #0b4f8a; text-decoration: underline; text-underline-offset: 2pt; }"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Metrics: chars_per_full_line median 95.5, max 120, text width ≈174 mm at 10.93 pt",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "A 174 mm measure of connected Naskh at 10.9 pt yields ~95–120 characters per line; the eye loses the return sweep, especially in the 5-line summary paragraph and the Basira paragraph. Comfortable Arabic body measure is 70–85 characters.",
+    "fix": "@page { margin: 16mm 22mm 18mm 22mm; } (text width 166 mm) combined with body { font-size: 11pt; } brings the median to ≈80 characters; keep line-height: 1.5 (16.5 pt) — Naskh needs it."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Summary: '…ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 حالة تقييم'",
+    "severity": "minor",
+    "category": "content",
+    "problem": "Facts: 150/150 is the evaluation set and 0/500 false alarms is a separate span set. The summary calls the 500 'حالة تقييم' while the Basira entry correctly says '500 مقطع' — inconsistent metric naming that a careful reader will notice.",
+    "fix": "Change to 'ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 مقطع'."
+   },
+   {
+    "file": "cv_ar",
+    "where": "AI section: 'Ai_Alabbasi (مستودع خاص)'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "Only Mansur AI is documented as private in the facts sheet; the privacy status of Ai_Alabbasi is not verified. If it is public, the label hides a checkable link; if private, it is unverified.",
+    "fix": "Remove '(مستودع خاص)' after 'Ai_Alabbasi' unless confirmed, or add the public repo URL in the same style as 'بصيرة · basirapp.site'."
+   },
+   {
+    "file": "cv_ar",
+    "where": "AI section: 'Moain Promoter AI — سبعة وكلاء متخصصين تحت منسق رئيسي، يكتبون منشورات بالعربية والإنجليزية لست منصات، مع لوحة تحكم.'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'بالعربية والإنجليزية' (Arabic and English posts) is not in the verified README facts (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright).",
+    "fix": "Replace with 'سبعة وكلاء متخصصين تحت منسق رئيسي ينشرون على ست منصات، مع لوحة تحكم Next.js.'"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Experience bullet: 'أدوات Google Ads لشركة كيف الضيافة في جدة: … ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء…'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "Facts: keif-aldiafa-ads-platform has 'phase 0 done'; it is the multi-client ads-agency-platform that has 'phase 1 done'. The sentence assigns 'المرحلة الأولى' to the wrong project.",
+    "fix": "Rewrite: 'أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم مع Google Ads ومنصة Search Console واستعلامات GAQL ولوحة تحكم عربية (أُنجزت المرحلة صفر)، ثم منصة إعلانات لعدة عملاء ببيانات حية وقاعدة من 12 جدولا (أُنجزت المرحلة الأولى).'"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Fonts metric: 'LiberationSerif 0.1%' — most likely the em dash in the footer 'معين العباسي — 1/2' or the guillemets «بصيرة»",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "A system serif fallback was substituted for at least one glyph missing from the declared stack, producing a visibly different dash/quote weight and an extra embedded font in the PDF.",
+    "fix": "Run pdffonts/pdfinfo to locate the glyph; then either add the glyph's font explicitly — .footer { font-family: 'IBM Plex Sans', 'Noto Naskh Arabic'; } — or replace '—' with '·' in the footer and use \"…\" or Plex-supported «» (U+00AB/U+00BB are in Plex Sans) for the quotes, and re-check that only Plex + Noto Naskh remain embedded."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Selected projects: 'دفتر البقالة' and 'سجل' each followed by a lone grey stack line 'Flutter'",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Two single-word stack lines (metrics short_tail_lines) create visual holes and cost two lines on an already overfull page.",
+    "fix": "Fold the stack into the title line: '<h3>دفتر البقالة <span class=\"stack-inline\">· Flutter</span></h3>' and '<h3>سجل <span class=\"stack-inline\">· Flutter</span></h3>' with .stack-inline { font-weight: 400; color: #566173; font-size: 9.5pt; direction: ltr; unicode-bidi: isolate; }"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Footer 'معين العباسي — 1/2' positioned bottom-left on both pages",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "In an RTL document the running footer belongs at the reading start (right) or centre; bottom-left reads as a leftover from the LTR template and clashes with the right-aligned content column.",
+    "fix": ".footer { right: 18mm; left: auto; text-align: right; direction: rtl; } or @page { @bottom-right { content: 'معين العباسي · ' counter(page) '/' counter(pages); font: 9pt 'IBM Plex Sans', 'Noto Naskh Arabic'; color: #566173; } }"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Header line 'صنعاء، اليمن · عمل عن بعد وفق توقيت السعودية' and summary last sentence 'أعمل عن بعد بالكامل وفق توقيت السعودية.'",
+    "severity": "minor",
+    "category": "content",
+    "problem": "The same statement appears twice within 6 lines; the repetition adds a line to the overfull page 1 and weakens the summary's close.",
+    "fix": "Delete 'أعمل عن بعد بالكامل وفق توقيت السعودية.' from the summary so it ends on '…دون أي إنذار خاطئ في 500 مقطع.'"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Selected projects: 'غيداء — دليل منزلي للعاملات بلغتهن الأم مع صوت لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'بلغتهن الأم' (in their mother tongue) is not stated in the verified facts (domestic-worker household book, AI voice per sentence, offline PWA, admin panel, API 27/27); the AI nature of the voice is omitted.",
+    "fix": "Replace with 'دليل منزلي للعاملات مع صوت مولّد بالذكاء الاصطناعي لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'"
+   }
+  ],
+  "reviewer": "typographer_cv_ar",
+  "model": "claude-fable-5-1",
+  "seconds": 192.0
+ },
+ {
+  "verdict": "A competent, well-structured one-page services profile with correct RTL logic, but it is set too tight for Naskh (1.49 leading, 9–10 pt grey meta text), the Latin fragments visually outweigh the Arabic, the heading scale is flat (12.7 vs 11.75 pt), mixed-direction runs are not bidi-isolated (the ATS reads ')WPS(' and 'واتساب … :'), and one portfolio claim (qahwajeen.com) is unverified.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "services_ar",
+    "where": "Body text, 10.05 pt Noto Naskh Arabic (76% of glyphs), measured leading 14.93 pt = 1.49",
+    "severity": "major",
+    "category": "typography",
+    "problem": "Noto Naskh has a small x-body with very tall ascenders (ل، ا، ك) and deep descenders (ج، ع، ن); at 1.49 the descenders of one line visually touch the ascenders of the next (see 'بوت تيليجرام…/وكلاء ينشرون…' in card 5 and the 'التزاماتنا' list). Arabic Naskh body text needs 1.6–1.7 to read as airy as Latin at 1.4.",
+    "fix": "body, li, p, td { font-size: 10.25pt; line-height: 1.65; } (≈16.9 pt). Recover the extra height by removing the 1 px card borders + 6 pt of card padding (see border issue) and cutting the two orphan lines listed below; the page will still fit at ≈96% fill."
+   },
+   {
+    "file": "services_ar",
+    "where": "Latin runs inside Arabic lines: 'ZKTeco', 'iFace950', 'Google Ads', 'Flutter … Kotlin', 'YemenSoft Onyx Pro', 'Bixolon SPP-R310'",
+    "severity": "major",
+    "category": "typography",
+    "problem": "IBM Plex Sans at the same nominal size has a far larger x-height and heavier stroke than Noto Naskh, so every Latin word jumps out of the line ('Flutter لأندرويد' and 'Kotlin' in card 3 read like bold inserts) and the baseline of Plex sits lower than the Naskh baseline, giving a stair-step texture.",
+    "fix": "Wrap Latin tokens in <span lang=\"en\" dir=\"ltr\" class=\"lt\"> (or let :lang(en) match) and set .lt, :lang(en) { font-family: 'IBM Plex Sans'; font-size: 0.88em; position: relative; top: -0.04em; letter-spacing: 0; }. Alternatively use font-size-adjust: 0.45 on the Latin span so x-height matches Naskh's ≈0.44."
+   },
+   {
+    "file": "services_ar",
+    "where": "ATS extraction: 'معين العباسي | واتساب‪alabbasi.uk | moain.learn@gmail.com | +967 770 941 666 :‬‬' and '(‪)WPS‬' (twice) and '‪ — keifaldiafa.com‬موقع…'",
+    "severity": "major",
+    "category": "ats",
+    "problem": "The header contact row and the Latin abbreviations are not bidi-isolated, so the text layer reorders them: the colon detaches from 'واتساب' and lands after the phone number, the parentheses around WPS/SEO are mirrored to ')WPS(' and the em dash is pulled in front of the domain. A parser or a screen reader gets 'واتساب alabbasi.uk … :' instead of 'واتساب: +967…'.",
+    "fix": "In the header use separate spans: <span>واتساب: </span><bdi dir=\"ltr\">+967 770 941 666</bdi> | <bdi dir=\"ltr\">moain.learn@gmail.com</bdi> | <bdi dir=\"ltr\">alabbasi.uk</bdi>; write the Arabic-side parenthesis pair around a <bdi>: (<bdi>WPS</bdi>) and (<bdi>SEO</bdi>); in the portfolio rows put the dash outside: <bdi dir=\"ltr\">keifaldiafa.com</bdi> — موقع… . CSS fallback: bdi, [dir=ltr] { unicode-bidi: isolate; }."
+   },
+   {
+    "file": "services_ar",
+    "where": "Section heads 'خدماتنا', 'نماذج من أعمالنا', 'طريقة العمل', 'التزاماتنا' (12.74 pt bold #0b4f8a) vs card titles '1. أنظمة نقاط البيع وإدارة الأعمال' (11.75 pt bold #16202e)",
+    "severity": "major",
+    "category": "typography",
+    "problem": "The type scale has two adjacent steps only 8% apart (12.74 → 11.75) and another 12% apart (10.05 → 8.96). In Naskh bold the section heads and card titles look the same size; the only hierarchy cue is colour. The scale 21.9 / 12.74 / 11.75 / 10.05 / 8.96 has no rhythm.",
+    "fix": "Rebuild on a 1.2 ratio from 10.25 pt: h1 (العباسي تك) 24pt; h2 section heads 14.75pt, margin: 14pt 0 6pt; card titles 12.25pt; body 10.25pt; meta/audience lines 9.25pt (not 8.96). CSS: h2 { font-size: 14.75pt; } .card h3 { font-size: 12.25pt; } .audience { font-size: 9.25pt; }"
+   },
+   {
+    "file": "services_ar",
+    "where": "Grey audience lines under each card title, e.g. 'المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات' and 'أي منشأة لديها عمل يدوي متكرر' (8.96 pt, #566173)",
+    "severity": "major",
+    "category": "typography",
+    "problem": "8.96 pt Naskh in a mid-grey is the smallest and lightest element on the page but carries the key qualifying message ('who this is for') that a Saudi buyer scans first. Naskh at 9 pt has an effective x-height of ~3.9 pt, below comfortable print legibility; contrast 6.26 is fine, but size × weight is not.",
+    "fix": ".audience { font-size: 9.25pt; color: #3d4654; line-height: 1.5; } (contrast ≈ 9.5:1). Keep the Regular weight; do not italicise (Naskh has no italic)."
+   },
+   {
+    "file": "services_ar",
+    "where": "Intro paragraph 'نبني لمنشأتك نظاما أو تطبيقا أو موقعا…' and card 5 bullets 'بوت تيليجرام يرد على العملاء…'",
+    "severity": "major",
+    "category": "layout",
+    "problem": "Measured max line length is 128 characters; the intro and the full-width card 5 run across the entire 181 mm text block. Arabic Naskh is comfortable at 55–75 characters (the rest of the page sits at the healthy median of 57); a 128-character return makes the eye lose the line on the second row ('ونعمل عن بعد وفق توقيت السعودية.').",
+    "fix": ".intro { max-width: 128mm; margin-inline-start: 0; } (keeps it on the right edge in RTL, ≈75 chars/line). For card 5 either make it a two-column card like the others (two bullets on the right, audience line on the left) or set .card.wide ul { max-width: 118mm; }."
+   },
+   {
+    "file": "services_ar",
+    "where": "Portfolio row 'قهوجيين — qahwajeen.com موقع خدمات ضيافة يعمل فعليا'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The facts sheet states qahwajeen.com is live but 'no repo found'; presenting it under 'نماذج من أعمالنا' asserts authorship that is unverified. A Saudi buyer who checks WHOIS or asks for the repo will find no evidence.",
+    "fix": "Remove the row, or keep it only if the candidate can show ownership; otherwise replace with a verifiable item from the sheet, e.g. 'نظام إشعارات متعدد القنوات (Nexus Notify) — بوابة رسائل SMS من جوال أندرويد بشريحتين'."
+   },
+   {
+    "file": "services_ar",
+    "where": "Card 2, bullet 'يقرأ أجهزة البصمة ZKTeco دون استبدالها، وجرب على / طراز iFace950' and portfolio row 'نظام نقاط بيع … عبر / البلوتوث'",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "Two orphan lines: 'طراز iFace950' (2 words) and 'البلوتوث' (1 word) hang alone and waste a full 15 pt line each on a page already at 97.7% fill.",
+    "fix": "Card 2: 'يقرأ أجهزة البصمة ZKTeco دون استبدالها (جُرِّب على iFace950)'. Portfolio: 'بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة، مع طباعة الفواتير على Bixolon SPP-R310 عبر البلوتوث' and give the description cell a slightly larger share: .portfolio td.desc { width: 82%; } td.label { width: 18%; white-space: nowrap; }."
+   },
+   {
+    "file": "services_ar",
+    "where": "Top margin 12.6 mm vs bottom 18.9 mm; right (primary RTL) margin 14.5 mm",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "The block sits visibly high on the sheet: the title 'العباسي تك' starts at 12.6 mm while the footer bar leaves 18.9 mm. In RTL the right edge is the alignment edge, so 14.5 mm is the true side margin — tight for A4 and tighter than the top/bottom relationship suggests.",
+    "fix": "@page { size: A4; margin: 16mm 16mm 15mm 16mm; } and reduce header bottom spacing (.header { padding-bottom: 6pt; }) so the gained 3.4 mm at the top is offset by the removed card borders/padding."
+   },
+   {
+    "file": "services_ar",
+    "where": "Five service cards with 1 px rounded borders + section hairlines + 6 table rules + 4 process boxes + footer bar",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Four different separator systems compete (bordered cards, blue rule under each h2, grey rules between portfolio rows, filled process tiles). The grey card frames fragment the page into 11 boxes and steal ≈22 pt of vertical space that the Naskh leading badly needs.",
+    "fix": ".card { border: 0; border-radius: 0; background: #f4f6f9; padding: 8pt 10pt; } and keep only the h2 rule: h2 { border-bottom: 1px solid #0b4f8a; } .portfolio tr { border-bottom: 0.5px solid #e1e5ea; } (hairline, lighter). Process tiles: same #f4f6f9, no border."
+   },
+   {
+    "file": "services_ar",
+    "where": "Tanwīn alif words: 'نظاما', 'تطبيقا', 'موقعا', 'كاملا', 'مرتبطا', 'فعليا', 'رقميا', 'وصفا', 'تصورا', 'مجانيا'",
+    "severity": "minor",
+    "category": "language",
+    "problem": "All adverbial accusatives are written without the tanwīn fatḥ. Many Saudi corporate documents keep it; its omission throughout reads as informal and makes 'وصفا' / 'تصورا' momentarily parse as other words.",
+    "fix": "Replace with 'نظامًا', 'تطبيقًا', 'موقعًا', 'كاملًا', 'مرتبطًا', 'فعليًا', 'رقميًا', 'وصفًا', 'تصورًا', 'مجانيًا'. Noto Naskh positions the fatḥatān correctly and pdftotext extracts U+064B unchanged."
+   },
+   {
+    "file": "services_ar",
+    "where": "Card 2: 'ورديات وإجازات وتقارير بصيغتي CSV و Excel'",
+    "severity": "minor",
+    "category": "language",
+    "problem": "The conjunction 'و' floats detached before a Latin word, which Arabic typography avoids; it also creates an awkward 'و Excel' gap in the rag.",
+    "fix": "Rewrite: 'ورديات وإجازات وتقارير بصيغة CSV أو Excel' or 'ورديات وإجازات وتقارير CSV/Excel' (Latin pair in one <bdi>)."
+   },
+   {
+    "file": "services_ar",
+    "where": "Card 4 bullet 'تهيئة تقنية لمحركات البحث (SEO)'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "No verified item in the facts sheet states SEO work; the closest is the Bina site-audit agent (205 checks) and 'Search Console' OAuth in keif-aldiafa-ads-platform. 'SEO' as an offered service is unverified.",
+    "fix": "Replace with the verifiable wording: 'فحص تقني للمواقع (205 فحصًا) وربط Search Console'."
+   },
+   {
+    "file": "services_ar",
+    "where": "Header contact row '… | alabbasi.uk' — no GitHub",
+    "severity": "minor",
+    "category": "strategy",
+    "problem": "All portfolio evidence in the facts sheet lives in public repos (HTTP 200), yet the only link offered is the company site. A technical buyer evaluating a remote vendor looks for code first.",
+    "fix": "Append '| github.com/MoTechSys' to the header row (IBM Plex Sans, <bdi dir=\"ltr\">), and drop '| معين العباسي' duplication by moving the name under the tagline: 'م. معين العباسي — مؤسس'."
+   },
+   {
+    "file": "services_ar",
+    "where": "Bullet glyphs '•' in service cards and 'التزاماتنا' list",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The Plex Sans bullet is optically large and heavy against Regular Naskh and is set ~4 pt from the text; in the 'التزاماتنا' list it is also vertically centred on the Latin x-height, so it sits high relative to the Naskh baseline-centred text.",
+    "fix": "li::marker { font-size: 0.75em; color: #0b4f8a; } ul { padding-inline-start: 1.1em; } li { padding-inline-start: 0.25em; } — or use '◦'/'–' from Noto Naskh. Keep list-style-position: outside so wrapped lines ('طراز iFace950') stay flush with the text edge, which is currently correct."
+   },
+   {
+    "file": "services_ar",
+    "where": "Footer CTA bar: 'لديك فكرة أو نظام يرهقك؟ … | واتساب: +967 770 941 666' (white on #0b4f8a, 10 pt)",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "The bar is only ~9 mm tall with 10 pt text, pinned at 18.9 mm from the trim; the WhatsApp number — the single conversion action — is the same size as body text and is isolated at the far left, 160 mm away from the question.",
+    "fix": ".cta { padding: 9pt 12pt; } .cta .phone { font-size: 12pt; font-weight: 700; } and place the number directly after the question on the right side, left side empty or 'alabbasi.uk'. Keep <bdi dir=\"ltr\"> on the number."
+   },
+   {
+    "file": "services_ar",
+    "where": "Font pairing: Noto Naskh Arabic + IBM Plex Sans",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "Noto Naskh is a calligraphic, high-contrast Naskh; Plex is a low-contrast grotesque. The styles clash on every mixed line, and Naskh's low x-body is the root cause of the small-looking 9–10 pt text. The choice is justified by 100% text extraction, so any alternative must pass the same test.",
+    "fix": "Test IBM Plex Sans Arabic (same family, matched x-height and weights; its only required ligature is lam-alef, which Noto Naskh also has and which already extracts correctly through your pipeline). Acceptance test before switching: render PDF → pdftotext -raw → diff against source HTML text; require zero differences, and also run pdftotext without -raw to check the bidi reorder. If it fails, stay with Noto Naskh and apply the 0.88em Latin size fix above instead."
+   },
+   {
+    "file": "services_ar",
+    "where": "Card grid: cards 1–4 in two columns, card 5 '5. وكلاء الذكاء الاصطناعي والأتمتة' full width; cards 1/2 and 3/4 forced equal height",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Card 5 breaks the two-column rhythm and leaves its two bullets stranded on 180 mm lines with its audience line alone at the right; meanwhile card 3 has an empty band at the bottom because it is stretched to card 4's height. Page balance would improve with 5 equal units.",
+    "fix": "Make the grid 3+2 or keep 2+2+1 but constrain card 5: .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; align-items: start; } .card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; } with the audience line in one column and the bullets in the other."
+   }
+  ],
+  "reviewer": "typographer_services_ar",
+  "model": "claude-fable-5-1",
+  "seconds": 143.4
+ },
+ {
+  "verdict": "The CVs are mostly faithful to the verified facts, but several claims overstate or add unverified details: the Google Ads phases are merged and mistranslated, the services profile adds a customer-service bot and implies a team, extra skills are listed, and qahwajeen.com authorship, a private-repo label and export features have no source.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_en",
+    "where": "Experience › 'Google Ads tooling for Keif Al-Diafa (Jeddah) — … then phase 1 of a multi-tenant ads platform for several clients with live API data and a 12-table schema.'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Two separate repos are merged under the Keif Al-Diafa heading. The verified facts say keif-aldiafa-ads-platform (Hono/D1, phase 0) is for Keif Al-Diafa. ads-agency-platform is a separate multi-tenant SaaS 'across clients' that reached phase 1. Nothing says it serves 'several clients' in production. 'For several clients' reads as live paying customers, which an interviewer could challenge.",
+    "fix": "Split into two bullets: 'Google Ads connector for Keif Al-Diafa (Jeddah) — permanent OAuth connection to Google Ads and Search Console, free-form GAQL, Arabic dashboard (phase 0 done). — Hono, Cloudflare D1' and 'Ads agency platform — multi-tenant SaaS for managing Google Ads across clients; phase 1 done: live API data, dashboard, 12-table schema. — Next.js 15, Prisma, PostgreSQL 16'"
+   },
+   {
+    "file": "cv_ar",
+    "where": "الخبرة › 'ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء ببيانات حية'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The facts say phase 0 for the Keif Al-Diafa connector. The Arabic says 'المرحلة الأولى' (phase 1), which conflicts with the English and with the later phase-1 platform. 'لعدة عملاء' carries the same overstatement as the English.",
+    "fix": "Split into two bullets: 'أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم مع Google Ads وSearch Console واستعلامات GAQL ولوحة تحكم عربية (اكتملت المرحلة التمهيدية).' and 'منصة إدارة إعلانات Google متعددة العملاء: اكتملت المرحلة الأولى (بيانات حية، لوحة تحكم، 12 جدولا).'"
+   },
+   {
+    "file": "services_ar",
+    "where": "5. وكلاء الذكاء الاصطناعي › 'بوت تيليجرام يرد على العملاء ويتحقق من النصوص'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The only verified bot is @BasiraCheckBot, which verifies Quran/Hadith quotations. No customer-reply or customer-service bot appears in the facts. A Saudi client would expect a delivered customer-support bot.",
+    "fix": "'بوت تيليجرام للتحقق من النصوص (مثل بوت بصيرة)، وخوادم MCP تربط أنظمتك بالوكلاء'"
+   },
+   {
+    "file": "services_ar",
+    "where": "Throughout: 'نبني لمنشأتك…', 'خدماتنا', 'نماذج من أعمالنا', 'نسلمك', 'نكون متاحين'",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "The plural 'we' implies a team or company with staff. The facts confirm only a solo founder (Founder & Software Engineer). A client who discovers he is one person may see this as misrepresentation.",
+    "fix": "Add under the header: 'معين العباسي — مؤسس ومهندس البرمجيات (يعمل بشكل مستقل)'. Alternatively, switch the copy to first person singular, e.g. 'أبني لمنشأتك…', 'أعمالي', 'أسلمك'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Experience › 'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "qahwajeen.com is verified only as live; no repo was found, so authorship is unverified. 'Saudi' is verified only for Keif Al-Diafa (Jeddah). The same unverified qahwajeen claim appears in services_ar ('قهوجيين — موقع خدمات ضيافة يعمل فعليا').",
+    "fix": "Either get the candidate to confirm qahwajeen.com authorship and show proof, or remove it: 'Hospitality brands — websites keifaldiafa.com (Jeddah) and asoulaldiafa.com (Next.js 14); Android apps for Keif Al-Diafa and Asoul Al-Diafa (v2.6.0, signed releases with remote lock). — Next.js, Flutter, Kotlin'. Apply the same change in cv_ar and in the services_ar samples table."
+   },
+   {
+    "file": "cv_en",
+    "where": "Moain Promoter AI › 'write Arabic/English posts for six platforms; Next.js dashboard; MCP-ready tooling.'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "'MCP-ready tooling' and 'Arabic/English' are not in the verified facts. The facts list 7 agents + orchestrator, 6 platforms, a Next.js dashboard, Celery + Redis and Playwright. cv_ar repeats 'بالعربية والإنجليزية'.",
+    "fix": "'Seven specialised agents under an orchestrator publish content across six platforms; Next.js dashboard. — Python, Next.js, Celery, Redis, Playwright'. In cv_ar: 'سبعة وكلاء متخصصين تحت منسق رئيسي لنشر المحتوى على ست منصات، مع لوحة تحكم Next.js.'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Technical Skills › 'OpenAI, Anthropic, Gemini'; DevOps › 'Docker'; Integration › 'ESC/POS'; Motech Attendance stack › 'systemd'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Gemini, Docker, systemd and ESC/POS do not appear anywhere in the verified facts. The printing fact is 'Arabic raster printing' via Web Serial. An interviewer probing Docker or Gemini would find no project behind them. cv_ar also lists Docker.",
+    "fix": "AI & agents: 'LangGraph, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5, vectors, RRF), model routing; Claude, GPT-5, DeepSeek, local models'. DevOps: 'GitHub Actions, Cloudflare (Pages, D1, R2), Linux; Vitest, Playwright'. Integration: 'ZKTeco (pyzk), Arabic raster receipt printing via Bluetooth/Web Serial, Google Ads API'. Attendance stack: 'Go, PostgreSQL, Python (pyzk)'. Remove Docker from cv_ar."
+   },
+   {
+    "file": "cv_en",
+    "where": "'Ai_Alabbasi (private repository)'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The facts mark only Mansur AI as private. Ai_Alabbasi's visibility is not stated, so the label is unverified. The same label appears in cv_ar as '(مستودع خاص)'.",
+    "fix": "Remove '(private repository)' and '(مستودع خاص)' from the Ai_Alabbasi heading unless the candidate confirms it."
+   },
+   {
+    "file": "cv_en",
+    "where": "Grocery Ledger › 'Offline Android accounting and POS app for small shops … append-only ledgers, PDF/Excel export.'",
+    "severity": "major",
+    "category": "fact",
+    "problem": "'PDF/Excel export' is not in the verified facts. The verified facts are: Flutter Android, offline, v2.2.1, 157 tests, ML Kit/HID barcode and append-only ledgers.",
+    "fix": "'Offline Android accounting and POS app for small shops: barcode by camera (ML Kit) or USB/Bluetooth scanner, append-only ledgers. 157 passing tests, v2.2.1. — Flutter'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Ghaida › 'Household guidebook for domestic workers in their native language with AI voice for every sentence'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'In their native language' is unverified; the facts say only 'AI voice per sentence'. cv_ar repeats 'بلغتهن الأم'. The verified 'API 27/27' is unused.",
+    "fix": "'Household book for domestic workers with AI voice for every sentence; offline PWA with admin panel; API tests 27/27.' In cv_ar: 'دليل منزلي للعاملات مع صوت بالذكاء الاصطناعي لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'"
+   },
+   {
+    "file": "cv_en",
+    "where": "Idhaat › 'fallback to self-hosted Jitsi (JWT per lesson)'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The facts say 'Jitsi fallback with JWT'; 'self-hosted' and 'per lesson' are not stated. cv_ar says 'بث احتياطي خاص على Jitsi محمي بتوكن لكل حصة'.",
+    "fix": "'with Jitsi fallback secured by JWT'. In cv_ar: 'مع بديل احتياطي على Jitsi محمي بتوكن JWT'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Secure remote access › 'built remote access to client machines … cosign-signed releases from GitHub Actions. — Go, PostgreSQL, SSH, NetBird'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "'Client machines', 'GitHub Actions' and PostgreSQL in this stack are not in the motech_V2/motech-cli facts. The facts say 'cosign keyless-signed releases', 20 s heartbeat and Go/SSH/NetBird.",
+    "fix": "'Secure remote access — Authenticode-signed Windows agent running as a service (20 s heartbeat), NetBird mesh, SSH key rotation, private keys encrypted with AES-256-GCM, full activity log; cross-platform CLI (motech-cli) with cosign keyless-signed releases. — Go, SSH, NetBird'"
+   },
+   {
+    "file": "services_ar",
+    "where": "1. أنظمة نقاط البيع › 'العمل على قاعدة بياناتك الحالية أو ترحيلها'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "No data-migration project is verified. The POS project explicitly worked on the existing schema without migration.",
+    "fix": "'العمل مباشرة على قاعدة بياناتك الحالية (مثل Oracle) دون ترحيل'"
+   },
+   {
+    "file": "services_ar",
+    "where": "التزاماتنا › 'دعم لمدة ثلاثة أشهر: نصلح عيوب البرمجة دون تكلفة إضافية' and 'رد خلال يوم عمل واحد'; header › 'بسعر ثابت'",
+    "severity": "minor",
+    "category": "strategy",
+    "problem": "These commercial commitments are not in the verified facts. They become contractual promises to Saudi clients, so they must be confirmed by the candidate before publishing.",
+    "fix": "Get written confirmation from the candidate for 3-month support, 1-business-day response and fixed price. If he does not confirm, delete those bullets."
+   },
+   {
+    "file": "services_ar",
+    "where": "Audience lines 'الصيدليات', 'المستشفيات، المدارس', 'المصانع'; services 'تطبيقات للموظفين والمناديب', 'تهيئة تقنية لمحركات البحث (SEO)', 'مواقع عربية خفيفة وسريعة'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "None of these sectors, a sales-rep app, SEO results or speed claims has a verified project. The traffic numbers were withdrawn as outdated, so SEO and speed are unsupported. Clients may ask for a reference in these sectors.",
+    "fix": "Change the audience lines to 'المحلات وتجار التجزئة' and 'الشركات متعددة الفروع'. Replace the SEO line with 'فحص تقني للمواقع (205 فحصا آليا)'. Remove 'تطبيقات للموظفين والمناديب' and 'خفيفة وسريعة'."
+   },
+   {
+    "file": "cv_ar",
+    "where": "'بصيرة · basirapp.site' and the selected projects (إضاءات، دفتر البقالة، سجل، غيداء، S-ACM)",
+    "severity": "minor",
+    "category": "content",
+    "problem": "The English CV gives repo links (github.com/MoTechSys/Project-Basira, Idhaat-Platform, mohanad-web-app-2, Sijilati, ghaida, S-ACM-Project). The Arabic CV omits them, so Saudi reviewers lose the verifiable evidence. Several Arabic project entries also drop their versions and stacks.",
+    "fix": "Add the same links after each title, e.g. 'بصيرة · basirapp.site · github.com/MoTechSys/Project-Basira' and 'سجل · github.com/MoTechSys/Sijilati'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Graduation Project › 'Digital forensics lab with Autopsy and FTK Imager.'",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The facts list the digital forensics lab as a separate item, not as part of the team SOC graduation project. Nesting it implies it was part of the graduation work. Basira's '(public dev set)' also adds 'public', which the facts do not state; they say 'dev'.",
+    "fix": "Move the sentence to its own line: 'Digital forensics lab — Autopsy, FTK Imager, registry, event logs, browser forensics.' Change '(public dev set)' to '(dev set)'."
+   },
+   {
+    "file": "cv_en",
+    "where": "Layout: pages_detail vertical_fill_pct 103.5 / 103.9; bottom margin 4.8 mm (cv_ar 4.1 mm)",
+    "severity": "minor",
+    "category": "layout",
+    "problem": "Content overflows the safe area and the bottom margin is under 5 mm. Printers may clip the footer, and the page looks cramped next to the 20 mm side margins.",
+    "fix": "@page { margin: 15mm 20mm 14mm 20mm; } and reduce body line-height from 1.43 to 1.35, or trim the removed unverified items so the fill is at or below 98%."
+   }
+  ],
+  "reviewer": "fact_checker",
+  "model": "claude-opus-5-5",
+  "seconds": 74.8
+ },
+ {
+  "verdict": "Solid, factually careful Arabic with a clean layout, but it still carries a handful of real grammar/agreement slips, inconsistent key terms (multi-tenant, test/evaluation counts, Basira gender), a few unverified claims, and page overflow on the CV.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_ar",
+    "where": "Both pages — measured vertical_fill 103.4% / 104.3%, bottom margin 4.1 mm",
+    "severity": "major",
+    "category": "layout",
+    "problem": "Content overflows the printable area; the footer «معين العباسي — 1/2» sits 4 mm from the paper edge and will be clipped by many office printers and some PDF viewers. Recommended bottom margin for an A4 CV is ≥ 12 mm.",
+    "fix": "Set page margins to 18 mm left/right, 14 mm top, 14 mm bottom; reduce body leading from 1.5 to 1.4 (10.93 pt / 15.3 pt) or trim one line in each of the «منصة إضاءات» and «مركز عمليات أمنية» blocks so each page fits at ≤ 100%."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Nexus Notify: «وتطبيق أندرويد أصلي يعمل بوابة رسائل SMS بشريحتين»",
+    "severity": "major",
+    "category": "language",
+    "problem": "«يعمل بوابة» is ungrammatical — the predicate noun needs a linking particle. Also «متعددة الجهات» is an unclear rendering of multi-tenant.",
+    "fix": "منصة Nexus Notify: إشعارات متعددة المستأجرين ومتعددة القنوات عبر واجهة برمجية (API) موحدة، مع لوحة تحكم، وتطبيق أندرويد أصلي يعمل بوصفه بوابة رسائل SMS بشريحتين."
+   },
+   {
+    "file": "cv_ar",
+    "where": "بصيرة: «يتحقق من الآيات والأحاديث المنقولة بمطابقتها حرفيا مع 71,987 سجلا من مصادر مرخصة»",
+    "severity": "major",
+    "category": "language",
+    "problem": "Gender agreement is inconsistent: the summary calls it «منصة «بصيرة»» (feminine) and services_ar says «تتحقق», but here the verb is masculine «يتحقق». The preposition after «مطابقة» should be «على» or «بـ», not «مع», and «حرفيا» should be «حرفا بحرف» to convey byte-exact matching.",
+    "fix": "تتحقق «بصيرة» من الآيات والأحاديث المنقولة بمطابقتها حرفا بحرف على 71,987 سجلا من مصادر مرخصة؛ فالنموذج اللغوي يقترح المواضع فقط ولا يصدر الحكم."
+   },
+   {
+    "file": "cv_ar",
+    "where": "نبذة مهنية: «دون أي إنذار خاطئ في 500 حالة تقييم»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The facts sheet separates two numbers: 150/150 evaluation cases and 0/500 false alarms. Calling the 500 «حالة تقييم» merges them and contradicts the Basira section, which correctly says «500 مقطع». A reader comparing the two will see a discrepancy.",
+    "fix": "…ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 مقطع، ونجاح كامل في 150/150 حالة تقييم."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Google Ads bullet: «ربط دائم مع Google Ads ومنصة Search Console واستعلامات GAQL ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء ببيانات حية وقاعدة من 12 جدولا»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The facts sheet records the Keif Al-Diafa tool at phase 0 (done) and the multi-client agency platform at phase 1 (done); the text labels the first as «المرحلة الأولى» and does not say the second is multi-tenant or that it is complete. «قاعدة من 12 جدولا» is also missing the word «بيانات».",
+    "fix": "أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم بحسابي Google Ads وSearch Console، واستعلامات GAQL حرة، ولوحة تحكم عربية (أُنجزت المرحلة صفر)، ثم منصة إعلانات متعددة المستأجرين لعدة عملاء ببيانات حية من الواجهة البرمجية وقاعدة بيانات من 12 جدولا (أُنجزت المرحلة الأولى)."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«منصة إشعارات متعددة الجهات» (summary) and «إشعارات متعددة الجهات والقنوات» (Nexus Notify)",
+    "severity": "major",
+    "category": "language",
+    "problem": "«متعددة الجهات» is not the established term for multi-tenant and reads as 'multi-party'; Gulf technical Arabic uses «متعددة المستأجرين». One term must be used in both places (and in «منصة إعلانات لعدة عملاء»).",
+    "fix": "Summary: «ومنصة إشعارات متعددة المستأجرين مع بوابة رسائل SMS عبر أندرويد»; Nexus Notify: «إشعارات متعددة المستأجرين ومتعددة القنوات»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«علامات ضيافة سعودية: مواقع keifaldiafa.com وasoulaldiafa.com وqahwajeen.com …» and services_ar «قهوجيين — qahwajeen.com موقع خدمات ضيافة يعمل فعليا»",
+    "severity": "major",
+    "category": "fact",
+    "problem": "qahwajeen.com is live (HTTP 200) but no repository exists in the candidate's organisation, so authorship is unverified. The other two sites are backed by MoTechSys/keif-aldiafa-web and MoTechSys/osoul-aldiafa-v2. «يعمل فعليا» is also filler. Either the candidate confirms his role or the site is removed.",
+    "fix": "If unconfirmed, cv_ar: «علامات تجارية سعودية في قطاع الضيافة: موقعا keifaldiafa.com وasoulaldiafa.com، وتطبيقا أندرويد لكيف الضيافة وأصول الضيافة بإصدارات موقعة رقميا مع قفل عن بعد.» and delete the قهوجيين row from services_ar. If confirmed, replace «موقع خدمات ضيافة يعمل فعليا» with «موقع خدمات ضيافة (تصميم وتطوير)»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Attendance bullet: «جامع في كل فرع يسحب البصمات … جرب على جهاز فعلي بعدد 3,118 بصمة.» and services_ar «يقرأ أجهزة البصمة ZKTeco دون استبدالها، وجرب على طراز iFace950»",
+    "severity": "major",
+    "category": "language",
+    "problem": "«جامع» for 'collector' is unidiomatic; «بعدد 3,118 بصمة» is a literal 'with a count of'; and without diacritics «جرب» is read as the active 'tried' (or even the disease). «يقرأ أجهزة» needs «من». The verified fact (11 users, 3,118 punches) can be stated.",
+    "fix": "cv_ar: «نظام حضور وانصراف مؤسسي يحل محل برنامج ZKTeco المكتبي: وحدة تجميع في كل فرع تسحب البصمات من أجهزة iFace950 إلى خادم مركزي، مع إدارة الورديات وأرصدة الإجازات وتقارير CSV/Excel، وتصدير ملفات حماية الأجور للسعودية والإمارات. جرى اختباره على جهاز فعلي يضم 11 مستخدما و3,118 بصمة.» services_ar: «يقرأ من أجهزة البصمة ZKTeco دون الحاجة إلى استبدالها، وجرى اختباره على طراز iFace950»."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Remote-access bullet tech line: «Go, PostgreSQL, SSH, NetBird»",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The facts sheet for the remote-access platform (motech_V2 / motech-cli) lists Go, SSH, NetBird, Authenticode, AES-256-GCM and cosign — PostgreSQL is not among them and is therefore unverified.",
+    "fix": "Go, SSH, NetBird, cosign"
+   },
+   {
+    "file": "cv_ar",
+    "where": "Moain Promoter AI: «سبعة وكلاء متخصصين تحت منسق رئيسي، يكتبون منشورات بالعربية والإنجليزية لست منصات، مع لوحة تحكم.»",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "«بالعربية والإنجليزية» is not in the verified facts (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright). «تحت منسق» is a literal 'under'.",
+    "fix": "سبعة وكلاء متخصصين يديرهم منسق رئيسي، يكتبون المنشورات وينشرونها على ست منصات، مع لوحة تحكم. — tech line: Python, Celery, Redis, Playwright, Next.js"
+   },
+   {
+    "file": "cv_ar",
+    "where": "منصور AI: «مخطط ومنفذ ومدقق ومتعلم بتنسيق LangGraph، فيه 13 وكيلا مع 38 أداة، وموجه للنماذج مع بديل احتياطي وتتبع للتكلفة»",
+    "severity": "minor",
+    "category": "language",
+    "problem": "«بتنسيق» means 'in the format of'; «فيه … مع» is conversational; «موجه للنماذج مع بديل احتياطي» is an opaque rendering of model router with fallback.",
+    "fix": "نظام عربي متعدد الوكلاء يعمل بتنظيم LangGraph: مخطط ومنفذ ومدقق ومتعلم، يضم 13 وكيلا و38 أداة، وموجه نماذج مع تحويل احتياطي تلقائي وتتبع للتكلفة، وذاكرة هرمية، ويحفظ خبرته بعد كل نجاح في صورة مهارات. اختبارات آلية ناجحة: 82."
+   },
+   {
+    "file": "cv_ar",
+    "where": "Ai_Alabbasi: «(مستودع خاص)» and «وكيل برمجة يتبدل نموذجه من ملف إعداد واحد (سحابي أو محلي)، يخطط بقائمة مهام، وينفذ شفرة Python في بيئة معزولة»",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "The README says the brain is swapped «with one line», not from a config file, and the parenthesis «(سحابي أو محلي)» reads as describing the file. The 'private repo' label for Ai_Alabbasi is not in the facts sheet (only Mansur AI is recorded as private). The clause «يخطط» lacks the connecting «و».",
+    "fix": "Ai_Alabbasi (remove «(مستودع خاص)» unless the candidate confirms): «وكيل برمجة يُبدَّل نموذجه (سحابي أو محلي) بسطر واحد، ويخطط بقائمة مهام، وينفذ شفرة Python في بيئة معزولة، ويجري بحثا هجينا يدمج FTS5 مع المتجهات بطريقة RRF.»"
+   },
+   {
+    "file": "cv_ar",
+    "where": "منصة إضاءات التعليمية: «حصص مباشرة توزع فيها أربع قاعات Zoom دون تعارض، مع بث احتياطي خاص على Jitsi محمي بتوكن لكل حصة … فيها واجبات ورسائل ونظام مالي»",
+    "severity": "minor",
+    "category": "language",
+    "problem": "«توزع فيها» misplaces the agent (the rooms are allocated to the classes); «بتوكن» is a transliteration where «رمز JWT» is standard; «فيها واجبات» is colloquial; the verified watermark carries name and number.",
+    "fix": "حصص مباشرة تُوزَّع عليها أربع قاعات Zoom تلقائيا دون تعارض، مع بث احتياطي خاص على Jitsi محمي برمز JWT لكل حصة. تُرفع التسجيلات إلى التخزين السحابي أثناء الحصة، وتُعرض في مشغل محمي بعلامة مائية متحركة تحمل اسم الطالب ورقمه، وتُحذف بعد 48 ساعة. تتضمن المنصة واجبات ورسائل ونظاما ماليا، وتبلغ تكلفة تشغيلها نحو 25 ريالا شهريا. — tech line: Hono, Cloudflare Pages, D1, R2"
+   },
+   {
+    "file": "cv_ar",
+    "where": "SOC project: «أدوات مفتوحة المصدر هي Wazuh, Suricata, YARA, auditd، ومتكامل مع …» and «إضافة إلى معمل عملي للتحليل الجنائي الرقمي.»",
+    "severity": "minor",
+    "category": "language",
+    "problem": "Latin commas inside an Arabic enumeration break the register (the rest of the CV uses «و»); the final sentence beginning with «إضافة إلى» is a dangling fragment with no main clause.",
+    "fix": "مركز مبني على أدوات مفتوحة المصدر (Wazuh وSuricata وYARA وauditd)، ومتكامل مع خدمة VirusTotal وسجلات MikroTik، مع محلل ذكي لا ينفذ أي إجراء إلا بموافقة بشرية. جرى التحقق من 14 حالة استخدام في بيئة معملية، منها الحظر التلقائي لهجمات تخمين كلمات مرور SSH، ويرافقه معمل عملي للتحليل الجنائي الرقمي."
+   },
+   {
+    "file": "cv_ar",
+    "where": "«يعمل كخدمة» (remote access), «متاح كواجهة API وخادم MCP وبوت تيليجرام، ومشارك في تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي.»",
+    "severity": "minor",
+    "category": "language",
+    "problem": "كاف التشبيه for 'as' is a calque; the challenge name is unmarked and omits the verified year and track, so it looks like a generic phrase rather than a named competition.",
+    "fix": "Remote access: «وكيل ويندوز موقع رقميا بتقنية Authenticode يعمل بوصفه خدمة في النظام». Basira: «متاحة عبر واجهة برمجية (API) وخادم MCP وبوت تيليجرام (@BasiraCheckBot)، ومشاركة في تحدي «الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026» (المسار الرابع).»"
+   },
+   {
+    "file": "cv_ar",
+    "where": "POS bullet: «…باستخدام Web\nSerial، مع توثيق سبب فشل مسار USB لطابعة Xprinter على ويندوز بسبب تعريف النظام.»; tech line extracted as «)Go, PostgreSQL, Python (pyzk»",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The Latin term «Web Serial» is broken across two lines, and the mixed-direction tech lines with parentheses extract reversed in ATS text. «سبب … بسبب» is redundant and «مسار USB» should be «منفذ USB».",
+    "fix": "Wrap every Latin product name in a no-break span (e.g. «Web&nbsp;Serial», «YemenSoft&nbsp;Onyx&nbsp;Pro») and give all tech lines dir=\"ltr\". Sentence: «يطبع الفواتير العربية على طابعة Bixolon SPP-R310 عبر البلوتوث باستخدام Web Serial، مع توثيق فشل الطباعة عبر منفذ USB على طابعة Xprinter في ويندوز بسبب برنامج التشغيل.»"
+   },
+   {
+    "file": "services_ar",
+    "where": "«تطبيقات للموظفين والمناديب», «بياناتك عندك: يمكنك تصديرها كاملة في أي وقت.», «كاشير ومبيعات ومرتجعات وورديات وتقارير», «الشفرة والبيانات ملكك بالكامل» / «الشفرة ملكك» / «تسليم الشفرة كاملة»",
+    "severity": "minor",
+    "category": "language",
+    "problem": "«المناديب» is a colloquial plural (MSA: المندوبين); «عندك» is spoken register; «كاشير» is colloquial; bare «الشفرة» can mean 'cipher' — the business term is «الشفرة المصدرية» and it should be used consistently in all three places.",
+    "fix": "«تطبيقات للموظفين والمندوبين»; «بياناتك بحوزتك: يمكنك تصديرها كاملة في أي وقت.»; «واجهة بيع ومبيعات ومرتجعات وورديات وتقارير»; «الشفرة المصدرية والبيانات ملكك بالكامل» / «الشفرة المصدرية ملكك: نسلمك المشروع كاملا، فلا تبقى مرتبطا بنا.» / «تدريب ووثائق بالعربية وتسليم الشفرة المصدرية كاملة»."
+   },
+   {
+    "file": "services_ar",
+    "where": "«تقارير بصيغتي CSV و Excel» and «بحسابي Google Ads و Search Console»; «نظام نقاط بيع: بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة»",
+    "severity": "minor",
+    "category": "typography",
+    "problem": "The conjunction «و» is detached with a space before a Latin word; Arabic orthography attaches it (as cv_ar correctly does in «وasoulaldiafa.com»). «قاعدة Oracle» omits «بيانات», unlike the CV.",
+    "fix": "«تقارير بصيغتي CSV وExcel»; «منصة مرتبطة بحسابي Google Ads وSearch Console»; «بديل عن YemenSoft Onyx Pro يعمل على قاعدة بيانات Oracle القائمة، ويطبع الفواتير على طابعة Bixolon SPP-R310 عبر البلوتوث»."
+   }
+  ],
+  "reviewer": "arabic_editor",
+  "model": "claude-fable-5-1",
+  "seconds": 217.2
+ },
+ {
+  "verdict": "Strong evidence of practical full-stack integration and applied-AI work warrants an interview, but unsupported details, portfolio breadth and limited evidence of operational scale prevent this CV alone from establishing senior-level depth.",
+  "score_10": 7,
+  "issues": [
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: “permanent OAuth connector”, “free-form GAQL”, “then phase 1”, “for several clients”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "This merges two repositories into an unverified delivery sequence and implies multiple actual customers. The verified facts establish a Keif Al-Diafa phase-0 tool and a separate phase-1 multi-tenant platform, not their chronology or customer adoption. “Permanent” appears in the README but is technically misleading because OAuth access can be revoked; “free GAQL” does not establish an unrestricted query interface. I would probe refresh-token storage, revocation, tenant authorization and API quotas.",
+    "fix": "Replace the bullet with: “Google Ads tooling — built a phase-0 Arabic dashboard for Keif Al-Diafa, Jeddah, with OAuth connections to Google Ads and Search Console using Hono and Cloudflare D1. Separately completed phase 1 of a multi-tenant Google Ads platform with live API data and a 12-table PostgreSQL schema. — Next.js 15, Prisma, PostgreSQL 16”"
+   },
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: “Secure remote access — built remote access to client machines” and “cosign-signed releases from GitHub Actions. — Go, PostgreSQL”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The signing, mesh networking, key rotation and encryption are concrete security signals. Deployment to client machines, GitHub Actions and PostgreSQL are unverified for this project. “Secure” is broader than the documented controls establish. I would probe signing-certificate validation, update trust, key custody, revocation and whether the activity log is tamper-resistant; encryption and signatures alone do not establish these properties.",
+    "fix": "Replace with: “Remote-access tooling — implemented an Authenticode-signed Windows service with a 20-second heartbeat, NetBird mesh connectivity, SSH key rotation, AES-256-GCM encryption of private keys and activity logging. Built a cross-platform CLI that joins the mesh, with cosign keyless-signed releases. — Go, SSH, NetBird”"
+   },
+   {
+    "file": "cv_en",
+    "where": "TECHNICAL SKILLS: “Arabic RTL”, “OpenAI, Anthropic, Gemini”, “ESC/POS”, “Docker, GitHub Actions”, “Linux; pytest”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Most of the breadth is backed by named projects, but the flat list implies comparable depth across backend, mobile, AI, security and operations. Arabic RTL implementation, Gemini, ESC/POS, Docker, GitHub Actions, Linux administration and pytest are unverified in the supplied facts. Support for Claude and GPT models does not independently establish direct provider-SDK expertise. Wazuh and forensics should be explicitly identified as lab experience rather than production security operations.",
+    "fix": "Replace the skills block, excluding the separate Languages row, with:\n“Backend & languages: TypeScript, Python, Go, SQL/PLSQL; NestJS, FastAPI, Hono, Prisma, REST/OpenAPI, WebSockets\nData & background jobs: PostgreSQL, Oracle, SQLite, Cloudflare D1; Redis, BullMQ, Celery\nWeb & mobile: React, Next.js, Angular, Tailwind CSS, offline PWAs, IndexedDB; Flutter/Dart, Kotlin, Jetpack Compose, ML Kit\nAI & retrieval: LangGraph, MCP servers, CodeAct, RAG, FTS5/vector retrieval with RRF, model routing\nIntegrations: ZKTeco/pyzk, Bluetooth receipt printing through Web Serial, Google Ads API\nDeployment & testing tools: Cloudflare Pages/R2, Vitest, Playwright\nRemote access: NetBird, SSH, Authenticode, cosign\nSecurity labs: Wazuh, Suricata, YARA, auditd, Autopsy, FTK Imager”"
+   },
+   {
+    "file": "cv_en",
+    "where": "AI AGENTS & APPLIED AI: Basira — “150/150 evaluation cases, 0/500 false alarms, 78.54% on IslamicEval 2025 subtask 1B (public dev set)”",
+    "severity": "major",
+    "category": "content",
+    "problem": "The deterministic verdict boundary is one of the CV’s strongest architecture decisions. However, three different evaluation results are compressed together without metric definitions or sampling context. The percentage’s metric name and independent or held-out validation are unverified; 0/500 must not imply a universal zero false-positive rate. I would probe Arabic normalization versus byte-exact matching, corpus licensing, evaluation overlap, negative-example selection and which failures the 487 tests cover.",
+    "fix": "Replace the description with: “Built a Quran/Hadith quotation verifier using byte-exact matching against 71,987 records from licensed corpora. Optional model assistance proposes spans and performs OCR; it does not determine verification verdicts. Reported evaluations: 150/150 cases, 0 false alarms across 500 evaluated examples, and 78.54% on IslamicEval 2025 subtask 1B (dev set). 487 automated tests: 345 backend, 110 bot and 32 frontend. Exposes a REST API, MCP server and Telegram bot. — Python, FastAPI, React 19”"
+   },
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: Motech Attendance — “multi-tenant service with idempotent ingest” and “Tested on a live device (3,118 punches). — Go, PostgreSQL, Python (pyzk), systemd”",
+    "severity": "major",
+    "category": "content",
+    "problem": "Branch collectors, device integration and idempotent ingestion are strong engineering signals. The verified test scope is one live iFace950 with 11 users, not demonstrated multi-branch production scale. systemd is unverified. WPS export support is verified, but regulatory acceptance or certification is not. I would probe deduplication keys, replay after collector outages, timestamp handling, tenant isolation and export validation.",
+    "fix": "Replace with: “Motech Attendance — built a central multi-tenant Go service with Python/pyzk branch collectors reading ZKTeco iFace950 devices over TCP/4370 and idempotent punch ingestion. Tested on one live device with 11 users and 3,118 punches. Supports shifts, leave balances, CSV/Excel reports and WPS exports for Saudi Arabia (MHRSD/SAMA) and the UAE (SIF). Designed to replace ZKTeco desktop software. — Go, PostgreSQL, Python”"
+   },
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: “POS replacing YemenSoft Onyx Pro”, “(no migration)” and “documented why Xprinter USB fails on Windows”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Working against an existing Oracle schema and documenting a failed hardware integration would impress me more than another generic CRUD project. However, “no migration” is unverified, and the Xprinter sentence generalizes one documented Windows-driver failure to all such setups. Completed customer cutover is also not established. I would probe transaction boundaries, concurrent billing, return accounting, authorization and recovery when printing fails after a sale commits.",
+    "fix": "Replace with: “POS replacement for YemenSoft Onyx Pro — built auth, bills, catalog, customers, reports, returns and shifts against the existing Oracle YSPOS23 schema. Field-tested Arabic raster receipt printing on a Bixolon SPP-R310 over Bluetooth SPP through Web Serial; documented an Xprinter USB test that failed because of the Windows driver. — NestJS 10, React 19, Oracle PL/SQL, OpenAPI”"
+   },
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: Nexus Notify — “multi-tenant, multi-channel notification platform behind one API”",
+    "severity": "major",
+    "category": "content",
+    "problem": "The Android dual-SIM foreground-service gateway is a distinctive integration detail, but the rest reads as a stack inventory. No delivery volume, tenant count, delivery guarantees, retry policy, isolation tests or operational results are verified. I would probe BullMQ retry behavior, duplicate SMS prevention, delivery receipts, gateway authentication, SIM selection and Android background-execution constraints.",
+    "fix": "Use the narrower description: “Nexus Notify — built a multi-tenant notification platform exposing one API for multiple channels, an Angular dashboard and a Kotlin/Compose Android SMS gateway implemented as a dual-SIM foreground service. — NestJS, PostgreSQL 17, Prisma, Redis/BullMQ, Angular 22” Do not add delivery guarantees or production-scale claims without evidence."
+   },
+   {
+    "file": "cv_en",
+    "where": "AI AGENTS & APPLIED AI: Mansur AI — “13 agents, 38 tools” and “learner”, “skills saved from successful runs”",
+    "severity": "major",
+    "category": "content",
+    "problem": "The planner/executor/verifier structure is credible, but agent and tool counts do not demonstrate task success or justify the architecture. “Learner” can imply model training when the verified mechanism is saving successful experience as skills. The current bullet omits stronger verified security details. I would probe LangGraph state transitions, termination conditions, checkpoint/replay behavior, verifier independence, SSRF bypasses and whether the 82 tests mock models or exercise complete runs.",
+    "fix": "Replace with: “Mansur AI (private repository) — built a LangGraph planner, ReAct executor, verifier and learner workflow with 13 agents and 38 tools. Routes models with fallback and cost tracking; stores working, episodic, procedural and semantic memory in SQLite and saves successful-run experience as skills. Includes sandboxed shell execution and SSRF protection for HTTP tools. 82 passing tests. — Python, FastAPI, WebSocket”"
+   },
+   {
+    "file": "cv_en",
+    "where": "AI AGENTS & APPLIED AI: “Ai_Alabbasi (private repository)” and “model backend swapped from one config file”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The facts verify swappable backends, but not private repository status or a single configuration-file mechanism. “Sandboxed Python” and FTS5/vector fusion are substantive only if the candidate can explain isolation boundaries and retrieval choices. I would probe filesystem/network restrictions, resource limits, tool-output prompt injection, why RRF was chosen and how retrieval quality was measured.",
+    "fix": "Replace with: “Ai_Alabbasi — built a coding agent with swappable Claude, GPT-5, DeepSeek or local-model backends; a planner and task list; CodeAct sandboxed Python execution; and hybrid retrieval combining SQLite FTS5 and vector search through reciprocal rank fusion (RRF). Supports local, Daytona and E2B sandbox options.”"
+   },
+   {
+    "file": "cv_en",
+    "where": "AI AGENTS & APPLIED AI: Moain Promoter AI — “write Arabic/English posts” and “MCP-ready tooling”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Arabic/English output support and MCP integration are unverified for this project. “MCP-ready” is a buzzword rather than a defined implementation claim. The verified seven-agent count is less compelling than actual MCP delivery elsewhere. I would probe whether these agents are distinct execution components or prompt roles, and how Celery jobs and Playwright failures are handled.",
+    "fix": "Replace with: “Moain Promoter AI — built seven specialised agents coordinated by an orchestrator for six platforms, with a Next.js dashboard, Celery/Redis background jobs and Playwright.” If space is limited, replace this entry with the stronger verified MCP example: “Diafa Studio — built an Arabic PDF generator with an MCP server exposing 18 tools.”"
+   },
+   {
+    "file": "cv_en",
+    "where": "SELECTED PROJECTS: Idhaat — “self-hosted Jitsi (JWT per lesson)” and “recordings ... carry a moving watermark ... and are deleted after 48 hours”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "Room allocation, fallback and the reported running cost are useful operational signals. Self-hosting, JWT scope per lesson, watermark embedding in recordings and verified deletion execution are not established by the facts. The facts establish Jitsi with JWT, a moving student watermark and 48-hour retention. I would probe room-allocation races, recording authorization, retention enforcement and which services and usage levels the approximate cost covers.",
+    "fix": "Replace with: “Idhaat — built a live-tutoring platform that automatically allocates four Zoom rooms, with a Jitsi fallback using JWT. Uploads recordings to Cloudflare R2 during class with a 48-hour retention policy; provides a moving watermark showing the student’s name and number. Reported running cost: approximately 25 SAR/month. — Hono, Cloudflare Pages, D1, R2, Vitest”"
+   },
+   {
+    "file": "cv_en",
+    "where": "EXPERIENCE: “Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "qahwajeen.com is verified as live, but the candidate’s authorship or delivery responsibility is unverified. HTTP 200 does not establish ownership, customer impact or engineering contribution. The two repository-backed websites and signed Android releases provide sufficient evidence without that attribution.",
+    "fix": "Replace with: “Saudi hospitality projects — developed keifaldiafa.com and asoulaldiafa.com using Next.js 14, plus Keif Al-Diafa and Asoul Al-Diafa Android apps using Flutter/Dart and Kotlin; v2.6.0 signed APK releases include remote lock.”"
+   },
+   {
+    "file": "cv_en",
+    "where": "SELECTED PROJECTS: Grocery Ledger — “accounting and POS app for small shops”, “PDF/Excel export” and “157 passing tests”",
+    "severity": "major",
+    "category": "fact",
+    "problem": "The verified facts support an offline Flutter Android ledger, scanner integration, append-only ledgers, version 2.2.1 and 157 tests. The broader POS scope, small-shop targeting, PDF/Excel export and explicit passing status are unverified. Append-only accounting is a stronger signal than a broad product label. I would probe correction entries, atomic writes, backup/restore and schema upgrades.",
+    "fix": "Replace with: “Grocery Ledger — built an offline Flutter Android ledger with append-only entries and barcode input through ML Kit camera scanning or USB/Bluetooth HID scanners. Version 2.2.1; 157 tests.”"
+   },
+   {
+    "file": "cv_en",
+    "where": "SELECTED PROJECTS: Ghaida — “in their native language”",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "Native-language delivery is unverified. The verified AI voice-per-sentence implementation and offline PWA are concrete enough. The current description also misses the documented API test result, although that result should not be presented as general production reliability.",
+    "fix": "Replace with: “Ghaida — built a household guidebook for domestic workers with AI voice for each sentence, an offline PWA and an admin panel; 27/27 API tests.”"
+   },
+   {
+    "file": "cv_en",
+    "where": "GRADUATION PROJECT (TEAM): “AI analyst whose actions require human approval” and “automatic blocking of SSH brute-force attacks”",
+    "severity": "major",
+    "category": "content",
+    "problem": "The lab qualification and separation of VirusTotal from the open-source components are good. However, human-approved AI actions beside automatic blocking leave the control boundary unclear. The candidate’s individual contribution is unverified, and the separate forensics lab is not established as part of this graduation project. I would ask the candidate to trace UC-11 from event ingestion through detection and response, explain authorization and false-positive recovery, and identify exactly what they implemented.",
+    "fix": "Replace with: “Team SOC graduation project — Wazuh 4.14.7, Suricata, YARA and auditd, integrated with VirusTotal and MikroTik syslog. Includes an AI analyst with human approval. Verified 14 use cases in a lab, including UC-11: SSH brute-force detection and automatic blocking. Separate digital-forensics lab work used Autopsy and FTK Imager.” Do not add individual ownership claims until confirmed."
+   },
+   {
+    "file": "cv_en",
+    "where": "TECHNICAL SKILLS: “Languages — Arabic (native), English (technical reading and writing)”",
+    "severity": "minor",
+    "category": "fact",
+    "problem": "Neither language-proficiency level is explicitly verified in the supplied facts. An English CV and Arabic-oriented products do not establish these self-assessment levels, and remote hiring will often assess spoken collaboration separately.",
+    "fix": "Delete the Languages row pending candidate confirmation; do not substitute an inferred proficiency level."
+   },
+   {
+    "file": "cv_en",
+    "where": "SUMMARY: “Built a POS ... a ZKTeco attendance system ... a multi-tenant notification platform, LangGraph multi-agent systems and MCP servers”",
+    "severity": "major",
+    "category": "strategy",
+    "problem": "The summary repeats the project inventory rather than establishing an engineering focus. The POS hardware trade-off, attendance ingestion design, Basira’s deterministic decision boundary, keif-publisher’s approval controls and Sijil’s accessibility interaction are the strongest signals. No verified production throughput, active tenant count, uptime, team leadership or sustained operational ownership establishes seniority; project counts and test totals should not substitute for those signals. I would interview for full-stack/applied-AI depth, not assume equal seniority across every listed discipline.",
+    "fix": "Replace the summary with: “Software engineer and founder of Alabbasi Tech, building business software and applied-AI systems in TypeScript, Python and Go. Project work includes an Oracle-backed POS with field-tested Arabic receipt printing, a ZKTeco attendance service with idempotent ingestion, and Basira, a quotation verifier that keeps model assistance outside the verdict path. Builds LangGraph workflows and MCP servers. Based in Sana’a, Yemen; remote only.”"
+   }
+  ],
+  "reviewer": "eng_lead",
+  "model": "gpt-6-astra",
+  "seconds": 158.4
+ }
+]

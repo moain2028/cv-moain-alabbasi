@@ -7,28 +7,28 @@
    297.0
   ],
   "fonts": {
-   "IBMPlexSans-Regular": "91.2%",
-   "IBMPlexSans-SemiBold": "7.1%",
-   "IBMPlexSans-Bold": "1.8%"
+   "IBMPlexSans-Regular": "91.1%",
+   "IBMPlexSans-SemiBold": "7.2%",
+   "IBMPlexSans-Bold": "1.7%"
   },
   "sizes_pt": {
-   "9.0": "9.4%",
-   "10.0": "87.8%",
+   "9.0": "10.3%",
+   "10.0": "86.9%",
    "11.6": "1.5%",
-   "12.49": "1.0%",
+   "12.49": "1.1%",
    "22.0": "0.2%"
   },
   "colors": {
    "#16202e": {
-    "share": "82.5%",
+    "share": "81.7%",
     "contrast_on_white": 16.4
    },
    "#566173": {
-    "share": "9.5%",
+    "share": "10.7%",
     "contrast_on_white": 6.26
    },
    "#0b4f8a": {
-    "share": "8.0%",
+    "share": "7.6%",
     "contrast_on_white": 8.4
    }
   },
@@ -37,58 +37,58 @@
     "left": 20.1,
     "right": 19.6,
     "top": 14.3,
-    "bottom": 25.2
+    "bottom": 8.3
    },
    "p2": {
     "left": 20.1,
-    "right": 19.8,
+    "right": 19.6,
     "top": 15.2,
-    "bottom": 43.4
+    "bottom": 8.3
    }
   },
   "pages_detail": [
    {
     "page": 1,
-    "vertical_fill_pct": 95.9,
+    "vertical_fill_pct": 102.2,
     "lines": 47
    },
    {
     "page": 2,
-    "vertical_fill_pct": 89.4,
-    "lines": 50
+    "vertical_fill_pct": 102.6,
+    "lines": 57
    }
   ],
   "leading": {
    "10.0": {
     "median_pt": 14.25,
     "ratio": 1.43,
-    "n": 53
+    "n": 55
    }
   },
   "chars_per_full_line": {
-   "median": 100,
-   "max": 113
+   "median": 99,
+   "max": 109
   },
   "distinct_sizes": 5,
-  "text_chars": 6399,
+  "text_chars": 6689,
   "ats": {
    "email_found": true,
    "phone_found": true,
    "broken_words": [],
    "ligature_or_pua": [],
-   "words": 994,
+   "words": 1042,
    "weak_phrases": [],
    "first_word_counts": [
+    [
+     "moain",
+     3
+    ],
     [
      "ai",
      2
     ],
     [
-     "moain",
-     1
-    ],
-    [
-     "software",
+     "full-stack",
      1
     ],
     [
@@ -121,6 +121,9 @@
    ]
   },
   "short_tail_lines": [
+   "SSH, NetBird",
+   "Cloudflare D1",
+   "SQLite FTS5",
    "Tailwind 4"
   ]
  },
@@ -132,30 +135,32 @@
    297.0
   ],
   "fonts": {
-   "NotoNaskhArabic-Regular": "71.2%",
-   "IBMPlexSans-Regular": "17.1%",
-   "NotoNaskhArabic-Bold": "9.9%",
-   "IBMPlexSans-SemiBold": "1.7%",
+   "NotoNaskhArabic-Regular": "69.6%",
+   "IBMPlexSans-Regular": "18.3%",
+   "NotoNaskhArabic-Bold": "10.6%",
+   "IBMPlexSans-SemiBold": "1.4%",
+   "LiberationSerif": "0.1%",
    "IBMPlexSans-Bold": "0.0%"
   },
   "sizes_pt": {
-   "9.44": "8.0%",
-   "10.93": "88.8%",
-   "12.72": "2.0%",
-   "13.42": "1.0%",
+   "9.44": "8.6%",
+   "9.49": "0.6%",
+   "10.53": "87.4%",
+   "12.72": "1.8%",
+   "13.42": "1.3%",
    "21.86": "0.2%"
   },
   "colors": {
    "#16202e": {
-    "share": "86.4%",
+    "share": "85.3%",
     "contrast_on_white": 16.4
    },
    "#566173": {
-    "share": "7.6%",
+    "share": "8.9%",
     "contrast_on_white": 6.26
    },
    "#0b4f8a": {
-    "share": "6.0%",
+    "share": "5.8%",
     "contrast_on_white": 8.4
    }
   },
@@ -164,63 +169,59 @@
     "left": 18.0,
     "right": 17.7,
     "top": 13.4,
-    "bottom": 27.5
+    "bottom": 8.1
    },
    "p2": {
-    "left": 18.3,
+    "left": 18.0,
     "right": 17.7,
-    "top": 15.6,
-    "bottom": 24.1
+    "top": 15.3,
+    "bottom": 8.1
    }
   },
   "pages_detail": [
    {
     "page": 1,
-    "vertical_fill_pct": 94.8,
-    "lines": 39
+    "vertical_fill_pct": 102.0,
+    "lines": 44
    },
    {
     "page": 2,
-    "vertical_fill_pct": 96.8,
-    "lines": 40
+    "vertical_fill_pct": 102.7,
+    "lines": 43
    }
   ],
   "leading": {
-   "10.93": {
-    "median_pt": 16.4,
-    "ratio": 1.5,
-    "n": 53
+   "10.53": {
+    "median_pt": 15.65,
+    "ratio": 1.49,
+    "n": 46
    }
   },
   "chars_per_full_line": {
-   "median": 94,
-   "max": 120
+   "median": 98.0,
+   "max": 125
   },
-  "distinct_sizes": 5,
-  "text_chars": 5093,
+  "distinct_sizes": 6,
+  "text_chars": 5118,
   "ats": {
    "email_found": true,
    "phone_found": true,
    "broken_words": [],
    "ligature_or_pua": [],
-   "words": 863,
+   "words": 876,
    "weak_phrases": [],
    "first_word_counts": [
     [
-     "‫نظام",
+     "‫معين",
      3
     ],
     [
      "‫منصة",
-     2
+     3
     ],
     [
-     "‫دفتر",
+     "‫نظام",
      2
-    ],
-    [
-     "‫معين",
-     1
     ],
     [
      "‫مهندس",
@@ -231,17 +232,24 @@
      1
     ],
     [
-     "‫السعودية",
+     "‫واتساب‪alabbasi.uk",
      1
     ],
     [
      "‫نبذة",
      1
+    ],
+    [
+     "‫الخبرة",
+     1
     ]
    ],
    "section_order": []
   },
-  "short_tail_lines": []
+  "short_tail_lines": [
+   "Flutter",
+   "Flutter"
+  ]
  },
  "services_ar.pdf": {
   "file": "services_ar.pdf",
@@ -251,22 +259,22 @@
    297.0
   ],
   "fonts": {
-   "NotoNaskhArabic-Regular": "69.4%",
-   "NotoNaskhArabic-Bold": "21.8%",
-   "IBMPlexSans-Regular": "8.5%",
-   "IBMPlexSans-SemiBold": "0.4%",
+   "NotoNaskhArabic-Regular": "68.7%",
+   "NotoNaskhArabic-Bold": "21.6%",
+   "IBMPlexSans-Regular": "9.5%",
+   "IBMPlexSans-SemiBold": "0.1%",
    "IBMPlexSans-Bold": "0.0%"
   },
   "sizes_pt": {
-   "8.96": "12.6%",
-   "10.05": "76.3%",
+   "8.96": "12.2%",
+   "10.05": "76.6%",
    "11.75": "8.9%",
-   "12.74": "1.7%",
+   "12.74": "1.9%",
    "21.9": "0.4%"
   },
   "colors": {
    "#16202e": {
-    "share": "74.4%",
+    "share": "74.8%",
     "contrast_on_white": 16.4
    },
    "#0b4f8a": {
@@ -274,53 +282,57 @@
     "contrast_on_white": 8.4
    },
    "#566173": {
-    "share": "10.5%",
+    "share": "10.1%",
     "contrast_on_white": 6.26
    },
    "#ffffff": {
-    "share": "4.1%",
+    "share": "4.0%",
     "contrast_on_white": 1.0
    }
   },
   "margins_mm": {
    "p1": {
-    "left": 17.5,
+    "left": 18.2,
     "right": 14.5,
     "top": 12.6,
-    "bottom": 32.9
+    "bottom": 18.9
    }
   },
   "pages_detail": [
    {
     "page": 1,
-    "vertical_fill_pct": 92.6,
-    "lines": 59
+    "vertical_fill_pct": 97.7,
+    "lines": 62
    }
   ],
   "leading": {
    "10.05": {
     "median_pt": 14.93,
     "ratio": 1.49,
-    "n": 25
+    "n": 28
    }
   },
   "chars_per_full_line": {
-   "median": 56,
-   "max": 132
+   "median": 58.5,
+   "max": 128
   },
   "distinct_sizes": 5,
-  "text_chars": 2248,
+  "text_chars": 2318,
   "ats": {
    "email_found": true,
    "phone_found": true,
    "broken_words": [],
    "ligature_or_pua": [],
-   "words": 384,
+   "words": 393,
    "weak_phrases": [],
    "first_word_counts": [
     [
      "‫‪",
-     11
+     12
+    ],
+    [
+     "‫تطبيقات",
+     2
     ],
     [
      "‫نظام",
@@ -344,10 +356,6 @@
     ],
     [
      "‫خدماتنا‬",
-     1
-    ],
-    [
-     "‫المحلات‪",
      1
     ]
    ],

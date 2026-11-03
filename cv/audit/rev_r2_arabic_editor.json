@@ -1,0 +1,153 @@
+{
+ "verdict": "Clean, well-structured MSA with a professional register, but several unverifiable embellishments (dates, extra features, stack items) and a handful of agreement/preposition, terminology-consistency and typographic slips need fixing before it goes to Saudi clients.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_ar",
+   "where": "الخبرة العملية — «مؤسس ومهندس برمجيات · العباسي تك (alabbasi.uk) · صنعاء، عن بعد» / «منذ 2026»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Start of career/company is UNKNOWN in the facts sheet; «منذ 2026» is inferred from repo dates only. A recruiter will take it as a confirmed founding date.",
+   "fix": "Keep «2026» only after the candidate confirms it in writing; otherwise delete the date cell entirely and leave «مؤسس ومهندس برمجيات · العباسي تك (alabbasi.uk) · صنعاء، عن بعد». Do not invent another year."
+  },
+  {
+   "file": "cv_ar",
+   "where": "مشروع التخرج — «مركز مبني على أدوات مفتوحة المصدر (Wazuh, Suricata, YARA, VirusTotal, auditd) … منها الحظر التلقائي لهجمات تخمين كلمات مرور SSH. إضافة إلى معمل عملي للتحليل الجنائي الرقمي.»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "VirusTotal is a commercial service, not open source; the SSH brute-force auto-block example is not in the verified facts; «تم التحقق» is weak passive; «إضافة إلى …» after a full stop is a sentence fragment.",
+   "fix": "مركز مبني على أدوات مفتوحة المصدر (Wazuh 4.14.7, Suricata, YARA, auditd) مع تكامل VirusTotal وسجلات MikroTik، ومحلل ذكي لا ينفذ أي إجراء إلا بموافقة بشرية. جرى التحقق من 14 حالة استخدام في بيئة معملية (2026-09-28)، إضافة إلى معمل عملي للتحليل الجنائي الرقمي (Autopsy, FTK Imager)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "منصور AI — «مخطط ومنفذ ومدقق ومتعلم بتنسيق LangGraph … ويحفظ تجاربه الناجحة كمهارات. عدد الاختبارات الناجحة: 82.»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "«يحفظ تجاربه الناجحة كمهارات» is not in the verified README facts; «بتنسيق» is an odd rendering of orchestration; «كمهارات» uses the comparative kāf as a calque for 'as'. Services sheet also says «يخطط وينفذ ويتحقق» (inconsistent with «مدقق»).",
+   "fix": "نظام عربي متعدد الوكلاء مبني على LangGraph بأدوار مخطط ومنفذ ومدقق ومتعلم، فيه 13 وكيلا و38 أداة، وموجه للنماذج مع بديل احتياطي وتتبع للتكلفة، وذاكرة هرمية، وواجهة عربية عبر FastAPI وWebSocket. عدد الاختبارات الآلية الناجحة: 82. — and in services_ar: «13 وكيلا مع 38 أداة، يخطط وينفذ ويدقق»."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«محرك نشر محتوى بالذكاء الاصطناعي: يولد المنشورات من أرشيف الوسائط … Python, FastAPI, APScheduler»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "«من أرشيف الوسائط» and the stack «FastAPI, APScheduler» are not in the verified facts for keif-publisher (verified: AI generation, human approval gate, scheduling, kill switch, dry-run default).",
+   "fix": "محرك نشر محتوى بالذكاء الاصطناعي: يولد المنشورات، ويعرض كل منشور لموافقة بشرية قبل جدولته، ويعمل افتراضيا في وضع المحاكاة (dry-run) مع مفتاح إيقاف طارئ. — delete the «Python, FastAPI, APScheduler» line unless confirmed by the candidate."
+  },
+  {
+   "file": "cv_ar",
+   "where": "نظام نقاط بيع — «… على ويندوز والبدائل المعتمدة.» / «NestJS 10, React 19, Oracle PL/SQL, BullMQ»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "«البدائل المعتمدة» (adopted alternatives) and «BullMQ» are not verified for the POS project; the verified cause of failure (Windows driver) is omitted.",
+   "fix": "…باستخدام Web Serial، مع توثيق فشل مسار USB لطابعة Xprinter على ويندوز بسبب تعريف النظام. — stack line: «NestJS 10, React 19, Oracle PL/SQL»."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Moain Promoter AI — «يكتبون منشورات بالعربية والإنجليزية لست منصات، مع لوحة تحكم.»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Bilingual output is not in the verified facts; the verified Next.js dashboard is omitted.",
+   "fix": "سبعة وكلاء متخصصين تحت منسق رئيسي، ينشرون المحتوى على ست منصات، مع لوحة تحكم Next.js. Python, Celery, Redis, Playwright"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Ai_Alabbasi — «يتبدل نموذجه من ملف إعداد واحد (سحابي أو محلي)، يخطط بقائمة مهام» / Zero Trust — «برامج عميلة موقعة رقميا … تنضم إلى شبكة NetBird بأمر واحد»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Config-file switching, task-list planning and «بأمر واحد» are unverified details; «برامج عميلة» is an awkward coinage for signed agents; verified items (CodeAct, cosign-signed motech-cli) are missing.",
+   "fix": "Ai_Alabbasi: «وكيل برمجة بنموذج قابل للتبديل (سحابي أو محلي)، ينفذ شفرة Python في بيئة معزولة بأسلوب CodeAct، ويبحث بحثا هجينا يدمج FTS5 مع المتجهات بطريقة RRF.» — Zero Trust: «منصة وصول آمن عن بعد بنموذج Zero Trust: عملاء (agents) موقعون رقميا، وصلاحيات لكل مستخدم، وسجل تدقيق للجلسات، وأداة سطر أوامر متعددة المنصات (motech-cli) بإصدارات موقعة عبر cosign تنضم إلى شبكة NetBird. Go, SSH, NetBird»"
+  },
+  {
+   "file": "services_ar",
+   "where": "خدماتنا — «2. الحضور والانصراف والرواتب»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "A payroll («الرواتب») module is not verified; the facts cover shifts, leave balances and WPS export only. Overpromising a payroll system to a Saudi buyer is a liability.",
+   "fix": "2. الحضور والانصراف وحماية الأجور"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Tests wording — «عدد الاختبارات الآلية: 487.» vs «عدد الاختبارات الناجحة: 82» / «عدد الاختبارات الناجحة: 157» / «عدد الاختبارات الناجحة: 93»",
+   "severity": "major",
+   "category": "language",
+   "problem": "Two different terms for the same metric; moreover 'passing' is verified only for Mansur (82), not for Grocery Ledger (157) or Sijil (93).",
+   "fix": "Use one term: بصيرة «عدد الاختبارات الآلية: 487.»; منصور «عدد الاختبارات الآلية الناجحة: 82.»; دفتر البقالة «عدد الاختبارات الآلية: 157. Flutter»; سجل «عدد الاختبارات الآلية: 93. Flutter»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Nexus Notify — «وتطبيق أندرويد أصلي يعمل بوابة رسائل SMS بشريحتين.»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«يعمل بوابة» lacks the required linking construction ('works as'); «بشريحتين» is ambiguous.",
+   "fix": "وتطبيق أندرويد أصلي يعمل بوصفه بوابة رسائل SMS تدعم شريحتين."
+  },
+  {
+   "file": "cv_ar",
+   "where": "نظام حضور وانصراف — «جامع في كل فرع يسحب البصمات … جرب على جهاز فعلي بعدد 3,118 بصمة.»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«جامع» is a literal rendering of 'collector'; «جرب … بعدد» is awkward; the verified 11-user detail is omitted.",
+   "fix": "نظام حضور وانصراف مؤسسي يحل محل برنامج ZKTeco المكتبي: وحدة تجميع في كل فرع تسحب البصمات من أجهزة iFace950 إلى خادم مركزي، مع الورديات وأرصدة الإجازات وتقارير CSV/Excel، وتصدير ملفات حماية الأجور للسعودية والإمارات. اختبر على جهاز فعلي بـ 11 مستخدما و3,118 بصمة. Go, PostgreSQL, Python (pyzk)"
+  },
+  {
+   "file": "cv_ar",
+   "where": "بصيرة — «متاح كواجهة API وخادم MCP وبوت تيليجرام، ومشارك في تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي.»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "كاف التشبيه («كواجهة») is a calque for 'as'; the challenge name is unquoted and the verified year/track and bot handle are missing.",
+   "fix": "متاح عبر واجهة API وخادم MCP وبوت تيليجرام (@BasiraCheckBot)، ومشارك في تحدي «الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026» (المسار الرابع)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«أدوات Google Ads لشركة كيف الضيافة في جدة» and services_ar «كيف الضيافة (جدة)», «قهوجيين جدة … في جدة»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Jeddah as the clients' location is not in the verified facts sheet; it must be confirmed or removed.",
+   "fix": "cv_ar: «أدوات Google Ads لشركة كيف الضيافة:» — services_ar: «كيف الضيافة» and «موقع خدمات يستهدف البحث المحلي» until the location is confirmed."
+  },
+  {
+   "file": "cv_ar",
+   "where": "دفتر البقالة — «تطبيق أندرويد للمحاسبة والكاشير … بقارئ USB أو بلوتوث» and services_ar «كاشير ومبيعات ومرتجعات»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«الكاشير» is colloquial; «بلوتوث» appears without the article while «البلوتوث» is used everywhere else; «قارئ USB» reads oddly.",
+   "fix": "cv_ar: «تطبيق أندرويد للمحاسبة ونقاط البيع يعمل دون إنترنت، يمسح الباركود بالكاميرا أو بقارئ عبر USB أو البلوتوث، مع دفاتر لا تقبل الحذف.» — services_ar: «نقطة بيع (كاشير) ومبيعات ومرتجعات وورديات وتقارير»"
+  },
+  {
+   "file": "services_ar",
+   "where": "«يقرأ أجهزة البصمة ZKTeco الحالية دون استبدالها» / «تطبيقات للموظفين والمناديب»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«يقرأ أجهزة» needs the preposition «من»; «المناديب» is a colloquial plural (MSA: المندوبين).",
+   "fix": "«يقرأ من أجهزة البصمة ZKTeco الحالية دون استبدالها» / «تطبيقات للموظفين والمندوبين»"
+  },
+  {
+   "file": "services_ar",
+   "where": "«بصيغتي CSV و Excel» / «بحسابي Google Ads و Search Console»",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The conjunction واو is detached from the following word; in Arabic it attaches even before Latin terms.",
+   "fix": "«بصيغتي CSV وExcel» / «بحسابي Google Ads وSearch Console»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "ATS extraction: «عدد ا لاختبارات الناجحة» (twice) and «بالذكاء ا لاصطناعي» (S-ACM)",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "The lam-alef ligature in NotoNaskhArabic is being extracted with a space (ا ل), so keywords like «الاختبارات» and «الاصطناعي» will not match in ATS search.",
+   "fix": "Re-export with a ToUnicode-correct Arabic shaping (e.g. embed subset fonts via the HTML→PDF engine with Harfbuzz shaping) and verify pdftotext returns «الاختبارات» and «الاصطناعي» with no internal space."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Header line «عمل عن بعد وفق توقيت / السعودية» and POS bullet «باستخدام Web / Serial»",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Line breaks split a fixed phrase and a two-word Latin term across lines, which looks unpolished in a Gulf-facing CV.",
+   "fix": "Insert a non-breaking space in «توقيت&nbsp;السعودية» and wrap the term as <span style=\"white-space:nowrap\">Web Serial</span>; alternatively break the header after «اليمن ·»."
+  }
+ ],
+ "reviewer": "arabic_editor",
+ "model": "claude-fable-5-1",
+ "seconds": 220.6
+}

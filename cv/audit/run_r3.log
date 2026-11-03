@@ -1,0 +1,25 @@
+[recruiter_intl] start -> claude-opus-5-5
+[hr_saudi] start -> gpt-6-astra
+[typographer_cv_en] start -> claude-fable-5-1
+[typographer_cv_ar] start -> claude-fable-5-1
+[typographer_services_ar] start -> claude-fable-5-1
+[fact_checker] start -> claude-opus-5-5
+[arabic_editor] start -> claude-fable-5-1
+[eng_lead] start -> gpt-6-astra
+recruiter_intl  claude-opus-5-5    score= 7 t=109.7s issues={'critical': 4, 'major': 7, 'minor': 7} 
+   verdict: A strong, evidence-dense CV with unusually concrete, repo-backed engineering detail, but a hiring manager will doubt one sub-1-year founder entry carrying 15+ systems, several stack and skill claims are not on the verifi
+hr_saudi        gpt-6-astra        score= 7 t=114.9s issues={'major': 12, 'minor': 6} 
+   verdict: أرشحه لمقابلة تقنية ومشروع تجريبي محدود؛ فالأعمال الموثقة والعربية المهنية تبنيان الثقة، لكن ملف الخدمات أقرب إلى عرض مهندس مستقل منه إلى مورد جاهز للاعتماد، بسبب نسب أعمال غير مثبتة والتزامات تجارية غير محددة.
+typographer_cv_en claude-fable-5-1   score= 7 t=171.7s issues={'major': 5, 'minor': 13} 
+   verdict: Clean, restrained single-column Plex layout with a sound three-colour palette, undermined by an over-long 99-character measure, a section heading orphaned at the foot of page 1 with its content on page 2, nine one-to-thr
+typographer_cv_ar claude-fable-5-1   score= 7 t=192.0s issues={'critical': 1, 'major': 7, 'minor': 10} 
+   verdict: A disciplined, well-leaded Naskh/Plex layout with correct visual bidi, but the page box is overfull (4.1 mm bottom margin, 103–104% fill), Latin runs look a size larger than the Arabic, the ATS text order of punctuation 
+typographer_services_ar claude-fable-5-1   score= 7 t=143.4s issues={'major': 7, 'minor': 11} 
+   verdict: A competent, well-structured one-page services profile with correct RTL logic, but it is set too tight for Naskh (1.49 leading, 9–10 pt grey meta text), the Latin fragments visually outweigh the Arabic, the heading scale
+fact_checker    claude-opus-5-5    score= 7 t=74.8s issues={'major': 8, 'minor': 10} 
+   verdict: The CVs are mostly faithful to the verified facts, but several claims overstate or add unverified details: the Google Ads phases are merged and mistranslated, the services profile adds a customer-service bot and implies 
+arabic_editor   claude-fable-5-1   score= 7 t=217.2s issues={'major': 8, 'minor': 10} 
+   verdict: Solid, factually careful Arabic with a clean layout, but it still carries a handful of real grammar/agreement slips, inconsistent key terms (multi-tenant, test/evaluation counts, Basira gender), a few unverified claims, 
+eng_lead        gpt-6-astra        score= 7 t=158.4s issues={'major': 15, 'minor': 2} 
+   verdict: Strong evidence of practical full-stack integration and applied-AI work warrants an interview, but unsupported details, portfolio breadth and limited evidence of operational scale prevent this CV alone from establishing 
+saved /home/user/webapp/cv/audit/reviews_r3.json

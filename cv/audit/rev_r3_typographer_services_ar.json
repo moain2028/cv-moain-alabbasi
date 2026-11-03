@@ -1,0 +1,153 @@
+{
+ "verdict": "A competent, well-structured one-page services profile with correct RTL logic, but it is set too tight for Naskh (1.49 leading, 9–10 pt grey meta text), the Latin fragments visually outweigh the Arabic, the heading scale is flat (12.7 vs 11.75 pt), mixed-direction runs are not bidi-isolated (the ATS reads ')WPS(' and 'واتساب … :'), and one portfolio claim (qahwajeen.com) is unverified.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "services_ar",
+   "where": "Body text, 10.05 pt Noto Naskh Arabic (76% of glyphs), measured leading 14.93 pt = 1.49",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Noto Naskh has a small x-body with very tall ascenders (ل، ا، ك) and deep descenders (ج، ع، ن); at 1.49 the descenders of one line visually touch the ascenders of the next (see 'بوت تيليجرام…/وكلاء ينشرون…' in card 5 and the 'التزاماتنا' list). Arabic Naskh body text needs 1.6–1.7 to read as airy as Latin at 1.4.",
+   "fix": "body, li, p, td { font-size: 10.25pt; line-height: 1.65; } (≈16.9 pt). Recover the extra height by removing the 1 px card borders + 6 pt of card padding (see border issue) and cutting the two orphan lines listed below; the page will still fit at ≈96% fill."
+  },
+  {
+   "file": "services_ar",
+   "where": "Latin runs inside Arabic lines: 'ZKTeco', 'iFace950', 'Google Ads', 'Flutter … Kotlin', 'YemenSoft Onyx Pro', 'Bixolon SPP-R310'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "IBM Plex Sans at the same nominal size has a far larger x-height and heavier stroke than Noto Naskh, so every Latin word jumps out of the line ('Flutter لأندرويد' and 'Kotlin' in card 3 read like bold inserts) and the baseline of Plex sits lower than the Naskh baseline, giving a stair-step texture.",
+   "fix": "Wrap Latin tokens in <span lang=\"en\" dir=\"ltr\" class=\"lt\"> (or let :lang(en) match) and set .lt, :lang(en) { font-family: 'IBM Plex Sans'; font-size: 0.88em; position: relative; top: -0.04em; letter-spacing: 0; }. Alternatively use font-size-adjust: 0.45 on the Latin span so x-height matches Naskh's ≈0.44."
+  },
+  {
+   "file": "services_ar",
+   "where": "ATS extraction: 'معين العباسي | واتساب‪alabbasi.uk | moain.learn@gmail.com | +967 770 941 666 :‬‬' and '(‪)WPS‬' (twice) and '‪ — keifaldiafa.com‬موقع…'",
+   "severity": "major",
+   "category": "ats",
+   "problem": "The header contact row and the Latin abbreviations are not bidi-isolated, so the text layer reorders them: the colon detaches from 'واتساب' and lands after the phone number, the parentheses around WPS/SEO are mirrored to ')WPS(' and the em dash is pulled in front of the domain. A parser or a screen reader gets 'واتساب alabbasi.uk … :' instead of 'واتساب: +967…'.",
+   "fix": "In the header use separate spans: <span>واتساب: </span><bdi dir=\"ltr\">+967 770 941 666</bdi> | <bdi dir=\"ltr\">moain.learn@gmail.com</bdi> | <bdi dir=\"ltr\">alabbasi.uk</bdi>; write the Arabic-side parenthesis pair around a <bdi>: (<bdi>WPS</bdi>) and (<bdi>SEO</bdi>); in the portfolio rows put the dash outside: <bdi dir=\"ltr\">keifaldiafa.com</bdi> — موقع… . CSS fallback: bdi, [dir=ltr] { unicode-bidi: isolate; }."
+  },
+  {
+   "file": "services_ar",
+   "where": "Section heads 'خدماتنا', 'نماذج من أعمالنا', 'طريقة العمل', 'التزاماتنا' (12.74 pt bold #0b4f8a) vs card titles '1. أنظمة نقاط البيع وإدارة الأعمال' (11.75 pt bold #16202e)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "The type scale has two adjacent steps only 8% apart (12.74 → 11.75) and another 12% apart (10.05 → 8.96). In Naskh bold the section heads and card titles look the same size; the only hierarchy cue is colour. The scale 21.9 / 12.74 / 11.75 / 10.05 / 8.96 has no rhythm.",
+   "fix": "Rebuild on a 1.2 ratio from 10.25 pt: h1 (العباسي تك) 24pt; h2 section heads 14.75pt, margin: 14pt 0 6pt; card titles 12.25pt; body 10.25pt; meta/audience lines 9.25pt (not 8.96). CSS: h2 { font-size: 14.75pt; } .card h3 { font-size: 12.25pt; } .audience { font-size: 9.25pt; }"
+  },
+  {
+   "file": "services_ar",
+   "where": "Grey audience lines under each card title, e.g. 'المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات' and 'أي منشأة لديها عمل يدوي متكرر' (8.96 pt, #566173)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "8.96 pt Naskh in a mid-grey is the smallest and lightest element on the page but carries the key qualifying message ('who this is for') that a Saudi buyer scans first. Naskh at 9 pt has an effective x-height of ~3.9 pt, below comfortable print legibility; contrast 6.26 is fine, but size × weight is not.",
+   "fix": ".audience { font-size: 9.25pt; color: #3d4654; line-height: 1.5; } (contrast ≈ 9.5:1). Keep the Regular weight; do not italicise (Naskh has no italic)."
+  },
+  {
+   "file": "services_ar",
+   "where": "Intro paragraph 'نبني لمنشأتك نظاما أو تطبيقا أو موقعا…' and card 5 bullets 'بوت تيليجرام يرد على العملاء…'",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Measured max line length is 128 characters; the intro and the full-width card 5 run across the entire 181 mm text block. Arabic Naskh is comfortable at 55–75 characters (the rest of the page sits at the healthy median of 57); a 128-character return makes the eye lose the line on the second row ('ونعمل عن بعد وفق توقيت السعودية.').",
+   "fix": ".intro { max-width: 128mm; margin-inline-start: 0; } (keeps it on the right edge in RTL, ≈75 chars/line). For card 5 either make it a two-column card like the others (two bullets on the right, audience line on the left) or set .card.wide ul { max-width: 118mm; }."
+  },
+  {
+   "file": "services_ar",
+   "where": "Portfolio row 'قهوجيين — qahwajeen.com موقع خدمات ضيافة يعمل فعليا'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts sheet states qahwajeen.com is live but 'no repo found'; presenting it under 'نماذج من أعمالنا' asserts authorship that is unverified. A Saudi buyer who checks WHOIS or asks for the repo will find no evidence.",
+   "fix": "Remove the row, or keep it only if the candidate can show ownership; otherwise replace with a verifiable item from the sheet, e.g. 'نظام إشعارات متعدد القنوات (Nexus Notify) — بوابة رسائل SMS من جوال أندرويد بشريحتين'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Card 2, bullet 'يقرأ أجهزة البصمة ZKTeco دون استبدالها، وجرب على / طراز iFace950' and portfolio row 'نظام نقاط بيع … عبر / البلوتوث'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Two orphan lines: 'طراز iFace950' (2 words) and 'البلوتوث' (1 word) hang alone and waste a full 15 pt line each on a page already at 97.7% fill.",
+   "fix": "Card 2: 'يقرأ أجهزة البصمة ZKTeco دون استبدالها (جُرِّب على iFace950)'. Portfolio: 'بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة، مع طباعة الفواتير على Bixolon SPP-R310 عبر البلوتوث' and give the description cell a slightly larger share: .portfolio td.desc { width: 82%; } td.label { width: 18%; white-space: nowrap; }."
+  },
+  {
+   "file": "services_ar",
+   "where": "Top margin 12.6 mm vs bottom 18.9 mm; right (primary RTL) margin 14.5 mm",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The block sits visibly high on the sheet: the title 'العباسي تك' starts at 12.6 mm while the footer bar leaves 18.9 mm. In RTL the right edge is the alignment edge, so 14.5 mm is the true side margin — tight for A4 and tighter than the top/bottom relationship suggests.",
+   "fix": "@page { size: A4; margin: 16mm 16mm 15mm 16mm; } and reduce header bottom spacing (.header { padding-bottom: 6pt; }) so the gained 3.4 mm at the top is offset by the removed card borders/padding."
+  },
+  {
+   "file": "services_ar",
+   "where": "Five service cards with 1 px rounded borders + section hairlines + 6 table rules + 4 process boxes + footer bar",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Four different separator systems compete (bordered cards, blue rule under each h2, grey rules between portfolio rows, filled process tiles). The grey card frames fragment the page into 11 boxes and steal ≈22 pt of vertical space that the Naskh leading badly needs.",
+   "fix": ".card { border: 0; border-radius: 0; background: #f4f6f9; padding: 8pt 10pt; } and keep only the h2 rule: h2 { border-bottom: 1px solid #0b4f8a; } .portfolio tr { border-bottom: 0.5px solid #e1e5ea; } (hairline, lighter). Process tiles: same #f4f6f9, no border."
+  },
+  {
+   "file": "services_ar",
+   "where": "Tanwīn alif words: 'نظاما', 'تطبيقا', 'موقعا', 'كاملا', 'مرتبطا', 'فعليا', 'رقميا', 'وصفا', 'تصورا', 'مجانيا'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "All adverbial accusatives are written without the tanwīn fatḥ. Many Saudi corporate documents keep it; its omission throughout reads as informal and makes 'وصفا' / 'تصورا' momentarily parse as other words.",
+   "fix": "Replace with 'نظامًا', 'تطبيقًا', 'موقعًا', 'كاملًا', 'مرتبطًا', 'فعليًا', 'رقميًا', 'وصفًا', 'تصورًا', 'مجانيًا'. Noto Naskh positions the fatḥatān correctly and pdftotext extracts U+064B unchanged."
+  },
+  {
+   "file": "services_ar",
+   "where": "Card 2: 'ورديات وإجازات وتقارير بصيغتي CSV و Excel'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "The conjunction 'و' floats detached before a Latin word, which Arabic typography avoids; it also creates an awkward 'و Excel' gap in the rag.",
+   "fix": "Rewrite: 'ورديات وإجازات وتقارير بصيغة CSV أو Excel' or 'ورديات وإجازات وتقارير CSV/Excel' (Latin pair in one <bdi>)."
+  },
+  {
+   "file": "services_ar",
+   "where": "Card 4 bullet 'تهيئة تقنية لمحركات البحث (SEO)'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "No verified item in the facts sheet states SEO work; the closest is the Bina site-audit agent (205 checks) and 'Search Console' OAuth in keif-aldiafa-ads-platform. 'SEO' as an offered service is unverified.",
+   "fix": "Replace with the verifiable wording: 'فحص تقني للمواقع (205 فحصًا) وربط Search Console'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Header contact row '… | alabbasi.uk' — no GitHub",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "All portfolio evidence in the facts sheet lives in public repos (HTTP 200), yet the only link offered is the company site. A technical buyer evaluating a remote vendor looks for code first.",
+   "fix": "Append '| github.com/MoTechSys' to the header row (IBM Plex Sans, <bdi dir=\"ltr\">), and drop '| معين العباسي' duplication by moving the name under the tagline: 'م. معين العباسي — مؤسس'."
+  },
+  {
+   "file": "services_ar",
+   "where": "Bullet glyphs '•' in service cards and 'التزاماتنا' list",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The Plex Sans bullet is optically large and heavy against Regular Naskh and is set ~4 pt from the text; in the 'التزاماتنا' list it is also vertically centred on the Latin x-height, so it sits high relative to the Naskh baseline-centred text.",
+   "fix": "li::marker { font-size: 0.75em; color: #0b4f8a; } ul { padding-inline-start: 1.1em; } li { padding-inline-start: 0.25em; } — or use '◦'/'–' from Noto Naskh. Keep list-style-position: outside so wrapped lines ('طراز iFace950') stay flush with the text edge, which is currently correct."
+  },
+  {
+   "file": "services_ar",
+   "where": "Footer CTA bar: 'لديك فكرة أو نظام يرهقك؟ … | واتساب: +967 770 941 666' (white on #0b4f8a, 10 pt)",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The bar is only ~9 mm tall with 10 pt text, pinned at 18.9 mm from the trim; the WhatsApp number — the single conversion action — is the same size as body text and is isolated at the far left, 160 mm away from the question.",
+   "fix": ".cta { padding: 9pt 12pt; } .cta .phone { font-size: 12pt; font-weight: 700; } and place the number directly after the question on the right side, left side empty or 'alabbasi.uk'. Keep <bdi dir=\"ltr\"> on the number."
+  },
+  {
+   "file": "services_ar",
+   "where": "Font pairing: Noto Naskh Arabic + IBM Plex Sans",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Noto Naskh is a calligraphic, high-contrast Naskh; Plex is a low-contrast grotesque. The styles clash on every mixed line, and Naskh's low x-body is the root cause of the small-looking 9–10 pt text. The choice is justified by 100% text extraction, so any alternative must pass the same test.",
+   "fix": "Test IBM Plex Sans Arabic (same family, matched x-height and weights; its only required ligature is lam-alef, which Noto Naskh also has and which already extracts correctly through your pipeline). Acceptance test before switching: render PDF → pdftotext -raw → diff against source HTML text; require zero differences, and also run pdftotext without -raw to check the bidi reorder. If it fails, stay with Noto Naskh and apply the 0.88em Latin size fix above instead."
+  },
+  {
+   "file": "services_ar",
+   "where": "Card grid: cards 1–4 in two columns, card 5 '5. وكلاء الذكاء الاصطناعي والأتمتة' full width; cards 1/2 and 3/4 forced equal height",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Card 5 breaks the two-column rhythm and leaves its two bullets stranded on 180 mm lines with its audience line alone at the right; meanwhile card 3 has an empty band at the bottom because it is stretched to card 4's height. Page balance would improve with 5 equal units.",
+   "fix": "Make the grid 3+2 or keep 2+2+1 but constrain card 5: .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 6pt; align-items: start; } .card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; } with the audience line in one column and the bullets in the other."
+  }
+ ],
+ "reviewer": "typographer_services_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 143.4
+}

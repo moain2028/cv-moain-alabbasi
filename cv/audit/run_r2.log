@@ -1,0 +1,25 @@
+[recruiter_intl] start -> claude-opus-5-5
+[hr_saudi] start -> gpt-6-astra
+[typographer_cv_en] start -> claude-fable-5-1
+[typographer_cv_ar] start -> claude-fable-5-1
+[typographer_services_ar] start -> claude-fable-5-1
+[fact_checker] start -> claude-opus-5-5
+[arabic_editor] start -> claude-fable-5-1
+[eng_lead] start -> gpt-6-astra
+recruiter_intl  claude-opus-5-5    score= 7 t=87.3s issues={'critical': 1, 'major': 7, 'minor': 10} 
+   verdict: Technically dense, ATS-clean CV with strong verifiable proof (Basira metrics, live device tests, test counts), but a hiring manager will doubt one 2026-only 'Founder' entry carrying ~20 systems, verb-less outcome-free bu
+hr_saudi        gpt-6-astra        score= 6 t=112.9s issues={'critical': 1, 'major': 12, 'minor': 5} 
+   verdict: السيرة تعرض أعمالًا تقنية واعدة وتستحق مقابلة فنية، لكن الادعاءات غير المتحققة وغياب ملف الخدمات يمنعانني من اعتماد التوظيف أو الترسية قبل التحقق من المساهمة الفعلية وآلية التعاقد والتسليم.
+typographer_cv_en claude-fable-5-1   score= 7 t=134.7s issues={'major': 6, 'minor': 12} 
+   verdict: A disciplined, well-weighted Plex Sans résumé with a sound three-colour system, undermined by an orphaned header line, a measure of ~100 characters that spawns six one- or two-word tail lines, an under-differentiated typ
+typographer_cv_ar claude-fable-5-1   score= 7 t=142.4s issues={'critical': 2, 'major': 6, 'minor': 10} 
+   verdict: A clean, well-balanced two-page Arabic CV with sound colour and bullet discipline, but the text layer scrambles every mixed-direction run (parentheses, colons, stack lines), the measure is far too long for Naskh at 10.9 
+typographer_services_ar claude-fable-5-1   score= 7 t=162.1s issues={'major': 5, 'minor': 13} 
+   verdict: A competent, well-structured one-page services sheet whose main weaknesses are a top-heavy page (12.6 mm top vs 32.9 mm bottom), an almost flat hierarchy between section heads and card titles, over-long measures in the i
+fact_checker    claude-opus-5-5    score= 6 t=73.1s issues={'critical': 1, 'major': 9, 'minor': 8} 
+   verdict: The headline numbers in all three documents match the verified sheet, but each one contains unverified links, stack items, client and city attributions, and wording that overstates status. The services profile is the wea
+arabic_editor   claude-fable-5-1   score= 7 t=220.6s issues={'major': 7, 'minor': 11} 
+   verdict: Clean, well-structured MSA with a professional register, but several unverifiable embellishments (dates, extra features, stack items) and a handful of agreement/preposition, terminology-consistency and typographic slips 
+eng_lead        gpt-6-astra        score= 6 t=99.6s issues={'critical': 1, 'major': 15, 'minor': 2} 
+   verdict: A promising, unusually concrete engineering portfolio, but unsupported implementation details and employment claims weaken credibility, and the CV does not yet establish senior-level production ownership.
+saved /home/user/webapp/cv/audit/reviews_r2.json

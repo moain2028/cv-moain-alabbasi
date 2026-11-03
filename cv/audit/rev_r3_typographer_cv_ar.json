@@ -1,0 +1,153 @@
+{
+ "verdict": "A disciplined, well-leaded Naskh/Plex layout with correct visual bidi, but the page box is overfull (4.1 mm bottom margin, 103–104% fill), Latin runs look a size larger than the Arabic, the ATS text order of punctuation around Latin tokens is scrambled, and a handful of claims (qahwajeen.com, Docker/GitHub Actions/pytest, Ai_Alabbasi privacy) are not in the verified facts.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_ar",
+   "where": "Both pages — footer 'معين العباسي — 1/2' / '2/2'; metrics bottom margin 4.1 mm, vertical_fill 103.4% and 104.3%",
+   "severity": "critical",
+   "category": "layout",
+   "problem": "Content box is taller than the page (fill >100%) and the footer sits 4.1 mm from the trim edge — inside the unprintable zone of most office printers and visually cramped against a 13.4 mm top margin. Side margins 18 mm vs top 13.4 mm vs bottom 4.1 mm give no consistent frame.",
+   "fix": "@page { size: A4; margin: 16mm 18mm 18mm 18mm; } body { font-size: 10.5pt; line-height: 1.5; } .footer { position: fixed; bottom: 8mm; right: 18mm; } (or use @page @bottom-right { content: 'معين العباسي · ' counter(page) '/' counter(pages); }). Together with the two line-saving fixes below (merge 'Flutter' stack lines, drop the duplicated remote-work sentence) this brings both pages to ≤100%."
+  },
+  {
+   "file": "cv_ar",
+   "where": "All body text with inline Latin, e.g. 'يعمل مباشرة على قاعدة بيانات Oracle القائمة', 'من أجهزة ZKTeco', 'بمعيار AES-256-GCM'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "IBM Plex Sans has a large x-height; Noto Naskh Arabic has small loops and a low tooth height. At the same 10.93 pt the Latin words read ~1 size larger and darker than the surrounding Arabic, so every brand name 'pops' and breaks the grey of the paragraph.",
+   "fix": "Keep Noto Naskh (extraction verified) and optically shrink the Latin only: @font-face { font-family: 'Plex Latin'; src: url(IBMPlexSans-Regular.ttf); size-adjust: 91%; unicode-range: U+0000-024F, U+2000-206F; } then body { font-family: 'Plex Latin', 'Noto Naskh Arabic'; font-size: 11pt; }. size-adjust changes only rendering scale, not the cmap/ToUnicode, so pdftotext output is unchanged. Optional alternative pairing: IBM Plex Sans Arabic (same design DNA, matching x-height) — adopt only if (1) embedded as TTF with full cmap, (2) font-feature-settings: 'rlig' 1, 'liga' 0, 'dlig' 0, 'calt' 0 so no lam-alef/ligature glyphs lacking ToUnicode entries appear, and (3) pdftotext output diffs 100% against the source string."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Extracted text: 'واتساب‪alabbasi.uk · github.com/MoTechSys · moain.learn@gmail.com · +967 770 941 666 :', '‪ :YemenSoft Onyx Pro‬', ')‪Go, PostgreSQL, Python (pyzk‬', '‪ ،NetBird‬', '‪ ،CSV/Excel‬'",
+   "severity": "major",
+   "category": "ats",
+   "problem": "Visually the colon, Arabic comma and parentheses are placed correctly, but the Latin runs are not isolated, so the ATS text stream puts the colon after the whole contact line, the colon before 'YemenSoft', the Arabic comma before 'NetBird' and the closing paren before 'Go'. Parsers read ':YemenSoft Onyx Pro' and ')Go, PostgreSQL, Python (pyzk' — stack lines and the WhatsApp number may be mis-tokenised.",
+   "fix": ".stack, .contact .latin { direction: ltr; unicode-bidi: isolate; text-align: right; } and wrap every inline Latin token in <bdi>…</bdi> (or <span dir=\"ltr\">). For the header: <span>واتساب:</span> <bdi>+967 770 941 666</bdi> · <bdi>moain.learn@gmail.com</bdi> · <bdi>github.com/MoTechSys</bdi> · <bdi>alabbasi.uk</bdi>. Re-run pdftotext and confirm 'واتساب: +967 770 941 666' and 'Python (pyzk)' come out in order."
+  },
+  {
+   "file": "cv_ar",
+   "where": "First experience bullet: '…عبر البلوتوث باستخدام Web' / 'Serial، مع توثيق سبب فشل…'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "The two-word technical term 'Web Serial' is split across a line break, leaving 'Web' stranded at the left edge of line 2 and 'Serial،' opening line 3 — the reader has to rejoin the API name mentally.",
+   "fix": "Mark multi-word Latin terms as unbreakable: <span class=\"nb\">Web Serial</span>, with .nb { white-space: nowrap; } — apply also to 'YemenSoft Onyx Pro', 'Bixolon SPP-R310', 'Search Console', 'Cloudflare D1', 'Moain Promoter AI'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Experience bullet 'علامات ضيافة سعودية: مواقع keifaldiafa.com وasoulaldiafa.com وqahwajeen.com'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Facts sheet: qahwajeen.com is live but 'no repo found'. Listing it among the candidate's built sites is unverified and a Saudi client could check it.",
+   "fix": "Replace with 'علامات ضيافة سعودية في جدة: موقعا keifaldiafa.com وasoulaldiafa.com، وتطبيقا أندرويد لكيف الضيافة وأصول الضيافة بإصدارات موقعة رقميا مع قفل عن بعد.' and drop 'وqahwajeen.com'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Skills row 'النشر والجودة: Docker, GitHub Actions, Cloudflare, pytest, Playwright'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'Docker', 'GitHub Actions' and 'pytest' appear nowhere in the verified repository facts; the only named test frameworks are Vitest (Basira frontend, Idhaat) and unnamed backend/bot suites. Unverifiable skills dilute the credibility of the measured ones.",
+   "fix": "Replace the row value with 'Cloudflare (Pages, D1, R2), Vitest, Playwright, cosign'. If Docker/GitHub Actions are genuinely used, add them only after a README/workflow file is confirmed."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Page 2 top: 'منصور AI (مستودع خاص)' starts the page with no section heading; 'وكلاء الذكاء الاصطناعي' heading + Basira are the last block of page 1",
+   "severity": "major",
+   "category": "layout",
+   "problem": "The AI-agents section is cut after its first item; page 2 opens with a bare bold title and a 10.93 pt paragraph at the very top, so a reader starting on page 2 (or a split PDF viewer) has no idea which section these belong to. Also h2 → p runs are not protected.",
+   "fix": "h2 { break-after: avoid; } .project, li { break-inside: avoid; } and emit a continuation heading at the top of page 2: <h2 class=\"cont\">وكلاء الذكاء الاصطناعي (تابع)</h2> with .cont { font-size: 11pt; color: #566173; border-bottom: none; margin: 0 0 6pt; }. Alternatively set the whole section to break-before: page after reducing body to 10.5pt/15.75pt so page 1 ends on the 'علامات ضيافة سعودية' bullet."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Header: name 21.86 pt, subtitle 'مهندس برمجيات · أنظمة أعمال متكاملة · وكلاء ذكاء اصطناعي' 13.42 pt; section heads 'نبذة مهنية', 'الخبرة العملية' 12.72 pt",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Hierarchy inversion: the blue subtitle (13.42 pt) is larger than the blue section headings (12.72 pt), and both share the same #0b4f8a as hyperlinks, so three different roles read as one level. Name is only 2× body — low for a résumé masthead.",
+   "fix": "h1 { font-size: 24pt; line-height: 1.15; color: #16202e; } .subtitle { font-size: 12pt; font-weight: 600; color: #16202e; } h2 { font-size: 14pt; font-weight: 700; color: #0b4f8a; border-bottom: 0.6pt solid #c9d1dc; padding-bottom: 3pt; margin: 14pt 0 7pt; } a { color: #0b4f8a; text-decoration: underline; text-underline-offset: 2pt; }"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Metrics: chars_per_full_line median 95.5, max 120, text width ≈174 mm at 10.93 pt",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A 174 mm measure of connected Naskh at 10.9 pt yields ~95–120 characters per line; the eye loses the return sweep, especially in the 5-line summary paragraph and the Basira paragraph. Comfortable Arabic body measure is 70–85 characters.",
+   "fix": "@page { margin: 16mm 22mm 18mm 22mm; } (text width 166 mm) combined with body { font-size: 11pt; } brings the median to ≈80 characters; keep line-height: 1.5 (16.5 pt) — Naskh needs it."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Summary: '…ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 حالة تقييم'",
+   "severity": "minor",
+   "category": "content",
+   "problem": "Facts: 150/150 is the evaluation set and 0/500 false alarms is a separate span set. The summary calls the 500 'حالة تقييم' while the Basira entry correctly says '500 مقطع' — inconsistent metric naming that a careful reader will notice.",
+   "fix": "Change to 'ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 مقطع'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "AI section: 'Ai_Alabbasi (مستودع خاص)'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Only Mansur AI is documented as private in the facts sheet; the privacy status of Ai_Alabbasi is not verified. If it is public, the label hides a checkable link; if private, it is unverified.",
+   "fix": "Remove '(مستودع خاص)' after 'Ai_Alabbasi' unless confirmed, or add the public repo URL in the same style as 'بصيرة · basirapp.site'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "AI section: 'Moain Promoter AI — سبعة وكلاء متخصصين تحت منسق رئيسي، يكتبون منشورات بالعربية والإنجليزية لست منصات، مع لوحة تحكم.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'بالعربية والإنجليزية' (Arabic and English posts) is not in the verified README facts (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright).",
+   "fix": "Replace with 'سبعة وكلاء متخصصين تحت منسق رئيسي ينشرون على ست منصات، مع لوحة تحكم Next.js.'"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Experience bullet: 'أدوات Google Ads لشركة كيف الضيافة في جدة: … ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء…'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Facts: keif-aldiafa-ads-platform has 'phase 0 done'; it is the multi-client ads-agency-platform that has 'phase 1 done'. The sentence assigns 'المرحلة الأولى' to the wrong project.",
+   "fix": "Rewrite: 'أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم مع Google Ads ومنصة Search Console واستعلامات GAQL ولوحة تحكم عربية (أُنجزت المرحلة صفر)، ثم منصة إعلانات لعدة عملاء ببيانات حية وقاعدة من 12 جدولا (أُنجزت المرحلة الأولى).'"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Fonts metric: 'LiberationSerif 0.1%' — most likely the em dash in the footer 'معين العباسي — 1/2' or the guillemets «بصيرة»",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A system serif fallback was substituted for at least one glyph missing from the declared stack, producing a visibly different dash/quote weight and an extra embedded font in the PDF.",
+   "fix": "Run pdffonts/pdfinfo to locate the glyph; then either add the glyph's font explicitly — .footer { font-family: 'IBM Plex Sans', 'Noto Naskh Arabic'; } — or replace '—' with '·' in the footer and use \"…\" or Plex-supported «» (U+00AB/U+00BB are in Plex Sans) for the quotes, and re-check that only Plex + Noto Naskh remain embedded."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Selected projects: 'دفتر البقالة' and 'سجل' each followed by a lone grey stack line 'Flutter'",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Two single-word stack lines (metrics short_tail_lines) create visual holes and cost two lines on an already overfull page.",
+   "fix": "Fold the stack into the title line: '<h3>دفتر البقالة <span class=\"stack-inline\">· Flutter</span></h3>' and '<h3>سجل <span class=\"stack-inline\">· Flutter</span></h3>' with .stack-inline { font-weight: 400; color: #566173; font-size: 9.5pt; direction: ltr; unicode-bidi: isolate; }"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Footer 'معين العباسي — 1/2' positioned bottom-left on both pages",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "In an RTL document the running footer belongs at the reading start (right) or centre; bottom-left reads as a leftover from the LTR template and clashes with the right-aligned content column.",
+   "fix": ".footer { right: 18mm; left: auto; text-align: right; direction: rtl; } or @page { @bottom-right { content: 'معين العباسي · ' counter(page) '/' counter(pages); font: 9pt 'IBM Plex Sans', 'Noto Naskh Arabic'; color: #566173; } }"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Header line 'صنعاء، اليمن · عمل عن بعد وفق توقيت السعودية' and summary last sentence 'أعمل عن بعد بالكامل وفق توقيت السعودية.'",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The same statement appears twice within 6 lines; the repetition adds a line to the overfull page 1 and weakens the summary's close.",
+   "fix": "Delete 'أعمل عن بعد بالكامل وفق توقيت السعودية.' from the summary so it ends on '…دون أي إنذار خاطئ في 500 مقطع.'"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Selected projects: 'غيداء — دليل منزلي للعاملات بلغتهن الأم مع صوت لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'بلغتهن الأم' (in their mother tongue) is not stated in the verified facts (domestic-worker household book, AI voice per sentence, offline PWA, admin panel, API 27/27); the AI nature of the voice is omitted.",
+   "fix": "Replace with 'دليل منزلي للعاملات مع صوت مولّد بالذكاء الاصطناعي لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'"
+  }
+ ],
+ "reviewer": "typographer_cv_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 192.0
+}
