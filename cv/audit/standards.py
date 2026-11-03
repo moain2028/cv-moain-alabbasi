@@ -32,7 +32,12 @@ def check(name, m):
     rows = []
     pdf = ROOT / "output" / name
     b = body_size(m)
-    sizes = sorted(float(s) for s, share in m["sizes_pt"].items() if float(share.rstrip("%")) >= 0.1)
+    raw = sorted(float(s) for s, share in m["sizes_pt"].items() if float(share.rstrip("%")) >= 0.1)
+    # Sizes closer than 0.15 pt are the same nominal size (font-metric rounding, e.g. Naskh 9.5 pt -> 9.44/9.49).
+    sizes = []
+    for v in raw:
+        if not sizes or v - sizes[-1] >= 0.15:
+            sizes.append(v)
     heads = [s for s in sizes if s > b]
     small = min(sizes)
     rows.append(("Body size 10-12 pt", f"{b:.2f} pt", 10 <= b <= 12, "harvard"))
@@ -41,6 +46,8 @@ def check(name, m):
     rows.append(("Distinct sizes <= 5", str(len(sizes)), len(sizes) <= 5, "scale"))
     mg = [v for p in m["margins_mm"].values() for k, v in p.items() if k in ("left", "right", "top")]
     rows.append(("Margins >= 12.7 mm (0.5 in)", f"min {min(mg)} mm", min(mg) >= 12.0, "harvard"))
+    bot = min(p["bottom"] for p in m["margins_mm"].values())
+    rows.append(("Bottom edge >= 8 mm (printable)", f"min {bot} mm", bot >= 8.0, "harvard"))
     lead = m["leading"].get(str(round(b, 2)), {}).get("ratio") or max((v["ratio"] for v in m["leading"].values()), default=0)
     rows.append(("Line height >= 1.4", f"{lead}", lead >= 1.4, "wcag1412"))
     cpl = m["chars_per_full_line"]["median"]

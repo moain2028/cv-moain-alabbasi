@@ -1,0 +1,153 @@
+{
+ "verdict": "A promising, unusually concrete engineering portfolio, but unsupported implementation details and employment claims weaken credibility, and the CV does not yet establish senior-level production ownership.",
+ "score_10": 6,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE — “Founder & Software Engineer · Alabbasi Tech” and “2026 – Present”",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "The founder title, employment relationship and employment dates are unverified. Repository dates do not establish professional tenure. Presenting all projects as company experience also implies commercial delivery and individual ownership that the facts sheet does not establish.",
+   "fix": "Rename “EXPERIENCE” to “SELECTED ENGINEERING WORK”. Replace the employer/title/date line with “Business systems, integrations and remote-access tooling”. Remove “2026 – Present”; retain alabbasi.uk in the contact header."
+  },
+  {
+   "file": "cv_en",
+   "where": "Basira — “byte-exactly”, “licensed corpora”, “an optional LLM only proposes spans and reads images (OCR), and never decides a verdict”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The dataset size, evaluation figures, tests and interfaces are strong signals. However, byte-exact matching, corpus licensing, the LLM/OCR boundary and the Python/FastAPI/React stack are unverified. These are substantive algorithm, legal and safety claims. I would probe Arabic normalization, quotation boundaries, evaluation-set construction, leakage and what the IslamicEval percentage measures; 0/500 must not imply a production false-positive guarantee.",
+   "fix": "Replace the description with: “Quran/Hadith quotation verification against 71,987 records. README-reported results: 150/150 evaluation; 0 false alarms in 500 cases; 78.54% on IslamicEval 2025 subtask 1B (dev set). 487 tests: 345 backend, 110 bot and 32 frontend. Exposes a REST API, MCP server and Telegram bot (@BasiraCheckBot). Entry to the AI in Service of Islamic Content Challenge 2026, Track 4.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "POS — “POS replacing YemenSoft Onyx Pro”, “Arabic receipts”, and “BullMQ, OpenAPI”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The existing Oracle schema and documented printer failure would impress me: they demonstrate real integration constraints rather than a tutorial application. Arabic receipt rendering, BullMQ and OpenAPI are unverified for this project. The replacement wording can also imply a completed customer migration. I would probe transaction boundaries, returns consistency, compatibility with existing PL/SQL and whether interrupted printing can duplicate a sale.",
+   "fix": "Replace with: “POS built to replace YemenSoft Onyx Pro on the existing Oracle YSPOS23 schema, with auth, bills, catalog, customers, reports, returns and shifts. Field-tested receipt printing on a Bixolon SPP-R310 over Bluetooth SPP via Web Serial; documented the failed Xprinter USB path caused by the Windows driver. — NestJS 10, React 19, Oracle PL/SQL”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Motech Attendance — “Tested on a live device (3,118 punches)” and “systemd”",
+   "severity": "major",
+   "category": "content",
+   "problem": "Central ingestion, branch collectors and idempotency are excellent architecture signals. Omitting the verified 11-user test scope makes the scale harder to interpret; systemd is unverified. WPS export is not evidence of regulatory certification or acceptance. I would probe deduplication keys, delayed punches, overnight shifts, collector retries, tenant isolation and export validation.",
+   "fix": "Replace with: “Attendance system designed to replace ZKTeco desktop software: Python/pyzk branch collectors pull punches over TCP/4370 into a central multi-tenant Go service with idempotent ingest. Tested on a live iFace950 with 11 users and 3,118 punches. Includes shifts, leave balances, CSV/Excel reports and WPS exports for KSA (MHRSD/SAMA) and UAE (SIF). — Go, PostgreSQL, Python/pyzk”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Nexus Notify — “behind one API” and “dual SIM, foreground service”",
+   "severity": "major",
+   "category": "content",
+   "problem": "NestJS, BullMQ and a physical Android SMS gateway form a credible systems project. A single API and foreground-service implementation are unverified. Multi-tenancy and multi-channel delivery alone do not establish reliability: I would probe tenant-scoped authorization, job retries, duplicate delivery, provider rate limits, dead-letter handling and Android execution restrictions. No delivery volume, reliability result or testing scope is supplied.",
+   "fix": "Replace with: “Multi-tenant, multi-channel notification platform using NestJS, PostgreSQL 17, Prisma and Redis/BullMQ, with an Angular 22 dashboard and a Kotlin/Jetpack Compose Android SMS gateway supporting dual SIM.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Secure remote access — “Zero-Trust platform”, “single-command CLI agent”, and “releases signed with cosign in GitHub Actions”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Signed releases, per-user policies and session audit are concrete; “Zero-Trust” is an architectural label, not proof of a security boundary. Single-command operation and GitHub Actions signing are unverified. I would probe identity bootstrap, policy enforcement, revocation, SSH authorization and verification of cosign identities; release signing does not itself secure runtime access.",
+   "fix": "Replace with: “Remote-access tooling using Go, SSH and a NetBird mesh, with signed agents, per-user policies and session audit. Cross-platform motech-cli joins the mesh; CLI releases use cosign keyless signing.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Google Ads tooling — “for Keif Al-Diafa (Jeddah)”, “persistent OAuth”, and the combined Hono/Next.js stack",
+   "severity": "major",
+   "category": "fact",
+   "problem": "This combines two separate repositories and delivery phases into one apparent architecture. Jeddah, persistent OAuth behavior and free-form query support are unverified. The current wording invites questions about why both D1 and PostgreSQL are needed when they belong to different projects. I would also probe token storage, refresh failures, tenant account authorization and API quotas.",
+   "fix": "Replace with two bullets: “keif-aldiafa-ads-platform — Phase 0 complete: OAuth integration with Google Ads and Search Console, GAQL queries and an Arabic dashboard. — Hono, Cloudflare D1” and “ads-agency-platform — Phase 1 complete: multi-tenant Google Ads platform across clients, with live API data, a dashboard and a 12-table schema. — Next.js 15, Prisma, PostgreSQL 16”"
+  },
+  {
+   "file": "cv_en",
+   "where": "keif-publisher — “from a media archive”, “dry-run and kill switch on by default”, and “Python, FastAPI, APScheduler”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Human approval, dry-run operation and a kill switch are useful safety signals. Only dry-run is verified as the default; claiming an enabled kill switch by default changes the operational meaning. The media archive and stack are unverified. I would probe whether approval binds to the exact published content and how cancellation interacts with queued work.",
+   "fix": "Replace with: “AI content generation with a human approval gate and scheduled publishing; dry-run is the default, with a kill switch available to stop publishing.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Mansur AI — “ReAct executor”, named memory types, “skills saved from successful runs”, and “SQLite”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "These implementation details are unverified. The verified planner/executor/verifier/learner flow, fallback and cost tracking are more persuasive than the agent count. Thirteen agents and 38 tools do not establish task success or justify orchestration complexity. I would probe graph state, termination, failure recovery, verification criteria, memory contamination and what the 82 tests actually exercise. The private repository also limits independent inspection.",
+   "fix": "Replace with: “Private-repository project with a LangGraph planner/executor/verifier/learner workflow, 13 agents and 38 tools. Includes model routing with fallback and cost tracking, hierarchical memory, and an Arabic UI using FastAPI and WebSocket. 82 passing tests.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Ai_Alabbasi — “swapped from one config file (Claude, GPT-5, DeepSeek or a local model); task planner”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The configuration mechanism, named model compatibility and task planner are unverified. “Sandboxed Python” is verified as a repository claim but needs security scrutiny: I would ask about process/container isolation, filesystem and network access, resource limits and secret exposure. FTS5/vector retrieval with RRF is a specific, credible implementation signal, but no retrieval evaluation or comparison is given.",
+   "fix": "Replace with: “Coding agent with a swappable model backend, CodeAct sandboxed Python execution, and hybrid retrieval combining FTS5 and vector search through reciprocal rank fusion (RRF).”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Moain Promoter AI and MCP and agent tooling — “bilingual Arabic/English”, “reusable agents”, and “Arabic SEO content”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Bilingual generation, the Python stack attribution, reusability and Arabic SEO specialization are unverified. Agent and platform counts alone read like feature inventory. The MCP section omits the verified 18-tool surface and the 205-check audit scope. I would probe MCP schemas, transport, authentication and tool permissions, and distinguish deterministic audit checks from model judgments.",
+   "fix": "Replace these descriptions with: “Moain Promoter AI — Seven specialised agents plus an orchestrator for six platforms, with a Next.js dashboard, Celery/Redis and Playwright.” and “MCP and agent tooling — Diafa Studio exposes 18 tools for Arabic PDF generation through an MCP server; telegram-mcp-2 provides a Telegram MCP server. Bina includes a site-audit agent covering 205 checks, a site-rebuild agent and a content agent.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Idhaat — “conflict-free”, “self-hosted Jitsi”, “a JWT for each lesson”, “in chunks”, and “protected player”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "These guarantees and implementation details are unverified. Four-room allocation, JWT-enabled fallback, recording retention and running cost are useful signals without embellishment. I would probe allocation races, JWT scope/expiry, R2 access control and retention enforcement; a watermark is not access control. The 25 SAR figure has no verified usage denominator. The exact repository URL is also not confirmed in the supplied sheet.",
+   "fix": "Use the heading “Idhaat” and replace the description with: “Live-tutoring platform that automatically allocates four Zoom rooms and provides Jitsi fallback with JWT. Records to Cloudflare R2 during class with 48-hour retention; displays a moving watermark containing the student’s name and number. Includes homework, messaging and finances. Reported running cost: approximately 25 SAR/month. — Hono, Cloudflare Pages, D1, R2, Vitest”"
+  },
+  {
+   "file": "cv_en",
+   "where": "SOC — “built on open-source tools” and “including automatic blocking of SSH brute-force attacks”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Automatic SSH blocking is unverified, and the open-source umbrella inaccurately characterizes VirusTotal alongside the other components. The existing team and lab labels are good. Personal contribution is not specified, so this cannot establish sole ownership or production SOC experience. I would probe event ingestion, Wazuh rule tuning, Suricata alert correlation, false positives and the boundary between automatic response and human-approved AI actions.",
+   "fix": "Replace with: “Team graduation project integrating Wazuh 4.14.7, Suricata, YARA, VirusTotal, auditd and MikroTik syslog, with an AI analyst requiring human approval. Fourteen use cases verified in a lab. Separate digital-forensics lab work with Autopsy and FTK Imager, covering registry, event-log and browser forensics.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS — “REST/OpenAPI”, “RAG”, “OpenAI, Anthropic, Gemini”, “ESC/POS”, “Docker, GitHub Actions, Cloudflare, Linux; pytest”, and “Languages”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The breadth is plausible across the verified projects, but the flat list suggests equal depth in every stack. OpenAPI, RAG, named model providers, ESC/POS, Docker, GitHub Actions, Linux, pytest and Arabic RTL implementation are not verified by the supplied sheet. Neither language-proficiency statement is confirmed. Playwright use is verified, but not specifically as a testing practice. Wazuh and Suricata should remain explicitly lab experience rather than imply operational security ownership.",
+   "fix": "Replace the skills block with: “Backend & data: NestJS, Go, FastAPI, Hono; PostgreSQL, Oracle PL/SQL, Prisma, Redis/BullMQ, Celery, Cloudflare D1.\\nWeb & mobile: TypeScript, React, Next.js, Angular, Tailwind CSS, IndexedDB, Flutter, Kotlin/Jetpack Compose, ML Kit.\\nAI & integration: LangGraph, MCP servers, CodeAct, FTS5/vector retrieval with RRF, model routing; pyzk, Web Serial/Bluetooth SPP, Google Ads API.\\nTesting & automation: Vitest, Playwright.\\nRemote access: SSH, NetBird, cosign keyless signing.\\nSecurity lab: Wazuh, Suricata, YARA, auditd, Autopsy, FTK Imager.” Remove the language-proficiency row pending confirmation."
+  },
+  {
+   "file": "cv_en",
+   "where": "Grocery Ledger — “accounting and POS”, “PDF/Excel export”, “157 passing tests”; Ghaida — “in their native language”; S-ACM — “Academic content-management system”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The supplied sheet does not verify Grocery Ledger's POS scope, PDF/Excel export or passing status, Ghaida's native-language support, or S-ACM's expanded product classification. Ghaida and S-ACM repository paths shown in the CV are also not explicitly confirmed. Append-only ledgers, scanner integration and Sijil's accessible interaction design are stronger evidence than these additions. I would probe ledger correction semantics and offline persistence; 'offline' does not establish synchronization or recovery guarantees.",
+   "fix": "Use: “Grocery Ledger · github.com/MoTechSys/mohanad-web-app-2 — Offline Flutter Android ledger, v2.2.1, with append-only ledgers and barcode input through ML Kit camera scanning or USB/Bluetooth HID scanners. 157 tests.” Use: “Ghaida — Household guidebook for domestic workers, with AI voice per sentence, an offline PWA and an admin panel.” Use: “S-ACM — AI summarisation and question generation. — React 19, TypeScript 5, Tailwind 4”"
+  },
+  {
+   "file": "cv_en",
+   "where": "“Websites for Saudi hospitality brands” and “In development: an offline-first event-management PWA”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "HTTP 200 checks establish live sites, not the candidate's authorship, a client relationship, Saudi brand status or measurable business impact. The event/hospitality PWA's in-development status is unverified; only the legacy PHP modernization is explicitly in progress. Do not restore outdated traffic numbers.",
+   "fix": "Replace with: “Event and hospitality PWA using Angular 22.1 and IndexedDB for offline operation. Legacy PHP accounting modernization: modern layer under construction.” Move the domains to a separate line labeled “Live sites: keifaldiafa.com · asoulaldiafa.com · qahwajeen.com”, without claiming customer delivery."
+  },
+  {
+   "file": "cv_en",
+   "where": "SUMMARY — “from database and API to web, mobile, hardware integration and deployment” and “with 0/500 false alarms”",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "This is an expansive capability statement rather than a focused hiring proposition. Deployment ownership is unverified, and the unqualified false-alarm figure repeats a benchmark as though it were an operational guarantee. The strongest differentiator is integration with existing databases and physical devices, coupled with evaluated AI work.",
+   "fix": "Replace with: “Software engineer focused on business-system integrations and AI tooling. Portfolio includes a NestJS/React POS on an existing Oracle schema, a Go attendance service with branch collectors and idempotent ingest, and Basira, a Quran/Hadith quotation verifier with documented evaluations and 487 tests. Based in Sana’a, Yemen; remote only.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "Overall project ordering across “EXPERIENCE”, “AI AGENTS & APPLIED AI” and “SELECTED PROJECTS”",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "The volume makes this read as a repository catalogue rather than a senior-engineering case. POS field testing, attendance ingestion, Basira evaluation, Idhaat constraints and Sijil accessibility would earn interview time. Repeated agent/tool counts are weaker. Production load, latency, reliability, observability, test composition, migration safety and individual ownership are not established; test totals alone do not fill those gaps.",
+   "fix": "After SUMMARY, present detailed entries in this order: POS, Motech Attendance, Basira, Nexus Notify, Idhaat and Mansur AI. Follow with a compact “ADDITIONAL PROJECTS” section for the remaining work, retaining the documented limitations and project phases. Keep SOC under its explicit team/lab heading. Do not add production scale, uptime, coverage, savings or leadership claims without further verification."
+  }
+ ],
+ "reviewer": "eng_lead",
+ "model": "gpt-6-astra",
+ "seconds": 99.6
+}

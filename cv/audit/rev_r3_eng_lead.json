@@ -1,0 +1,145 @@
+{
+ "verdict": "Strong evidence of practical full-stack integration and applied-AI work warrants an interview, but unsupported details, portfolio breadth and limited evidence of operational scale prevent this CV alone from establishing senior-level depth.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: “permanent OAuth connector”, “free-form GAQL”, “then phase 1”, “for several clients”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "This merges two repositories into an unverified delivery sequence and implies multiple actual customers. The verified facts establish a Keif Al-Diafa phase-0 tool and a separate phase-1 multi-tenant platform, not their chronology or customer adoption. “Permanent” appears in the README but is technically misleading because OAuth access can be revoked; “free GAQL” does not establish an unrestricted query interface. I would probe refresh-token storage, revocation, tenant authorization and API quotas.",
+   "fix": "Replace the bullet with: “Google Ads tooling — built a phase-0 Arabic dashboard for Keif Al-Diafa, Jeddah, with OAuth connections to Google Ads and Search Console using Hono and Cloudflare D1. Separately completed phase 1 of a multi-tenant Google Ads platform with live API data and a 12-table PostgreSQL schema. — Next.js 15, Prisma, PostgreSQL 16”"
+  },
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: “Secure remote access — built remote access to client machines” and “cosign-signed releases from GitHub Actions. — Go, PostgreSQL”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The signing, mesh networking, key rotation and encryption are concrete security signals. Deployment to client machines, GitHub Actions and PostgreSQL are unverified for this project. “Secure” is broader than the documented controls establish. I would probe signing-certificate validation, update trust, key custody, revocation and whether the activity log is tamper-resistant; encryption and signatures alone do not establish these properties.",
+   "fix": "Replace with: “Remote-access tooling — implemented an Authenticode-signed Windows service with a 20-second heartbeat, NetBird mesh connectivity, SSH key rotation, AES-256-GCM encryption of private keys and activity logging. Built a cross-platform CLI that joins the mesh, with cosign keyless-signed releases. — Go, SSH, NetBird”"
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: “Arabic RTL”, “OpenAI, Anthropic, Gemini”, “ESC/POS”, “Docker, GitHub Actions”, “Linux; pytest”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Most of the breadth is backed by named projects, but the flat list implies comparable depth across backend, mobile, AI, security and operations. Arabic RTL implementation, Gemini, ESC/POS, Docker, GitHub Actions, Linux administration and pytest are unverified in the supplied facts. Support for Claude and GPT models does not independently establish direct provider-SDK expertise. Wazuh and forensics should be explicitly identified as lab experience rather than production security operations.",
+   "fix": "Replace the skills block, excluding the separate Languages row, with:\n“Backend & languages: TypeScript, Python, Go, SQL/PLSQL; NestJS, FastAPI, Hono, Prisma, REST/OpenAPI, WebSockets\nData & background jobs: PostgreSQL, Oracle, SQLite, Cloudflare D1; Redis, BullMQ, Celery\nWeb & mobile: React, Next.js, Angular, Tailwind CSS, offline PWAs, IndexedDB; Flutter/Dart, Kotlin, Jetpack Compose, ML Kit\nAI & retrieval: LangGraph, MCP servers, CodeAct, RAG, FTS5/vector retrieval with RRF, model routing\nIntegrations: ZKTeco/pyzk, Bluetooth receipt printing through Web Serial, Google Ads API\nDeployment & testing tools: Cloudflare Pages/R2, Vitest, Playwright\nRemote access: NetBird, SSH, Authenticode, cosign\nSecurity labs: Wazuh, Suricata, YARA, auditd, Autopsy, FTK Imager”"
+  },
+  {
+   "file": "cv_en",
+   "where": "AI AGENTS & APPLIED AI: Basira — “150/150 evaluation cases, 0/500 false alarms, 78.54% on IslamicEval 2025 subtask 1B (public dev set)”",
+   "severity": "major",
+   "category": "content",
+   "problem": "The deterministic verdict boundary is one of the CV’s strongest architecture decisions. However, three different evaluation results are compressed together without metric definitions or sampling context. The percentage’s metric name and independent or held-out validation are unverified; 0/500 must not imply a universal zero false-positive rate. I would probe Arabic normalization versus byte-exact matching, corpus licensing, evaluation overlap, negative-example selection and which failures the 487 tests cover.",
+   "fix": "Replace the description with: “Built a Quran/Hadith quotation verifier using byte-exact matching against 71,987 records from licensed corpora. Optional model assistance proposes spans and performs OCR; it does not determine verification verdicts. Reported evaluations: 150/150 cases, 0 false alarms across 500 evaluated examples, and 78.54% on IslamicEval 2025 subtask 1B (dev set). 487 automated tests: 345 backend, 110 bot and 32 frontend. Exposes a REST API, MCP server and Telegram bot. — Python, FastAPI, React 19”"
+  },
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: Motech Attendance — “multi-tenant service with idempotent ingest” and “Tested on a live device (3,118 punches). — Go, PostgreSQL, Python (pyzk), systemd”",
+   "severity": "major",
+   "category": "content",
+   "problem": "Branch collectors, device integration and idempotent ingestion are strong engineering signals. The verified test scope is one live iFace950 with 11 users, not demonstrated multi-branch production scale. systemd is unverified. WPS export support is verified, but regulatory acceptance or certification is not. I would probe deduplication keys, replay after collector outages, timestamp handling, tenant isolation and export validation.",
+   "fix": "Replace with: “Motech Attendance — built a central multi-tenant Go service with Python/pyzk branch collectors reading ZKTeco iFace950 devices over TCP/4370 and idempotent punch ingestion. Tested on one live device with 11 users and 3,118 punches. Supports shifts, leave balances, CSV/Excel reports and WPS exports for Saudi Arabia (MHRSD/SAMA) and the UAE (SIF). Designed to replace ZKTeco desktop software. — Go, PostgreSQL, Python”"
+  },
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: “POS replacing YemenSoft Onyx Pro”, “(no migration)” and “documented why Xprinter USB fails on Windows”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Working against an existing Oracle schema and documenting a failed hardware integration would impress me more than another generic CRUD project. However, “no migration” is unverified, and the Xprinter sentence generalizes one documented Windows-driver failure to all such setups. Completed customer cutover is also not established. I would probe transaction boundaries, concurrent billing, return accounting, authorization and recovery when printing fails after a sale commits.",
+   "fix": "Replace with: “POS replacement for YemenSoft Onyx Pro — built auth, bills, catalog, customers, reports, returns and shifts against the existing Oracle YSPOS23 schema. Field-tested Arabic raster receipt printing on a Bixolon SPP-R310 over Bluetooth SPP through Web Serial; documented an Xprinter USB test that failed because of the Windows driver. — NestJS 10, React 19, Oracle PL/SQL, OpenAPI”"
+  },
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: Nexus Notify — “multi-tenant, multi-channel notification platform behind one API”",
+   "severity": "major",
+   "category": "content",
+   "problem": "The Android dual-SIM foreground-service gateway is a distinctive integration detail, but the rest reads as a stack inventory. No delivery volume, tenant count, delivery guarantees, retry policy, isolation tests or operational results are verified. I would probe BullMQ retry behavior, duplicate SMS prevention, delivery receipts, gateway authentication, SIM selection and Android background-execution constraints.",
+   "fix": "Use the narrower description: “Nexus Notify — built a multi-tenant notification platform exposing one API for multiple channels, an Angular dashboard and a Kotlin/Compose Android SMS gateway implemented as a dual-SIM foreground service. — NestJS, PostgreSQL 17, Prisma, Redis/BullMQ, Angular 22” Do not add delivery guarantees or production-scale claims without evidence."
+  },
+  {
+   "file": "cv_en",
+   "where": "AI AGENTS & APPLIED AI: Mansur AI — “13 agents, 38 tools” and “learner”, “skills saved from successful runs”",
+   "severity": "major",
+   "category": "content",
+   "problem": "The planner/executor/verifier structure is credible, but agent and tool counts do not demonstrate task success or justify the architecture. “Learner” can imply model training when the verified mechanism is saving successful experience as skills. The current bullet omits stronger verified security details. I would probe LangGraph state transitions, termination conditions, checkpoint/replay behavior, verifier independence, SSRF bypasses and whether the 82 tests mock models or exercise complete runs.",
+   "fix": "Replace with: “Mansur AI (private repository) — built a LangGraph planner, ReAct executor, verifier and learner workflow with 13 agents and 38 tools. Routes models with fallback and cost tracking; stores working, episodic, procedural and semantic memory in SQLite and saves successful-run experience as skills. Includes sandboxed shell execution and SSRF protection for HTTP tools. 82 passing tests. — Python, FastAPI, WebSocket”"
+  },
+  {
+   "file": "cv_en",
+   "where": "AI AGENTS & APPLIED AI: “Ai_Alabbasi (private repository)” and “model backend swapped from one config file”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts verify swappable backends, but not private repository status or a single configuration-file mechanism. “Sandboxed Python” and FTS5/vector fusion are substantive only if the candidate can explain isolation boundaries and retrieval choices. I would probe filesystem/network restrictions, resource limits, tool-output prompt injection, why RRF was chosen and how retrieval quality was measured.",
+   "fix": "Replace with: “Ai_Alabbasi — built a coding agent with swappable Claude, GPT-5, DeepSeek or local-model backends; a planner and task list; CodeAct sandboxed Python execution; and hybrid retrieval combining SQLite FTS5 and vector search through reciprocal rank fusion (RRF). Supports local, Daytona and E2B sandbox options.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "AI AGENTS & APPLIED AI: Moain Promoter AI — “write Arabic/English posts” and “MCP-ready tooling”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Arabic/English output support and MCP integration are unverified for this project. “MCP-ready” is a buzzword rather than a defined implementation claim. The verified seven-agent count is less compelling than actual MCP delivery elsewhere. I would probe whether these agents are distinct execution components or prompt roles, and how Celery jobs and Playwright failures are handled.",
+   "fix": "Replace with: “Moain Promoter AI — built seven specialised agents coordinated by an orchestrator for six platforms, with a Next.js dashboard, Celery/Redis background jobs and Playwright.” If space is limited, replace this entry with the stronger verified MCP example: “Diafa Studio — built an Arabic PDF generator with an MCP server exposing 18 tools.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "SELECTED PROJECTS: Idhaat — “self-hosted Jitsi (JWT per lesson)” and “recordings ... carry a moving watermark ... and are deleted after 48 hours”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Room allocation, fallback and the reported running cost are useful operational signals. Self-hosting, JWT scope per lesson, watermark embedding in recordings and verified deletion execution are not established by the facts. The facts establish Jitsi with JWT, a moving student watermark and 48-hour retention. I would probe room-allocation races, recording authorization, retention enforcement and which services and usage levels the approximate cost covers.",
+   "fix": "Replace with: “Idhaat — built a live-tutoring platform that automatically allocates four Zoom rooms, with a Jitsi fallback using JWT. Uploads recordings to Cloudflare R2 during class with a 48-hour retention policy; provides a moving watermark showing the student’s name and number. Reported running cost: approximately 25 SAR/month. — Hono, Cloudflare Pages, D1, R2, Vitest”"
+  },
+  {
+   "file": "cv_en",
+   "where": "EXPERIENCE: “Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "qahwajeen.com is verified as live, but the candidate’s authorship or delivery responsibility is unverified. HTTP 200 does not establish ownership, customer impact or engineering contribution. The two repository-backed websites and signed Android releases provide sufficient evidence without that attribution.",
+   "fix": "Replace with: “Saudi hospitality projects — developed keifaldiafa.com and asoulaldiafa.com using Next.js 14, plus Keif Al-Diafa and Asoul Al-Diafa Android apps using Flutter/Dart and Kotlin; v2.6.0 signed APK releases include remote lock.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "SELECTED PROJECTS: Grocery Ledger — “accounting and POS app for small shops”, “PDF/Excel export” and “157 passing tests”",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The verified facts support an offline Flutter Android ledger, scanner integration, append-only ledgers, version 2.2.1 and 157 tests. The broader POS scope, small-shop targeting, PDF/Excel export and explicit passing status are unverified. Append-only accounting is a stronger signal than a broad product label. I would probe correction entries, atomic writes, backup/restore and schema upgrades.",
+   "fix": "Replace with: “Grocery Ledger — built an offline Flutter Android ledger with append-only entries and barcode input through ML Kit camera scanning or USB/Bluetooth HID scanners. Version 2.2.1; 157 tests.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "SELECTED PROJECTS: Ghaida — “in their native language”",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Native-language delivery is unverified. The verified AI voice-per-sentence implementation and offline PWA are concrete enough. The current description also misses the documented API test result, although that result should not be presented as general production reliability.",
+   "fix": "Replace with: “Ghaida — built a household guidebook for domestic workers with AI voice for each sentence, an offline PWA and an admin panel; 27/27 API tests.”"
+  },
+  {
+   "file": "cv_en",
+   "where": "GRADUATION PROJECT (TEAM): “AI analyst whose actions require human approval” and “automatic blocking of SSH brute-force attacks”",
+   "severity": "major",
+   "category": "content",
+   "problem": "The lab qualification and separation of VirusTotal from the open-source components are good. However, human-approved AI actions beside automatic blocking leave the control boundary unclear. The candidate’s individual contribution is unverified, and the separate forensics lab is not established as part of this graduation project. I would ask the candidate to trace UC-11 from event ingestion through detection and response, explain authorization and false-positive recovery, and identify exactly what they implemented.",
+   "fix": "Replace with: “Team SOC graduation project — Wazuh 4.14.7, Suricata, YARA and auditd, integrated with VirusTotal and MikroTik syslog. Includes an AI analyst with human approval. Verified 14 use cases in a lab, including UC-11: SSH brute-force detection and automatic blocking. Separate digital-forensics lab work used Autopsy and FTK Imager.” Do not add individual ownership claims until confirmed."
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: “Languages — Arabic (native), English (technical reading and writing)”",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Neither language-proficiency level is explicitly verified in the supplied facts. An English CV and Arabic-oriented products do not establish these self-assessment levels, and remote hiring will often assess spoken collaboration separately.",
+   "fix": "Delete the Languages row pending candidate confirmation; do not substitute an inferred proficiency level."
+  },
+  {
+   "file": "cv_en",
+   "where": "SUMMARY: “Built a POS ... a ZKTeco attendance system ... a multi-tenant notification platform, LangGraph multi-agent systems and MCP servers”",
+   "severity": "major",
+   "category": "strategy",
+   "problem": "The summary repeats the project inventory rather than establishing an engineering focus. The POS hardware trade-off, attendance ingestion design, Basira’s deterministic decision boundary, keif-publisher’s approval controls and Sijil’s accessibility interaction are the strongest signals. No verified production throughput, active tenant count, uptime, team leadership or sustained operational ownership establishes seniority; project counts and test totals should not substitute for those signals. I would interview for full-stack/applied-AI depth, not assume equal seniority across every listed discipline.",
+   "fix": "Replace the summary with: “Software engineer and founder of Alabbasi Tech, building business software and applied-AI systems in TypeScript, Python and Go. Project work includes an Oracle-backed POS with field-tested Arabic receipt printing, a ZKTeco attendance service with idempotent ingestion, and Basira, a quotation verifier that keeps model assistance outside the verdict path. Builds LangGraph workflows and MCP servers. Based in Sana’a, Yemen; remote only.”"
+  }
+ ],
+ "reviewer": "eng_lead",
+ "model": "gpt-6-astra",
+ "seconds": 158.4
+}

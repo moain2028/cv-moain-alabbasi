@@ -1,0 +1,153 @@
+{
+ "verdict": "Solid, factually careful Arabic with a clean layout, but it still carries a handful of real grammar/agreement slips, inconsistent key terms (multi-tenant, test/evaluation counts, Basira gender), a few unverified claims, and page overflow on the CV.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_ar",
+   "where": "Both pages — measured vertical_fill 103.4% / 104.3%, bottom margin 4.1 mm",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Content overflows the printable area; the footer «معين العباسي — 1/2» sits 4 mm from the paper edge and will be clipped by many office printers and some PDF viewers. Recommended bottom margin for an A4 CV is ≥ 12 mm.",
+   "fix": "Set page margins to 18 mm left/right, 14 mm top, 14 mm bottom; reduce body leading from 1.5 to 1.4 (10.93 pt / 15.3 pt) or trim one line in each of the «منصة إضاءات» and «مركز عمليات أمنية» blocks so each page fits at ≤ 100%."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Nexus Notify: «وتطبيق أندرويد أصلي يعمل بوابة رسائل SMS بشريحتين»",
+   "severity": "major",
+   "category": "language",
+   "problem": "«يعمل بوابة» is ungrammatical — the predicate noun needs a linking particle. Also «متعددة الجهات» is an unclear rendering of multi-tenant.",
+   "fix": "منصة Nexus Notify: إشعارات متعددة المستأجرين ومتعددة القنوات عبر واجهة برمجية (API) موحدة، مع لوحة تحكم، وتطبيق أندرويد أصلي يعمل بوصفه بوابة رسائل SMS بشريحتين."
+  },
+  {
+   "file": "cv_ar",
+   "where": "بصيرة: «يتحقق من الآيات والأحاديث المنقولة بمطابقتها حرفيا مع 71,987 سجلا من مصادر مرخصة»",
+   "severity": "major",
+   "category": "language",
+   "problem": "Gender agreement is inconsistent: the summary calls it «منصة «بصيرة»» (feminine) and services_ar says «تتحقق», but here the verb is masculine «يتحقق». The preposition after «مطابقة» should be «على» or «بـ», not «مع», and «حرفيا» should be «حرفا بحرف» to convey byte-exact matching.",
+   "fix": "تتحقق «بصيرة» من الآيات والأحاديث المنقولة بمطابقتها حرفا بحرف على 71,987 سجلا من مصادر مرخصة؛ فالنموذج اللغوي يقترح المواضع فقط ولا يصدر الحكم."
+  },
+  {
+   "file": "cv_ar",
+   "where": "نبذة مهنية: «دون أي إنذار خاطئ في 500 حالة تقييم»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts sheet separates two numbers: 150/150 evaluation cases and 0/500 false alarms. Calling the 500 «حالة تقييم» merges them and contradicts the Basira section, which correctly says «500 مقطع». A reader comparing the two will see a discrepancy.",
+   "fix": "…ومنصة «بصيرة» للتحقق من الاقتباسات الشرعية دون أي إنذار خاطئ في 500 مقطع، ونجاح كامل في 150/150 حالة تقييم."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Google Ads bullet: «ربط دائم مع Google Ads ومنصة Search Console واستعلامات GAQL ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء ببيانات حية وقاعدة من 12 جدولا»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts sheet records the Keif Al-Diafa tool at phase 0 (done) and the multi-client agency platform at phase 1 (done); the text labels the first as «المرحلة الأولى» and does not say the second is multi-tenant or that it is complete. «قاعدة من 12 جدولا» is also missing the word «بيانات».",
+   "fix": "أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم بحسابي Google Ads وSearch Console، واستعلامات GAQL حرة، ولوحة تحكم عربية (أُنجزت المرحلة صفر)، ثم منصة إعلانات متعددة المستأجرين لعدة عملاء ببيانات حية من الواجهة البرمجية وقاعدة بيانات من 12 جدولا (أُنجزت المرحلة الأولى)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«منصة إشعارات متعددة الجهات» (summary) and «إشعارات متعددة الجهات والقنوات» (Nexus Notify)",
+   "severity": "major",
+   "category": "language",
+   "problem": "«متعددة الجهات» is not the established term for multi-tenant and reads as 'multi-party'; Gulf technical Arabic uses «متعددة المستأجرين». One term must be used in both places (and in «منصة إعلانات لعدة عملاء»).",
+   "fix": "Summary: «ومنصة إشعارات متعددة المستأجرين مع بوابة رسائل SMS عبر أندرويد»; Nexus Notify: «إشعارات متعددة المستأجرين ومتعددة القنوات»."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«علامات ضيافة سعودية: مواقع keifaldiafa.com وasoulaldiafa.com وqahwajeen.com …» and services_ar «قهوجيين — qahwajeen.com موقع خدمات ضيافة يعمل فعليا»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "qahwajeen.com is live (HTTP 200) but no repository exists in the candidate's organisation, so authorship is unverified. The other two sites are backed by MoTechSys/keif-aldiafa-web and MoTechSys/osoul-aldiafa-v2. «يعمل فعليا» is also filler. Either the candidate confirms his role or the site is removed.",
+   "fix": "If unconfirmed, cv_ar: «علامات تجارية سعودية في قطاع الضيافة: موقعا keifaldiafa.com وasoulaldiafa.com، وتطبيقا أندرويد لكيف الضيافة وأصول الضيافة بإصدارات موقعة رقميا مع قفل عن بعد.» and delete the قهوجيين row from services_ar. If confirmed, replace «موقع خدمات ضيافة يعمل فعليا» with «موقع خدمات ضيافة (تصميم وتطوير)»."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Attendance bullet: «جامع في كل فرع يسحب البصمات … جرب على جهاز فعلي بعدد 3,118 بصمة.» and services_ar «يقرأ أجهزة البصمة ZKTeco دون استبدالها، وجرب على طراز iFace950»",
+   "severity": "major",
+   "category": "language",
+   "problem": "«جامع» for 'collector' is unidiomatic; «بعدد 3,118 بصمة» is a literal 'with a count of'; and without diacritics «جرب» is read as the active 'tried' (or even the disease). «يقرأ أجهزة» needs «من». The verified fact (11 users, 3,118 punches) can be stated.",
+   "fix": "cv_ar: «نظام حضور وانصراف مؤسسي يحل محل برنامج ZKTeco المكتبي: وحدة تجميع في كل فرع تسحب البصمات من أجهزة iFace950 إلى خادم مركزي، مع إدارة الورديات وأرصدة الإجازات وتقارير CSV/Excel، وتصدير ملفات حماية الأجور للسعودية والإمارات. جرى اختباره على جهاز فعلي يضم 11 مستخدما و3,118 بصمة.» services_ar: «يقرأ من أجهزة البصمة ZKTeco دون الحاجة إلى استبدالها، وجرى اختباره على طراز iFace950»."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Remote-access bullet tech line: «Go, PostgreSQL, SSH, NetBird»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The facts sheet for the remote-access platform (motech_V2 / motech-cli) lists Go, SSH, NetBird, Authenticode, AES-256-GCM and cosign — PostgreSQL is not among them and is therefore unverified.",
+   "fix": "Go, SSH, NetBird, cosign"
+  },
+  {
+   "file": "cv_ar",
+   "where": "Moain Promoter AI: «سبعة وكلاء متخصصين تحت منسق رئيسي، يكتبون منشورات بالعربية والإنجليزية لست منصات، مع لوحة تحكم.»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "«بالعربية والإنجليزية» is not in the verified facts (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright). «تحت منسق» is a literal 'under'.",
+   "fix": "سبعة وكلاء متخصصين يديرهم منسق رئيسي، يكتبون المنشورات وينشرونها على ست منصات، مع لوحة تحكم. — tech line: Python, Celery, Redis, Playwright, Next.js"
+  },
+  {
+   "file": "cv_ar",
+   "where": "منصور AI: «مخطط ومنفذ ومدقق ومتعلم بتنسيق LangGraph، فيه 13 وكيلا مع 38 أداة، وموجه للنماذج مع بديل احتياطي وتتبع للتكلفة»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«بتنسيق» means 'in the format of'; «فيه … مع» is conversational; «موجه للنماذج مع بديل احتياطي» is an opaque rendering of model router with fallback.",
+   "fix": "نظام عربي متعدد الوكلاء يعمل بتنظيم LangGraph: مخطط ومنفذ ومدقق ومتعلم، يضم 13 وكيلا و38 أداة، وموجه نماذج مع تحويل احتياطي تلقائي وتتبع للتكلفة، وذاكرة هرمية، ويحفظ خبرته بعد كل نجاح في صورة مهارات. اختبارات آلية ناجحة: 82."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Ai_Alabbasi: «(مستودع خاص)» and «وكيل برمجة يتبدل نموذجه من ملف إعداد واحد (سحابي أو محلي)، يخطط بقائمة مهام، وينفذ شفرة Python في بيئة معزولة»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The README says the brain is swapped «with one line», not from a config file, and the parenthesis «(سحابي أو محلي)» reads as describing the file. The 'private repo' label for Ai_Alabbasi is not in the facts sheet (only Mansur AI is recorded as private). The clause «يخطط» lacks the connecting «و».",
+   "fix": "Ai_Alabbasi (remove «(مستودع خاص)» unless the candidate confirms): «وكيل برمجة يُبدَّل نموذجه (سحابي أو محلي) بسطر واحد، ويخطط بقائمة مهام، وينفذ شفرة Python في بيئة معزولة، ويجري بحثا هجينا يدمج FTS5 مع المتجهات بطريقة RRF.»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "منصة إضاءات التعليمية: «حصص مباشرة توزع فيها أربع قاعات Zoom دون تعارض، مع بث احتياطي خاص على Jitsi محمي بتوكن لكل حصة … فيها واجبات ورسائل ونظام مالي»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«توزع فيها» misplaces the agent (the rooms are allocated to the classes); «بتوكن» is a transliteration where «رمز JWT» is standard; «فيها واجبات» is colloquial; the verified watermark carries name and number.",
+   "fix": "حصص مباشرة تُوزَّع عليها أربع قاعات Zoom تلقائيا دون تعارض، مع بث احتياطي خاص على Jitsi محمي برمز JWT لكل حصة. تُرفع التسجيلات إلى التخزين السحابي أثناء الحصة، وتُعرض في مشغل محمي بعلامة مائية متحركة تحمل اسم الطالب ورقمه، وتُحذف بعد 48 ساعة. تتضمن المنصة واجبات ورسائل ونظاما ماليا، وتبلغ تكلفة تشغيلها نحو 25 ريالا شهريا. — tech line: Hono, Cloudflare Pages, D1, R2"
+  },
+  {
+   "file": "cv_ar",
+   "where": "SOC project: «أدوات مفتوحة المصدر هي Wazuh, Suricata, YARA, auditd، ومتكامل مع …» and «إضافة إلى معمل عملي للتحليل الجنائي الرقمي.»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "Latin commas inside an Arabic enumeration break the register (the rest of the CV uses «و»); the final sentence beginning with «إضافة إلى» is a dangling fragment with no main clause.",
+   "fix": "مركز مبني على أدوات مفتوحة المصدر (Wazuh وSuricata وYARA وauditd)، ومتكامل مع خدمة VirusTotal وسجلات MikroTik، مع محلل ذكي لا ينفذ أي إجراء إلا بموافقة بشرية. جرى التحقق من 14 حالة استخدام في بيئة معملية، منها الحظر التلقائي لهجمات تخمين كلمات مرور SSH، ويرافقه معمل عملي للتحليل الجنائي الرقمي."
+  },
+  {
+   "file": "cv_ar",
+   "where": "«يعمل كخدمة» (remote access), «متاح كواجهة API وخادم MCP وبوت تيليجرام، ومشارك في تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي.»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "كاف التشبيه for 'as' is a calque; the challenge name is unmarked and omits the verified year and track, so it looks like a generic phrase rather than a named competition.",
+   "fix": "Remote access: «وكيل ويندوز موقع رقميا بتقنية Authenticode يعمل بوصفه خدمة في النظام». Basira: «متاحة عبر واجهة برمجية (API) وخادم MCP وبوت تيليجرام (@BasiraCheckBot)، ومشاركة في تحدي «الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026» (المسار الرابع).»"
+  },
+  {
+   "file": "cv_ar",
+   "where": "POS bullet: «…باستخدام Web\nSerial، مع توثيق سبب فشل مسار USB لطابعة Xprinter على ويندوز بسبب تعريف النظام.»; tech line extracted as «)Go, PostgreSQL, Python (pyzk»",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The Latin term «Web Serial» is broken across two lines, and the mixed-direction tech lines with parentheses extract reversed in ATS text. «سبب … بسبب» is redundant and «مسار USB» should be «منفذ USB».",
+   "fix": "Wrap every Latin product name in a no-break span (e.g. «Web&nbsp;Serial», «YemenSoft&nbsp;Onyx&nbsp;Pro») and give all tech lines dir=\"ltr\". Sentence: «يطبع الفواتير العربية على طابعة Bixolon SPP-R310 عبر البلوتوث باستخدام Web Serial، مع توثيق فشل الطباعة عبر منفذ USB على طابعة Xprinter في ويندوز بسبب برنامج التشغيل.»"
+  },
+  {
+   "file": "services_ar",
+   "where": "«تطبيقات للموظفين والمناديب», «بياناتك عندك: يمكنك تصديرها كاملة في أي وقت.», «كاشير ومبيعات ومرتجعات وورديات وتقارير», «الشفرة والبيانات ملكك بالكامل» / «الشفرة ملكك» / «تسليم الشفرة كاملة»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "«المناديب» is a colloquial plural (MSA: المندوبين); «عندك» is spoken register; «كاشير» is colloquial; bare «الشفرة» can mean 'cipher' — the business term is «الشفرة المصدرية» and it should be used consistently in all three places.",
+   "fix": "«تطبيقات للموظفين والمندوبين»; «بياناتك بحوزتك: يمكنك تصديرها كاملة في أي وقت.»; «واجهة بيع ومبيعات ومرتجعات وورديات وتقارير»; «الشفرة المصدرية والبيانات ملكك بالكامل» / «الشفرة المصدرية ملكك: نسلمك المشروع كاملا، فلا تبقى مرتبطا بنا.» / «تدريب ووثائق بالعربية وتسليم الشفرة المصدرية كاملة»."
+  },
+  {
+   "file": "services_ar",
+   "where": "«تقارير بصيغتي CSV و Excel» and «بحسابي Google Ads و Search Console»; «نظام نقاط بيع: بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة»",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The conjunction «و» is detached with a space before a Latin word; Arabic orthography attaches it (as cv_ar correctly does in «وasoulaldiafa.com»). «قاعدة Oracle» omits «بيانات», unlike the CV.",
+   "fix": "«تقارير بصيغتي CSV وExcel»; «منصة مرتبطة بحسابي Google Ads وSearch Console»; «بديل عن YemenSoft Onyx Pro يعمل على قاعدة بيانات Oracle القائمة، ويطبع الفواتير على طابعة Bixolon SPP-R310 عبر البلوتوث»."
+  }
+ ],
+ "reviewer": "arabic_editor",
+ "model": "claude-fable-5-1",
+ "seconds": 217.2
+}

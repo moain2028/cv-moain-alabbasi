@@ -54,6 +54,12 @@ def main():
         src = source_words(ROOT / "src" / f"{n}.html")
         got = tokens(extract(ROOT / "output" / f"{n}.pdf"))
         missing = sorted(w for w in src if w not in got)
+        # Reverse check: garbage tokens created by extraction, e.g. "لاختبارات" from "ا لاختبارات" or ")wps(".
+        footer = {"cv", "moain", "al-abbasi", "السيرة", "الذاتية", "معين", "العباسي"}
+        junk = sorted(t for t in got - src if t not in footer and not re.fullmatch(r"[\d/]+", t))
+        if junk:
+            worst = min(worst, 0)
+            print(f"{n:12s} EXTRACTION ARTEFACTS (not in source): {junk[:15]}")
         pct = 100 * (len(src) - len(missing)) / len(src)
         worst = min(worst, pct)
         print(f"{n:12s} {len(src)-len(missing):4d}/{len(src)} words recoverable = {pct:5.1f}%"

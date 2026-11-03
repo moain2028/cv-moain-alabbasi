@@ -41,6 +41,12 @@
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
    {
+    "rule": "Bottom edge >= 8 mm (printable)",
+    "value": "min 8.3 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
     "rule": "Line height >= 1.4",
     "value": "1.43",
     "pass": true,
@@ -48,7 +54,7 @@
    },
    {
     "rule": "Median chars/line <= 100",
-    "value": "100",
+    "value": "99",
     "pass": true,
     "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
    },
@@ -98,7 +104,7 @@
   "cv_ar.pdf": [
    {
     "rule": "Body size 10-12 pt",
-    "value": "10.93 pt",
+    "value": "10.53 pt",
     "pass": true,
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
@@ -110,7 +116,7 @@
    },
    {
     "rule": "Heading >= 1.15x body",
-    "value": "1.16x",
+    "value": "1.21x",
     "pass": true,
     "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
    },
@@ -127,14 +133,20 @@
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
    {
+    "rule": "Bottom edge >= 8 mm (printable)",
+    "value": "min 8.1 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
     "rule": "Line height >= 1.4",
-    "value": "1.5",
+    "value": "1.49",
     "pass": true,
     "source": "WCAG 2.2 SC 1.4.12: line height >= 1.5x for body text (we accept >= 1.4 for print CVs)"
    },
    {
     "rule": "Median chars/line <= 100",
-    "value": "94",
+    "value": "98.0",
     "pass": true,
     "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
    },
@@ -152,7 +164,7 @@
    },
    {
     "rule": "All fonts embedded, no Type 3",
-    "value": "5 fonts",
+    "value": "6 fonts",
     "pass": true,
     "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
    },
@@ -213,6 +225,12 @@
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
    {
+    "rule": "Bottom edge >= 8 mm (printable)",
+    "value": "min 18.9 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
     "rule": "Line height >= 1.4",
     "value": "1.49",
     "pass": true,
@@ -220,7 +238,7 @@
    },
    {
     "rule": "Median chars/line <= 100",
-    "value": "56",
+    "value": "58.5",
     "pass": true,
     "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
    },

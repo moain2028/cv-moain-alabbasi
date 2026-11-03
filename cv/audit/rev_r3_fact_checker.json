@@ -1,0 +1,153 @@
+{
+ "verdict": "The CVs are mostly faithful to the verified facts, but several claims overstate or add unverified details: the Google Ads phases are merged and mistranslated, the services profile adds a customer-service bot and implies a team, extra skills are listed, and qahwajeen.com authorship, a private-repo label and export features have no source.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "Experience › 'Google Ads tooling for Keif Al-Diafa (Jeddah) — … then phase 1 of a multi-tenant ads platform for several clients with live API data and a 12-table schema.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Two separate repos are merged under the Keif Al-Diafa heading. The verified facts say keif-aldiafa-ads-platform (Hono/D1, phase 0) is for Keif Al-Diafa. ads-agency-platform is a separate multi-tenant SaaS 'across clients' that reached phase 1. Nothing says it serves 'several clients' in production. 'For several clients' reads as live paying customers, which an interviewer could challenge.",
+   "fix": "Split into two bullets: 'Google Ads connector for Keif Al-Diafa (Jeddah) — permanent OAuth connection to Google Ads and Search Console, free-form GAQL, Arabic dashboard (phase 0 done). — Hono, Cloudflare D1' and 'Ads agency platform — multi-tenant SaaS for managing Google Ads across clients; phase 1 done: live API data, dashboard, 12-table schema. — Next.js 15, Prisma, PostgreSQL 16'"
+  },
+  {
+   "file": "cv_ar",
+   "where": "الخبرة › 'ولوحة تحكم عربية في المرحلة الأولى، ثم منصة إعلانات لعدة عملاء ببيانات حية'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts say phase 0 for the Keif Al-Diafa connector. The Arabic says 'المرحلة الأولى' (phase 1), which conflicts with the English and with the later phase-1 platform. 'لعدة عملاء' carries the same overstatement as the English.",
+   "fix": "Split into two bullets: 'أدوات Google Ads لشركة كيف الضيافة في جدة: ربط دائم مع Google Ads وSearch Console واستعلامات GAQL ولوحة تحكم عربية (اكتملت المرحلة التمهيدية).' and 'منصة إدارة إعلانات Google متعددة العملاء: اكتملت المرحلة الأولى (بيانات حية، لوحة تحكم، 12 جدولا).'"
+  },
+  {
+   "file": "services_ar",
+   "where": "5. وكلاء الذكاء الاصطناعي › 'بوت تيليجرام يرد على العملاء ويتحقق من النصوص'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The only verified bot is @BasiraCheckBot, which verifies Quran/Hadith quotations. No customer-reply or customer-service bot appears in the facts. A Saudi client would expect a delivered customer-support bot.",
+   "fix": "'بوت تيليجرام للتحقق من النصوص (مثل بوت بصيرة)، وخوادم MCP تربط أنظمتك بالوكلاء'"
+  },
+  {
+   "file": "services_ar",
+   "where": "Throughout: 'نبني لمنشأتك…', 'خدماتنا', 'نماذج من أعمالنا', 'نسلمك', 'نكون متاحين'",
+   "severity": "major",
+   "category": "strategy",
+   "problem": "The plural 'we' implies a team or company with staff. The facts confirm only a solo founder (Founder & Software Engineer). A client who discovers he is one person may see this as misrepresentation.",
+   "fix": "Add under the header: 'معين العباسي — مؤسس ومهندس البرمجيات (يعمل بشكل مستقل)'. Alternatively, switch the copy to first person singular, e.g. 'أبني لمنشأتك…', 'أعمالي', 'أسلمك'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Experience › 'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "qahwajeen.com is verified only as live; no repo was found, so authorship is unverified. 'Saudi' is verified only for Keif Al-Diafa (Jeddah). The same unverified qahwajeen claim appears in services_ar ('قهوجيين — موقع خدمات ضيافة يعمل فعليا').",
+   "fix": "Either get the candidate to confirm qahwajeen.com authorship and show proof, or remove it: 'Hospitality brands — websites keifaldiafa.com (Jeddah) and asoulaldiafa.com (Next.js 14); Android apps for Keif Al-Diafa and Asoul Al-Diafa (v2.6.0, signed releases with remote lock). — Next.js, Flutter, Kotlin'. Apply the same change in cv_ar and in the services_ar samples table."
+  },
+  {
+   "file": "cv_en",
+   "where": "Moain Promoter AI › 'write Arabic/English posts for six platforms; Next.js dashboard; MCP-ready tooling.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'MCP-ready tooling' and 'Arabic/English' are not in the verified facts. The facts list 7 agents + orchestrator, 6 platforms, a Next.js dashboard, Celery + Redis and Playwright. cv_ar repeats 'بالعربية والإنجليزية'.",
+   "fix": "'Seven specialised agents under an orchestrator publish content across six platforms; Next.js dashboard. — Python, Next.js, Celery, Redis, Playwright'. In cv_ar: 'سبعة وكلاء متخصصين تحت منسق رئيسي لنشر المحتوى على ست منصات، مع لوحة تحكم Next.js.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Technical Skills › 'OpenAI, Anthropic, Gemini'; DevOps › 'Docker'; Integration › 'ESC/POS'; Motech Attendance stack › 'systemd'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Gemini, Docker, systemd and ESC/POS do not appear anywhere in the verified facts. The printing fact is 'Arabic raster printing' via Web Serial. An interviewer probing Docker or Gemini would find no project behind them. cv_ar also lists Docker.",
+   "fix": "AI & agents: 'LangGraph, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5, vectors, RRF), model routing; Claude, GPT-5, DeepSeek, local models'. DevOps: 'GitHub Actions, Cloudflare (Pages, D1, R2), Linux; Vitest, Playwright'. Integration: 'ZKTeco (pyzk), Arabic raster receipt printing via Bluetooth/Web Serial, Google Ads API'. Attendance stack: 'Go, PostgreSQL, Python (pyzk)'. Remove Docker from cv_ar."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Ai_Alabbasi (private repository)'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The facts mark only Mansur AI as private. Ai_Alabbasi's visibility is not stated, so the label is unverified. The same label appears in cv_ar as '(مستودع خاص)'.",
+   "fix": "Remove '(private repository)' and '(مستودع خاص)' from the Ai_Alabbasi heading unless the candidate confirms it."
+  },
+  {
+   "file": "cv_en",
+   "where": "Grocery Ledger › 'Offline Android accounting and POS app for small shops … append-only ledgers, PDF/Excel export.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'PDF/Excel export' is not in the verified facts. The verified facts are: Flutter Android, offline, v2.2.1, 157 tests, ML Kit/HID barcode and append-only ledgers.",
+   "fix": "'Offline Android accounting and POS app for small shops: barcode by camera (ML Kit) or USB/Bluetooth scanner, append-only ledgers. 157 passing tests, v2.2.1. — Flutter'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Ghaida › 'Household guidebook for domestic workers in their native language with AI voice for every sentence'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'In their native language' is unverified; the facts say only 'AI voice per sentence'. cv_ar repeats 'بلغتهن الأم'. The verified 'API 27/27' is unused.",
+   "fix": "'Household book for domestic workers with AI voice for every sentence; offline PWA with admin panel; API tests 27/27.' In cv_ar: 'دليل منزلي للعاملات مع صوت بالذكاء الاصطناعي لكل جملة، تطبيق ويب يعمل دون إنترنت مع لوحة إدارة.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Idhaat › 'fallback to self-hosted Jitsi (JWT per lesson)'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The facts say 'Jitsi fallback with JWT'; 'self-hosted' and 'per lesson' are not stated. cv_ar says 'بث احتياطي خاص على Jitsi محمي بتوكن لكل حصة'.",
+   "fix": "'with Jitsi fallback secured by JWT'. In cv_ar: 'مع بديل احتياطي على Jitsi محمي بتوكن JWT'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Secure remote access › 'built remote access to client machines … cosign-signed releases from GitHub Actions. — Go, PostgreSQL, SSH, NetBird'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'Client machines', 'GitHub Actions' and PostgreSQL in this stack are not in the motech_V2/motech-cli facts. The facts say 'cosign keyless-signed releases', 20 s heartbeat and Go/SSH/NetBird.",
+   "fix": "'Secure remote access — Authenticode-signed Windows agent running as a service (20 s heartbeat), NetBird mesh, SSH key rotation, private keys encrypted with AES-256-GCM, full activity log; cross-platform CLI (motech-cli) with cosign keyless-signed releases. — Go, SSH, NetBird'"
+  },
+  {
+   "file": "services_ar",
+   "where": "1. أنظمة نقاط البيع › 'العمل على قاعدة بياناتك الحالية أو ترحيلها'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "No data-migration project is verified. The POS project explicitly worked on the existing schema without migration.",
+   "fix": "'العمل مباشرة على قاعدة بياناتك الحالية (مثل Oracle) دون ترحيل'"
+  },
+  {
+   "file": "services_ar",
+   "where": "التزاماتنا › 'دعم لمدة ثلاثة أشهر: نصلح عيوب البرمجة دون تكلفة إضافية' and 'رد خلال يوم عمل واحد'; header › 'بسعر ثابت'",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "These commercial commitments are not in the verified facts. They become contractual promises to Saudi clients, so they must be confirmed by the candidate before publishing.",
+   "fix": "Get written confirmation from the candidate for 3-month support, 1-business-day response and fixed price. If he does not confirm, delete those bullets."
+  },
+  {
+   "file": "services_ar",
+   "where": "Audience lines 'الصيدليات', 'المستشفيات، المدارس', 'المصانع'; services 'تطبيقات للموظفين والمناديب', 'تهيئة تقنية لمحركات البحث (SEO)', 'مواقع عربية خفيفة وسريعة'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "None of these sectors, a sales-rep app, SEO results or speed claims has a verified project. The traffic numbers were withdrawn as outdated, so SEO and speed are unsupported. Clients may ask for a reference in these sectors.",
+   "fix": "Change the audience lines to 'المحلات وتجار التجزئة' and 'الشركات متعددة الفروع'. Replace the SEO line with 'فحص تقني للمواقع (205 فحصا آليا)'. Remove 'تطبيقات للموظفين والمناديب' and 'خفيفة وسريعة'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "'بصيرة · basirapp.site' and the selected projects (إضاءات، دفتر البقالة، سجل، غيداء، S-ACM)",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The English CV gives repo links (github.com/MoTechSys/Project-Basira, Idhaat-Platform, mohanad-web-app-2, Sijilati, ghaida, S-ACM-Project). The Arabic CV omits them, so Saudi reviewers lose the verifiable evidence. Several Arabic project entries also drop their versions and stacks.",
+   "fix": "Add the same links after each title, e.g. 'بصيرة · basirapp.site · github.com/MoTechSys/Project-Basira' and 'سجل · github.com/MoTechSys/Sijilati'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Graduation Project › 'Digital forensics lab with Autopsy and FTK Imager.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The facts list the digital forensics lab as a separate item, not as part of the team SOC graduation project. Nesting it implies it was part of the graduation work. Basira's '(public dev set)' also adds 'public', which the facts do not state; they say 'dev'.",
+   "fix": "Move the sentence to its own line: 'Digital forensics lab — Autopsy, FTK Imager, registry, event logs, browser forensics.' Change '(public dev set)' to '(dev set)'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Layout: pages_detail vertical_fill_pct 103.5 / 103.9; bottom margin 4.8 mm (cv_ar 4.1 mm)",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Content overflows the safe area and the bottom margin is under 5 mm. Printers may clip the footer, and the page looks cramped next to the 20 mm side margins.",
+   "fix": "@page { margin: 15mm 20mm 14mm 20mm; } and reduce body line-height from 1.43 to 1.35, or trim the removed unverified items so the fill is at or below 98%."
+  }
+ ],
+ "reviewer": "fact_checker",
+ "model": "claude-opus-5-5",
+ "seconds": 74.8
+}

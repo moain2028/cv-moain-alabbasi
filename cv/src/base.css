@@ -19,8 +19,8 @@ html, body { margin: 0; padding: 0; }
 body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 /* LTR scale: 9 meta / 10 body / 11.6 section / 12.5 title / 22 name */
 body[dir="ltr"] { font-family: 'Plex', 'Naskh', sans-serif; font-size: 10pt; line-height: 1.42; --meta: 9pt; --h2: 11.6pt; --title: 12.5pt; }
-/* RTL scale: Naskh has a small x-height, so it is set larger: 9.5 / 11 / 12.8 / 13.5 / 22 */
-body[dir="rtl"] { font-family: 'Naskh', 'Plex', serif; font-size: 11pt; line-height: 1.5; --meta: 9.5pt; --h2: 12.8pt; --title: 13.5pt; }
+/* RTL scale: Naskh has a small x-height, so it is set larger than Latin: 9.5 / 10.6 / 12.8 / 13.5 / 22 */
+body[dir="rtl"] { font-family: 'Naskh', 'Plex', serif; font-size: 10.6pt; line-height: 1.5; --meta: 9.5pt; --h2: 12.8pt; --title: 13.5pt; }
 p, li, .entry { text-wrap: pretty; }
 a { color: var(--accent); text-decoration: none; }
 b, strong { font-weight: 600; }
@@ -33,6 +33,8 @@ header h1 { margin: 0; font-size: 22pt; font-weight: 700; line-height: 1.1; }
 header .title { color: var(--accent); font-weight: 600; font-size: var(--title); margin-top: 3px; }
 header .contact { margin-top: 4px; font-size: var(--meta); color: var(--muted); }
 header .contact .sep { color: var(--muted); padding: 0 6px; }
+header .contact .item { white-space: nowrap; }
+header .contact .line { display: block; }
 
 section { margin-top: 9px; }
 h2 { margin: 0 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
@@ -47,7 +49,8 @@ li::marker { color: var(--accent); }
 /* Tech stack after a bullet: meta size, muted, isolated from RTL punctuation */
 .stack { color: var(--muted); font-size: var(--meta); }
 .stack::before { content: "— "; }
-body[dir="rtl"] .stack { unicode-bidi: isolate; direction: ltr; display: inline-block; }
+/* RTL: stack on its own line, so Latin never shares a line with Arabic (that split words like «الاختبارات» in extraction) */
+body[dir="rtl"] .stack { unicode-bidi: isolate; direction: ltr; display: block; text-align: right; margin-top: 1px; }
 body[dir="rtl"] .stack::before { content: ""; }
 
 .skills p { display: grid; grid-template-columns: 8.6em 1fr; column-gap: 8px; margin: 1.6px 0; }

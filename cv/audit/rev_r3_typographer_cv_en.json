@@ -1,0 +1,153 @@
+{
+ "verdict": "Clean, restrained single-column Plex layout with a sound three-colour palette, undermined by an over-long 99-character measure, a section heading orphaned at the foot of page 1 with its content on page 2, nine one-to-three-word runt lines from the inline tech-stack tails, a 4.8 mm footer margin, and a handful of unverifiable stack claims; the Arabic files were not supplied so the Latin/Naskh pairing could not be judged.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "Page 1 heading 'AI AGENTS & APPLIED AI' → page 2 starts with 'Mansur AI (private repository)'",
+   "severity": "major",
+   "category": "layout",
+   "problem": "The section heading and Basira sit on page 1 while Mansur AI, Ai_Alabbasi and Moain Promoter AI open page 2 with no heading above them; a reader who starts at page 2 (common when pages are printed or previewed separately) cannot tell these are AI-agent entries. Page 1 also leaves ~26 mm empty above the footer, almost exactly the height of the Mansur AI block, so the break is a near miss rather than a necessity.",
+   "fix": "Add `h2 { break-after: avoid; page-break-after: avoid; } .entry, li { break-inside: avoid; }` and tighten body leading from 14.25pt to `p, li, td { line-height: 1.38; }` (13.8pt) plus `.entry { margin-bottom: 4pt; }` so Mansur AI closes page 1. If it still does not fit, start page 2 with `<h2 class=\"cont\">AI Agents &amp; Applied AI (continued)</h2>` styled identically."
+  },
+  {
+   "file": "cv_en",
+   "where": "Whole body, e.g. 'iFace950 devices over TCP into a central multi-tenant service with idempotent ingest; shifts, leave balances,'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Measured median 99 characters per line (max 109) at 10pt on a 170 mm text block. Anything above ~85 characters forces the eye to track back across a long return and makes dense 5-line paragraphs tiring; this CV is almost entirely such paragraphs.",
+   "fix": "Narrow the text block: `@page { margin: 18mm 24mm 12mm 24mm; }` (text width 162 mm ≈ 93 chars) and set `p, li { text-wrap: pretty; hyphens: auto; -webkit-hyphens: auto; lang=\"en\" }` on the body. Combined with the tech-stack change below this reduces the perceived measure further without adding pages."
+  },
+  {
+   "file": "cv_en",
+   "where": "Runt lines: 'PL/SQL, OpenAPI', 'SSH, NetBird', 'Prisma, PostgreSQL 16', 'FastAPI, APScheduler', 'lock). — Flutter, Kotlin', 'WebSocket, SQLite', 'SQLite FTS5', 'Tailwind 4', '17, Prisma, Redis/BullMQ…'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "The 9pt grey stack tail is appended inline after the em dash, so it wraps and leaves nine orphan lines of one to three words. These runts break vertical rhythm, waste a full 14pt line each (~9 lines ≈ 32 mm across the document) and make the grey metadata look accidental.",
+   "fix": "Make the stack a non-breaking unit that drops whole to the next line only when needed: `.stack { display: inline-block; white-space: normal; font-size: 9pt; color: #566173; }` and remove the leading ' — ' from the HTML, using `.stack::before { content: \"— \"; }`. Alternatively render it as its own line with `display: block; margin-top: 1pt;` for consistency across all 16 entries."
+  },
+  {
+   "file": "cv_en",
+   "where": "Footer 'Moain Al-Abbasi — 1/2' and 'Moain Al-Abbasi — 2/2'; measured bottom margin 4.8 mm",
+   "severity": "major",
+   "category": "layout",
+   "problem": "The footer baseline sits 4.8 mm from the trim edge, inside the non-printable zone of most office printers (5–6 mm). It will be clipped or trigger scale-to-fit, shrinking the whole page. Top margin is 14.3 mm against 20 mm sides, so the page also looks top-heavy.",
+   "fix": "`@page { margin: 18mm 24mm 14mm 24mm; } .footer { position: fixed; bottom: 7mm; right: 24mm; font-size: 8.5pt; color: #566173; }`"
+  },
+  {
+   "file": "cv_en",
+   "where": "Header contact line: 'Sana’a, Yemen · Remote (GMT+3) · WhatsApp +967 770 941 666 · moain.learn@gmail.com ·' / 'github.com/MoTechSys · alabbasi.uk'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The line wraps so that the separator dot '·' dangles at the end of line 1 before the break — a visible rag fault in the most looked-at area of the page. The split is also arbitrary (email alone on line 1, two URLs on line 2).",
+   "fix": "Build the contact line from inline items with `.contact span { white-space: nowrap; } .contact span + span::before { content: \"\\00a0·\\00a0\"; color: #566173; }` so the dot travels with the following item, and force the intended break with `<br>` after the email: line 1 = location · Remote (GMT+3) · WhatsApp · email; line 2 = github.com/MoTechSys · alabbasi.uk."
+  },
+  {
+   "file": "cv_en",
+   "where": "Type scale: subtitle 'Software Engineer · Full-Stack Systems · AI Agents (LangGraph, MCP)' at 11.6pt vs section heads 'SUMMARY', 'EXPERIENCE' at 12.49pt",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "11.6pt and 12.49pt differ by 7 %, below the ~15 % needed for the eye to read them as separate steps; the blue semibold subtitle therefore competes with the uppercase section heads and the scale reads as five accidental sizes (9 / 10 / 11.6 / 12.49 / 22).",
+   "fix": "Use a four-step scale: `h1 { font-size: 22pt; } .subtitle { font-size: 12pt; font-weight: 600; } h2 { font-size: 11pt; letter-spacing: 0.06em; text-transform: uppercase; } body { font-size: 10pt; } .meta, .stack { font-size: 9pt; }`. Uppercase at 11pt with tracking reads as large as 12.5pt untracked while restoring hierarchy."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "qahwajeen.com is live but the facts sheet records 'no repo found'; listing it alongside two verified builds implies authorship that cannot be verified by a reviewer or client.",
+   "fix": "Remove ' and qahwajeen.com' or change to 'websites keifaldiafa.com and asoulaldiafa.com (Next.js 14, Jeddah)' only."
+  },
+  {
+   "file": "cv_en",
+   "where": "Skills row 'AI & agents … OpenAI, Anthropic, Gemini' and 'DevOps  Docker, …'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Gemini and Docker appear nowhere in the verified facts (Ai_Alabbasi lists Claude / GPT-5 / DeepSeek / local model). Unverifiable items in a skills matrix are exactly what technical interviewers probe.",
+   "fix": "Replace 'OpenAI, Anthropic, Gemini' with 'OpenAI, Anthropic, DeepSeek, local models'; delete 'Docker, ' unless a repo shows a Dockerfile (unverified)."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Moain Promoter AI — Seven specialised agents under an orchestrator write Arabic/English posts for six platforms; Next.js dashboard; MCP-ready tooling.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'Arabic/English posts' and 'MCP-ready tooling' are not in the verified README summary (7 agents + orchestrator, 6 platforms, Next.js dashboard, Celery + Redis, Playwright).",
+   "fix": "'Seven specialised agents under an orchestrator publish to six platforms; Next.js dashboard. — Python, Celery, Redis, Playwright'"
+  },
+  {
+   "file": "cv_en",
+   "where": "'Grocery Ledger … Offline Android accounting and POS app for small shops: … PDF/Excel export.'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'POS' and 'PDF/Excel export' are not among the verified Grocery Ledger facts (Flutter Android, offline, v2.2.1, 157 tests, barcode via ML Kit or HID scanner, append-only ledgers).",
+   "fix": "'Offline Android ledger app for small shops: barcode by camera (ML Kit) or USB/Bluetooth HID scanner, append-only ledgers. 157 passing tests, v2.2.1. — Flutter'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Stack tails: 'Go, PostgreSQL, Python (pyzk), systemd' and 'Go, PostgreSQL, SSH, NetBird' and 'cosign-signed releases from GitHub Actions'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'systemd' (attendance), 'PostgreSQL' (remote access) and 'GitHub Actions' are not in the verified facts for those repos.",
+   "fix": "Attendance tail: '— Go 1.26, PostgreSQL, Python (pyzk)'. Remote access: '…cross-platform CLI with cosign keyless-signed releases. — Go, SSH, NetBird'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Skills table, row 'Frontend & mobile React 19, Next.js, …'",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The label column is sized to its longest label, so 'Frontend & mobile' touches the value column with ~2 mm gutter while shorter labels leave 10 mm; the table reads as unevenly set and the two-line rows ('Frontend & mobile', 'AI & agents') have no hanging alignment cue.",
+   "fix": "`table.skills td:first-child { width: 36mm; padding-right: 5mm; vertical-align: top; } table.skills td { padding: 1.5pt 0; }` and shorten the label to 'Frontend' (mobile items are already distinguished by the semicolon)."
+  },
+  {
+   "file": "cv_en",
+   "where": "Page bottoms: page 1 blank ≈26 mm above footer after '— Python, FastAPI, React 19'; page 2 blank ≈21 mm after 'Arabic (native), English…'",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Both pages end ~10 % short, which together with the orphaned heading signals that pagination was not tuned; the eye reads the pages as 'ran out' rather than designed. (The reported 103 % vertical_fill includes the footer and does not reflect the visible gaps.)",
+   "fix": "After moving Mansur AI to page 1 (issue 1), balance page 2 with `h2 { margin-top: 14pt; margin-bottom: 6pt; }` and `table.skills td { padding: 2pt 0; }` so the skills matrix breathes and the last line lands ≈12 mm above the footer rather than 21 mm."
+  },
+  {
+   "file": "cv_en",
+   "where": "Blue #0b4f8a used for section heads, subtitle, phone '+967 770 941 666', email, every URL and '2026 – Present' grey beside black employer line",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The accent blue does double duty as structural colour (headings) and interactive colour (links). In 'Basira · basirapp.site · github.com/MoTechSys/Project-Basira' the two blue URLs outweigh the bold black title, and the blue phone number reads as a hyperlink. Contrast values (8.4:1, 6.26:1) are fine; the issue is semantic.",
+   "fix": "Keep headings in #0b4f8a; set links to body colour with a subtle underline: `a { color: #16202e; text-decoration: underline; text-decoration-color: #9aa5b5; text-underline-offset: 2px; }` and set the phone number as plain text `span.phone { color: #16202e; }` (keep `href=\"https://wa.me/967770941666\"` for the PDF link)."
+  },
+  {
+   "file": "cv_en",
+   "where": "Bulleted Experience entries ('‣ POS replacing YemenSoft Onyx Pro — …') vs unbulleted project entries ('Idhaat · github.com/…' + paragraph)",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Two different entry grammars: run-in bold title + em dash inside a bullet, versus a standalone bold title line with middle-dot links. The bullets hang 4 mm into the margin on page 1 only, so the left edge of page 1 is visually different from page 2.",
+   "fix": "Drop the bullet glyphs and give Experience entries the same anatomy as projects: `.entry h3 { font-weight: 600; margin: 5pt 0 0; } .entry p { margin: 0; }` with the stack tail per issue 3. If bullets are kept, use `ul { padding-left: 0; } li { padding-left: 4mm; text-indent: -4mm; }` so the marker sits inside the measure, not in the margin."
+  },
+  {
+   "file": "cv_en",
+   "where": "Header rule under contact line (dark, ~1.5pt) and section rules (light grey, hairline)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Header rule is correct, but section rules sit only ~2 pt under the cap height of the heading and 12 px above the first body line, so each rule visually attaches to the text below rather than to its heading; the heading floats.",
+   "fix": "`h2 { padding-bottom: 3pt; border-bottom: 0.5pt solid #c9d0da; margin-bottom: 7pt; }` and remove any separate `<hr>`; the rule then belongs to the heading."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Ghaida … Household guidebook for domestic workers in their native language with AI voice for every sentence'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'in their native language' is not among the verified Ghaida facts (household book, AI voice per sentence, offline PWA, admin panel).",
+   "fix": "'Household guidebook for domestic workers with AI voice for every sentence; offline PWA with admin panel.'"
+  },
+  {
+   "file": "cv_ar",
+   "where": "cv_ar.pdf and services_ar.pdf — not supplied in this review bundle",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The Arabic CV and services profile (metrics and images) were not provided, so Noto Naskh Arabic / IBM Plex Sans pairing, RTL punctuation, mixed-direction runs (Latin stack names inside Arabic lines) and Arabic leading could not be judged. Noto Naskh Arabic is correctly retained for text-layer fidelity; no alternative is proposed because any substitute would need re-testing with pdftotext before adoption.",
+   "fix": "When reviewed, start from: `html[lang=ar] body { font-family: 'Noto Naskh Arabic'; font-size: 11pt; line-height: 1.7; } .latin { font-family: 'IBM Plex Sans'; font-size: 0.92em; unicode-bidi: isolate; direction: ltr; }` — Naskh at 10pt has a visibly smaller x-height than Plex, and isolating Latin tokens prevents punctuation (‘·’, ‘—’, parentheses) flipping at run boundaries while keeping extraction order correct."
+  }
+ ],
+ "reviewer": "typographer_cv_en",
+ "model": "claude-fable-5-1",
+ "seconds": 171.7
+}

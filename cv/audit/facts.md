@@ -8,7 +8,7 @@ Anything in the CV that is NOT in this list must be flagged as "unverified".
 - Email: moain.learn@gmail.com (candidate confirmed; old info@alabbasi.tech does NOT work).
 - WhatsApp: +967 770 941 666. GitHub: github.com/MoTechSys (main). Company site: alabbasi.uk.
 - Education details (university, degree, year) are UNKNOWN. Only a team graduation project (SOC) is documented.
-- Start of professional career: UNKNOWN. All repos are dated 2026.
+- CONFIRMED BY CANDIDATE (2026-11-03): email moain.learn@gmail.com is correct; he founded and works as Alabbasi Tech in 2026 and has real market experience through that work. 'Founder & Software Engineer · Alabbasi Tech · 2026 – Present' is confirmed.
 - Candidate said website traffic numbers previously shown (CTR 0.4%->2.1%, 556 impressions) are OUTDATED; they were removed. No current numbers are available.
 
 ## Verified from repository READMEs
@@ -50,3 +50,29 @@ Anything in the CV that is NOT in this list must be flagged as "unverified".
 - Sijil: designed for owner and worker "even illiterate"; banknote entry, spoken confirmation, 8-second undo.
 - S-ACM: README stack React 19, TypeScript 5, Tailwind 4 (no Hono/Drizzle).
 - motech-cli: cosign keyless-signed releases; joins NetBird mesh.
+
+## Round-3 additions verified directly from repo READMEs (2026-11-03)
+- Basira README: matches quotations "byte-exactly against licensed source corpora"; optional model only *proposes* spans and reads images (OCR), never decides; backend FastAPI; frontend React 19 + TypeScript + Vite; tests 345 + 110 + 32 (vitest).
+- Mansur AI README: ReAct executor; hierarchical SQLite memory (working, episodic, procedural, semantic); "saves its experience as skills after success"; sandboxed shell; HTTP tools with SSRF protection; FastAPI + WebSocket UI.
+- Ai_Alabbasi README: brain swapped "with one line" (Claude / GPT-5 / DeepSeek / local model); planner + todo list; CodeAct; hybrid FTS5 + vectors with RRF; RAG; sandbox local/Daytona/E2B.
+- keif-publisher README: content from the media archive; 9:16 conversion; human approval gate (FastAPI + Jinja2 UI); APScheduler; dry-run default and kill switch enabled by default.
+- keif-aldiafa-ads-platform README: client = Keif Al-Diafa, Jeddah; "permanent" OAuth connection to Google Ads + Search Console; free GAQL; Arabic dashboard; phase 0 done.
+- motech_V2 README (remote access): Authenticode-signed Windows agent running as a service, 20 s heartbeat, NetBird mesh, SSH key rotation, AES-256-GCM encrypted private keys, full activity log. NOT stated: "Zero-Trust", "per-user policies", "session audit" -> do not use.
+- motech-pos: built modules auth, bills, catalog, customers, reports, returns, shifts; OpenAPI; Arabic raster printing proven on Bixolon. BullMQ is only in the planned stack -> do not list.
+- Nexus Notify README: one unified API; Android gateway is a foreground service with dual SIM.
+- my-bro README: UC-11 "SSH brute force + automatic blocking" verified live in the lab. VirusTotal is an external service (not open source).
+- Websites: MoTechSys/keif-aldiafa-web (keifaldiafa.com, Next.js 14, Jeddah) and MoTechSys/osoul-aldiafa-v2 (asoulaldiafa.com, Next.js 14) are in the candidate's org. qahwajeen.com: live, but no repo found.
+- MoTechSys/diafa-apps + keif_blins: Android apps "Keif Al-Diafa" and "Asoul Al-Diafa" v2.6.0 (Flutter/Dart + Kotlin), signed APK releases with remote lock.
+- All project links in the CV return HTTP 200 (public repos).
+
+## Round-4 additions (verified in READMEs; reviewers flagged them only because they were missing here)
+- Basira: pytest (345), vitest (32), GitHub Actions CI (actions/workflows/ci.yml), ruff, mypy strict.
+- Idhaat: Jitsi Meet self-hosted in Docker on a VPS; JWT token per lesson; moving watermark with student name and number.
+- Moain Promoter AI: bilingual Arabic + English posts; providers OpenAI, Anthropic, Gemini, Groq.
+- Ai_Alabbasi: brain "swappable from one file"; private repository (GitHub API private=true).
+- Grocery Ledger: PdfExporter and ExcelExporter in the code layout.
+- motech-attendance: systemd units for scheduled sync.
+- motech_V2 (remote access): languages Go + PLpgSQL (PostgreSQL).
+- Printing: Arabic raster printing over Bluetooth SPP / Web Serial (not "ESC/POS" as a skill claim).
+- qahwajeen.com: live, but NO repo or other evidence of authorship -> removed until the candidate confirms.
+- Basira has no client-service bot; the only bot verifies quotations (@BasiraCheckBot).

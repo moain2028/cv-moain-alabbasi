@@ -1,0 +1,153 @@
+{
+ "verdict": "A clean, well-balanced two-page Arabic CV with sound colour and bullet discipline, but the text layer scrambles every mixed-direction run (parentheses, colons, stack lines), the measure is far too long for Naskh at 10.9 pt, the type scale collapses between subtitle and section heads, and a handful of claims (Jeddah, licensed sources, SSH auto-block, skills-as-memory) are not in the verified facts.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_ar",
+   "where": "Header contact line: \"واتساب‪alabbasi.uk · github.com/MoTechSys · moain.learn@gmail.com · +967 770 941 666 :‬\" (as extracted)",
+   "severity": "critical",
+   "category": "ats",
+   "problem": "The ATS text layer reverses the whole contact run: the colon after واتساب is detached, the phone number is read last and alabbasi.uk first. Also \"عمل عن بعد وفق توقيت\" wraps before \"السعودية\", splitting the phrase across two lines. Parsers will fail to pair label and value.",
+   "fix": "Split into two lines: line 1 `صنعاء، اليمن · عمل عن بعد وفق توقيت السعودية` (wrap the phrase in `<span style=\"white-space:nowrap\">`); line 2 contact items each as `<span dir=\"ltr\" style=\"unicode-bidi:isolate; white-space:nowrap\">+967 770 941 666</span>` etc., label as `واتساب:&nbsp;` preceding the isolated span. Order in DOM: phone, email, GitHub, site."
+  },
+  {
+   "file": "cv_ar",
+   "where": "All Latin-in-Arabic runs, e.g. extracted \"العباسي تك )‪ · (alabbasi.uk‬\", \"(‪)WPS‬\", \"مفتوحة المصدر )‪ ،(Wazuh, Suricata…\", \"(‪github.com/MoTechSys/my-bro · )SOC‬\"",
+   "severity": "critical",
+   "category": "ats",
+   "problem": "Parentheses and commas around Latin tokens are extracted mirrored/outside the brackets, so an ATS reads \")WPS(\" and \"(SOC\" broken. Visually it renders correctly, but the extracted text is what recruiters' systems index.",
+   "fix": "Wrap every Latin token in `<span class=\"ltr\">…</span>` with `.ltr{direction:ltr;unicode-bidi:isolate}` and keep the brackets OUTSIDE the span in the Arabic run: `(<span class=\"ltr\">WPS</span>)`. For URLs and product names use the same span. Re-run pdftotext and diff against source after the change."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Tech-stack strings: inline in \"بصمة‪Go, PostgreSQL, Python (pyzk) .‬\", \"بشريحتين‪NestJS, PostgreSQL 17 … Kotlin .‬\", \"طارئ‪Python, FastAPI, APScheduler .‬\" vs block in POS item \"NestJS 10, React 19, Oracle PL/SQL, BullMQ\"",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Stack lists are placed inconsistently: two items put them on their own grey line, seven items append them inline after the Arabic sentence at a smaller size (9.44 pt inside a 10.93 pt line), producing a baseline/size jump mid-line and the full stop extracted AFTER the Latin run (\"(pyzk) .\"). Inconsistent rhythm and corrupt punctuation in the text layer.",
+   "fix": "Always render the stack as its own block: `<div class=\"stack\" dir=\"ltr\">Go, PostgreSQL, Python (pyzk)</div>` with `.stack{font:9.5pt/1.4 'IBM Plex Sans';color:#566173;text-align:right;margin-top:1pt}`. Remove the trailing Arabic full stop + stack pattern everywhere."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Body text, measured chars_per_full_line median 94, max 120",
+   "severity": "major",
+   "category": "typography",
+   "problem": "94 characters per line is ~30% over the comfortable 60–72 for Naskh body text; combined with full justification and many Latin tokens it creates long sweeps and word-space rivers (visible in the summary paragraph). Reading fatigue for the Saudi hiring manager who reads the whole page.",
+   "fix": "Set `body{font-size:11.25pt;line-height:1.55}` and `@page{margin:16mm 21mm 18mm 21mm}` (content width 168 mm). Recover the lost vertical space by converting the seven inline stacks to compact block stacks and trimming the two orphan lines noted below; target ≤82 chars median."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Type scale: subtitle \"مهندس برمجيات · أنظمة أعمال متكاملة · وكلاء ذكاء اصطناعي\" 12.72 pt vs section heads \"نبذة مهنية\" 13.42 pt",
+   "severity": "major",
+   "category": "typography",
+   "problem": "The two second-level sizes differ by only 0.7 pt and both are bold navy, so the role subtitle and section headings read as the same rank. Scale 9.44 / 10.93 / 12.72 / 13.42 / 21.86 has no clear step.",
+   "fix": "Use a 1.2 scale: body 11 pt, stack 9.5 pt, subtitle 12 pt (`.subtitle{font-size:12pt;font-weight:600;color:#16202e}` — drop the navy so only headings carry colour), section heads 14.5 pt (`h2{font-size:14.5pt;letter-spacing:0;margin:9pt 0 4pt}`), name 22 pt."
+  },
+  {
+   "file": "cv_ar",
+   "where": "\"أدوات Google Ads لشركة كيف الضيافة في جدة\"",
+   "severity": "major",
+   "category": "fact",
+   "problem": "\"في جدة\" (in Jeddah) is not in the verified facts; the repo README only establishes keif-aldiafa-ads-platform. Also \"مواقع لعلامات ضيافة سعودية\" asserts the brands are Saudi, which the facts sheet does not confirm (only HTTP 200 on the domains). Unverifiable location claims are the first thing a Saudi recruiter may check.",
+   "fix": "Replace with \"أدوات Google Ads لعلامة كيف الضيافة\" and \"مواقع لعلامات ضيافة: keifaldiafa.com · asoulaldiafa.com · qahwajeen.com\" unless the candidate supplies verifiable client location."
+  },
+  {
+   "file": "cv_ar",
+   "where": "SOC project: \"منها الحظر التلقائي لهجمات تخمين كلمات مرور SSH\"",
+   "severity": "major",
+   "category": "fact",
+   "problem": "The facts sheet lists 14 verified use cases and an AI analyst that acts only with human approval; an automatic SSH brute-force block is not listed and even contradicts the human-approval framing. Unverified.",
+   "fix": "Replace with \"تم التحقق من 14 حالة استخدام في بيئة معملية (2026-09-28).\" and drop the SSH example."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Projects: extracted \"عدد ا لاختبارات الناجحة‪Flutter .157 :‬\" and \"بالذكاء ا لاصطناعي‪React 19…\"",
+   "severity": "major",
+   "category": "ats",
+   "problem": "The text layer inserts a space inside \"الاختبارات\" and \"الاصطناعي\" (three occurrences), breaking the words for search and contradicting the premise that this font extracts 100%. It occurs only on lines that end with an inline Latin stack, pointing to the bidi run boundary, not the font.",
+   "fix": "Apply the block-stack fix above (removes the mixed run on those lines), add `hyphens:none;word-break:normal;overflow-wrap:normal` to `p, li`, then verify with `pdftotext -layout cv_ar.pdf - | grep -c \"ا ل\"` = 0."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Basira: \"مع 71,987 سجلا من مصادر مرخصة\"",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "\"من مصادر مرخصة\" (from licensed sources) is not in the verified facts; only the record count is.",
+   "fix": "Replace with \"مع 71,987 سجلا من المصادر المعتمدة في المشروع\" or simply \"مع 71,987 سجلا\"."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Mansur AI: \"ويحفظ تجاربه الناجحة كمهارات\"",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Self-learning that stores successful runs as skills is not in the verified facts (facts list a learner node, hierarchical memory, router, cost tracking).",
+   "fix": "Delete \"ويحفظ تجاربه الناجحة كمهارات\" and end the sentence at \"وذاكرة هرمية. عدد الاختبارات الناجحة: 82.\""
+  },
+  {
+   "file": "cv_ar",
+   "where": "POS item: \"باستخدام Web\" at line end, \"Serial،\" at next line start",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The term \"Web Serial\" is broken across a line, and because of RTL the two halves sit at opposite page edges; the reader loses the term.",
+   "fix": "`<span class=\"ltr\" style=\"white-space:nowrap\">Web Serial</span>`; apply the same to \"Search Console\", \"Google Ads\", \"Onyx Pro\", \"PL/SQL\"."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Orphan last lines: \"وكتابة المحتوى.\" (MCP item), \"تحكم. Python, Celery, Redis, Playwright\" (Promoter), \"معمل عملي للتحليل الجنائي الرقمي.\" (SOC)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Three paragraphs end on a one- or two-word line, the Promoter case leaving a lone \"تحكم.\" beside a grey stack; it breaks the rhythm of the right-anchored blocks.",
+   "fix": "Add `p,li{text-wrap:pretty}` (Chromium ≥117). For Promoter rewrite to \"…لست منصات، مع لوحة تحكم.\" on one line by moving the stack to its own block; for MCP shorten to \"…ووكلاء «بنا» لتدقيق المواقع وإعادة بنائها وكتابة محتواها.\" to pull the orphan up."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Experience header \"مؤسس ومهندس برمجيات · العباسي تك (alabbasi.uk) · صنعاء، عن بعد   منذ 2026\"",
+   "severity": "minor",
+   "category": "content",
+   "problem": "Career start is unknown per the facts; \"منذ 2026\" is defensible only as the dated repos. Fine, but the grey date is extracted on a separate line far from the title, so an ATS will not associate it.",
+   "fix": "Keep \"2026 – الآن\" (not \"منذ\") and place it inside the same flex row in DOM order immediately after the title: `<div class=\"row\"><span class=\"title\">…</span><span class=\"date\" dir=\"ltr\">2026 – الآن</span></div>` so extraction keeps them adjacent."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Latin tokens inside Arabic lines, e.g. \"Oracle\", \"ZKTeco\", \"IslamicEval 2025\" in the summary and Basira paragraph",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "IBM Plex Sans at the same nominal size as Noto Naskh Arabic looks ~8–10% larger and darker because Plex's x-height is tall and Naskh's loop height is low; Latin words pop out of the line like bold. Pairing is otherwise acceptable (both humanist, open apertures).",
+   "fix": "`.ltr, :lang(en){font-size:0.93em;font-weight:400}` inside Arabic paragraphs (≈10.2 pt Latin against 11 pt Naskh). If a closer pair is wanted, IBM Plex Sans Arabic would match weights and heights; it may be adopted only after the same test (render → `pdftotext` → byte diff with source, specifically checking lam-alef and numbers in RTL), since extraction depends on the ToUnicode CMap Chromium emits for ligated glyphs, not on the family."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Page margins: p1 top 13.4 mm vs bottom 27.5 mm; sides 18 mm",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The name sits 13 mm from the top edge while 27 mm of white remains at the foot of page 1; page 1 feels top-heavy and the header has no breathing room.",
+   "fix": "`@page{margin:17mm 21mm 17mm 21mm}` and `header{margin-top:2mm}`; p1 fill drops to ~90% which is the better balance."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Skills table: values \"TypeScript, Python, Go, …\" right-aligned to a column edge, labels bold Naskh",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Values are 10.93 pt dark Latin while bullet stacks are 9.44 pt grey — two conventions for the same kind of content. The Arabic-only value row \"أجهزة البصمة ZKTeco، الطابعات…\" is also visibly taller than the Latin rows, creating an uneven table rhythm.",
+   "fix": "`.skills td{font-size:10.5pt;line-height:1.45;padding:1.5pt 0;vertical-align:baseline}`; `.skills th{width:34mm;text-align:right;font-weight:700}`; give the Latin cells `dir=\"ltr\"` with `text-align:right`."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Section rules under \"نبذة مهنية\", \"الخبرة العملية\" etc.",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The hairline rule sits only ~2 pt below the heading but ~5 pt above the first body line; the grey separator reads as attached to the heading rather than framing the section, and at full width it duplicates the navy colour cue.",
+   "fix": "`h2{border-bottom:0.5pt solid #c9ced6;padding-bottom:3pt;margin-bottom:6pt}`; keep navy #0b4f8a for the text only."
+  },
+  {
+   "file": "cv_ar",
+   "where": "SOC project: \"إضافة إلى معمل عملي للتحليل الجنائي الرقمي.\"",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The forensics lab is a separate item in the facts, not part of the graduation project; folding it into the SOC paragraph implies it was part of the team project.",
+   "fix": "Move to its own line under مشروع التخرج as a short item: \"معمل تحليل جنائي رقمي: Autopsy, FTK Imager، سجل النظام، سجلات الأحداث، آثار المتصفح.\""
+  }
+ ],
+ "reviewer": "typographer_cv_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 142.4
+}

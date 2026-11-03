@@ -1,0 +1,153 @@
+{
+ "verdict": "A disciplined, well-weighted Plex Sans résumé with a sound three-colour system, undermined by an orphaned header line, a measure of ~100 characters that spawns six one- or two-word tail lines, an under-differentiated type scale, and roughly a dozen small embellishments that are not in the verified facts.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "Header: \"Sana’a, Yemen ·\" / \"Remote (GMT+3) · WhatsApp …\"",
+   "severity": "major",
+   "category": "layout",
+   "problem": "The first contact line holds only \"Sana’a, Yemen ·\" with a dangling middle-dot separator, then the rest wraps to line two. It is the most visible line on page 1 and reads as a rendering bug; the trailing separator also leaks into the ATS text as a line ending in \"·\".",
+   "fix": ".contact{display:flex;flex-wrap:wrap;column-gap:0;row-gap:2pt;font-size:9pt;color:#566173} .contact span{white-space:nowrap} .contact span+span::before{content:\"\\00a0·\\00a0\";color:#566173} — never put the separator inside the text. If a two-line split is wanted, force it: line 1 \"Sana’a, Yemen · Remote (GMT+3) · WhatsApp +967 770 941 666\", line 2 \"moain.learn@gmail.com · github.com/MoTechSys · alabbasi.uk\" (<br> between, no trailing dot)."
+  },
+  {
+   "file": "cv_en",
+   "where": "Experience header: \"2026 – Present\"",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Start of professional career is UNKNOWN in the facts sheet; only repository dates (2026) exist. A date range on the only employment line is a verifiable claim a recruiter will probe; if it is only inferred from repo timestamps it is unverified.",
+   "fix": "Confirm the founding date with the candidate. If it cannot be confirmed, remove \"2026 – Present\" from the line (keep the right-aligned slot empty or use the verified project-year context elsewhere); do not substitute another date."
+  },
+  {
+   "file": "cv_en",
+   "where": "\"Google Ads tooling for Keif Al-Diafa (Jeddah)\" and \"Websites for Saudi hospitality brands: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com\"",
+   "severity": "major",
+   "category": "fact",
+   "problem": "\"(Jeddah)\" and \"Saudi\" are not in the verified facts; only HTTP-200 status of the three sites and the repo name keif-aldiafa-ads-platform are confirmed. Geographic client claims are exactly what Saudi hiring managers will check.",
+   "fix": "Unless the candidate confirms, change to \"Google Ads tooling for Keif Al-Diafa\" and \"Websites for hospitality brands: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com.\""
+  },
+  {
+   "file": "cv_en",
+   "where": "Multiple unverified qualifiers: \"ReAct executor\", \"skills saved from successful runs\" (Mansur); \"(Claude, GPT-5, DeepSeek or a local model)\" (Ai_Alabbasi); \"bilingual Arabic/English posts\" (Promoter); \"Arabic SEO content\" (Bina); \"in GitHub Actions\" (remote access); \"foreground service\" (Nexus); \"including automatic blocking of SSH brute-force attacks\" (SOC); \"in their native language\" (Ghaida); \"from licensed corpora\", \"never decides a verdict\" (Basira)",
+   "severity": "major",
+   "category": "fact",
+   "problem": "None of these phrases appear in the verified READMEs/facts. Individually small, together they inflate every entry beyond what the repos document, and a reviewer who opens one repo and fails to find \"GPT-5\" or \"licensed corpora\" will discount the rest.",
+   "fix": "Delete each unverified qualifier or replace with the verified wording: Mansur → \"planner, executor, verifier and learner orchestrated with LangGraph\"; Ai_Alabbasi → \"Coding agent with a swappable model backend\"; Promoter → \"write posts for six platforms\"; Bina → \"reusable agents for website audit (205 checks), rebuild and content\"; remote access → \"releases keyless-signed with cosign\"; Nexus → \"native Android SMS gateway (dual SIM)\"; SOC → delete the \"including …\" clause; Ghaida → \"Household guidebook for domestic workers with AI voice for every sentence\"; Basira → \"Verifies Quran and Hadith quotations against 71,987 records; an optional LLM only proposes spans and reads images (OCR).\""
+  },
+  {
+   "file": "cv_en",
+   "where": "Measure: median 100, max 113 characters per line at 10 pt (text width 170 mm)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "100–113 characters is 25–40 % beyond the comfortable 65–85 for continuous text; the eye loses the return sweep in the dense paragraph-style project blocks (Basira, Idhaat). The 1.43 leading partly compensates but cannot fix a measure this long.",
+   "fix": "@page{margin:18mm 23mm 18mm 23mm} (text width 164 mm ≈ 95 ch) and body{font-size:10pt;line-height:14.5pt}. Combined with the trailer shortenings below the document still fits two pages (page 2 has 43 mm spare)."
+  },
+  {
+   "file": "cv_en",
+   "where": "Tail lines: \"BullMQ, OpenAPI\", \"WebSocket, SQLite\", \"Tailwind 4\", \"accounting system.\", \"Actions. — Go, SSH, NetBird\", \"Jetpack Compose, ML Kit\"",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Six entries end with a one- to three-word grey 9 pt fragment on its own line. These orphaned stack tails break the vertical rhythm, look like leftovers and in the skills table split a value mid-list.",
+   "fix": "p, li{text-wrap:pretty; orphans:2; widows:2} and shorten three trailers so they fit: POS → \"— NestJS 10, React 19, Oracle PL/SQL\"; Mansur → \"— Python, LangGraph, FastAPI\"; S-ACM sentence → \"Academic content manager with AI summarisation and question generation. — React 19, TypeScript, Tailwind 4\"."
+  },
+  {
+   "file": "cv_en",
+   "where": "Summary: \"a multi-\\ntenant notification platform\" (ATS text: \"multitenant\")",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "Automatic hyphenation split \"multi-tenant\" across lines; pdftotext dropped the hyphen and produced the non-word \"multitenant\", which an ATS keyword match for \"multi-tenant\" will miss.",
+   "fix": "body{hyphens:manual} and write the compound with a non-breaking hyphen: \"multi\\u2011tenant\" (U+2011) in Summary, Motech Attendance and Nexus Notify."
+  },
+  {
+   "file": "cv_en",
+   "where": "Type scale: 9 / 10 / 11.6 / 12.49 / 22 pt",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Section headings (11.6 pt) are only 16 % larger than body text and smaller than the tagline (12.49 pt); hierarchy rests entirely on blue + caps. The non-integer 11.6 and 12.49 also signal an unrounded scale.",
+   "fix": "Use a 1.2 ratio scale on a 14 pt baseline: .stack{font-size:9pt} body{font-size:10pt} h2.section{font-size:12pt;letter-spacing:.04em;text-transform:uppercase} .tagline{font-size:13.5pt} h1{font-size:24pt;letter-spacing:-.01em}."
+  },
+  {
+   "file": "cv_en",
+   "where": "Leading 14.25 pt; section spacing arbitrary",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A 14.25 pt line pitch gives no clean baseline grid; heading margins and the rule-to-text gaps do not sit on multiples of it, so page 2 blocks drift visibly against page 1.",
+   "fix": "body{line-height:14pt} h2.section{margin:14pt 0 7pt;padding-bottom:3pt;border-bottom:.4pt solid #c9ced6} .entry{margin-bottom:7pt} li{margin-bottom:3.5pt} — all vertical values multiples of 3.5 pt."
+  },
+  {
+   "file": "cv_en",
+   "where": "Page margins: top 14.3 mm vs sides 20 mm; page 2 no running footer",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The name sits 14 mm from the trim while sides are 20 mm, so the header feels pushed up; page 2 starts mid-section with \"Ai_Alabbasi\" and carries no name or page number, so a detached second sheet is anonymous.",
+   "fix": "@page{margin:18mm 23mm} @page{@bottom-center{content:\"Moain Al-Abbasi · \" counter(page) \" / \" counter(pages);font:8pt 'IBM Plex Sans';color:#566173}} and .entry,li{break-inside:avoid}."
+  },
+  {
+   "file": "cv_en",
+   "where": "Experience list: last bullet \"Websites for Saudi hospitality brands: …\"",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Every other bullet opens with a semibold project name followed by an em dash; the last bullet has no bold lead-in, so the scanning pattern breaks on the final item.",
+   "fix": "Render \"Websites\" in the same .lead{font-weight:600} style: \"<b>Websites</b> — hospitality brands: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com. In development: …\"."
+  },
+  {
+   "file": "cv_en",
+   "where": "AI Agents section: \"Ai_Alabbasi\" entry",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "It is the only project entry without a repository link and without a stack trailer, and it happens to be the first thing on page 2, so the inconsistency is prominent.",
+   "fix": "Add the stack trailer from verified facts: \"— Python, SQLite FTS5\"; if the repo is private, append \"(private repository)\" after the title exactly as done for Mansur AI."
+  },
+  {
+   "file": "cv_en",
+   "where": "Technical Skills table: \"Frontend & mobile\" and \"DevOps & security\" labels",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The label column is ~34 mm and these two labels run to within ~2 mm of the value column, so the gutter collapses and the table loses its alignment edge.",
+   "fix": ".skills{display:grid;grid-template-columns:36mm 1fr;column-gap:5mm;row-gap:3.5pt} .skills dt{font-weight:600}."
+  },
+  {
+   "file": "cv_en",
+   "where": "Technical Skills: row \"Languages — Arabic (native), English (technical reading and writing)\"",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "Human languages sit inside a section titled TECHNICAL SKILLS, a category error that also confuses ATS skill parsers that treat every row as a technology.",
+   "fix": "Rename the section heading to \"SKILLS\" or move the row under its own 12 pt heading \"LANGUAGES\" immediately after Technical Skills."
+  },
+  {
+   "file": "cv_en",
+   "where": "Header \"Sana’a, Yemen · Remote (GMT+3)\" and Experience line \"Alabbasi Tech (alabbasi.uk) · Sana’a, Yemen · Remote\"",
+   "severity": "minor",
+   "category": "content",
+   "problem": "Location and \"Remote\" are stated twice within 25 mm; the repetition costs a line in the tightest part of page 1.",
+   "fix": "Experience line → \"Founder & Software Engineer · Alabbasi Tech (alabbasi.uk)\" with the date slot right-aligned; keep location only in the header."
+  },
+  {
+   "file": "cv_en",
+   "where": "Inline stack trailers in #566173 at 9 pt (\"— NestJS 10, React 19 …\")",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Switching size and colour mid-line forces a 1 pt baseline jump and a lighter colour inside justified-looking text; it works in a single line but degrades when the trailer wraps (see tail-line issue). Contrast itself (6.26:1) is fine.",
+   "fix": ".stack{font-size:9pt;color:#566173;vertical-align:baseline;letter-spacing:.01em} and insert the separator as .stack::before{content:\"\\00a0— \"} so the em dash never ends a line alone."
+  },
+  {
+   "file": "cv_en",
+   "where": "Section \"GRADUATION PROJECT (TEAM)\" with no Education section",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "A graduation project implies a degree, yet university, degree and year are UNKNOWN and absent; ATS parsers expect an Education block and recruiters will notice the gap. No data may be invented.",
+   "fix": "Keep the section as is; obtain university/degree/year from the candidate before the next revision and only then add \"EDUCATION\". Do not add placeholders."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Arabic body face (Noto Naskh Arabic) paired with IBM Plex Sans",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Noto Naskh is a calligraphic text face with low x-height contrast against the geometric Plex Sans, so bilingual lines show a visible weight and colour mismatch. It was retained because it is the only face that extracted 100 % — that constraint must be preserved.",
+   "fix": "Trial IBM Plex Sans Arabic (same designer, matched stroke and weights). Extraction correctness depends on the PDF ToUnicode map the renderer emits, not the glyph design: render with Chromium/Playwright (HarfBuzz shaping, ToUnicode written per glyph), embed the full TTF (no subsetting of shaping tables), then run pdftotext -raw and diff against the source string; adopt Plex Sans Arabic only if the diff is empty for every page, otherwise keep Noto Naskh Arabic."
+  }
+ ],
+ "reviewer": "typographer_cv_en",
+ "model": "claude-fable-5-1",
+ "seconds": 134.7
+}

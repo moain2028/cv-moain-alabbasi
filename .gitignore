@@ -1,0 +1,21 @@
+# Secrets and tokens (never commit)
+.env*
+*.token
+.git-credentials
+
+# Private data: WhatsApp export and repo-migration work files
+wa/
+github-sync/
+gl*.json
+repos*.json
+import*.sh
+retry.sh
+*_log.txt
+status*.txt
+sub2_id
+sync_project_id
+
+# Regenerable / scratch
+__pycache__/
+*.pyc
+cv/build/

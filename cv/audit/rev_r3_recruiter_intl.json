@@ -1,0 +1,153 @@
+{
+ "verdict": "A strong, evidence-dense CV with unusually concrete, repo-backed engineering detail, but a hiring manager will doubt one sub-1-year founder entry carrying 15+ systems, several stack and skill claims are not on the verified sheet, and two overfilled pages hide the AI-agent and security story.",
+ "score_10": 7,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: 'Docker', 'pytest', 'Gemini', 'GitHub Actions', 'ESC/POS via Bluetooth and Web Serial'",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "These five items are not in the verified facts. Docker, pytest and Gemini appear in no README. GitHub Actions is not stated; only 'cosign keyless-signed releases' is verified. The verified printing fact is 'Arabic raster printing over Bluetooth via Web Serial', not ESC/POS. In a technical interview, any one of these that cannot be shown in a repo undermines every other claim on the page.",
+   "fix": "Remove the items or get the candidate to confirm them with a repo. Safe lines: 'DevOps: Cloudflare (Pages, D1, R2), Linux, cosign keyless-signed releases; Vitest, Playwright' · 'Integration: ZKTeco (pyzk, TCP/4370), Arabic raster receipt printing via Bluetooth SPP + Web Serial, Google Ads API, Search Console API' · 'AI & agents: … model routing with fallback; Claude, GPT-5, DeepSeek, local models'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Project stacks: '— Go, PostgreSQL, SSH, NetBird' (Secure remote access); '— Go, PostgreSQL, Python (pyzk), systemd' (Motech Attendance); 'cosign-signed releases from GitHub Actions'",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "None of these is verified. PostgreSQL is not listed for the remote-access project (verified: Go, SSH, NetBird). systemd is not listed for attendance (verified: Go, PostgreSQL, pyzk). GitHub Actions is not stated for the CLI releases.",
+   "fix": "Secure remote access stack: '— Go, SSH, NetBird, cosign'. Attendance stack: '— Go, PostgreSQL, Python (pyzk)'. Replace the CLI clause with 'cross-platform CLI (motech-cli) with cosign keyless-signed releases that joins the NetBird mesh'."
+  },
+  {
+   "file": "cv_en",
+   "where": "'PDF/Excel export' (Grocery Ledger); 'MCP-ready tooling' and 'Arabic/English posts' (Moain Promoter AI); 'self-hosted Jitsi (JWT per lesson)' (Idhaat); 'in their native language' (Ghaida); 'Ai_Alabbasi (private repository)'; 'public dev set' (Basira)",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "Each phrase adds detail beyond the verified sheet. Verified: Grocery Ledger has barcode input and append-only ledgers, with no export mentioned. Promoter has 7 agents, 6 platforms and Next.js/Celery/Redis/Playwright, with nothing on MCP or languages. Idhaat has a 'Jitsi fallback with JWT', with nothing on self-hosting or per-lesson tokens. Ghaida's language support is not stated. Ai_Alabbasi is not documented as private. Basira's score is '(dev)', not a 'public' dev set. These are small embellishments, but each is a credibility leak.",
+   "fix": "Grocery Ledger: '…USB/Bluetooth HID scanner, append-only ledgers. 157 passing tests, v2.2.1.' Promoter: 'Seven specialised agents under an orchestrator generate posts for six platforms; Next.js dashboard; Celery + Redis job queue; Playwright automation.' Idhaat: '…with Jitsi fallback (JWT)'. Ghaida: 'Household guidebook for domestic workers with AI voice for every sentence; offline PWA with admin panel; API tests 27/27.' Ai_Alabbasi: drop '(private repository)' unless confirmed. Basira: '(IslamicEval 2025 subtask 1B, dev set)'."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Founder & Software Engineer · Alabbasi Tech … 2026 – Present' with seven bullets, followed by 9 more projects",
+   "severity": "critical",
+   "category": "strategy",
+   "problem": "In the 7-second scan, a reader sees under one year of total experience, all self-employed, with roughly 16 systems listed. That ratio triggers 'AI-generated or inflated' suspicion. The reader also cannot tell which items are delivered client work and which are prototypes or phase-0 builds. The only named client is Keif Al-Diafa. Founder-only histories also raise 'will he leave to run his company?' concerns for full-time remote roles.",
+   "fix": "Keep at most 5 bullets under Alabbasi Tech: POS, Attendance, Nexus Notify, Secure remote access, Google Ads tooling. Move keif-publisher and the hospitality sites to SELECTED PROJECTS. Add a verified status at the end of each bullet, for example 'Status: field-tested on a live iFace950', 'Status: phase 1 complete', 'Status: phase 0 done', 'Status: printing field-tested on Bixolon'. Do not add client names beyond Keif Al-Diafa (Jeddah). Ask the candidate which systems are in production use, and add only what he confirms."
+  },
+  {
+   "file": "cv_en",
+   "where": "Section 'GRADUATION PROJECT (TEAM)' with no EDUCATION section anywhere",
+   "severity": "major",
+   "category": "content",
+   "problem": "A graduation project with no degree, university or year makes a recruiter assume the candidate is unfinished or hiding something. Greenhouse, Workday and Taleo also populate an Education field that is currently empty, and some knockout filters require it. University, degree and year are UNKNOWN in the verified sheet, so they cannot be filled in here.",
+   "fix": "Ask the candidate for university, degree and graduation year (or expected year), and add them only once confirmed: 'EDUCATION — [Degree], [University], [Year]', with the SOC project as a sub-entry. Until then, keep the current heading and do not invent anything."
+  },
+  {
+   "file": "cv_en",
+   "where": "Title line 'Software Engineer · Full-Stack Systems · AI Agents (LangGraph, MCP)'",
+   "severity": "major",
+   "category": "ats",
+   "problem": "The target is 'Software Engineer / AI Engineer', but the exact phrase 'AI Engineer' never appears in the CV. Recruiters search Lever and Greenhouse by title string, and 'Full-Stack Systems' is not a searchable title.",
+   "fix": "'Full-Stack Software Engineer · AI Engineer (LLM Agents, LangGraph, MCP)'"
+  },
+  {
+   "file": "cv_en",
+   "where": "SUMMARY: 'Built a POS on an existing Oracle database with Bluetooth receipt printing, a ZKTeco attendance system … Fully remote, Saudi time zone.'",
+   "severity": "major",
+   "category": "content",
+   "problem": "The summary is a 70-word inventory that repeats the Experience section. It gives no positioning, says nothing about engineering quality or security, and 'Saudi time zone' means little to an international reader. The strongest differentiators are missing: verification-first AI (the LLM never decides), 487 tests, and signed agents with encryption.",
+   "fix": "'Full-stack and AI engineer (TypeScript, Python, Go) and founder of Alabbasi Tech. I build business systems on real hardware and legacy data (Oracle POS, ZKTeco attendance with KSA/UAE WPS export) and LLM agents with guardrails: LangGraph multi-agent systems, MCP servers, sandboxed execution and human approval gates. Flagship: Basira, an Arabic quotation verifier with 0/500 false alarms and 487 automated tests. Remote, GMT+3 (overlaps EU mornings and full Gulf day).'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Mansur AI: 'Arabic multi-agent system: planner, ReAct executor, verifier and learner … 82 passing tests.'",
+   "severity": "major",
+   "category": "content",
+   "problem": "The verified safety features (sandboxed shell, HTTP tools with SSRF protection) are left out. They are exactly the overlap between AI-agent and security roles, and they lift the project from 'demo' to 'production-minded'. The 'Arabic' prefix also reads as language-limited; the verified Arabic element is the UI.",
+   "fix": "'Multi-agent system orchestrated with LangGraph (planner, ReAct executor, verifier, learner): 13 agents, 38 tools, sandboxed shell, HTTP tools with SSRF protection, model router with fallback and cost tracking, hierarchical SQLite memory (working, episodic, procedural, semantic); saves successful runs as reusable skills. 82 passing tests; FastAPI + WebSocket Arabic UI.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS 'Security' and 'AI & agents' rows",
+   "severity": "major",
+   "category": "ats",
+   "problem": "The Security row lists only SOC tooling. The application-security keywords the CV already proves are never surfaced in Skills, where ATS keyword matching weights terms. The AI row misses common JD terms that are proven: LLM evaluation, human-in-the-loop, ReAct, CodeAct, sandboxed code execution, OCR.",
+   "fix": "'Security: SSRF protection, sandboxed execution, AES-256-GCM key encryption, Authenticode and cosign code signing, SSH key rotation, OAuth, JWT; Wazuh (SIEM), Suricata (IDS), YARA, auditd, Autopsy, FTK Imager' · 'AI & agents: LLM agents, LangGraph, ReAct, CodeAct, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5 + vectors, RRF), model routing with fallback, LLM evaluation, human-in-the-loop approval'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Experience bullets, e.g. 'Motech Attendance — built to replace…' and 'POS … documented why Xprinter USB fails on Windows (driver)'",
+   "severity": "major",
+   "category": "content",
+   "problem": "The bullets are action plus scope but rarely end with a result. Verified outcomes exist but are buried or missing ('11 users'). The POS bullet leads its outcome with a failure (Xprinter) rather than the proven success. 'iFace950 devices' (plural) overstates the verified test on one live device.",
+   "fix": "Attendance: '…Field-tested on a live iFace950 (11 users, 3,118 punches) with idempotent ingest.' and change 'iFace950 devices' to 'ZKTeco iFace950 terminals (TCP/4370)'. POS: 'Built a web POS on the existing Oracle YSPOS23 schema with no data migration (auth, bills, catalog, customers, returns, shifts, reports; OpenAPI). Field-tested Arabic raster receipt printing on a Bixolon SPP-R310 over Bluetooth via Web Serial.' Drop the Xprinter clause or keep it for interview."
+  },
+  {
+   "file": "cv_en",
+   "where": "Layout metrics: vertical_fill 103.5% / 103.9%, bottom margin 4.8 mm; large blank gap at the bottom of page 1 after Basira",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Both pages overflow their frames, so the footer sits almost on the paper edge and print or PDF viewers may clip it. Meanwhile page 1 ends with about 25% white space because the Mansur block is set to avoid breaking, which pushes the best AI project off the first page.",
+   "fix": "CSS: '@page { size: A4; margin: 14mm 18mm 14mm 18mm; }' 'body { line-height: 1.35; }' 'section + section { margin-top: 3.5mm; }' Allow project blocks to break: '.project { break-inside: auto; }' with '.project-title { break-after: avoid; }'. Freeing space through the cuts in other issues should bring both pages under 98% fill."
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS extracted as 'Programming\\n\\nTypeScript, Python…' and 'Frontend & mobile React 19…'",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "The two-column table makes pdftotext split labels from values inconsistently: some on separate lines, some merged. Workday and Taleo parsers can attach skills to the wrong category or drop the row.",
+   "fix": "Render each row as a single text line in normal flow: '<p><strong>Backend:</strong> NestJS, FastAPI, Hono…</p>'. Use no table or grid, and keep the colon after each label."
+  },
+  {
+   "file": "cv_en",
+   "where": "Ai_Alabbasi: 'model backend swapped from one config file … — Python, SQLite FTS5'",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The verified README says the model is swapped 'with one line' and includes RAG plus local/Daytona/E2B sandboxes. These are strong AI-engineer keywords that are currently omitted. The 'SQLite FTS5' tail is also orphaned on its own line.",
+   "fix": "'Coding agent whose model is swapped with one line (Claude, GPT-5, DeepSeek or a local model); planner with todo list, CodeAct execution in local/Daytona/E2B sandboxes, RAG with hybrid FTS5 + vector retrieval fused by RRF. — Python'"
+  },
+  {
+   "file": "cv_en",
+   "where": "'Nexus Notify — designed a multi-tenant, multi-channel notification platform behind one API'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "'Designed' reads as architecture-only, leaving the reader unsure whether it was built. Every other bullet says 'built', so this one looks weaker or unfinished.",
+   "fix": "'Nexus Notify — built a multi-tenant, multi-channel notification platform behind one unified API, with an Angular 22 dashboard and a native Kotlin/Compose Android SMS gateway (foreground service, dual SIM).'"
+  },
+  {
+   "file": "cv_en",
+   "where": "'Saudi hospitality brands — websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and qahwajeen.com; Android apps…'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "The bullet has no action verb, so the candidate's role is unclear. qahwajeen.com is live but no repo was found, so authorship is unverifiable. Including it invites a 'show me the code' question that cannot be answered.",
+   "fix": "'Built websites keifaldiafa.com and asoulaldiafa.com (Next.js 14) and Android apps for Keif Al-Diafa and Asoul Al-Diafa (Flutter + Kotlin, v2.6.0, signed APK releases with remote lock).' Keep qahwajeen.com only if the candidate confirms he built it."
+  },
+  {
+   "file": "cv_en",
+   "where": "GRADUATION PROJECT: '…automatic blocking of SSH brute-force attacks. Digital forensics lab with Autopsy and FTK Imager.'",
+   "severity": "minor",
+   "category": "content",
+   "problem": "The forensics lab is a separate verified item but is appended to the team SOC project, which implies it was part of that project. The candidate's own role in the team is also not stated, and interviewers will ask.",
+   "fix": "End the SOC entry at '…including automatic blocking of SSH brute-force attacks (UC-11, verified live).' Add a separate line: 'Digital forensics lab — Autopsy, FTK Imager, registry, event-log and browser forensics.' Ask the candidate for his specific role and add it only once confirmed."
+  },
+  {
+   "file": "cv_en",
+   "where": "Repo links 'github.com/MoTechSys/mohanad-web-app-2' and 'github.com/MoTechSys/my-bro'",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "Hiring managers click links. A personal-name repo and 'my-bro' read as unpolished or someone else's work, which undercuts the 'Grocery Ledger' and 'SOC' labels.",
+   "fix": "Rename the repos on GitHub (old URLs redirect automatically), for example to 'grocery-ledger' and 'soc-wazuh-lab', then update the CV links. If not renamed, keep the links as they are; do not invent new URLs."
+  },
+  {
+   "file": "cv_en",
+   "where": "Languages: 'English (technical reading and writing)'",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "For an international remote role, this wording signals the candidate may not handle spoken stand-ups or client calls, and many recruiters reject on it. His actual level is not in the verified sheet.",
+   "fix": "Ask the candidate. If he confirms he can do spoken meetings, use 'English (professional working proficiency)'. Otherwise keep the current wording. Do not upgrade it without confirmation."
+  }
+ ],
+ "reviewer": "recruiter_intl",
+ "model": "claude-opus-5-5",
+ "seconds": 109.7
+}
