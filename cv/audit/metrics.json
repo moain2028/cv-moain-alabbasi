@@ -9,14 +9,14 @@
   "fonts": {
    "IBMPlexSans-Regular": "91.2%",
    "IBMPlexSans-SemiBold": "7.1%",
-   "IBMPlexSans-Bold": "1.7%"
+   "IBMPlexSans-Bold": "1.8%"
   },
   "sizes_pt": {
-   "8.06": "9.3%",
-   "8.95": "87.9%",
-   "10.38": "1.5%",
-   "11.19": "1.0%",
-   "19.7": "0.2%"
+   "9.0": "9.4%",
+   "10.0": "87.8%",
+   "11.6": "1.5%",
+   "12.49": "1.0%",
+   "22.0": "0.2%"
   },
   "colors": {
    "#16202e": {
@@ -24,7 +24,7 @@
     "contrast_on_white": 16.4
    },
    "#566173": {
-    "share": "9.4%",
+    "share": "9.5%",
     "contrast_on_white": 6.26
    },
    "#0b4f8a": {
@@ -35,48 +35,48 @@
   "margins_mm": {
    "p1": {
     "left": 20.1,
-    "right": 19.5,
-    "top": 14.4,
-    "bottom": 30.8
+    "right": 19.6,
+    "top": 14.3,
+    "bottom": 25.2
    },
    "p2": {
     "left": 20.1,
     "right": 19.8,
-    "top": 15.1,
-    "bottom": 116.9
+    "top": 15.2,
+    "bottom": 43.4
    }
   },
   "pages_detail": [
    {
     "page": 1,
-    "vertical_fill_pct": 93.9,
-    "lines": 51
+    "vertical_fill_pct": 95.9,
+    "lines": 47
    },
    {
     "page": 2,
-    "vertical_fill_pct": 61.9,
-    "lines": 40
+    "vertical_fill_pct": 89.4,
+    "lines": 50
    }
   ],
   "leading": {
-   "8.95": {
-    "median_pt": 12.76,
+   "10.0": {
+    "median_pt": 14.25,
     "ratio": 1.43,
-    "n": 48
+    "n": 53
    }
   },
   "chars_per_full_line": {
-   "median": 112.5,
-   "max": 123
+   "median": 100,
+   "max": 113
   },
   "distinct_sizes": 5,
-  "text_chars": 6407,
+  "text_chars": 6399,
   "ats": {
    "email_found": true,
    "phone_found": true,
    "broken_words": [],
    "ligature_or_pua": [],
-   "words": 992,
+   "words": 994,
    "weak_phrases": [],
    "first_word_counts": [
     [
@@ -108,7 +108,7 @@
      1
     ],
     [
-     "nexus",
+     "motech",
      1
     ]
    ],
@@ -121,18 +121,7 @@
    ]
   },
   "short_tail_lines": [
-   "Jetpack Compose",
-   "SSH, NetBird",
-   "React 19",
-   "Ai_Alabbasi",
-   "R2, Vitest",
-   "admin panel.",
-   "Programming",
-   "Backend",
-   "ML Kit",
-   "Data",
-   "Integration",
-   "Languages"
+   "Tailwind 4"
   ]
  },
  "cv_ar.pdf": {

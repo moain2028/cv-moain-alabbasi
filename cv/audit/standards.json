@@ -12,14 +12,14 @@
   "cv_en.pdf": [
    {
     "rule": "Body size 10-12 pt",
-    "value": "8.95 pt",
-    "pass": false,
+    "value": "10.00 pt",
+    "pass": true,
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
    {
     "rule": "Smallest text >= 8.5 pt",
-    "value": "8.06 pt",
-    "pass": false,
+    "value": "9.00 pt",
+    "pass": true,
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
    {
@@ -36,7 +36,7 @@
    },
    {
     "rule": "Margins >= 12.7 mm (0.5 in)",
-    "value": "min 14.4 mm",
+    "value": "min 14.3 mm",
     "pass": true,
     "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
    },
@@ -48,8 +48,8 @@
    },
    {
     "rule": "Median chars/line <= 100",
-    "value": "112.5",
-    "pass": false,
+    "value": "100",
+    "pass": true,
     "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
    },
    {
