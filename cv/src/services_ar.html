@@ -6,22 +6,22 @@
 <meta name="author" content="معين العباسي">
 <link rel="stylesheet" href="base.css">
 <style>
-  @page { size: A4; margin: 10mm 12mm; }
-  body[dir="rtl"] { font-size: 9.1pt; line-height: 1.45; }
-  section { margin-top: 5px; }
-  p, li { text-wrap: wrap; }
-  h2 { margin-bottom: 3px; }
-  li { margin: 0.8px 0; }
-  .lead { font-size: 10pt; margin: 5px 0 0; }
+  /* Scale (pt): 9 meta / 10 body / 11.5 card & title / 12.8 section / 22 name = 5 sizes */
+  @page { size: A4; margin: 15mm 15mm 13mm; }
+  body[dir="rtl"] { font-size: 10.1pt; line-height: 1.45; --meta: 9pt; --title: 11.8pt; }
+  section { margin-top: 7px; }
+  h2 { margin-bottom: 4px; }
+  .lead { margin: 6px 0 0; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
   .card { border: 1px solid var(--line); border-radius: 6px; padding: 5px 9px; break-inside: avoid; }
-  .card h3 { margin: 0 0 1px; font-size: 10pt; font-weight: 700; }
-  .card .for { color: var(--muted); font-size: 8.6pt; margin-bottom: 2px; }
+  .card.wide { grid-column: 1 / -1; }
+  .card h3 { margin: 0 0 1px; font-size: 11.8pt; font-weight: 700; }
+  .card .for { color: var(--muted); font-size: 9pt; margin-bottom: 2px; }
   .card ul { margin: 0; }
-  .card li { margin: 0.8px 0; }
+  .card li { margin: 0.6px 0; }
   table.proof { width: 100%; border-collapse: collapse; }
   table.proof td { border-bottom: 1px solid var(--line); padding: 2.5px 4px; vertical-align: top; }
-  table.proof td:first-child { font-weight: 600; white-space: nowrap; width: 128px; }
+  table.proof td:first-child { font-weight: 600; white-space: nowrap; width: 120px; }
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
   .step { background: var(--soft); border-radius: 6px; padding: 5px 8px; }
   .step .n { color: var(--accent); font-weight: 700; display: block; }
@@ -47,44 +47,29 @@
   <h2>خدماتنا</h2>
   <div class="grid">
     <div class="card">
-      <h3>١. أنظمة إدارة الأعمال ونقاط البيع</h3>
+      <h3>1. أنظمة نقاط البيع وإدارة الأعمال</h3>
       <div class="for">المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات</div>
-      <ul><li>كاشير ومخزون ومشتريات ومحاسبة وفواتير</li><li>طباعة فواتير عربية وقارئ باركود</li><li>ترحيل بياناتك من نظامك الحالي</li></ul>
+      <ul><li>كاشير ومبيعات ومرتجعات وورديات وتقارير</li><li>طباعة فواتير عربية على الطابعات الحرارية وقراءة الباركود</li><li>العمل على قاعدة بياناتك الحالية أو ترحيلها</li></ul>
     </div>
     <div class="card">
-      <h3>٢. أنظمة العيادات والمجمعات الطبية</h3>
-      <div class="for">عيادات الأسنان والجلدية، المختبرات، مراكز التأهيل</div>
-      <ul><li>حجوزات ومواعيد وملفات مرضى</li><li>تذكير تلقائي بالمواعيد عبر واتساب</li><li>فوترة وتقارير يومية للإدارة</li></ul>
+      <h3>2. الحضور والانصراف والرواتب</h3>
+      <div class="for">الشركات متعددة الفروع، المصانع، المستشفيات، المدارس</div>
+      <ul><li>يقرأ أجهزة البصمة ZKTeco الحالية دون استبدالها</li><li>ورديات وإجازات وتقارير بصيغتي CSV و Excel</li><li>تصدير ملفات حماية الأجور (WPS)</li></ul>
     </div>
     <div class="card">
-      <h3>٣. أنظمة العقار والمبيعات (CRM)</h3>
-      <div class="for">شركات التطوير والتسويق العقاري، فرق المبيعات</div>
-      <ul><li>متابعة العميل من أول تواصل حتى إتمام البيع</li><li>إدارة الوحدات والزيارات والعمولات</li><li>موقع يعرض المشاريع ويستقبل الطلبات</li></ul>
-    </div>
-    <div class="card">
-      <h3>٤. الحضور والانصراف والموارد البشرية</h3>
-      <div class="for">المصانع، الشركات متعددة الفروع، المستشفيات، المدارس</div>
-      <ul><li>يقرأ أجهزة البصمة الحالية دون استبدالها</li><li>ورديات وإجازات وعمل إضافي</li><li>تصدير ملفات حماية الأجور (WPS)</li></ul>
-    </div>
-    <div class="card">
-      <h3>٥. تطبيقات الجوال</h3>
+      <h3>3. تطبيقات الجوال</h3>
       <div class="for"><bdi dir="ltr">Flutter</bdi> لأندرويد، وأندرويد أصلي بلغة <bdi dir="ltr">Kotlin</bdi></div>
-      <ul><li>تطبيقات تعمل حتى بدون إنترنت</li><li>تطبيقات المناديب والتوصيل والموظفين</li><li>تطبيقات الولاء والحجوزات للعملاء</li></ul>
+      <ul><li>تطبيقات تعمل دون إنترنت</li><li>تطبيقات للموظفين والمناديب</li><li>بوابة رسائل SMS من جوال أندرويد</li></ul>
     </div>
     <div class="card">
-      <h3>٦. مواقع ومتاجر مهيأة لمحركات البحث</h3>
+      <h3>4. مواقع وأدوات تسويق رقمي</h3>
       <div class="for">شركات الخدمات، الضيافة، المتاجر الإلكترونية</div>
-      <ul><li>مواقع عربية خفيفة وسريعة</li><li>تهيئة تقنية لمحركات البحث (SEO)</li><li>استضافة على خوادمك أو حساباتك السحابية</li></ul>
+      <ul><li>مواقع عربية خفيفة وسريعة</li><li>تهيئة تقنية لمحركات البحث (SEO)</li><li>لوحات متابعة لحملات Google Ads</li></ul>
     </div>
-    <div class="card">
-      <h3>٧. وكلاء الذكاء الاصطناعي والأتمتة</h3>
+    <div class="card wide">
+      <h3>5. وكلاء الذكاء الاصطناعي والأتمتة</h3>
       <div class="for">أي منشأة لديها عمل يدوي متكرر</div>
-      <ul><li>بوت واتساب أو تيليجرام يرد على العملاء</li><li>قراءة الفواتير والمستندات تلقائيا</li><li>وكلاء أذكياء يربطون أنظمتك ببعضها</li></ul>
-    </div>
-    <div class="card">
-      <h3>٨. منصات التعليم والجمعيات</h3>
-      <div class="for">المدارس، مراكز التدريب، الجمعيات الخيرية، الأوقاف</div>
-      <ul><li>قبول وتسجيل ورسوم وأقساط</li><li>حصص مباشرة وتسجيلات محمية وواجبات</li><li>منصة تبرعات وإدارة متبرعين</li></ul>
+      <ul><li>بوت تيليجرام يرد ويتحقق، ووكلاء ينشرون المحتوى بعد موافقتك، وخوادم MCP تربط أنظمتك بالوكلاء الأذكياء</li></ul>
     </div>
   </div>
 </section>
@@ -92,9 +77,8 @@
 <section>
   <h2>أعمال منفذة</h2>
   <table class="proof">
-    <tr><td>كيف الضيافة (جدة)</td><td><a href="https://keifaldiafa.com"><bdi dir="ltr">keifaldiafa.com</bdi></a> — موقع ضيافة يعمل فعليا، مع منصة مرتبطة بحساب Google Ads ومنصة Search Console</td></tr>
-    <tr><td>أصول الضيافة</td><td><a href="https://asoulaldiafa.com"><bdi dir="ltr">asoulaldiafa.com</bdi></a> — موقع ضيافة فاخر، عربي، سريع</td></tr>
-    <tr><td>قهوجيين جدة</td><td><a href="https://qahwajeen.com"><bdi dir="ltr">qahwajeen.com</bdi></a> — موقع خدمات يستهدف البحث المحلي في جدة</td></tr>
+    <tr><td>كيف الضيافة (جدة)</td><td><a href="https://keifaldiafa.com"><bdi dir="ltr">keifaldiafa.com</bdi></a> — موقع ضيافة يعمل فعليا، مع منصة مرتبطة بحسابي Google Ads و Search Console</td></tr>
+        <tr><td>قهوجيين جدة</td><td><a href="https://qahwajeen.com"><bdi dir="ltr">qahwajeen.com</bdi></a> — موقع خدمات يستهدف البحث المحلي في جدة</td></tr>
     <tr><td>بصيرة</td><td><a href="https://basirapp.site"><bdi dir="ltr">basirapp.site</bdi></a> — منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث، مع واجهة API وبوت تيليجرام</td></tr>
     <tr><td>نظام نقاط بيع ونظام ERP</td><td>بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة، يطبع على طابعات Bixolon الحرارية عبر البلوتوث</td></tr>
     <tr><td>نظام حضور وانصراف</td><td>يسحب البصمات من أجهزة ZKTeco مباشرة، ويصدر تقارير وملفات حماية الأجور (WPS)</td></tr>
@@ -105,10 +89,10 @@
 <section>
   <h2>طريقة العمل</h2>
   <div class="steps">
-    <div class="step"><span class="n">١. مكالمة مجانية</span>نصف ساعة لفهم عملك والمشكلة التي تواجهك</div>
-    <div class="step"><span class="n">٢. عرض مكتوب</span>نطاق واضح وسعر ثابت ومراحل ودفعات محددة</div>
-    <div class="step"><span class="n">٣. تسليم على مراحل</span>ترى كل مرحلة تعمل قبل الانتقال إلى التالية</div>
-    <div class="step"><span class="n">٤. تشغيل ودعم</span>تدريب ووثائق بالعربية وتسليم الشفرة كاملة</div>
+    <div class="step"><span class="n">1. مكالمة مجانية</span>نصف ساعة لفهم عملك والمشكلة التي تواجهك</div>
+    <div class="step"><span class="n">2. عرض مكتوب</span>نطاق واضح وسعر ثابت ومراحل ودفعات محددة</div>
+    <div class="step"><span class="n">3. تسليم على مراحل</span>ترى كل مرحلة تعمل قبل الانتقال إلى التالية</div>
+    <div class="step"><span class="n">4. تشغيل ودعم</span>تدريب ووثائق بالعربية وتسليم الشفرة كاملة</div>
   </div>
 </section>
 

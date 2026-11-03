@@ -1,98 +1,89 @@
 MOAIN AL-ABBASI
+
 Software Engineer · Full-Stack Systems · AI Agents (LangGraph, MCP)
-Sana’a, Yemen · Remote
-(GMT+3) · WhatsApp +967 770 941 666 · moain.learn@gmail.com · github.com/MoTechSys · alabbasi.uk
+Sana’a, Yemen · Remote (GMT+3) · WhatsApp +967 770 941 666 · moain.learn@gmail.com · github.com/MoTechSys · alabbasi.uk
 
 SUMMARY
-Software engineer building business systems and AI agents end to end in TypeScript, Python and Go: database, API,
-web and mobile clients, hardware integration and deployment. Work includes a POS that runs on an existing Oracle
-database and prints to Bluetooth thermal printers, an attendance system that pulls directly from ZKTeco devices
-and exports Saudi WPS payroll files, a multi-tenant notification platform with an Android SMS gateway, and Basira,
-an Arabic quotation verifier with 0/500 false alarms and 487 automated tests. Fully remote, same time zone as
-Saudi Arabia.
+Software engineer building business systems and AI agents end to end in TypeScript, Python and Go, from database and API
+to web, mobile, hardware integration and deployment. Built a POS on an existing Oracle database with Bluetooth receipt
+printing, a ZKTeco attendance system with Saudi WPS payroll export, a multi-tenant notification platform, and Basira, an
+Arabic quotation verifier with 0/500 false alarms. Fully remote, Saudi time zone.
 
 EXPERIENCE
 Founder & Software Engineer · Alabbasi Tech (alabbasi.uk) · Sana’a, Yemen · Remote
 
 2026 – Present
 
-POS replacing YemenSoft Onyx Pro — web POS that works directly on the existing Oracle database: sales,
-returns, shifts and reports. Arabic receipts print on a Bixolon SPP-R310 over Bluetooth SPP through Web Serial;
-documented why the Xprinter USB path fails on Windows and the supported alternatives. — NestJS 10, React 19,
-Oracle PL/SQL, BullMQ, OpenAPI
+POS replacing YemenSoft Onyx Pro — web POS that works directly on the existing Oracle database: sales, returns, shifts
+and reports. Arabic receipts print on a Bixolon SPP-R310 over Bluetooth SPP through Web Serial; documented the failed
+Xprinter USB path on Windows. — NestJS 10, React 19, Oracle PL/SQL, BullMQ, OpenAPI
+Motech Attendance — replaces the ZKTeco desktop software: branch collectors pull punches from iFace950 devices
+over TCP into a central multi-tenant service with idempotent ingest; shifts, leave balances, CSV/Excel reports and WPS
+payroll export for Saudi Arabia (MHRSD/SAMA) and the UAE (SIF). Tested on a live device (3,118 punches). — Go,
+PostgreSQL, Python (pyzk), systemd
 
-Motech Attendance — replaces the ZKTeco desktop software: branch collectors pull punches from iFace950
-devices over TCP into a central multi-tenant service with idempotent ingest; shifts, leave balances, CSV/Excel
-reports and WPS payroll export for Saudi Arabia (MHRSD/SAMA) and the UAE (SIF). Tested on a live device (11
-employees, 3,118 punches). — Go, PostgreSQL, Python (pyzk), systemd
-Nexus Notify — multi-tenant, multi-channel notification platform behind one API, with an Angular dashboard and a
-native Android SMS gateway (dual SIM, foreground service). — NestJS, PostgreSQL 17, Prisma, Redis/BullMQ, Angular
-22, Kotlin, Jetpack Compose
+Nexus Notify — multi-tenant, multi-channel notification platform behind one API, with an Angular dashboard and a native
+Android SMS gateway (dual SIM, foreground service). — NestJS, PostgreSQL 17, Prisma, Redis/BullMQ, Angular 22, Kotlin,
+Jetpack Compose
 
-Secure remote access — Zero-Trust platform with signed agents, per-user policies and session audit; motech-cli is
-a cross-platform single-command agent that joins the NetBird mesh, with cosign-signed releases built in GitHub
-Actions. — Go, SSH, NetBird
-Google Ads tooling for Keif Al-Diafa (Jeddah) — persistent OAuth connector to Google Ads and Search Console
-with free-form GAQL queries and an Arabic dashboard; phase 1 of a multi-client ads platform with live Google Ads
-API data and a 12-table schema. — Hono, Cloudflare D1, Next.js 15, Prisma, PostgreSQL 16
-keif-publisher — generates posts from a media archive, converts video to 9:16, routes every post through a human
-approval gate, then publishes on schedule; dry-run and kill switch on by default. — Python, FastAPI, APScheduler
-Websites for Saudi hospitality brands: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com. In development:
-an offline-first event-management PWA (Angular 22, IndexedDB) and a modern layer around a legacy PHP
-accounting system.
+Secure remote access — Zero-Trust platform with signed agents, per-user policies and session audit, plus a crossplatform single-command CLI agent that joins the NetBird mesh; releases signed with cosign in GitHub Actions. — Go,
+SSH, NetBird
+
+Google Ads tooling for Keif Al-Diafa (Jeddah) — persistent OAuth connector to Google Ads and Search Console with
+free-form GAQL queries and an Arabic dashboard; phase 1 of a multi-client ads platform with live Google Ads API data
+and a 12-table schema. — Hono, Cloudflare D1, Next.js 15, Prisma, PostgreSQL 16
+keif-publisher — generates posts from a media archive, routes each through a human approval gate, then publishes on
+schedule; dry-run and kill switch on by default. — Python, FastAPI, APScheduler
+Websites for Saudi hospitality brands: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com. In development: an offlinefirst event-management PWA (Angular 22, IndexedDB) and a modern layer around a legacy PHP accounting system.
 
 AI AGENTS & APPLIED AI
 Basira · basirapp.site · github.com/MoTechSys/Project-Basira
-Verifies Quran and Hadith quotations byte-exactly against 71,987 records from licensed corpora; an optional LLM
-only proposes spans and reads images (OCR), and never decides a verdict. 150/150 evaluation cases, 0/500 false
-alarms, 78.54% on IslamicEval 2025 subtask 1B (public dev set). 487 automated tests (345 backend, 110 bot, 32
-frontend); ruff, mypy strict, Playwright with axe in CI. REST API, MCP server and Telegram bot. Entry to the AI in
-Service of Islamic Content Challenge 2026. — Python, FastAPI, React 19
+Verifies Quran and Hadith quotations byte-exactly against 71,987 records from licensed corpora; an optional LLM only
+proposes spans and reads images (OCR), and never decides a verdict. 150/150 evaluation cases, 0/500 false alarms,
+78.54% on IslamicEval 2025 subtask 1B (public dev set). 487 automated tests (345 backend, 110 bot, 32 frontend).
+REST API, MCP server and Telegram bot; entry to the AI in Service of Islamic Content Challenge 2026. — Python, FastAPI,
+React 19
+
 Mansur AI (private repository)
-Arabic multi-agent system: planner, ReAct executor, verifier and learner orchestrated with LangGraph; 13 agents, 38
-tools, model router with fallback and cost tracking, hierarchical memory (working, episodic, procedural, semantic)
-and skills saved from successful runs. Sandboxed shell and SSRF-protected HTTP tools; 82 passing tests. — Python,
-LangGraph, FastAPI, WebSocket, SQLite
-
-Ai_Alabbasi
-Coding agent with a model backend swapped from one config file (Claude, GPT-5, DeepSeek or a local model):
-planner with a task list, state machine with interrupts, CodeAct sandboxed Python (local, Daytona or E2B), hybrid
-retrieval with FTS5 and vectors fused by RRF.
+Arabic multi-agent system: planner, ReAct executor, verifier and learner orchestrated with LangGraph; 13 agents, 38 tools,
+model router with fallback and cost tracking, hierarchical memory (working, episodic, procedural, semantic) and skills
+saved from successful runs. 82 passing tests. — Python, LangGraph, FastAPI, WebSocket, SQLite
+Ai_Alabbasi
+Coding agent with a model backend swapped from one config file (Claude, GPT-5, DeepSeek or a local model); task
+planner, CodeAct sandboxed Python, hybrid retrieval with FTS5 and vectors fused by RRF.
 Moain Promoter AI
-Seven specialised agents under an orchestrator that write bilingual Arabic/English posts for six platforms, with
-pluggable model providers and a Next.js dashboard. — Python, Celery, Redis, Playwright
+Seven specialised agents under an orchestrator that write bilingual Arabic/English posts for six platforms, with a Next.js
+dashboard. — Python, Celery, Redis, Playwright
 MCP and agent tooling
-Diafa Studio (Arabic PDF generation exposed to AI agents through MCP), a Telegram MCP server, and Bina, reusable
-agents for website audit, rebuild and Arabic SEO content.
+Diafa Studio (Arabic PDF generation exposed to AI agents through MCP), a Telegram MCP server, and Bina, reusable agents
+for website audit, rebuild and Arabic SEO content.
 
-SELECTED PROJECTS
+SELECTED PROJECTS
 Idhaat · github.com/MoTechSys/Idhaat-Platform
-Live-tutoring platform: conflict-free allocation of four Zoom rooms with fallback to self-hosted Jitsi secured by a JWT
-for each lesson; recordings upload to Cloudflare R2 in chunks during class, play in a protected player with a moving
-watermark of the student’s name, and are deleted after 48 hours. Homework, messaging and course finances; runs
-for about 25 SAR a month. — Hono, Cloudflare Pages, D1, R2, Vitest
+Live-tutoring platform: conflict-free allocation of four Zoom rooms with fallback to self-hosted Jitsi secured by a JWT for
+each lesson; recordings upload to Cloudflare R2 in chunks during class, play in a protected player with a moving watermark
+of the student’s name, and are deleted after 48 hours. Runs for about 25 SAR a month. — Hono, Cloudflare Pages, D1,
+R2, Vitest
+
 Grocery Ledger · github.com/MoTechSys/mohanad-web-app-2
-Offline Android accounting and POS app for small shops: barcode by camera (ML Kit) or USB/Bluetooth scanner,
-append-only ledgers, PDF/Excel export. 157 passing tests, v2.2.1. — Flutter
+Offline Android accounting and POS app for small shops: barcode by camera (ML Kit) or USB/Bluetooth scanner, appendonly ledgers, PDF/Excel export. 157 passing tests, v2.2.1. — Flutter
 Sijil · github.com/MoTechSys/Sijilati
-Offline debt ledger for shop owners and workers, including those who cannot read: amounts entered as banknotes,
-spoken confirmation, 8-second undo. 93 passing tests. — Flutter
+Offline debt ledger for shop owners and workers, including those who cannot read: amounts entered as banknotes, spoken
+confirmation, 8-second undo. 93 passing tests. — Flutter
 Ghaida · github.com/MoTechSys/ghaida
-Household guidebook for domestic workers in their native language with AI voice for every sentence; offline PWA and
-admin panel; API tests 27/27, end-to-end journey 17/17.
+Household guidebook for domestic workers in their native language with AI voice for every sentence; offline PWA with
+admin panel.
 S-ACM · github.com/MoTechSys/S-ACM-Project
-Academic content-management system with AI summarisation and question generation. — React 19, TypeScript,
-Tailwind 4
+Academic content-management system with AI summarisation and question generation. — React 19, TypeScript, Tailwind 4
 
 GRADUATION PROJECT (TEAM)
 Security Operations Center (SOC) · github.com/MoTechSys/my-bro
-SOC built on open-source tools (Wazuh 4.14.7, Suricata, YARA, VirusTotal, auditd, MikroTik syslog) with an AI analyst
-whose actions require human approval. 14 use cases verified on a running Wazuh 4.14.7 lab (2026-09-28), including
-automatic blocking of SSH brute-force attacks. Hands-on digital forensics lab: Autopsy, FTK Imager, registry, event
-logs and browser artefacts.
+SOC built on open-source tools (Wazuh 4.14.7, Suricata, YARA, VirusTotal, auditd, MikroTik syslog) with an AI analyst whose
+actions require human approval. 14 use cases verified in a lab, including automatic blocking of SSH brute-force attacks.
+Digital forensics lab with Autopsy and FTK Imager.
 
 TECHNICAL SKILLS
-Languages
+Programming
 
 TypeScript, Python, Go, Dart, Kotlin, SQL, PL/SQL
 
@@ -100,36 +91,24 @@ Backend
 
 NestJS, FastAPI, Hono, Prisma, REST/OpenAPI, WebSockets, Redis, BullMQ, Celery
 
-Frontend &
-mobile
-
-React 19, Next.js, Angular 22, Tailwind CSS, PWA, IndexedDB, Arabic RTL; Flutter, Jetpack
-Compose, ML Kit
-
+Frontend & mobile React 19, Next.js, Angular 22, Tailwind CSS, PWA, IndexedDB, Arabic RTL; Flutter, Jetpack Compose,
+ML Kit
 Data
 
 PostgreSQL, Oracle, SQLite, Cloudflare D1
 
 AI & agents
 
-LangGraph, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5, vectors, RRF),
-model routing; OpenAI, Anthropic, Gemini
+LangGraph, multi-agent orchestration, MCP servers, RAG, hybrid search (FTS5, vectors, RRF), model
+routing; OpenAI, Anthropic, Gemini
 
 Integration
 
-ZKTeco (pyzk), ESC/POS over Bluetooth and Web Serial, Android SMS gateway, Google Ads API,
-Search Console
+ZKTeco (pyzk), ESC/POS via Bluetooth and Web Serial, Google Ads API
 
-Security
+DevOps & security Docker, GitHub Actions, Cloudflare, Linux; pytest, Vitest, Playwright; Wazuh, Suricata
+Languages
 
-Wazuh, Suricata, YARA, auditd; Autopsy, FTK Imager; NetBird, cosign
-
-DevOps & quality
-
-Docker, GitHub Actions, Cloudflare (Pages, D1, R2), Linux, systemd; pytest, Vitest, Playwright,
-ruff, mypy strict
-
-LANGUAGES
-Arabic: native · English: technical reading and writing
+Arabic (native), English (technical reading and writing)
 
 

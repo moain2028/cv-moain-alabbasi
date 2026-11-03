@@ -1,0 +1,271 @@
+{
+ "sources": {
+  "harvard": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in",
+  "wcag143": "WCAG 2.2 SC 1.4.3: text contrast >= 4.5:1",
+  "wcag1412": "WCAG 2.2 SC 1.4.12: line height >= 1.5x for body text (we accept >= 1.4 for print CVs)",
+  "bringhurst": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents",
+  "scale": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body",
+  "pdfua": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts",
+  "length": "Recruiter norm: 1-2 pages for a CV, 1 page for a sales sheet"
+ },
+ "results": {
+  "cv_en.pdf": [
+   {
+    "rule": "Body size 10-12 pt",
+    "value": "8.95 pt",
+    "pass": false,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Smallest text >= 8.5 pt",
+    "value": "8.06 pt",
+    "pass": false,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Heading >= 1.15x body",
+    "value": "1.16x",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Distinct sizes <= 5",
+    "value": "5",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Margins >= 12.7 mm (0.5 in)",
+    "value": "min 14.4 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Line height >= 1.4",
+    "value": "1.43",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.12: line height >= 1.5x for body text (we accept >= 1.4 for print CVs)"
+   },
+   {
+    "rule": "Median chars/line <= 100",
+    "value": "112.5",
+    "pass": false,
+    "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
+   },
+   {
+    "rule": "Text contrast >= 4.5:1",
+    "value": "min 6.26",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.3: text contrast >= 4.5:1"
+   },
+   {
+    "rule": "Pages <= 2",
+    "value": "2",
+    "pass": true,
+    "source": "Recruiter norm: 1-2 pages for a CV, 1 page for a sales sheet"
+   },
+   {
+    "rule": "All fonts embedded, no Type 3",
+    "value": "3 fonts",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Tagged PDF (StructTreeRoot)",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document language set",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document title set",
+    "value": "Moain Al-Abbasi - Software Engineer - CV",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Email + phone extractable",
+    "value": "True/True",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   }
+  ],
+  "cv_ar.pdf": [
+   {
+    "rule": "Body size 10-12 pt",
+    "value": "10.93 pt",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Smallest text >= 8.5 pt",
+    "value": "9.44 pt",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Heading >= 1.15x body",
+    "value": "1.16x",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Distinct sizes <= 5",
+    "value": "5",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Margins >= 12.7 mm (0.5 in)",
+    "value": "min 13.4 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Line height >= 1.4",
+    "value": "1.5",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.12: line height >= 1.5x for body text (we accept >= 1.4 for print CVs)"
+   },
+   {
+    "rule": "Median chars/line <= 100",
+    "value": "94",
+    "pass": true,
+    "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
+   },
+   {
+    "rule": "Text contrast >= 4.5:1",
+    "value": "min 6.26",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.3: text contrast >= 4.5:1"
+   },
+   {
+    "rule": "Pages <= 2",
+    "value": "2",
+    "pass": true,
+    "source": "Recruiter norm: 1-2 pages for a CV, 1 page for a sales sheet"
+   },
+   {
+    "rule": "All fonts embedded, no Type 3",
+    "value": "5 fonts",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Tagged PDF (StructTreeRoot)",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document language set",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document title set",
+    "value": "معين العباسي - مهندس برمجيات - السيرة ال",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Email + phone extractable",
+    "value": "True/True",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   }
+  ],
+  "services_ar.pdf": [
+   {
+    "rule": "Body size 10-12 pt",
+    "value": "10.05 pt",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Smallest text >= 8.5 pt",
+    "value": "8.96 pt",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Heading >= 1.15x body",
+    "value": "1.17x",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Distinct sizes <= 5",
+    "value": "5",
+    "pass": true,
+    "source": "Type-scale practice: <= 5 distinct sizes; headings >= 1.15x body"
+   },
+   {
+    "rule": "Margins >= 12.7 mm (0.5 in)",
+    "value": "min 12.6 mm",
+    "pass": true,
+    "source": "Harvard OCS résumé guide: body 10-12 pt, margins 0.5-1 in"
+   },
+   {
+    "rule": "Line height >= 1.4",
+    "value": "1.49",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.12: line height >= 1.5x for body text (we accept >= 1.4 for print CVs)"
+   },
+   {
+    "rule": "Median chars/line <= 100",
+    "value": "56",
+    "pass": true,
+    "source": "Bringhurst, Elements of Typographic Style: 45-75 chars ideal, ~66; up to ~90-100 tolerated in dense documents"
+   },
+   {
+    "rule": "Text contrast >= 4.5:1",
+    "value": "min 6.26",
+    "pass": true,
+    "source": "WCAG 2.2 SC 1.4.3: text contrast >= 4.5:1"
+   },
+   {
+    "rule": "Pages <= 1",
+    "value": "1",
+    "pass": true,
+    "source": "Recruiter norm: 1-2 pages for a CV, 1 page for a sales sheet"
+   },
+   {
+    "rule": "All fonts embedded, no Type 3",
+    "value": "5 fonts",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Tagged PDF (StructTreeRoot)",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document language set",
+    "value": "yes",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Document title set",
+    "value": "العباسي تك - ملف الخدمات",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   },
+   {
+    "rule": "Email + phone extractable",
+    "value": "True/True",
+    "pass": true,
+    "source": "ISO 14289 (PDF/UA): tagged PDF, document title, language, embedded fonts"
+   }
+  ]
+ }
+}

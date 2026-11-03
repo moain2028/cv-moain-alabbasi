@@ -17,6 +17,7 @@ with sync_playwright() as pw:
         page.wait_for_load_state("networkidle")
         page.evaluate("document.fonts.ready")
         pdf = OUT / (src.stem + ".pdf")
-        page.pdf(path=str(pdf), format="A4", print_background=True, prefer_css_page_size=True)
+        page.pdf(path=str(pdf), format="A4", print_background=True, prefer_css_page_size=True,
+                 tagged=True, outline=True)  # tagged = PDF/UA structure + /Lang from <html lang>
         print("wrote", pdf)
     browser.close()
