@@ -1,0 +1,16 @@
+[hr_saudi] start -> gpt-6-astra
+[typographer_cv_en] start -> claude-fable-5-1
+[typographer_cv_ar] start -> claude-fable-5-1
+[typographer_services_ar] start -> claude-fable-5-1
+[arabic_editor] start -> claude-fable-5-1
+hr_saudi        gpt-6-astra        score= 6 t=165.0s issues={'critical': 3, 'major': 13, 'minor': 2} 
+   verdict: أرشحه لمقابلة تقنية ومشروع تجريبي محدود بفضل المشاريع والمستودعات ووضوح التواصل، لكن لا أعتمد التوظيف أو التوريد قبل تصحيح الادعاءات غير المتحققة وتوضيح صفة التعاقد وشروط التسليم والدعم؛ فالملف الحالي أقرب إلى معرض أعمال
+typographer_cv_en claude-fable-5-1   score= 6 t=126.7s issues={'critical': 2, 'major': 7, 'minor': 9} 
+   verdict: A disciplined, readable single-column résumé in IBM Plex Sans whose craft is undercut by a 108-character measure, an orphaned section heading at the foot of page 1, a page 2 that is 37% empty, dead 'source' links, and a 
+typographer_cv_ar claude-fable-5-1   score= 6 t=224.8s issues={'critical': 1, 'major': 9, 'minor': 8} 
+   verdict: A clean, restrained Arabic CV with a sound Naskh/Plex pairing, but it is undermined by a 45%-empty second page, an over-long 121-character measure with weak heading hierarchy, bidi-reversed dates and digits that break bo
+typographer_services_ar claude-fable-5-1   score= 6 t=135.6s issues={'major': 6, 'minor': 12} 
+   verdict: A dense, well-organised one-page services sheet with a clear brand header and good colour discipline, but it is set too small and too tight for Naskh, the two-column card grid scrambles the extracted reading order, bidi 
+arabic_editor   claude-fable-5-1   score= 6 t=222.1s issues={'major': 7, 'minor': 11} 
+   verdict: نص عربي مهني وواضح في مجمله، لكنه يحتاج إلى تصحيح تراكيب مقلوبة المعنى (استبدل بـ)، وترجمات حرفية (وصول بعيد، ترتفع، سيو)، وتوحيد المصطلحات والأرقام، وإزالة بضعة ادعاءات غير موثقة.
+saved /home/user/webapp/cv/audit/reviews_r1b.json

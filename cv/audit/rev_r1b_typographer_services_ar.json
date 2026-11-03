@@ -1,0 +1,153 @@
+{
+ "verdict": "A dense, well-organised one-page services sheet with a clear brand header and good colour discipline, but it is set too small and too tight for Naskh, the two-column card grid scrambles the extracted reading order, bidi punctuation breaks in the contact lines, and two claims (PDPL compliance, payroll output) go beyond the verified facts.",
+ "score_10": 6,
+ "issues": [
+  {
+   "file": "services_ar",
+   "where": "خدماتنا — cards ١–٨ (two-column grid)",
+   "severity": "major",
+   "category": "ats",
+   "problem": "pdftotext reads the grid row by row, so bullets jump between cards: 'طباعة فواتير عربية وقارئ باركود' and 'ترحيل بياناتك من نظامك الحالي' (card ١) are extracted under '٢. أنظمة العيادات'; 'إدارة الوحدات والزيارات والعمولات' (card ٣) lands under '٤. الحضور والانصراف'; 'ورديات وإجازات' (card ٤) lands under '٥. تطبيقات الجوال'. Any parser, search index or screen reader gets nonsense pairings.",
+   "fix": "Generate a tagged PDF so structure order is preserved: Puppeteer `page.pdf({ tagged: true, format: 'A4', printBackground: true })` (Chrome ≥ 112), keep each card as one `<section>` in DOM order; if tagging is unavailable, change the grid to `grid-template-columns: 1fr` for the ATS copy and verify with `pdftotext -layout` that each card's three bullets follow its heading."
+  },
+  {
+   "file": "services_ar",
+   "where": "card ٦: «متوافقة مع نظام حماية البيانات الشخصية»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Claims compliance with the Saudi PDPL. Nothing in the verified facts documents any PDPL audit, DPIA or compliance work; a compliance claim on a sales sheet is a legal exposure, not a marketing line.",
+   "fix": "Replace with the verifiable capability: «تستضاف وتعمل بالكامل من خوادمك أو حساباتك السحابية» or delete the bullet. Do not state compliance until it can be documented."
+  },
+  {
+   "file": "services_ar",
+   "where": "أعمال منفذة — «نظام حضور وانصراف: يسحب البيانات من أجهزة البصمة مباشرة ويصدر تقارير وكشوف رواتب»",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Verified: Go 1.26 + PostgreSQL pulling from ZKTeco iFace950 with daily/monthly HTML/CSV reports. 'كشوف رواتب' (payroll statements) is not in the facts sheet — the system produces attendance reports, not payroll. Overclaiming in the 'executed works' table is riskier than in the offers list.",
+   "fix": "Replace with «يسحب البيانات من أجهزة البصمة (ZKTeco) مباشرة ويصدر تقارير يومية وشهرية جاهزة للرواتب»."
+  },
+  {
+   "file": "services_ar",
+   "where": "header contact line «واتساب: +967 770 941 666» and footer bar «واتساب: +967 770 941 666»",
+   "severity": "major",
+   "category": "ats",
+   "problem": "Extraction yields «واتساب‪alabbasi.uk | moain.learn@gmail.com | +967 770 941 666 :‬» and «واتساب‪+967 770 941 666 :‬» — the colon is resolved as part of the LTR run and lands after the number. Copy-paste of the WhatsApp number from the PDF gives a broken string, the one action the sheet exists to trigger.",
+   "fix": "Markup: `<span>واتساب:</span> <bdi dir=\"ltr\">+967 770 941 666</bdi>` and wrap email and URL in `<bdi dir=\"ltr\">` as well; CSS `bdi, .ltr { unicode-bidi: isolate; direction: ltr; }`. Separate items with `<span class=\"sep\" aria-hidden=\"true\">|</span>` outside the bdi."
+  },
+  {
+   "file": "services_ar",
+   "where": "body text (65.7% of glyphs at 9.07 pt, leading 13.46 pt / 1.48)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Noto Naskh Arabic has a small apparent body and tall stacked ascenders/descenders; at 9 pt with 1.48 leading the lines of «نبني لمنشأتك…» and the table rows visually touch, and the 8.57 pt grey card descriptions («عيادات الأسنان والجلدية، المختبرات، مراكز التأهيل») are below comfortable print size for Arabic. A Saudi procurement manager printing this on an office laser will squint.",
+   "fix": "`body { font-size: 10pt; line-height: 1.65; }` (16.5 pt leading), `.card p.desc { font-size: 9pt; line-height: 1.6; }`. Recover the vertical space by cutting the intro to one sentence and dropping the «أصول الضيافة» row (see fill issue)."
+  },
+  {
+   "file": "services_ar",
+   "where": "Latin runs inside Arabic lines: «Flutter لأندرويد وآيفون، وأندرويد أصلي بلغة Kotlin», «(CRM)», «ERP», «API», «منصور AI»",
+   "severity": "major",
+   "category": "typography",
+   "problem": "IBM Plex Sans at the same nominal size has a much larger x-height than Noto Naskh, so Latin tokens look ~15% bigger and heavier than the surrounding Arabic — Kotlin, CRM and ERP read as shouted. The pairing (warm calligraphic Naskh vs. engineered IBM Plex) is acceptable in class contrast, but the optical size must be equalised.",
+   "fix": "`:lang(en), .latin, bdi { font-family: 'IBM Plex Sans'; font-size: 0.9em; }` and for Bold Plex inside bold Arabic headings use `font-weight: 500` (Plex Medium) instead of 600/700 so stroke weight matches Noto Naskh Bold."
+  },
+  {
+   "file": "services_ar",
+   "where": "page margins: top 7.7 mm vs left/right 11.9/11.6 mm, bottom 14 mm",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The 20.94 pt brand name «العباسي تك» sits 7.7 mm from the trim edge — inside the non-printable zone of many office printers and visibly cramped against the side margins. The page is 97.8% full, so the asymmetry is a symptom of squeezing.",
+   "fix": "`@page { size: A4; margin: 12mm 12mm 12mm 12mm; }` and remove the footer bar's negative/extra bottom offset so the CTA sits on the 12 mm baseline margin."
+  },
+  {
+   "file": "services_ar",
+   "where": "type scale: 8.57 / 8.68 / 9.07 / 9.97 / 10.57 / 20.94 pt",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Six sizes, three of them within 0.5 pt (8.57, 8.68, 9.07), create noise without hierarchy; section heads «خدماتنا / أعمال منفذة / طريقة العمل / التزاماتنا» at 10.57 pt are only 1.17× body and depend on colour alone, while card titles (9.97 pt bold) are nearly the same size as section heads.",
+   "fix": "Use four steps: `--fs-body: 10pt; --fs-small: 9pt; --fs-h2: 13pt; --fs-card-h: 11pt; --fs-brand: 22pt;` and delete the 8.68 pt size (use 9pt for the «أعمال منفذة» descriptions)."
+  },
+  {
+   "file": "services_ar",
+   "where": "intro paragraph «نبني لمنشأتك نظاما أو تطبيقا أو موقعا…» (max 138 chars/line)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A full-width 186 mm measure at 9 pt gives ~138 characters per line, roughly double the comfortable Arabic measure (55–75). The eye loses the return to the second line, and the second line is a 6-word orphan.",
+   "fix": "`.intro { max-width: 150mm; margin-inline-start: 0; }` or set it at 10.5 pt; alternatively split into two short sentences so neither line exceeds ~90 characters."
+  },
+  {
+   "file": "services_ar",
+   "where": "طريقة العمل cards — tails «التي تواجهك», «ودفعات محددة», «التالية», «دعم مجاني»",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "All four step cards end in a one- or two-word orphan line because the 4-column cells are ~25 characters wide. Four orphans in a row look like a layout accident.",
+   "fix": "`.steps p { text-wrap: balance; }` (Chrome ≥ 114) plus shorten copy: «نصف ساعة لفهم عملك ومشكلتك», «نطاق وسعر ثابت ومراحل ودفعات محددة», «ترى كل مرحلة تعمل قبل التالية», «تدريب ووثائق عربية وثلاثة أشهر دعم»."
+  },
+  {
+   "file": "services_ar",
+   "where": "digits: «١٣ وكيلا مع ٣٨ أداة», list numerals «.١ … .٨» vs «+967 770 941 666», «PostgreSQL»-style codes",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Arabic-Indic digits for counts and list numbers but Western digits for the phone; in Saudi business documents Western digits are standard and mixing two systems on one page reads as inconsistent.",
+   "fix": "Use Western digits throughout: «13 وكيلا مع 38 أداة», card numbers «1.» … «8.», and `font-variant-numeric: lining-nums; font-feature-settings: 'locl' 0` on Noto Naskh so it does not auto-localise digits."
+  },
+  {
+   "file": "services_ar",
+   "where": "أعمال منفذة rows: «keifaldiafa.com — موقع ضيافة يعمل فعليا…»",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "In an RTL cell the LTR URL is pushed to the left end after the em dash, so the row reads description first, URL last, and pdftotext emits «— keifaldiafa.com موقع…» with the dash orphaned. Links are the proof points of this table and should be scannable.",
+   "fix": "Make the URL its own column: `<td class=\"url\"><bdi dir=\"ltr\"><a href>keifaldiafa.com</a></bdi></td>` with `grid-template-columns: 34mm 38mm 1fr; .url { text-align: left; }` and drop the «—»."
+  },
+  {
+   "file": "services_ar",
+   "where": "«كيف الضيافة (جدة) — موقع ضيافة يعمل فعليا، مع سيو تقني وتحسين للتحويل وربط بحملات جوجل الإعلانية»",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Site is verified live (HTTP 200) and a Google Ads platform phase 1 exists, but 'تحسين للتحويل' (conversion optimisation) is unverified — the candidate withdrew the CTR/impression numbers, so there is no evidence of conversion results.",
+   "fix": "Replace with «موقع ضيافة يعمل فعليا، مع سيو تقني وربط ببيانات حملات جوجل الإعلانية»."
+  },
+  {
+   "file": "services_ar",
+   "where": "«نظام نقاط بيع ونظام ERP … ويطبع على طابعات حرارية حقيقية»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "'حقيقية' (real) printers is defensive filler; the verified detail (Bixolon SPP-R310 over Bluetooth) is more convincing and concrete.",
+   "fix": "«… ويطبع على طابعات حرارية محمولة (Bixolon عبر بلوتوث)»."
+  },
+  {
+   "file": "services_ar",
+   "where": "subtitle «هندسة برمجيات عن بعد · أنظمة، تطبيقات، مواقع، وكلاء ذكاء اصطناعي»",
+   "severity": "minor",
+   "category": "language",
+   "problem": "Arabic lists take «و» before the final item; the comma-only list reads as translated English.",
+   "fix": "«هندسة برمجيات عن بُعد · أنظمة وتطبيقات ومواقع ووكلاء ذكاء اصطناعي»."
+  },
+  {
+   "file": "services_ar",
+   "where": "التزاماتنا — «ثلاثة أشهر دعم», «رد خلال يوم عمل واحد»; step ٤ «ثلاثة أشهر دعم مجاني»",
+   "severity": "minor",
+   "category": "content",
+   "problem": "These are commercial promises, not verifiable facts; they are legitimate on a services sheet but appear three times (step ٤, commitments list, implied in intro). Repetition dilutes the bold lead-ins and costs vertical space on a 97.8%-full page.",
+   "fix": "Keep the promise once in «التزاماتنا»; change step ٤ body to «تدريب ووثائق بالعربية وتسليم الشفرة الكاملة»."
+  },
+  {
+   "file": "services_ar",
+   "where": "overall page: vertical_fill 97.8%, 80 lines, footer bar flush to bottom margin",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "No breathing room between the «التزاماتنا» list and the blue CTA bar, and section rules + card borders + table rules stack into a line-heavy page; the CTA competes with the dense body instead of standing out.",
+   "fix": "`.cta { margin-top: 6mm; }`; remove the dark section rule under each h2 and use `border-bottom: 0.4pt solid #cfd6e0`; drop the row «أصول الضيافة» (the weakest proof item) to recover ~6 mm."
+  },
+  {
+   "file": "services_ar",
+   "where": "font choice: Noto Naskh Arabic (95.7% of glyphs)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Noto Naskh is a book face; against the geometric headers and card UI it looks editorial rather than corporate, and its small body forces the size/leading compromises above. The extraction constraint is valid, so a swap is only worth it if verified.",
+   "fix": "Candidate alternative: Noto Sans Arabic (same Noto engineering, cmap-based shaping, no presentation-form glyphs, Chrome embeds a subset with a complete ToUnicode table). Adopt only after running `pdftotext out.pdf - | diff - source.txt` and `pdffonts` to confirm the subset is embedded and the diff is empty; otherwise keep Noto Naskh and apply the size/leading fixes."
+  }
+ ],
+ "reviewer": "typographer_services_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 135.6
+}

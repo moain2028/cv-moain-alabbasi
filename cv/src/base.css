@@ -4,51 +4,61 @@
 @font-face { font-family: 'Plex'; src: url('../fonts/plex-500.woff2') format('woff2'); font-weight: 500; }
 @font-face { font-family: 'Plex'; src: url('../fonts/plex-600.woff2') format('woff2'); font-weight: 600; }
 @font-face { font-family: 'Plex'; src: url('../fonts/plex-700.woff2') format('woff2'); font-weight: 700; }
-@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Regular.ttf'); font-weight: 400; }
-@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Medium.ttf'); font-weight: 500; }
-@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-SemiBold.ttf'); font-weight: 600; }
-@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Bold.ttf'); font-weight: 700; }
+/* Arabic: Noto Naskh Arabic (system build). Measured: 100% of Arabic words survive PDF text extraction
+   with correct lam-alef shaping. IBM Plex Arabic, Tajawal, Cairo, Almarai etc. lose 30-70% of words. */
+@font-face { font-family: 'Naskh'; src: url('../fonts/NotoNaskhArabic-Regular.ttf'); font-weight: 400 500; }
+@font-face { font-family: 'Naskh'; src: url('../fonts/NotoNaskhArabic-Bold.ttf'); font-weight: 600 700; }
 
 :root { --ink:#16202e; --muted:#566173; --accent:#0b4f8a; --line:#cfd6e0; --soft:#f1f5fa; }
-@page { size: A4; margin: 12mm 14mm; }
+@page { size: A4; margin: 13mm 15mm 13mm; }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body[dir="ltr"] { font-family: 'Plex', 'Plex Arabic', sans-serif; font-size: 9.4pt; line-height: 1.38; }
-body[dir="rtl"] { font-family: 'Plex Arabic', 'Plex', sans-serif; font-size: 9.6pt; line-height: 1.5; }
+/* Type scale (pt): 8.8 meta / 10 body / 10.6 section / 11.5 title / 22 name */
+body[dir="ltr"] { font-family: 'Plex', 'Naskh', sans-serif; font-size: 9.8pt; line-height: 1.42; }
+body[dir="rtl"] { font-family: 'Naskh', 'Plex', serif; font-size: 10pt; line-height: 1.55; }
+p, li, .entry { text-wrap: pretty; }
 a { color: var(--accent); text-decoration: none; }
 b, strong { font-weight: 600; }
 .muted { color: var(--muted); }
+.nowrap { white-space: nowrap; }
 bdi { unicode-bidi: isolate; }
 
 /* Header */
-header { border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 4px; }
-header h1 { margin: 0; font-size: 21pt; font-weight: 700; line-height: 1.1; }
+header { border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 2px; }
+header h1 { margin: 0; font-size: 22pt; font-weight: 700; line-height: 1.1; }
+header .title { color: var(--accent); font-weight: 600; font-size: 11.5pt; margin-top: 3px; }
+header .contact { margin-top: 4px; font-size: 8.9pt; color: var(--muted); }
+header .contact .sep { color: #9aa5b4; padding: 0 6px; }
 
-header .title { color: var(--accent); font-weight: 600; font-size: 10.6pt; margin-top: 3px; }
-header .contact { margin-top: 4px; font-size: 8.7pt; color: var(--muted); }
-header .contact .sep { color: var(--line); padding: 0 5px; }
-
-/* Sections */
-section { margin-top: 7px; }
-h2 { margin: 0 0 3px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
-     color: var(--accent); font-size: 9.8pt; font-weight: 700; }
+/* Sections: space above a heading is about twice the space below it */
+section { margin-top: 9px; }
+h2 { margin: 0 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
+     color: var(--accent); font-size: 10.6pt; font-weight: 700;
+     break-after: avoid; page-break-after: avoid; }
 body[dir="ltr"] h2 { text-transform: uppercase; }
-body[dir="rtl"] h2 { font-size: 10.6pt; }
+body[dir="rtl"] h2 { font-size: 11.5pt; }
 p { margin: 0 0 3px; }
 ul { margin: 2px 0 0; padding-inline-start: 14px; }
-li { margin: 1.6px 0; }
+li { margin: 2.6px 0; }
 li::marker { color: var(--accent); }
 
-.skills p { margin: 1.4px 0; }
+/* Tech stack after a bullet: muted, isolated so it never mixes with RTL punctuation */
+.stack { color: var(--muted); font-size: 0.93em; }
+.stack::before { content: "— "; }
+body[dir="rtl"] .stack { unicode-bidi: isolate; direction: ltr; display: inline-block; }
+body[dir="rtl"] .stack::before { content: ""; }
+
+/* Skills: label column + content column, wrapped lines stay under the content */
+.skills p { display: grid; grid-template-columns: 8.6em 1fr; column-gap: 8px; margin: 1.6px 0; }
+body[dir="rtl"] .skills p { grid-template-columns: 9.5em 1fr; }
 .skills b { color: var(--ink); }
 
-.role { margin-bottom: 5px; break-inside: avoid; }
-.role-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.role-hd .when { color: var(--muted); font-size: 8.7pt; white-space: nowrap; }
+.role { margin-bottom: 4px; }
+.role-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; break-after: avoid; }
+.role-hd .when { color: var(--muted); font-size: 8.9pt; white-space: nowrap; }
 .role .org { color: var(--muted); }
-.role .intro { color: var(--muted); margin: 1px 0 2px; }
+.role li { break-inside: avoid; }
 
-.entry { margin: 2.5px 0; break-inside: avoid; }
+.entry { margin: 0 0 5px; break-inside: avoid; }
 .entry .name { font-weight: 600; }
-.inline-list span + span::before { content: " · "; color: var(--muted); }

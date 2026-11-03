@@ -1,0 +1,25 @@
+[recruiter_intl] start -> claude-opus-5-5
+[hr_saudi] start -> gpt-6-astra[typographer] start -> claude-fable-5-1
+
+[fact_checker] start -> claude-opus-5-5[arabic_editor] start -> claude-fable-5-1
+
+[eng_lead] start -> gpt-6-astra
+[arabic_editor] attempt 1 failed after 125s: Error code: 524
+[hr_saudi] attempt 1 failed after 125s: Error code: 524
+[typographer] attempt 1 failed after 125s: Error code: 524
+[hr_saudi] attempt 2 failed after 255s: Error code: 524
+[arabic_editor] attempt 2 failed after 255s: Error code: 524
+[typographer] attempt 2 failed after 255s: Error code: 524
+recruiter_intl  claude-opus-5-5    score= 5 t=92.5s issues={'critical': 5, 'major': 9, 'minor': 4} 
+   verdict: The CV shows real technical breadth backed by public repos and live sites, but a recruiter will doubt it: every role and project is dated 2026, many bullets carry unverified scope claims, the strongest AI evidence (Basir
+hr_saudi        gpt-6-astra        score= - t=-s issues={} Error code: 524
+   verdict: 
+typographer     claude-fable-5-1   score= - t=-s issues={} Error code: 524
+   verdict: 
+fact_checker    claude-opus-5-5    score= 5 t=84.3s issues={'critical': 3, 'major': 13, 'minor': 2} 
+   verdict: The CVs are strong on verifiable repo facts, but they repeatedly turn repository projects into 'delivered for clients' work and add technologies, features and an employer role that the verified facts do not support; an i
+arabic_editor   claude-fable-5-1   score= - t=-s issues={} Error code: 524
+   verdict: 
+eng_lead        gpt-6-astra        score= 6 t=98.8s issues={'critical': 1, 'major': 15, 'minor': 2} 
+   verdict: The portfolio earns an interview for concrete integration work and documented testing, but unverified employment claims, inflated security language and missing operational evidence prevent this CV from establishing senio
+saved /home/user/webapp/cv/audit/reviews_r1.json

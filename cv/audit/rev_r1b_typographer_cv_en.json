@@ -1,0 +1,153 @@
+{
+ "verdict": "A disciplined, readable single-column résumé in IBM Plex Sans whose craft is undercut by a 108-character measure, an orphaned section heading at the foot of page 1, a page 2 that is 37% empty, dead 'source' links, and a handful of unverifiable claims.",
+ "score_10": 6,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "Page 1 bottom: heading 'AI AGENTS & APPLIED AI' followed by its rule, body starts on page 2 ('Basira · basirapp.site…')",
+   "severity": "critical",
+   "category": "layout",
+   "problem": "The section heading and its hairline rule are stranded alone at the foot of page 1 (an orphaned heading); the reader turns the page and meets 'Basira' with no label. Also p1 vertical fill is 95.6% versus p2 62.7% (bottom margin 113.8 mm), so the document reads as one crammed page plus a half page.",
+   "fix": "h2 { break-after: avoid; page-break-after: avoid; } .section { break-inside: avoid-page; } and rebalance by scaling up: html { font-size: 10pt; } body { line-height: 14.5pt; } @page { margin: 16mm 18mm 18mm 18mm; } — this pushes AI AGENTS to open page 2 and brings page 2 to ≈90% fill."
+  },
+  {
+   "file": "cv_en",
+   "where": "Every body paragraph, e.g. 'Software engineer who designs, builds and ships complete business systems on my own, from database to user'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Measured median 108 characters per line, max 119, at 9.4 pt with 13.5 pt leading. Above ~90 cpl the eye loses the return sweep; combined with 1.44 leading it makes the dense Skills and project paragraphs tiring. Margins are only 14 mm left/right.",
+   "fix": "@page { margin: 16mm 18mm 18mm 18mm; } html { font-size: 10pt; } body { line-height: 14.5pt; } — yields ≈92–96 cpl. If staying at 9.4 pt instead, use line-height: 14.5pt (1.54) and margin: 16mm 20mm."
+  },
+  {
+   "file": "cv_en",
+   "where": "Links labelled 'source' (Basira, Idhaat, Grocery Ledger, Sijil, S-ACM, Ghaida, Graduation Project)",
+   "severity": "critical",
+   "category": "ats",
+   "problem": "pdftotext extracts the bare word 'source' seven times; the URL lives only in the link annotation, so ATS parsers, printed copies and copy-paste all lose the proof. For the two target audiences the repo URL is the strongest evidence in the document.",
+   "fix": "Replace the word with the visible short URL, styled as the current link colour: 'Basira · basirapp.site · github.com/MoTechSys/Project-Basira', 'Grocery Ledger · github.com/MoTechSys/mohanad-web-app-2', 'Sijil · github.com/MoTechSys/Sijilati', 'Graduation Project … github.com/MoTechSys/my-bro'. For Idhaat, S-ACM and Ghaida no public repo is named in the verified facts — remove the link unless the URL is confirmed public."
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: run-over lines '(WCAG 2.1 AA)', 'Imager); Zero-Trust remote access', 'Playwright, mypy (strict)', 'PDPL compliance'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Run-over lines return to the left margin under the bold label, so the label column is destroyed and four of nine rows end in 2–3-word tails; the block reads as a wall rather than a scannable table.",
+   "fix": ".skills { display: grid; grid-template-columns: 7.5em 1fr; column-gap: 0.6em; row-gap: 2pt; } .skills dt { font-weight: 600; } (or dd { padding-left: 7.5em; text-indent: -7.5em; }). Also trim labels so no row exceeds two lines, e.g. drop 'accessibility (WCAG 2.1 AA)' — unverified anyway."
+  },
+  {
+   "file": "cv_en",
+   "where": "Short last lines: 'APScheduler.', 'logs).', 'WebSocket; 82 passing tests.', 'Hono, PostgreSQL, Drizzle.'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Single-word and two-word widows leave visual holes and waste lines in an already over-full page 1.",
+   "fix": "p, li { text-wrap: pretty; } (Chromium print engine honours it) plus copy edits: 'sends each one to a person for approval' → 'sends each to a human for approval'; 'Windows Registry and event logs' → 'registry and event logs'; 'Arabic web interface with live streaming over WebSocket; 82 passing tests' → 'Arabic UI streaming over WebSocket; 82 passing tests'."
+  },
+  {
+   "file": "cv_en",
+   "where": "AI AGENTS & APPLIED AI and SELECTED PROJECTS entries ('Basira…', 'Mansur AI…', 'Ai_Alabbasi…')",
+   "severity": "major",
+   "category": "layout",
+   "problem": "Consecutive run-in entries are set with ≈2 px between them; the bold run-in name is the only cue, so the five Basira lines and the next entry fuse into one grey block. Vertical rhythm has no secondary beat between entries.",
+   "fix": ".entry + .entry { margin-top: 5pt; } .entry { padding-left: 1.1em; text-indent: -1.1em; } (hanging indent keeps the bold name proud of the wrapped lines)."
+  },
+  {
+   "file": "cv_en",
+   "where": "Header: name 'MOAIN AL-ABBASI' (21 pt) sits 10.9 mm from the trim; contact line at 8.7 pt",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Top margin 10.9 mm vs bottom 23 mm makes the page look top-heavy; 8.7 pt grey (#566173) contact details are the smallest text yet the most-needed. The tagline uses '|' then '·' as separators and the contact line uses '|', while the body uses '·' throughout.",
+   "fix": "@page margin-top 16mm; .contact { font-size: 9pt; } Use one separator everywhere: 'Software Engineer · Full-Stack Systems · AI Agents · Cybersecurity' and 'Sana'a, Yemen (Remote, GMT+3) · +967 770 941 666 · moain.learn@gmail.com · github.com/MoTechSys · alabbasi.uk' with .sep { color: #cfd6e0; padding: 0 0.5em; }."
+  },
+  {
+   "file": "cv_en",
+   "where": "Type scale: 21 / 10.6 / 9.8 / 9.4 / 8.7 pt",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The tagline (9.8 pt) is barely larger than body (9.4 pt) yet jumps straight to a 21 pt name; section heads at 10.6 pt caps lean on colour alone. Scale has no consistent ratio.",
+   "fix": "Use a 1.2 ratio: body 10pt; h2 { font-size: 10pt; letter-spacing: 0.06em; text-transform: uppercase; } .tagline { font-size: 12pt; font-weight: 600; } h1 { font-size: 22pt; letter-spacing: 0.01em; } .contact, .meta { font-size: 9pt; }."
+  },
+  {
+   "file": "cv_en",
+   "where": "Section rules under each heading (#cfd6e0 hairline)",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "Space-above-heading (~5 mm) is close to space-below-rule (~3.5 mm), so sections do not group clearly; the rule also runs under the orphaned heading on page 1 reinforcing the break.",
+   "fix": "h2 { margin: 14pt 0 3pt; padding-bottom: 2pt; border-bottom: 0.5pt solid #cfd6e0; } .section > :first-child { margin-top: 0; } — ratio 2:1 above:below."
+  },
+  {
+   "file": "cv_en",
+   "where": "Role line 'Web & Growth Engineer · Saudi hospitality businesses · Jeddah, Saudi Arabia (Remote)' and dates '2026 – Present'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'Jeddah' and the employer description are not in the verified facts; only three live Saudi hospitality sites are confirmed. Both roles carry '2026 – Present' although career start is unknown — acceptable as repo dates, but the city is unverifiable and both jobs starting the same year reads oddly without a line of context.",
+   "fix": "Change to 'Web & Growth Engineer · Saudi hospitality clients (keifaldiafa.com, asoulaldiafa.com, qahwajeen.com) · Remote' and keep '2026 – Present'."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Every client receives the full source code, Arabic documentation and three months of support.' and 'Founder & Lead Software Engineer · Alabbasi Tech, software house'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'Three months of support', 'Arabic documentation' and the trading name 'Alabbasi Tech' are not in the verified facts (only alabbasi.uk is confirmed). Unverifiable commercial promises in a CV invite challenge in interview.",
+   "fix": "Replace with 'Clients receive full source-code ownership.' and set the employer as 'alabbasi.uk (own software practice) · Sana'a, Yemen (Remote)'."
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: 'MITRE ATT&CK', 'BM25', 'OCR', 'ML Kit', 'mypy (strict)', 'accessibility (WCAG 2.1 AA)', 'Saudi PDPL compliance', 'Express', 'Drizzle'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "None of these appear in the verified repository facts. The Skills block is the most ATS-weighted section, so padding it with unverifiable keywords is a risk, and removing them also shortens the over-long rows.",
+   "fix": "Delete the listed items. Keep: hybrid search (FTS5, vectors, RRF); Wazuh, Suricata, YARA, VirusTotal, auditd; Autopsy, FTK Imager; pytest, Vitest, Playwright; Core Web Vitals, Google Search Console, Google Ads API."
+  },
+  {
+   "file": "cv_en",
+   "where": "'S-ACM · source — … React 19, Hono, PostgreSQL, Drizzle.' and 'Idhaat … TypeScript, PWA.' and 'Moain Promoter AI — … write bilingual posts'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Verified S-ACM stack is React 19, TypeScript, Tailwind 4 (no Hono/PostgreSQL/Drizzle); Idhaat's stack and 'bilingual' for Promoter AI are not in the facts.",
+   "fix": "S-ACM: 'React 19, TypeScript, Tailwind 4.' Idhaat: remove 'TypeScript, PWA.' (optionally add verified '≈25 SAR/month running cost'). Promoter AI: 'that write posts and publish them to six platforms'."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Sijil · source — Offline digital debt ledger for shops, usable by staff who cannot read.' and 'Grocery Ledger … with camera, USB or Bluetooth barcode scanning and append-only ledgers' and 'Built a POS / ERP … and migrated the client's existing data … Vitest'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "'Usable by staff who cannot read', the three scanning modes, 'append-only', data migration and Vitest are not in the verified facts.",
+   "fix": "Sijil: 'Offline debt ledger for small shops. 93 passing tests. Flutter.' Grocery Ledger: 'Offline Android accounting app for small shops. v2.2.1, 157 passing tests. Flutter.' POS: drop 'and migrated the client's existing data' and 'Vitest'; add verified 'Bixolon SPP-R310 over Bluetooth SPP (Web Serial)'."
+  },
+  {
+   "file": "cv_en",
+   "where": "EDUCATION heading containing only 'Graduation Project: Security Operations Center (SOC) · team project · 2026'",
+   "severity": "major",
+   "category": "strategy",
+   "problem": "A heading titled EDUCATION with no institution or degree draws the recruiter's eye to the gap; since degree details are unknown they cannot be added, but the label itself creates the question.",
+   "fix": "Rename the section 'SECURITY PROJECT (TEAM GRADUATION PROJECT)' or fold the entry into SELECTED PROJECTS as 'SOC platform · team graduation project · github.com/MoTechSys/my-bro', and delete the empty EDUCATION heading."
+  },
+  {
+   "file": "cv_en",
+   "where": "'POS / ERP system' vs 'POS/ERP' in summary; 'NestJS / Prisma / React'; 'Sana'a'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Spaced and unspaced slashes are mixed; 'Sana'a' uses a straight ASCII apostrophe where a typographic U+2019 is expected in a set résumé.",
+   "fix": "Use 'POS/ERP' and 'NestJS/Prisma/React' consistently (no spaces); write 'Sana’a' with U+2019 in all three occurrences."
+  },
+  {
+   "file": "cv_en",
+   "where": "Second role header: pdftotext output shows '2026 – Present' isolated between blank lines after 'Web & Growth Engineer …'",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "The flex-positioned date is extracted out of reading order on this entry (blank lines around it), which can make an ATS attach the date to the wrong role.",
+   "fix": ".role { display: grid; grid-template-columns: 1fr auto; align-items: baseline; } keeping title and date in one DOM element and one text line; verify with pdftotext that each role reads 'Title · Employer · Location 2026 – Present' on one line."
+  },
+  {
+   "file": "cv_en",
+   "where": "Colour palette #16202e / #566173 / #0b4f8a / #cfd6e0",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Palette and contrast are sound (6.26–16.4 on white), but blue is used both for headings and for every link, so headings and the seven 'source' links compete; grey is used for both employer meta and the intro sentence, flattening the role hierarchy.",
+   "fix": "Keep headings #0b4f8a; set links to body colour with a 0.5pt #0b4f8a underline: a { color: #16202e; text-decoration: underline; text-decoration-color: #0b4f8a; text-underline-offset: 2px; } and set the intro sentence back to #16202e, reserving #566173 for employer/location/date meta only."
+  }
+ ],
+ "reviewer": "typographer_cv_en",
+ "model": "claude-fable-5-1",
+ "seconds": 126.7
+}

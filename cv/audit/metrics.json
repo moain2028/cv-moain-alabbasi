@@ -1,0 +1,400 @@
+{
+ "cv_en.pdf": {
+  "file": "cv_en.pdf",
+  "pages": 2,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "IBMPlexSans-Regular": "92.0%",
+   "IBMPlexSans-SemiBold": "6.3%",
+   "IBMPlexSans-Bold": "1.7%"
+  },
+  "sizes_pt": {
+   "8.89": "1.7%",
+   "9.11": "6.7%",
+   "9.8": "88.9%",
+   "10.6": "1.5%",
+   "11.5": "0.9%",
+   "22.0": "0.2%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "84.1%",
+    "contrast_on_white": 16.4
+   },
+   "#566173": {
+    "share": "8.5%",
+    "contrast_on_white": 6.26
+   },
+   "#0b4f8a": {
+    "share": "7.4%",
+    "contrast_on_white": 8.4
+   },
+   "#9aa5b4": {
+    "share": "0.1%",
+    "contrast_on_white": 2.5
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 15.1,
+    "right": 14.6,
+    "top": 12.2,
+    "bottom": 26.5
+   },
+   "p2": {
+    "left": 15.1,
+    "right": 15.0,
+    "top": 12.9,
+    "bottom": 14.5
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 94.7,
+    "lines": 48
+   },
+   {
+    "page": 2,
+    "vertical_fill_pct": 99.4,
+    "lines": 58
+   }
+  ],
+  "leading": {
+   "9.8": {
+    "median_pt": 14.25,
+    "ratio": 1.45,
+    "n": 63
+   }
+  },
+  "chars_per_full_line": {
+   "median": 107,
+   "max": 119
+  },
+  "distinct_sizes": 6,
+  "text_chars": 7105,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 1111,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "ai",
+     2
+    ],
+    [
+     "moain",
+     1
+    ],
+    [
+     "summary",
+     1
+    ],
+    [
+     "experience",
+     1
+    ],
+    [
+     "2026",
+     1
+    ],
+    [
+     "pos",
+     1
+    ],
+    [
+     "motech",
+     1
+    ],
+    [
+     "secure",
+     1
+    ]
+   ],
+   "section_order": [
+    "SUMMARY",
+    "EXPERIENCE",
+    "AI AGENTS & APPLIED AI",
+    "SELECTED PROJECTS",
+    "TECHNICAL SKILLS",
+    "LANGUAGES"
+   ]
+  },
+  "short_tail_lines": [
+   "Saudi Arabia.",
+   "Ai_Alabbasi",
+   "Tailwind 4",
+   "Languages",
+   "Backend",
+   "Frontend &",
+   "mobile",
+   "Data",
+   "Integration",
+   "Search Console",
+   "Security"
+  ]
+ },
+ "cv_ar.pdf": {
+  "file": "cv_ar.pdf",
+  "pages": 2,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "NotoNaskhArabic-Regular": "71.2%",
+   "IBMPlexSans-Regular": "17.1%",
+   "NotoNaskhArabic-Bold": "9.9%",
+   "IBMPlexSans-SemiBold": "1.7%",
+   "IBMPlexSans-Bold": "0.0%"
+  },
+  "sizes_pt": {
+   "8.86": "2.6%",
+   "9.26": "5.4%",
+   "9.95": "88.7%",
+   "11.45": "3.0%",
+   "21.9": "0.2%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "86.3%",
+    "contrast_on_white": 16.4
+   },
+   "#566173": {
+    "share": "7.6%",
+    "contrast_on_white": 6.26
+   },
+   "#0b4f8a": {
+    "share": "6.0%",
+    "contrast_on_white": 8.4
+   },
+   "#9aa5b4": {
+    "share": "0.1%",
+    "contrast_on_white": 2.5
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 15.1,
+    "right": 14.5,
+    "top": 10.5,
+    "bottom": 25.0
+   },
+   "p2": {
+    "left": 17.2,
+    "right": 14.5,
+    "top": 12.6,
+    "bottom": 81.9
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 94.8,
+    "lines": 43
+   },
+   {
+    "page": 2,
+    "vertical_fill_pct": 74.5,
+    "lines": 33
+   }
+  ],
+  "leading": {
+   "9.95": {
+    "median_pt": 15.68,
+    "ratio": 1.58,
+    "n": 49
+   }
+  },
+  "chars_per_full_line": {
+   "median": 117.0,
+   "max": 140
+  },
+  "distinct_sizes": 5,
+  "text_chars": 5098,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 861,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "‫نظام",
+     3
+    ],
+    [
+     "‫منصة",
+     2
+    ],
+    [
+     "‫معين",
+     1
+    ],
+    [
+     "‫مهندس",
+     1
+    ],
+    [
+     "‫السعودية",
+     1
+    ],
+    [
+     "‫نبذة",
+     1
+    ],
+    [
+     "‫والربط",
+     1
+    ],
+    [
+     "‫ومنصة",
+     1
+    ]
+   ],
+   "section_order": []
+  },
+  "short_tail_lines": [
+   ".المحتوى الإسلامي",
+   "Ai_Alabbasi",
+   "دفتر البقالة",
+   "سجل",
+   "غيداء",
+   "S-ACM",
+   ".الجنائي الرقمي"
+  ]
+ },
+ "services_ar.pdf": {
+  "file": "services_ar.pdf",
+  "pages": 1,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "NotoNaskhArabic-Regular": "71.7%",
+   "NotoNaskhArabic-Bold": "21.5%",
+   "IBMPlexSans-Regular": "6.3%",
+   "IBMPlexSans-SemiBold": "0.3%",
+   "IBMPlexSans-Bold": "0.2%"
+  },
+  "sizes_pt": {
+   "8.57": "12.6%",
+   "8.87": "2.5%",
+   "9.07": "66.3%",
+   "9.97": "14.6%",
+   "11.46": "3.6%",
+   "21.94": "0.4%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "73.9%",
+    "contrast_on_white": 16.4
+   },
+   "#566173": {
+    "share": "13.3%",
+    "contrast_on_white": 6.26
+   },
+   "#0b4f8a": {
+    "share": "9.4%",
+    "contrast_on_white": 8.4
+   },
+   "#ffffff": {
+    "share": "3.3%",
+    "contrast_on_white": 1.0
+   },
+   "#9aa5b4": {
+    "share": "0.1%",
+    "contrast_on_white": 2.5
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 11.9,
+    "right": 11.6,
+    "top": 7.6,
+    "bottom": 12.1
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 98.4,
+    "lines": 78
+   }
+  ],
+  "leading": {
+   "9.07": {
+    "median_pt": 13.46,
+    "ratio": 1.48,
+    "n": 33
+   }
+  },
+  "chars_per_full_line": {
+   "median": 54,
+   "max": 138
+  },
+  "distinct_sizes": 6,
+  "text_chars": 2810,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 463,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "‫‪",
+     15
+    ],
+    [
+     "‫نظام",
+     2
+    ],
+    [
+     "‫العباسي",
+     1
+    ],
+    [
+     "‫هندسة",
+     1
+    ],
+    [
+     "‫معين",
+     1
+    ],
+    [
+     "‫نبني",
+     1
+    ],
+    [
+     "‫خدماتنا‬",
+     1
+    ],
+    [
+     "‫المحلات‪",
+     1
+    ]
+   ],
+   "section_order": []
+  },
+  "short_tail_lines": [
+   "أصول الضيافة",
+   "قهوجيين جدة",
+   "بصيرة",
+   "AI منصور",
+   "التي تواجهك",
+   "ودفعات محددة",
+   "التالية",
+   "الشفرة كاملة"
+  ]
+ }
+}
