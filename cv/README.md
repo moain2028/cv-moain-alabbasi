@@ -14,4 +14,4 @@ python cv/render.py            # all files
 python cv/render.py cv_en.html # one file
 ```
 
-Fonts: IBM Plex Sans Arabic + Inter (SIL Open Font License), bundled in `fonts/`.
+Fonts: IBM Plex Sans + IBM Plex Sans Arabic (static, embed as real text for ATS) (SIL Open Font License), bundled in `fonts/`.

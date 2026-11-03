@@ -1,132 +1,127 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="utf-8">
-<title>العباسي تِك — ملف الخدمات</title>
+<title>العباسي تِك - ملف الخدمات</title>
+<meta name="author" content="معين العباسي">
 <link rel="stylesheet" href="base.css">
 <style>
-  body { font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif; }
-  body.cv { font-size: 9pt; line-height: 1.4; }
-  @page { size: A4; margin: 9mm 12mm; }
+  @page { size: A4; margin: 10mm 12mm; }
+  body[dir="rtl"] { font-size: 9.1pt; line-height: 1.45; }
   section { margin-top: 6px; }
-  .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
-  .lead { font-size: 10.6pt; margin: 4px 0 2px; }
+  .lead { font-size: 10pt; margin: 5px 0 0; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
-  .card { border: 1px solid var(--line); border-radius: 7px; padding: 5px 9px; break-inside: avoid; }
-  .card h3 { margin: 0 0 2px; font-size: 10.4pt; color: var(--ink); }
-  .card .for { color: var(--muted); font-size: 8.8pt; margin-bottom: 3px; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 5px 9px; break-inside: avoid; }
+  .card h3 { margin: 0 0 1px; font-size: 10pt; font-weight: 700; }
+  .card .for { color: var(--muted); font-size: 8.6pt; margin-bottom: 2px; }
   .card ul { margin: 0; }
-  .proof { width: 100%; border-collapse: collapse; font-size: 9.2pt; }
-  .proof td { border-bottom: 1px solid var(--line); padding: 2px 4px; vertical-align: top; }
-  .proof td:first-child { font-weight: 600; white-space: nowrap; width: 150px; }
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .step { background: #f2f6fb; border-radius: 7px; padding: 4px 7px; }
-  .step b { color: var(--accent); display: block; }
-  .promise li { margin: 1px 0; }
-  .cta { margin-top: 7px; background: var(--accent); color: #fff; border-radius: 8px; padding: 9px 12px;
-         display: flex; justify-content: space-between; align-items: center; }
-  .cta a { color: #fff; font-weight: 600; }
+  .card li { margin: 0.8px 0; }
+  table.proof { width: 100%; border-collapse: collapse; }
+  table.proof td { border-bottom: 1px solid var(--line); padding: 2.5px 4px; vertical-align: top; }
+  table.proof td:first-child { font-weight: 600; white-space: nowrap; width: 128px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .step { background: var(--soft); border-radius: 6px; padding: 5px 8px; }
+  .step .n { color: var(--accent); font-weight: 700; display: block; }
+  .commit li { margin: 1px 0; }
+  .cta { margin-top: 8px; background: var(--accent); color: #fff; border-radius: 7px; padding: 8px 12px;
+         display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .cta a { color: #fff; font-weight: 700; }
 </style>
 </head>
-<body class="cv">
+<body dir="rtl">
 
-<header class="hd">
-  <div>
-    <h1>العباسي تِك</h1>
-    <div class="role">هندسة برمجيات عن بعد · أنظمة، تطبيقات، مواقع، ذكاء اصطناعي</div>
+<header>
+  <h1>العباسي تِك</h1>
+  <div class="title">هندسة برمجيات عن بعد · أنظمة، تطبيقات، مواقع، وكلاء ذكاء اصطناعي</div>
+  <div class="contact">
+    م. معين العباسي<span class="sep">|</span>واتساب: <a href="https://wa.me/967770941666"><bdi dir="ltr">+967 770 941 666</bdi></a><span class="sep">|</span><a href="mailto:moain.learn@gmail.com"><bdi dir="ltr">moain.learn@gmail.com</bdi></a><span class="sep">|</span><a href="https://alabbasi.uk"><bdi dir="ltr">alabbasi.uk</bdi></a>
   </div>
-  <ul class="contact">
-    <li>م. معين العباسي</li>
-    <li>واتساب: <a class="ltr" href="https://wa.me/967770941666">+967 770 941 666</a></li>
-    <li><a class="ltr" href="mailto:info@alabbasi.tech">info@alabbasi.tech</a></li>
-    <li><a class="ltr" href="https://alabbasi.uk">alabbasi.uk</a></li>
-  </ul>
 </header>
 
-<p class="lead">نبني لشركتك نظاماً أو تطبيقاً أو موقعاً يناسب طريقة شغلك أنت، مو العكس. <b>الشفرة والبيانات ملكك بالكامل</b>، والتسليم على مراحل بسعر ثابت مكتوب. نشتغل عن بعد بنفس توقيت السعودية.</p>
+<p class="lead">نبني لمنشأتك نظاماً أو تطبيقاً أو موقعاً يناسب طريقة عملك أنت. <b>الشفرة والبيانات ملكك بالكامل</b>، والتسليم على مراحل بسعر ثابت ونطاق مكتوب، ونعمل عن بعد بنفس توقيت السعودية.</p>
 
 <section>
   <h2>خدماتنا</h2>
   <div class="grid">
     <div class="card">
-      <h3>١. أنظمة إدارة الأعمال (ERP / نقاط بيع)</h3>
-      <div class="for">للمحلات، المطاعم، الكافيهات، تجار الجملة، الصيدليات</div>
-      <ul><li>كاشير، مخزون، مشتريات، محاسبة، فواتير</li><li>طباعة فواتير عربية وقارئ باركود</li><li>ترحيل بياناتك من نظامك الحالي</li></ul>
+      <h3>١. أنظمة إدارة الأعمال ونقاط البيع</h3>
+      <div class="for">المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات</div>
+      <ul><li>كاشير ومخزون ومشتريات ومحاسبة وفواتير</li><li>طباعة فواتير عربية وقارئ باركود</li><li>ترحيل بياناتك من نظامك الحالي</li></ul>
     </div>
     <div class="card">
       <h3>٢. أنظمة العيادات والمجمعات الطبية</h3>
-      <div class="for">عيادات أسنان وجلدية، مختبرات، مراكز تأهيل</div>
+      <div class="for">عيادات الأسنان والجلدية، المختبرات، مراكز التأهيل</div>
       <ul><li>حجوزات ومواعيد وملفات مرضى</li><li>تذكير تلقائي بالمواعيد عبر واتساب</li><li>فوترة وتقارير يومية للإدارة</li></ul>
     </div>
     <div class="card">
       <h3>٣. أنظمة العقار والمبيعات (CRM)</h3>
       <div class="for">شركات التطوير والتسويق العقاري، فرق المبيعات</div>
-      <ul><li>متابعة العملاء المهتمين من أول تواصل لين البيع</li><li>إدارة الوحدات والزيارات والعمولات</li><li>موقع يعرض المشاريع ويجمع الطلبات</li></ul>
+      <ul><li>متابعة العميل من أول تواصل حتى إتمام البيع</li><li>إدارة الوحدات والزيارات والعمولات</li><li>موقع يعرض المشاريع ويستقبل الطلبات</li></ul>
     </div>
     <div class="card">
       <h3>٤. الحضور والانصراف والموارد البشرية</h3>
-      <div class="for">مصانع، شركات بفروع، مستشفيات، مدارس</div>
-      <ul><li>يقرأ أجهزة البصمة الحالية بدون ما تغيّرها</li><li>ورديات وإجازات وعمل إضافي</li><li>كشوف جاهزة للرواتب، وكل الفروع في نظام واحد</li></ul>
+      <div class="for">المصانع، الشركات متعددة الفروع، المستشفيات، المدارس</div>
+      <ul><li>يقرأ أجهزة البصمة الحالية دون استبدالها</li><li>ورديات وإجازات وعمل إضافي</li><li>كشوف جاهزة للرواتب لكل الفروع</li></ul>
     </div>
     <div class="card">
       <h3>٥. تطبيقات الجوال</h3>
-      <div class="for">أندرويد وآيفون (Flutter) وأندرويد أصلي (Kotlin)</div>
-      <ul><li>تطبيقات تشتغل حتى بدون إنترنت</li><li>تطبيقات مناديب وتوصيل وموظفين</li><li>تطبيقات ولاء وحجوزات للعملاء</li></ul>
+      <div class="for"><bdi dir="ltr">Flutter</bdi> لأندرويد وآيفون، وأندرويد أصلي بلغة <bdi dir="ltr">Kotlin</bdi></div>
+      <ul><li>تطبيقات تعمل حتى بدون إنترنت</li><li>تطبيقات المناديب والتوصيل والموظفين</li><li>تطبيقات الولاء والحجوزات للعملاء</li></ul>
     </div>
     <div class="card">
-      <h3>٦. مواقع ومتاجر متصدرة في البحث</h3>
+      <h3>٦. مواقع ومتاجر مهيأة لمحركات البحث</h3>
       <div class="for">شركات الخدمات، الضيافة، المتاجر الإلكترونية</div>
-      <ul><li>مواقع سريعة جداً وعربية بالكامل</li><li>سيو تقني يجيب عملاء من جوجل</li><li>متوافقة مع نظام حماية البيانات الشخصية PDPL</li></ul>
+      <ul><li>مواقع عربية سريعة جداً</li><li>سيو تقني يجلب عملاء من جوجل</li><li>متوافقة مع نظام حماية البيانات الشخصية</li></ul>
     </div>
     <div class="card">
-      <h3>٧. الذكاء الاصطناعي والأتمتة</h3>
-      <div class="for">أي شركة عندها شغل يدوي متكرر</div>
-      <ul><li>بوت واتساب أو تيليجرام يرد على العملاء</li><li>قراءة الفواتير والمستندات تلقائياً (OCR)</li><li>وكيل ذكي يربط أنظمتك ببعض</li></ul>
+      <h3>٧. وكلاء الذكاء الاصطناعي والأتمتة</h3>
+      <div class="for">أي منشأة لديها عمل يدوي متكرر</div>
+      <ul><li>بوت واتساب أو تيليجرام يرد على العملاء</li><li>قراءة الفواتير والمستندات تلقائياً</li><li>وكلاء أذكياء يربطون أنظمتك ببعضها</li></ul>
     </div>
     <div class="card">
       <h3>٨. منصات التعليم والجمعيات</h3>
-      <div class="for">مدارس، مراكز تدريب، جمعيات خيرية، أوقاف</div>
+      <div class="for">المدارس، مراكز التدريب، الجمعيات الخيرية، الأوقاف</div>
       <ul><li>قبول وتسجيل ورسوم وأقساط</li><li>حصص مباشرة وتسجيلات محمية وواجبات</li><li>منصة تبرعات وإدارة متبرعين</li></ul>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>أعمال تشتغل فعلياً</h2>
+  <h2>أعمال منفّذة</h2>
   <table class="proof">
-    <tr><td>كيف الضيافة (جدة)</td><td><a class="ltr" href="https://keifaldiafa.com">keifaldiafa.com</a> — نسبة النقر من جوجل ارتفعت من ٠٫٤٪ إلى ٢٫١٪، والظهور اليومي من ٧٦ إلى ٥٥٦</td></tr>
-    <tr><td>أصول الضيافة</td><td><a class="ltr" href="https://asoulaldiafa.com">asoulaldiafa.com</a> — موقع ضيافة فاخر، عربي، سريع</td></tr>
-    <tr><td>قهوجيين جدة</td><td><a class="ltr" href="https://qahwajeen.com">qahwajeen.com</a> — موقع خدمات يستهدف البحث المحلي</td></tr>
-    <tr><td>بصيرة</td><td><a class="ltr" href="https://basirapp.site">basirapp.site</a> — منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث، ومعها واجهة API وبوت تيليجرام</td></tr>
+    <tr><td>كيف الضيافة (جدة)</td><td><a href="https://keifaldiafa.com"><bdi dir="ltr">keifaldiafa.com</bdi></a> — موقع ضيافة يعمل فعلياً، مع سيو تقني وتحسين للتحويل وربط بحملات جوجل الإعلانية</td></tr>
+    <tr><td>أصول الضيافة</td><td><a href="https://asoulaldiafa.com"><bdi dir="ltr">asoulaldiafa.com</bdi></a> — موقع ضيافة فاخر، عربي، سريع</td></tr>
+    <tr><td>قهوجيين جدة</td><td><a href="https://qahwajeen.com"><bdi dir="ltr">qahwajeen.com</bdi></a> — موقع خدمات يستهدف البحث المحلي في جدة</td></tr>
+    <tr><td>بصيرة</td><td><a href="https://basirapp.site"><bdi dir="ltr">basirapp.site</bdi></a> — منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث، مع واجهة API وبوت تيليجرام</td></tr>
     <tr><td>نظام نقاط بيع وERP</td><td>بديل لنظام مدفوع مغلق: مخزون ومحاسبة وكاشير، ويطبع على طابعات حرارية حقيقية</td></tr>
-    <tr><td>نظام حضور وانصراف</td><td>يسحب البيانات من أجهزة بصمة ZKTeco مباشرة، ويطلع تقارير وكشوف رواتب</td></tr>
-    <tr><td>دفتر البقالة (أندرويد)</td><td>محاسبة وكاشير بدون إنترنت، بالباركود، وفيه ١٥٧ اختبار آلي ناجح</td></tr>
+    <tr><td>نظام حضور وانصراف</td><td>يسحب البيانات من أجهزة البصمة مباشرة ويصدر تقارير وكشوف رواتب</td></tr>
+    <tr><td>منصور AI</td><td>نظام عربي متعدد الوكلاء: ١٣ وكيلاً و٣٨ أداة، يخطط وينفّذ ويتحقق</td></tr>
   </table>
 </section>
 
 <section>
-  <h2>كيف نشتغل</h2>
+  <h2>طريقة العمل</h2>
   <div class="steps">
-    <div class="step"><b>١. مكالمة مجانية</b>٣٠ دقيقة نفهم فيها شغلك والمشكلة اللي تواجهك</div>
-    <div class="step"><b>٢. عرض مكتوب</b>نطاق واضح وسعر ثابت ومراحل ودفعات محددة</div>
-    <div class="step"><b>٣. تسليم على مراحل</b>تشوف كل مرحلة شغالة قبل ما ندفع للي بعدها</div>
-    <div class="step"><b>٤. تشغيل ودعم</b>تدريب ووثائق بالعربي، وثلاثة أشهر دعم مجاني</div>
+    <div class="step"><span class="n">١. مكالمة مجانية</span>نصف ساعة لفهم عملك والمشكلة التي تواجهك</div>
+    <div class="step"><span class="n">٢. عرض مكتوب</span>نطاق واضح وسعر ثابت ومراحل ودفعات محددة</div>
+    <div class="step"><span class="n">٣. تسليم على مراحل</span>ترى كل مرحلة تعمل قبل الانتقال إلى التالية</div>
+    <div class="step"><span class="n">٤. تشغيل ودعم</span>تدريب ووثائق بالعربية وثلاثة أشهر دعم مجاني</div>
   </div>
 </section>
 
 <section>
-  <h2>ضماناتنا</h2>
-  <ul class="promise">
-    <li><b>الشفرة ملكك:</b> نسلّمك المشروع كامل، وما تصير رهينة عندنا.</li>
-    <li><b>بياناتك عندك:</b> تقدر تصدّرها كاملة في أي وقت.</li>
-    <li><b>ثلاثة أشهر دعم:</b> أي خلل في التشغيل نصلحه بدون تكلفة إضافية.</li>
-    <li><b>رد خلال يوم عمل،</b> ومتواجدين في أوقات الدوام السعودي.</li>
+  <h2>التزاماتنا</h2>
+  <ul class="commit">
+    <li><b>الشفرة ملكك:</b> نسلّمك المشروع كاملاً، فلا تبقى مرتبطاً بنا.</li>
+    <li><b>بياناتك عندك:</b> يمكنك تصديرها كاملة في أي وقت.</li>
+    <li><b>ثلاثة أشهر دعم:</b> نصلح أي خلل في التشغيل دون تكلفة إضافية.</li>
+    <li><b>رد خلال يوم عمل واحد،</b> ونتواجد خلال أوقات الدوام في السعودية.</li>
   </ul>
 </section>
 
 <div class="cta">
-  <div>عندك فكرة أو نظام يتعبك؟ أرسل لنا وصف بسيط، ونرد عليك بتصوّر مجاني.</div>
-  <div><a class="ltr" href="https://wa.me/967770941666">واتساب +967 770 941 666</a></div>
+  <div>لديك فكرة أو نظام يرهقك؟ أرسل لنا وصفاً مختصراً، ونرسل لك تصوراً مجانياً.</div>
+  <div>واتساب: <a href="https://wa.me/967770941666"><bdi dir="ltr">+967 770 941 666</bdi></a></div>
 </div>
 
 </body>

@@ -1,41 +1,54 @@
-@font-face { font-family: 'Inter'; src: url('../fonts/Inter.ttf'); font-weight: 100 900; }
-@font-face { font-family: 'IBM Plex Sans Arabic'; src: url('../fonts/IBMPlexSansArabic-Regular.ttf'); font-weight: 400; }
-@font-face { font-family: 'IBM Plex Sans Arabic'; src: url('../fonts/IBMPlexSansArabic-Medium.ttf'); font-weight: 500; }
-@font-face { font-family: 'IBM Plex Sans Arabic'; src: url('../fonts/IBMPlexSansArabic-SemiBold.ttf'); font-weight: 600; }
-@font-face { font-family: 'IBM Plex Sans Arabic'; src: url('../fonts/IBMPlexSansArabic-Bold.ttf'); font-weight: 700; }
+/* Static fonts only: they embed as real text (CID TrueType), which ATS parsers can read. */
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-400.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-400i.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-500.woff2') format('woff2'); font-weight: 500; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-600.woff2') format('woff2'); font-weight: 600; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-700.woff2') format('woff2'); font-weight: 700; }
+@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'Plex Arabic'; src: url('../fonts/IBMPlexSansArabic-Bold.ttf'); font-weight: 700; }
 
-:root { --ink:#1a1f2b; --muted:#5b6475; --accent:#0b5cad; --line:#d9dee7; }
-@page { size: A4; margin: 13mm 14mm 13mm 14mm; }
+:root { --ink:#16202e; --muted:#566173; --accent:#0b4f8a; --line:#cfd6e0; --soft:#f1f5fa; }
+@page { size: A4; margin: 12mm 14mm; }
 * { box-sizing: border-box; }
-html, body { margin:0; padding:0; }
-body.cv { color: var(--ink); font-size: 9.6pt; line-height: 1.42; }
+html, body { margin: 0; padding: 0; }
+body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body[dir="ltr"] { font-family: 'Plex', 'Plex Arabic', sans-serif; font-size: 9.4pt; line-height: 1.38; }
+body[dir="rtl"] { font-family: 'Plex Arabic', 'Plex', sans-serif; font-size: 9.6pt; line-height: 1.5; }
 a { color: var(--accent); text-decoration: none; }
-b { font-weight: 600; }
+b, strong { font-weight: 600; }
 .muted { color: var(--muted); }
+bdi { unicode-bidi: isolate; }
 
-.hd { display:flex; justify-content:space-between; align-items:flex-end; gap:16px;
-      border-bottom: 2.2px solid var(--accent); padding-bottom: 8px; margin-bottom: 8px; }
-.hd h1 { margin:0; font-size: 22pt; font-weight: 700; letter-spacing: -.2px; line-height:1.1; }
-.hd .role { color: var(--accent); font-weight: 600; font-size: 10.6pt; margin-top: 3px; }
-.contact { list-style:none; margin:0; padding:0; font-size: 8.6pt; text-align: end; color: var(--muted); }
-.contact li { margin: 1px 0; }
+/* Header */
+header { border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 4px; }
+header h1 { margin: 0; font-size: 21pt; font-weight: 700; line-height: 1.1; }
 
-section { margin-top: 8px; }
-h2 { font-size: 10.4pt; text-transform: uppercase; letter-spacing: .9px; color: var(--accent);
-     margin: 0 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--line); font-weight: 700; }
-[dir="rtl"] h2 { letter-spacing: 0; text-transform: none; font-size: 11pt; }
-p { margin: 0 0 4px; }
+header .title { color: var(--accent); font-weight: 600; font-size: 10.6pt; margin-top: 3px; }
+header .contact { margin-top: 4px; font-size: 8.7pt; color: var(--muted); }
+header .contact .sep { color: var(--line); padding: 0 5px; }
 
-table.skills { width:100%; border-collapse: collapse; }
-table.skills th { text-align: start; vertical-align: top; width: 92px; padding: 1.5px 8px 1.5px 0; font-weight: 600; white-space: nowrap; }
-[dir="rtl"] table.skills th { padding: 1.5px 0 1.5px 8px; width: 104px; }
-table.skills td { padding: 1.5px 0; }
+/* Sections */
+section { margin-top: 7px; }
+h2 { margin: 0 0 3px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
+     color: var(--accent); font-size: 9.8pt; font-weight: 700; }
+body[dir="ltr"] h2 { text-transform: uppercase; }
+body[dir="rtl"] h2 { font-size: 10.6pt; }
+p { margin: 0 0 3px; }
+ul { margin: 2px 0 0; padding-inline-start: 14px; }
+li { margin: 1.6px 0; }
+li::marker { color: var(--accent); }
 
-.job { margin-bottom: 6px; break-inside: avoid-page; }
-.job-hd { display:flex; justify-content: space-between; gap: 10px; }
-.when { color: var(--muted); white-space: nowrap; font-size: 8.8pt; }
-.sub { color: var(--muted); margin: 1px 0 3px; }
-ul { margin: 2px 0 0; padding-inline-start: 15px; }
-li { margin: 1.5px 0; }
-.proj p { margin-bottom: 4px; }
-.two { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.skills p { margin: 1.4px 0; }
+.skills b { color: var(--ink); }
+
+.role { margin-bottom: 5px; break-inside: avoid; }
+.role-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.role-hd .when { color: var(--muted); font-size: 8.7pt; white-space: nowrap; }
+.role .org { color: var(--muted); }
+.role .intro { color: var(--muted); margin: 1px 0 2px; }
+
+.entry { margin: 2.5px 0; break-inside: avoid; }
+.entry .name { font-weight: 600; }
+.inline-list span + span::before { content: " · "; color: var(--muted); }
