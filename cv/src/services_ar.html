@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>العباسي تك - ملف الخدمات</title>
+<meta name="author" content="معين العباسي">
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Scale (pt): 9 meta / 10 body / 11.5 card & title / 12.8 section / 22 name = 5 sizes */
+  @page { size: A4; margin: 15mm 15mm 13mm; }
+  body[dir="rtl"] { font-size: 10.1pt; line-height: 1.45; --meta: 9pt; --title: 11.8pt; }
+  section { margin-top: 7px; }
+  h2 { margin-bottom: 4px; }
+  .lead { margin: 6px 0 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+  .card { border: 1px solid var(--line); border-radius: 6px; padding: 5px 9px; break-inside: avoid; }
+  .card.wide { grid-column: 1 / -1; }
+  .card h3 { margin: 0 0 1px; font-size: 11.8pt; font-weight: 700; }
+  .card .for { color: var(--muted); font-size: 9pt; margin-bottom: 2px; }
+  .card ul { margin: 0; }
+  .card li { margin: 0.6px 0; }
+  table.proof { width: 100%; border-collapse: collapse; }
+  table.proof td { border-bottom: 1px solid var(--line); padding: 2.5px 4px; vertical-align: top; }
+  table.proof td:first-child { font-weight: 600; white-space: nowrap; width: 120px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .step { background: var(--soft); border-radius: 6px; padding: 5px 8px; }
+  .step .n { color: var(--accent); font-weight: 700; display: block; }
+  .commit li { margin: 1px 0; }
+  .cta { margin-top: 8px; background: var(--accent); color: #fff; border-radius: 7px; padding: 8px 12px;
+         display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .cta a { color: #fff; font-weight: 700; }
+</style>
+</head>
+<body dir="rtl">
+
+<header>
+  <h1>العباسي تك</h1>
+  <div class="title">هندسة برمجيات عن بعد · أنظمة وتطبيقات ومواقع ووكلاء ذكاء اصطناعي</div>
+  <div class="contact">
+    معين العباسي<span class="sep">|</span>واتساب: <a href="https://wa.me/967770941666"><bdi dir="ltr">+967 770 941 666</bdi></a><span class="sep">|</span><a href="mailto:moain.learn@gmail.com"><bdi dir="ltr">moain.learn@gmail.com</bdi></a><span class="sep">|</span><a href="https://alabbasi.uk"><bdi dir="ltr">alabbasi.uk</bdi></a>
+  </div>
+</header>
+
+<p class="lead">نبني لمنشأتك نظاما أو تطبيقا أو موقعا يناسب طريقة عملك أنت. <b>الشفرة والبيانات ملكك بالكامل</b>، والتسليم على مراحل بسعر ثابت ونطاق مكتوب، ونعمل عن بعد وفق توقيت السعودية.</p>
+
+<section>
+  <h2>خدماتنا</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>1. أنظمة نقاط البيع وإدارة الأعمال</h3>
+      <div class="for">المحلات، المطاعم، المقاهي، تجار الجملة، الصيدليات</div>
+      <ul><li>كاشير ومبيعات ومرتجعات وورديات وتقارير</li><li>طباعة فواتير عربية على الطابعات الحرارية وقراءة الباركود</li><li>العمل على قاعدة بياناتك الحالية أو ترحيلها</li></ul>
+    </div>
+    <div class="card">
+      <h3>2. الحضور والانصراف والرواتب</h3>
+      <div class="for">الشركات متعددة الفروع، المصانع، المستشفيات، المدارس</div>
+      <ul><li>يقرأ أجهزة البصمة ZKTeco الحالية دون استبدالها</li><li>ورديات وإجازات وتقارير بصيغتي CSV و Excel</li><li>تصدير ملفات حماية الأجور (WPS)</li></ul>
+    </div>
+    <div class="card">
+      <h3>3. تطبيقات الجوال</h3>
+      <div class="for"><bdi dir="ltr">Flutter</bdi> لأندرويد، وأندرويد أصلي بلغة <bdi dir="ltr">Kotlin</bdi></div>
+      <ul><li>تطبيقات تعمل دون إنترنت</li><li>تطبيقات للموظفين والمناديب</li><li>بوابة رسائل SMS من جوال أندرويد</li></ul>
+    </div>
+    <div class="card">
+      <h3>4. مواقع وأدوات تسويق رقمي</h3>
+      <div class="for">شركات الخدمات، الضيافة، المتاجر الإلكترونية</div>
+      <ul><li>مواقع عربية خفيفة وسريعة</li><li>تهيئة تقنية لمحركات البحث (SEO)</li><li>لوحات متابعة لحملات Google Ads</li></ul>
+    </div>
+    <div class="card wide">
+      <h3>5. وكلاء الذكاء الاصطناعي والأتمتة</h3>
+      <div class="for">أي منشأة لديها عمل يدوي متكرر</div>
+      <ul><li>بوت تيليجرام يرد ويتحقق، ووكلاء ينشرون المحتوى بعد موافقتك، وخوادم MCP تربط أنظمتك بالوكلاء الأذكياء</li></ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>أعمال منفذة</h2>
+  <table class="proof">
+    <tr><td>كيف الضيافة (جدة)</td><td><a href="https://keifaldiafa.com"><bdi dir="ltr">keifaldiafa.com</bdi></a> — موقع ضيافة يعمل فعليا، مع منصة مرتبطة بحسابي Google Ads و Search Console</td></tr>
+        <tr><td>قهوجيين جدة</td><td><a href="https://qahwajeen.com"><bdi dir="ltr">qahwajeen.com</bdi></a> — موقع خدمات يستهدف البحث المحلي في جدة</td></tr>
+    <tr><td>بصيرة</td><td><a href="https://basirapp.site"><bdi dir="ltr">basirapp.site</bdi></a> — منصة ذكاء اصطناعي تتحقق من الآيات والأحاديث، مع واجهة API وبوت تيليجرام</td></tr>
+    <tr><td>نظام نقاط بيع ونظام ERP</td><td>بديل عن YemenSoft Onyx Pro على قاعدة Oracle القائمة، يطبع على طابعات Bixolon الحرارية عبر البلوتوث</td></tr>
+    <tr><td>نظام حضور وانصراف</td><td>يسحب البصمات من أجهزة ZKTeco مباشرة، ويصدر تقارير وملفات حماية الأجور (WPS)</td></tr>
+    <tr><td>منصور AI</td><td>نظام عربي متعدد الوكلاء: <bdi dir="ltr">13</bdi> وكيلا مع <bdi dir="ltr">38</bdi> أداة، يخطط وينفذ ويتحقق</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>طريقة العمل</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1. مكالمة مجانية</span>نصف ساعة لفهم عملك والمشكلة التي تواجهك</div>
+    <div class="step"><span class="n">2. عرض مكتوب</span>نطاق واضح وسعر ثابت ومراحل ودفعات محددة</div>
+    <div class="step"><span class="n">3. تسليم على مراحل</span>ترى كل مرحلة تعمل قبل الانتقال إلى التالية</div>
+    <div class="step"><span class="n">4. تشغيل ودعم</span>تدريب ووثائق بالعربية وتسليم الشفرة كاملة</div>
+  </div>
+</section>
+
+<section>
+  <h2>التزاماتنا</h2>
+  <ul class="commit">
+    <li><b>الشفرة ملكك:</b> نسلمك المشروع كاملا، فلا تبقى مرتبطا بنا.</li>
+    <li><b>بياناتك عندك:</b> يمكنك تصديرها كاملة في أي وقت.</li>
+    <li><b>دعم لمدة ثلاثة أشهر:</b> نصلح عيوب البرمجة دون تكلفة إضافية.</li>
+    <li><b>رد خلال يوم عمل واحد،</b> ونكون متاحين خلال أوقات الدوام في السعودية.</li>
+  </ul>
+</section>
+
+<div class="cta">
+  <div>لديك فكرة أو نظام يرهقك؟ أرسل لنا وصفا مختصرا، ونرسل لك تصورا مجانيا.</div>
+  <div>واتساب: <a href="https://wa.me/967770941666"><bdi dir="ltr">+967 770 941 666</bdi></a></div>
+</div>
+
+</body>
+</html>

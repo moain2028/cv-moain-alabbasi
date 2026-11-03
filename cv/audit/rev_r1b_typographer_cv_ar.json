@@ -1,0 +1,153 @@
+{
+ "verdict": "A clean, restrained Arabic CV with a sound Naskh/Plex pairing, but it is undermined by a 45%-empty second page, an over-long 121-character measure with weak heading hierarchy, bidi-reversed dates and digits that break both reading and ATS extraction, and several unverified claims.",
+ "score_10": 6,
+ "issues": [
+  {
+   "file": "cv_ar",
+   "where": "Whole document — page 1 vertical fill 94.0%, page 2 fill 44.8% (bottom margin 162.8 mm)",
+   "severity": "critical",
+   "category": "layout",
+   "problem": "Content is ~1.4 pages long, so page 2 is more than half blank while page 1 is crammed to 9.6 mm from the top trim (top 9.6 / bottom 26.1 / sides 14 mm). The reader sees a dense first page and an abandoned second one; the asymmetry reads as unfinished.",
+   "fix": "Let the type do the filling instead of leaving air: `@page { size: A4; margin: 18mm 18mm 20mm; }` `body { font-family: 'Noto Naskh Arabic','IBM Plex Sans'; font-size: 10.5pt; line-height: 1.7; }` (17.85 pt leading). Measured 68 text lines → ~78 lines × 17.85 pt ≈ 2 × 261 mm text block = ~94% of both pages. If it spills to page 3, use `font-size: 10.25pt` rather than cutting content."
+  },
+  {
+   "file": "cv_ar",
+   "where": "All body paragraphs — chars_per_full_line median 121, max 144 (header contact line)",
+   "severity": "major",
+   "category": "typography",
+   "problem": "At 9.56 pt across a 182 mm text block the measure is 121 Arabic+Latin characters per line; comfortable Naskh measure with embedded LTR runs is 85–105. Long lines plus direction switches ('…طابعات Bixolon الحرارية…') make the return sweep error-prone, especially in the four-line summary.",
+   "fix": "Combine with issue 1: `main { max-width: 174mm; margin-inline: auto; }` at 10.5 pt gives ≈100–105 chars/line. Break the 144-char contact line in two (see header issue)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Section headings 'نبذة مهنية', 'المهارات التقنية', 'الخبرة العملية' (10.55 pt) vs body 9.56 pt; role titles 'المؤسس وكبير مهندسي البرمجيات…' same size as body",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Only four sizes (8.66 / 9.56 / 10.55 / 20.91) and the heading-to-body ratio is 1.10 — headings are distinguished only by colour. Role titles, project names and skill labels all share the body size in bold, so the eye cannot separate levels when scanning.",
+   "fix": "Scale 8.66 → 9 / 10.5 / 11.5 / 13 / 21 pt: `h2 { font-size: 13pt; font-weight: 700; color: #16202e; margin: 16pt 0 5pt; padding-bottom: 3pt; border-bottom: 0.6pt solid #cfd6e0; }` `h3.role { font-size: 11.5pt; font-weight: 700; margin: 9pt 0 2pt; }` `.project-name { font-weight: 700; }` (stays 10.5)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Any Latin run, e.g. 'NestJS, Node.js, FastAPI, Hono, Express, Prisma, Drizzle, REST, BullMQ, Redis, WebSockets' and 'Docker, GitHub Actions, Cloudflare, Vercel…'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "IBM Plex Sans has a large x-height and firm stroke; Noto Naskh Arabic sits low with hairline joins. At identical nominal size the Latin appears ~12–15% larger and darker, so stack lists visually shout over the Arabic sentences they belong to (clearly visible in the skills block and at the end of every experience bullet).",
+   "fix": "Optically match without touching the text layer: `@font-face { font-family: 'IBM Plex Sans'; src: url(IBMPlexSans-Regular.woff2); size-adjust: 90%; font-weight: 400; }` (same for SemiBold). `size-adjust` only rescales glyphs; extraction is unchanged. Optionally darken Arabic body with Noto Naskh Arabic Medium (500) if the variable font is available."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Date column '٢٠٢٦ – الآن' next to both roles (rendered with ٢٠٢٦ at the far left; extracted as 'الآن– ٦٢٠٢')",
+   "severity": "major",
+   "category": "language",
+   "problem": "Read right-to-left the range says 'الآن – ٢٠٢٦' (now → 2026), i.e. reversed, and pdftotext yields the year as '٦٢٠٢'. The span is being laid out in an LTR context (probably a flex/grid cell with direction inherited incorrectly), so both human and ATS reading fail.",
+   "fix": "`<span class=\"dates\" dir=\"rtl\">2026 – الآن</span>` with `.dates { unicode-bidi: isolate; font-variant-numeric: tabular-nums; }` and Western digits (see next issue). Verify with `pdftotext -raw` that it extracts as '2026 – الآن'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "'٧١٬٩٨٧ سجلا', '١٥٠ من ١٥٠', '٥٠٠ مقطع', '٤٨٧', '١٣ وكيلا مع ٣٨ أداة', '٨٢', '١٥٧', '٩٣', '٢٠٥', '١٤ حالة' vs '78.54%', '2.2.1', 'React 19', 'Angular 22', '+967 770 941 666'",
+   "severity": "major",
+   "category": "ats",
+   "problem": "Two numeral systems alternate inside single sentences ('١٥٠ من ١٥٠ … ونسبة 78.54%'). Typographically it looks unedited; for ATS/keyword search, '٧١٬٩٨٧' will never match '71,987' and the Arabic-Indic year already extracts reversed. Saudi tech recruiters routinely read Western digits in Arabic CVs.",
+   "fix": "Use Western digits throughout: '71,987 سجلًا من مصادر مرخصة', '150 من 150 في التقييم، وصفر إنذار خاطئ من 500 مقطع', 'عدد اختباراته الآلية 487', '13 وكيلًا مع 38 أداة', '157 اختبارًا ناجحًا', '93 اختبارًا ناجحًا', '205 معايير', '14 حالة استخدام', '2026 – الآن'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Single-token last lines: 'Zero Trust' (skills), 'البيانات الشخصية' (skills), '.qahwajeen.com' (sites bullet), '٨٢' (Mansur AI paragraph, page 2), 'لوحة تحكم.' (Promoter AI), 'طارئ. Python, FastAPI.'",
+   "severity": "major",
+   "category": "typography",
+   "problem": "Six paragraphs end on an orphaned fragment; the bare '٨٢' on its own line on page 2 is the worst — a lone number with no referent. These holes break the rag and waste lines in an already unbalanced layout.",
+   "fix": "`p, li { text-wrap: pretty; }` (Chromium ≥117) plus the new measure will cure most. Edit the two worst by hand: move the number inside the sentence — 'فيه 13 وكيلًا مع 38 أداة و82 اختبارًا ناجحًا، ويختار النموذج المناسب لكل مهمة…' and delete the trailing 'وعدد اختباراته الناجحة ٨٢'; keep the three domains on one line as 'keifaldiafa.com · asoulaldiafa.com · qahwajeen.com' in a `<span dir=\"ltr\">` so the dot cannot wrap alone."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Tech stacks closing each experience bullet: '…عبر البلوتوث. NestJS, React 19, Oracle PL/SQL.', '…بشريحتين. NestJS, PostgreSQL, BullMQ, Redis, Kotlin.', '…للرواتب. Go, PostgreSQL.', 'Angular 22, IndexedDB.', 'Next.js 15, Prisma.', 'Python, FastAPI.'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "The sentence-final Arabic full stop is resolved to the paragraph direction and lands on the far left of the Latin run ('Oracle PL/SQL .' in logical terms), and the heavy Latin cluster sits at the visual end of every bullet, pulling the eye to the left edge. Extraction shows the misplaced dot ('.NestJS, React 19…').",
+   "fix": "Separate stack from prose: `<span class=\"stack\" dir=\"ltr\">NestJS · React 19 · Oracle PL/SQL</span>` with `.stack { font-size: 9pt; color: #566173; unicode-bidi: isolate; display: inline-block; margin-inline-start: 5pt; }` and remove the full stop after the stack."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Section headings, inline links ('basirapp.site', 'asoulaldiafa.com · keifaldiafa.com', 'qahwajeen.com') and bullet markers all in #0b4f8a",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "One blue carries three meanings — structure, hyperlink, list marker. In the Basira paragraph 'basirapp.site' reads like a heading fragment; in the sites bullet the three blue domains outweigh the role title above them.",
+   "fix": "`h2 { color: #16202e; }` `a { color: #0b4f8a; text-decoration: underline; text-decoration-color: #cfd6e0; text-underline-offset: 2pt; }` `li::marker, .bullet { color: #566173; }` — blue then means exactly 'clickable'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Header: 'مهندس برمجيات | أنظمة متكاملة · وكلاء ذكاء اصطناعي · أمن سيبراني' and contact line 'صنعاء، اليمن (عن بعد، بتوقيت السعودية) | واتساب: +967 770 941 666 | moain.learn@gmail.com | github.com/MoTechSys | alabbasi.uk'",
+   "severity": "minor",
+   "category": "layout",
+   "problem": "The title mixes two separators ('|' and '·') in one line; the contact row is a single 144-character 8.66 pt line with five items, only one of them labelled, 9.6 mm from the trim. The header is the first thing a recruiter photographs mentally and it currently has no breathing room.",
+   "fix": "Title: 'مهندس برمجيات · أنظمة متكاملة · وكلاء ذكاء اصطناعي · أمن سيبراني'. Contact as two lines at 9 pt, `line-height: 1.6`, separator '·' only: line 1 'صنعاء، اليمن · عمل عن بعد بتوقيت السعودية · واتساب +967 770 941 666'; line 2 'moain.learn@gmail.com · github.com/MoTechSys · alabbasi.uk' each item `<span dir=\"ltr\">`. `header { padding-top: 16mm; margin-bottom: 10pt; }`."
+  },
+  {
+   "file": "cv_ar",
+   "where": "'المهارات التقنية' block — 'لغات البرمجة:', 'الخوادم (Backend):', 'الواجهات:', 'الجوال:', 'قواعد البيانات:', 'الذكاء الاصطناعي والوكلاء:', 'الأمن السيبراني:', 'النشر والجودة:', 'نمو المواقع:'",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "Labels are inline bold, so wrapped tails ('Zero Trust', 'البيانات الشخصية', 'الهجين وRAG…') start under the label and the label column is not scannable; three of nine rows wrap, costing lines and rhythm.",
+   "fix": "`.skills dl { display: grid; grid-template-columns: 34mm 1fr; column-gap: 4mm; row-gap: 3pt; }` `.skills dt { font-weight: 700; }` `.skills dd { margin: 0; }` with each Latin list in `<span dir=\"ltr\">`. In RTL the grid places the label column on the right automatically; wrapped tails then align under the content, not the label."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Extraction of mixed runs: 'الخوادم (Backend):' → ':)Backend', '(YemenSoft Onyx Pro):' → ':)YemenSoft Onyx Pro', '(OpenAI, Anthropic, Gemini)' → ',(OpenAI, Anthropic, Gemini)', 'Core Web Vitals، Google Search Console، Google Ads API' reversed",
+   "severity": "minor",
+   "category": "ats",
+   "problem": "Brackets and colons adjacent to Latin runs are not bidi-isolated, so the text layer stores them in visual rather than logical order; an ATS tokeniser gets ')Backend' and 'Onyx Pro):' as tokens.",
+   "fix": "Wrap every Latin phrase including its own brackets: `<span dir=\"ltr\">(Backend)</span>:`, `<span dir=\"ltr\">(YemenSoft Onyx Pro)</span>`, and lists as `<span dir=\"ltr\">Core Web Vitals, Google Search Console, Google Ads API</span>`. `span[dir=ltr] { unicode-bidi: isolate; }`. Re-run pdftotext and diff against source."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Role 1 description: 'كل عميل يستلم الشفرة كاملة مع وثائق عربية وثلاثة أشهر دعم.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'ثلاثة أشهر دعم' (three months of support) is not in the verified facts; it is a contractual promise that a Saudi buyer may hold the candidate to.",
+   "fix": "Replace with 'كل عميل يستلم الشفرة المصدرية كاملة مع وثائق عربية.' (source-code handover is confirmed by the candidate's public repos; the support term is unverified)."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Role 2 heading 'مهندس مواقع ونمو رقمي · شركات ضيافة سعودية · جدة (عن بعد)'; skills tokens 'Hono, Express', 'Drizzle', 'MITRE ATT&CK', 'OCR', 'Vercel'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'جدة' (Jeddah) is not in the facts sheet — only that the hospitality sites are live and the candidate is in Sana'a. Hono, Express, Drizzle, MITRE ATT&CK, OCR and Vercel do not appear in any verified repo README; unverifiable stack padding dilutes the verified items (NestJS, Prisma, LangGraph, Wazuh, Cloudflare R2).",
+   "fix": "Heading → 'مهندس مواقع ونمو رقمي · شركات ضيافة سعودية (عن بعد)'. Remove 'Hono, Express', 'Drizzle', 'MITRE ATT&CK', 'قراءة الصور OCR' and 'Vercel' unless the candidate supplies a repo that uses them."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Section 'التعليم' → 'مشروع التخرج: مركز عمليات أمنية (SOC) · مشروع جماعي · ٢٠٢٦'",
+   "severity": "major",
+   "category": "strategy",
+   "problem": "A heading called 'التعليم' with no university, degree or year (all unknown per facts) makes the missing degree line the most conspicuous absence on the page for Saudi HR, who scan for it first.",
+   "fix": "Rename the section 'مشروع التخرج والمعمل الأمني' and keep the existing text; do not add an institution or degree. If the candidate later confirms the degree, restore 'التعليم'."
+  },
+  {
+   "file": "cv_ar",
+   "where": "'دفتر البقالة — … ويمسح الباركود بالكاميرا أو القارئ' and 'سجل — … ويستطيع استخدامه حتى العامل الذي لا يقرأ'",
+   "severity": "minor",
+   "category": "fact",
+   "problem": "Barcode scanning (camera/reader) and 'usable by a worker who cannot read' are not in the verified facts for mohanad-web-app-2 or Sijilati; the second is a marketing claim with no evidence.",
+   "fix": "'دفتر البقالة — تطبيق أندرويد للمحاسبة والكاشير يعمل بدون إنترنت. 157 اختبارًا ناجحًا، الإصدار 2.2.1. Flutter.' and 'سجل — دفتر ديون رقمي للمحلات يعمل بدون إنترنت. 93 اختبارًا ناجحًا. Flutter.' Reinstate barcode only if the README states it."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Tanwīn-less adverbs throughout: 'بديلا', 'وكيلا', 'رقميا', 'حرفيا', 'سجلا', 'جدولا', 'اختبارا ناجحا', 'معملا عمليا', 'تلقائيا'",
+   "severity": "minor",
+   "category": "language",
+   "problem": "Every accusative tanwīn is dropped (alif without fatḥatayn), which in a Naskh face reads as a typing shortcut rather than a style; Noto Naskh Arabic sets the mark cleanly and the extraction keeps it.",
+   "fix": "Add the mark consistently: 'بديلًا', 'وكيلًا', 'رقميًا', 'حرفيًا', 'سجلًا', 'جدولًا', 'اختبارًا ناجحًا', 'معملًا عمليًا', 'تلقائيًا'. No CSS needed; `font-feature-settings: \"mark\", \"mkmk\"` are on by default."
+  },
+  {
+   "file": "cv_ar",
+   "where": "Font pairing — Noto Naskh Arabic (72.1%) with IBM Plex Sans (16.7%)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "A calligraphic Naskh next to a rational grotesque is a tonal mismatch (soft pen strokes vs engineered monoline); it is workable after the size-adjust fix but not an ideal pair for a technical CV.",
+   "fix": "Alternative to test: IBM Plex Sans Arabic (same family, same x-height logic, Arabic drawn to sit with the Latin) — `font-family: 'IBM Plex Sans Arabic','IBM Plex Sans'`. Extraction stays correct only if (a) the PDF is produced by Chromium/Puppeteer, which writes a ToUnicode CMap from the shaped glyph run, and (b) you verify with `pdftotext -raw cv_ar.pdf - | diff - source.txt` before adopting. If any ligature extracts wrongly, keep Noto Naskh Arabic with the `size-adjust: 90%` Latin fix from issue 4."
+  }
+ ],
+ "reviewer": "typographer_cv_ar",
+ "model": "claude-fable-5-1",
+ "seconds": 224.8
+}

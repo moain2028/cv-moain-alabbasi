@@ -1,0 +1,153 @@
+{
+ "verdict": "The CV shows real technical breadth backed by public repos and live sites, but a recruiter will doubt it: every role and project is dated 2026, many bullets carry unverified scope claims, the strongest AI evidence (Basira) is pushed to page 2, and the bullets list features rather than outcomes.",
+ "score_10": 5,
+ "issues": [
+  {
+   "file": "cv_en",
+   "where": "PROFESSIONAL EXPERIENCE: 'Founder & Lead Software Engineer · Alabbasi Tech … 2026 – Present' and 'Web & Growth Engineer · Saudi hospitality businesses … 2026 – Present'",
+   "severity": "critical",
+   "category": "strategy",
+   "problem": "Two concurrent roles both start in 2026, followed by about 20 shipped systems. In a 7-second scan this reads as either almost no experience or an inflated portfolio. 'Lead' implies a team, but the summary says 'on my own'. The start of the professional career is unknown, so no earlier date may be added.",
+   "fix": "Merge both into one role: 'Independent Software Engineer (Founder) · Alabbasi Tech · alabbasi.uk · Remote · 2026 – Present'. Keep 4–5 bullets with the deepest verified engineering and move the rest to Projects. Drop 'Lead'. Let the repo links carry credibility instead of the project count."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Web & Growth Engineer · Saudi hospitality businesses · Jeddah, Saudi Arabia (Remote)'",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "UNVERIFIED. No employer, job title or Jeddah location is in the facts sheet. 'Saudi hospitality businesses' is not an employer name, and background checks fail on unnamed employers. Linking the Google Ads platform and keif-publisher to this client is also unverified.",
+   "fix": "Delete the heading. Inside the merged role, add: 'Built and maintain live production websites: keifaldiafa.com, asoulaldiafa.com, qahwajeen.com.' Remove 'Next.js, Hono', 'technical SEO, conversion optimisation and PDPL compliance' and Jeddah unless the repos prove them."
+  },
+  {
+   "file": "cv_en",
+   "where": "'Built a POS / ERP system … covering inventory, purchasing, accounting and cashier, and migrated the client's existing data. It prints Arabic receipts on Bixolon thermal printers over Bluetooth. NestJS, React 19, Oracle PL/SQL, Vitest.'",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "The module list, 'migrated the client's existing data' and 'Vitest' are UNVERIFIED. Meanwhile the verified, impressive detail (Web Serial over Bluetooth SPP, a documented hardware failure analysis) is left out.",
+   "fix": "'Built a POS/ERP system replacing YemenSoft Onyx Pro (NestJS 10, React 19, Oracle PL/SQL). Implemented Arabic receipt printing on a Bixolon SPP-R310 over Bluetooth SPP via the Web Serial API, and documented the root cause of failed USB printing on Xprinter (Windows driver).'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Basira: '78.54% on IslamicEval 2025 (subtask 1B)', '71,987 licensed source records', 'The AI model only proposes matches; a rule-based engine makes every decision', 'Entry to the AI in Service of Islamic Content Challenge 2026'",
+   "severity": "critical",
+   "category": "fact",
+   "problem": "The verified score is on the dev set. Omitting '(dev)' overstates a benchmark result, which AI hiring managers check. 'licensed' and the proposer/decider architecture claim are UNVERIFIED. 'Track 4' is verified but missing.",
+   "fix": "'Basira · basirapp.site · github.com/MoTechSys/Project-Basira — Quran and Hadith quotation verification against 71,987 records. 150/150 on the evaluation set, 0/500 false alarms, 78.54% on IslamicEval 2025 subtask 1B (dev set). 487 automated tests (345 backend, 110 bot, 32 frontend). Exposed as a REST API, an MCP server and a Telegram bot (@BasiraCheckBot). Entry to the AI in Service of Islamic Content Challenge 2026, Track 4.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Section order: TECHNICAL SKILLS (11 lines) → EXPERIENCE → 'AI AGENTS & APPLIED AI' heading stranded at the bottom of page 1",
+   "severity": "critical",
+   "category": "strategy",
+   "problem": "For an AI Engineer role, the only hard metrics on the CV (Basira) start on page 2 and are missed in a 7-second scan. The section heading is orphaned at the foot of page 1, away from its content.",
+   "fix": "Use this order: Summary → AI Agents & Applied AI (Basira first) → Experience → Selected Projects → Skills (condensed) → Graduation Project → Languages. Add CSS: 'h2 { break-after: avoid; page-break-after: avoid; } section { break-inside: avoid-page; }'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Headline: 'Software Engineer | Full-Stack Systems · AI Agents · Cybersecurity'",
+   "severity": "major",
+   "category": "content",
+   "problem": "Three domains dilute the positioning. The security evidence is a team graduation project, so putting it in the headline invites a 'jack of all trades' rejection for both AI and SWE roles. The target title 'AI Engineer' does not appear, so ATS title matching misses it.",
+   "fix": "'Software Engineer · AI Engineer — Full-Stack, LLM Agents (LangGraph, MCP)'"
+  },
+  {
+   "file": "cv_en",
+   "where": "SUMMARY: 'Software engineer who designs, builds and ships complete business systems on my own … I write tests for every system … hand clients full ownership … same time zone as Saudi Arabia.'",
+   "severity": "major",
+   "category": "content",
+   "problem": "It mixes third person and first person. 'On my own' signals no team experience. 'Tests for every system' is contradicted by projects with no tests listed, and 'clients in Saudi Arabia and Yemen' and 'full ownership' are UNVERIFIED. Anchoring to the Saudi time zone narrows an international CV.",
+   "fix": "'Full-stack and AI engineer building production systems end to end in TypeScript, Python and Go. Built multi-agent LLM systems with LangGraph and MCP servers, including Basira, an Arabic quotation verifier (150/150 evaluation, 0/500 false alarms, 487 tests). Shipped POS/ERP, notification, attendance and Zero-Trust access platforms plus offline-first Flutter apps. Remote, GMT+3.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Company tagline: 'Every client receives the full source code, Arabic documentation and three months of support.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "UNVERIFIED service promise. It is sales copy for the Saudi services profile and adds nothing an engineering hiring manager evaluates.",
+   "fix": "Delete the line in cv_en and keep it only in services_ar if it is true."
+  },
+  {
+   "file": "cv_en",
+   "where": "Attendance bullet: 'Replaced vendor attendance software with an enterprise attendance system … combines all branches into one system and exports payroll-ready reports. Go, PostgreSQL.'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "'Replaced vendor software', 'enterprise', 'all branches' and 'payroll-ready' are UNVERIFIED and read as inflation.",
+   "fix": "'Built an attendance system in Go 1.26 and PostgreSQL that pulls punches directly from ZKTeco iFace950 devices and generates daily and monthly reports in HTML and CSV.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Other experience bullets: Nexus 'real-time delivery reports'; PWA 'covering events, staff, inventory, invoices and statements'; legacy 'PHP/MySQL … so operations never stop'; content engine 'from a media archive … Python, FastAPI, APScheduler'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "Each bullet contains UNVERIFIED specifics. Any one detail that collapses in a technical interview discredits the rest.",
+   "fix": "Nexus: 'Built Nexus Notify, a multi-tenant multi-channel notification platform (NestJS, PostgreSQL 17, Prisma, Redis/BullMQ) with an Angular 22 dashboard and a Kotlin/Jetpack Compose Android SMS gateway supporting dual SIM.' PWA: 'Built an offline-first event and hospitality PWA (Angular 22.1, IndexedDB).' Legacy: 'In progress: building a modern layer around a legacy PHP accounting system.' Content engine: 'Built keif-publisher, an AI content generator with a human approval gate, scheduled publishing, a kill switch and dry-run by default.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS: 'WCAG 2.1 AA', 'ML Kit', 'Saudi PDPL compliance', 'MITRE ATT&CK', 'LangChain', 'BM25', 'OCR', 'OpenAI, Anthropic, Gemini', 'mypy (strict)', 'GitHub Actions CI/CD', 'Express', 'Drizzle', 'MySQL', 'Vercel', 'Cloudflare (Pages, Workers)'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "None of these are in the verified repos. ATS keyword stuffing that fails interview questioning is a common reason for technical-screen rejection.",
+   "fix": "Remove each item unless a public repo demonstrates it. Keep verified items: LangGraph, MCP, FTS5, vectors, RRF, FastAPI, NestJS, Prisma, BullMQ, Redis, Celery, Playwright, Wazuh, Suricata, YARA, Autopsy, FTK Imager, Cloudflare R2."
+  },
+  {
+   "file": "cv_en",
+   "where": "TECHNICAL SKILLS block (9 categories, ~80 terms, including 'Web Growth: technical SEO, Core Web Vitals, Google Search Console…')",
+   "severity": "major",
+   "category": "content",
+   "problem": "It takes a third of page 1, buries experience, and the marketing line is irrelevant to SWE/AI roles. Verified AI keywords recruiters search for are missing: human-in-the-loop, LLM evaluation, model routing, CodeAct.",
+   "fix": "Condense to 5 lines. 'AI & Agents: LangGraph, multi-agent orchestration, MCP servers, model routing with fallback and cost tracking, hierarchical memory, CodeAct sandboxed execution, hybrid retrieval (FTS5 + vectors, RRF), LLM evaluation, human-in-the-loop approval.' 'Backend: Python, FastAPI, TypeScript, NestJS, Go, Prisma, PostgreSQL, Oracle PL/SQL, Redis, BullMQ, Celery, WebSockets.' 'Frontend & Mobile: React 19, Next.js, Angular 22, PWA/IndexedDB, Flutter, Kotlin/Compose.' 'Security: Wazuh, Suricata, YARA, auditd, Autopsy, FTK Imager, SSH/NetBird Zero-Trust.' 'Testing: pytest, Playwright.' Delete the Web Growth line."
+  },
+  {
+   "file": "cv_en",
+   "where": "Projects: S-ACM 'Hono, PostgreSQL, Drizzle'; Grocery 'accounting app and POS … camera, USB or Bluetooth barcode scanning and append-only ledgers'; Sijil 'usable by staff who cannot read'; Mansur 'saves successful runs as reusable skills'; Ai_Alabbasi 'Self-hosted … tests and fixes its own code'; Promoter 'bilingual'; SOC 'live lab, including automatic blocking of SSH brute-force attacks'",
+   "severity": "major",
+   "category": "fact",
+   "problem": "All of these details are UNVERIFIED. Several also contradict the verified stack: S-ACM is verified as React 19, TypeScript and Tailwind 4.",
+   "fix": "S-ACM: 'React 19, TypeScript, Tailwind 4; AI summarisation and question generation.' Grocery: 'Offline Flutter Android ledger app for shops, v2.2.1, 157 tests.' Sijil: 'Offline Flutter debt ledger, 93 tests.' Mansur: 'LangGraph planner/executor/verifier/learner; 13 agents, 38 tools; model router with fallback and cost tracking; hierarchical memory; FastAPI + WebSocket Arabic UI; 82 passing tests.' Ai_Alabbasi: 'Swappable-brain coding agent with CodeAct sandboxed Python and hybrid search (FTS5 + vectors, RRF).' Promoter: '7 specialised agents + orchestrator publishing to 6 platforms; Next.js dashboard; Celery, Redis, Playwright.' SOC: '14 use cases verified in a lab.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "Every '· source' link (Basira, Idhaat, Grocery Ledger, Sijil, S-ACM, Ghaida, SOC)",
+   "severity": "major",
+   "category": "ats",
+   "problem": "pdftotext extracts only the word 'source', so ATS and printed copies lose the proof. Recruiters on Workday/Taleo see an anchor with no URL.",
+   "fix": "Print visible short URLs where the repo is known: 'github.com/MoTechSys/Project-Basira', 'github.com/MoTechSys/mohanad-web-app-2', 'github.com/MoTechSys/Sijilati', 'github.com/MoTechSys/my-bro'. For other projects, show 'github.com/MoTechSys/<repo>' with the real repo name. Mark Mansur AI as '(private repo, demo on request)'."
+  },
+  {
+   "file": "cv_en",
+   "where": "Idhaat bullet and Mansur AI line (no stack listed)",
+   "severity": "minor",
+   "category": "content",
+   "problem": "Bullets list features but not results. Verified quantities that show engineering judgement are missing, such as cost and room allocation. Mansur shows no stack at all, so ATS misses Python/FastAPI.",
+   "fix": "Idhaat: 'Live-tutoring platform: auto-allocates 4 Zoom rooms with JWT-secured Jitsi fallback; streams recordings to Cloudflare R2 during class with 48-hour retention and a moving watermark; runs at ~25 SAR/month.' Append to Mansur: 'Python, FastAPI, LangGraph, WebSocket.'"
+  },
+  {
+   "file": "cv_en",
+   "where": "EDUCATION section containing only 'Graduation Project: Security Operations Center (SOC) · team project · 2026'",
+   "severity": "minor",
+   "category": "strategy",
+   "problem": "An 'Education' heading with no degree or institution signals that something is missing. University, degree and year are unknown and must not be invented.",
+   "fix": "Rename the heading to 'GRADUATION PROJECT (SECURITY)'. Remove '2026' if it duplicates the experience dates, and move the section below Selected Projects. Add degree details only once the candidate supplies them."
+  },
+  {
+   "file": "cv_en",
+   "where": "Page metrics: body 9.4pt, 108-char median line, page 2 only 62.7% filled (113.8 mm empty bottom margin)",
+   "severity": "minor",
+   "category": "typography",
+   "problem": "9.4pt with 108-character lines is dense on screen, and there is spare space on page 2 that could make it more readable.",
+   "fix": "CSS: 'body { font-size: 10pt; line-height: 1.38; } li { margin-bottom: 2pt; }'. After the cuts above, keep the CV at 2 pages with page 2 at least 80% full."
+  },
+  {
+   "file": "cv_en",
+   "where": "Contact line: '+967 770 941 666'",
+   "severity": "minor",
+   "category": "content",
+   "problem": "International recruiters cannot tell that the number is WhatsApp-only, so calls to it may fail.",
+   "fix": "'WhatsApp +967 770 941 666'"
+  }
+ ],
+ "reviewer": "recruiter_intl",
+ "model": "claude-opus-5-5",
+ "seconds": 92.5
+}

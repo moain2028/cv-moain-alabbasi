@@ -1,0 +1,64 @@
+/* Static fonts only: they embed as real text (CID TrueType), which ATS parsers can read. */
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-400.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-400i.woff2') format('woff2'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-500.woff2') format('woff2'); font-weight: 500; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-600.woff2') format('woff2'); font-weight: 600; }
+@font-face { font-family: 'Plex'; src: url('../fonts/plex-700.woff2') format('woff2'); font-weight: 700; }
+/* Arabic: Noto Naskh Arabic (system build). Measured: 100% of Arabic words survive PDF text extraction
+   with correct lam-alef shaping. IBM Plex Arabic, Tajawal, Cairo, Almarai etc. lose 30-70% of words. */
+@font-face { font-family: 'Naskh'; src: url('../fonts/NotoNaskhArabic-Regular.ttf'); font-weight: 400 500; }
+@font-face { font-family: 'Naskh'; src: url('../fonts/NotoNaskhArabic-Bold.ttf'); font-weight: 600 700; }
+
+:root { --ink:#16202e; --muted:#566173; --accent:#0b4f8a; --line:#cfd6e0; --soft:#f1f5fa; }
+/* Standards targets (checked by audit/standards.py):
+   body 10-12 pt, margins >= 12.7 mm, <= 100 chars/line, line-height >= 1.4,
+   headings >= 1.15x body, <= 5 sizes, contrast >= 4.5:1. */
+@page { size: A4; margin: 16mm 18mm 14mm; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+/* LTR scale: 9 meta / 10 body / 11.6 section / 12.5 title / 22 name */
+body[dir="ltr"] { font-family: 'Plex', 'Naskh', sans-serif; font-size: 10pt; line-height: 1.42; --meta: 9pt; --h2: 11.6pt; --title: 12.5pt; }
+/* RTL scale: Naskh has a small x-height, so it is set larger: 9.5 / 11 / 12.8 / 13.5 / 22 */
+body[dir="rtl"] { font-family: 'Naskh', 'Plex', serif; font-size: 11pt; line-height: 1.5; --meta: 9.5pt; --h2: 12.8pt; --title: 13.5pt; }
+p, li, .entry { text-wrap: pretty; }
+a { color: var(--accent); text-decoration: none; }
+b, strong { font-weight: 600; }
+.muted { color: var(--muted); }
+.nowrap { white-space: nowrap; }
+bdi { unicode-bidi: isolate; }
+
+header { border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 2px; }
+header h1 { margin: 0; font-size: 22pt; font-weight: 700; line-height: 1.1; }
+header .title { color: var(--accent); font-weight: 600; font-size: var(--title); margin-top: 3px; }
+header .contact { margin-top: 4px; font-size: var(--meta); color: var(--muted); }
+header .contact .sep { color: var(--muted); padding: 0 6px; }
+
+section { margin-top: 9px; }
+h2 { margin: 0 0 4px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
+     color: var(--accent); font-size: var(--h2); font-weight: 700;
+     break-after: avoid; page-break-after: avoid; }
+body[dir="ltr"] h2 { text-transform: uppercase; }
+p { margin: 0 0 3px; }
+ul { margin: 2px 0 0; padding-inline-start: 14px; }
+li { margin: 2.4px 0; }
+li::marker { color: var(--accent); }
+
+/* Tech stack after a bullet: meta size, muted, isolated from RTL punctuation */
+.stack { color: var(--muted); font-size: var(--meta); }
+.stack::before { content: "— "; }
+body[dir="rtl"] .stack { unicode-bidi: isolate; direction: ltr; display: inline-block; }
+body[dir="rtl"] .stack::before { content: ""; }
+
+.skills p { display: grid; grid-template-columns: 8.6em 1fr; column-gap: 8px; margin: 1.6px 0; }
+body[dir="rtl"] .skills p { grid-template-columns: 8.5em 1fr; }
+.skills b { color: var(--ink); }
+
+.role { margin-bottom: 4px; }
+.role-hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; break-after: avoid; }
+.role-hd .when { color: var(--muted); font-size: var(--meta); white-space: nowrap; }
+.role .org { color: var(--muted); }
+.role li { break-inside: avoid; }
+
+.entry { margin: 0 0 5px; break-inside: avoid; }
+.entry .name { font-weight: 600; }

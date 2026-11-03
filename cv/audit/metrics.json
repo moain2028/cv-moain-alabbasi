@@ -1,0 +1,358 @@
+{
+ "cv_en.pdf": {
+  "file": "cv_en.pdf",
+  "pages": 2,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "IBMPlexSans-Regular": "91.2%",
+   "IBMPlexSans-SemiBold": "7.1%",
+   "IBMPlexSans-Bold": "1.8%"
+  },
+  "sizes_pt": {
+   "9.0": "9.4%",
+   "10.0": "87.8%",
+   "11.6": "1.5%",
+   "12.49": "1.0%",
+   "22.0": "0.2%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "82.5%",
+    "contrast_on_white": 16.4
+   },
+   "#566173": {
+    "share": "9.5%",
+    "contrast_on_white": 6.26
+   },
+   "#0b4f8a": {
+    "share": "8.0%",
+    "contrast_on_white": 8.4
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 20.1,
+    "right": 19.6,
+    "top": 14.3,
+    "bottom": 25.2
+   },
+   "p2": {
+    "left": 20.1,
+    "right": 19.8,
+    "top": 15.2,
+    "bottom": 43.4
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 95.9,
+    "lines": 47
+   },
+   {
+    "page": 2,
+    "vertical_fill_pct": 89.4,
+    "lines": 50
+   }
+  ],
+  "leading": {
+   "10.0": {
+    "median_pt": 14.25,
+    "ratio": 1.43,
+    "n": 53
+   }
+  },
+  "chars_per_full_line": {
+   "median": 100,
+   "max": 113
+  },
+  "distinct_sizes": 5,
+  "text_chars": 6399,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 994,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "ai",
+     2
+    ],
+    [
+     "moain",
+     1
+    ],
+    [
+     "software",
+     1
+    ],
+    [
+     "summary",
+     1
+    ],
+    [
+     "experience",
+     1
+    ],
+    [
+     "2026",
+     1
+    ],
+    [
+     "pos",
+     1
+    ],
+    [
+     "motech",
+     1
+    ]
+   ],
+   "section_order": [
+    "SUMMARY",
+    "EXPERIENCE",
+    "AI AGENTS & APPLIED AI",
+    "SELECTED PROJECTS",
+    "TECHNICAL SKILLS"
+   ]
+  },
+  "short_tail_lines": [
+   "Tailwind 4"
+  ]
+ },
+ "cv_ar.pdf": {
+  "file": "cv_ar.pdf",
+  "pages": 2,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "NotoNaskhArabic-Regular": "71.2%",
+   "IBMPlexSans-Regular": "17.1%",
+   "NotoNaskhArabic-Bold": "9.9%",
+   "IBMPlexSans-SemiBold": "1.7%",
+   "IBMPlexSans-Bold": "0.0%"
+  },
+  "sizes_pt": {
+   "9.44": "8.0%",
+   "10.93": "88.8%",
+   "12.72": "2.0%",
+   "13.42": "1.0%",
+   "21.86": "0.2%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "86.4%",
+    "contrast_on_white": 16.4
+   },
+   "#566173": {
+    "share": "7.6%",
+    "contrast_on_white": 6.26
+   },
+   "#0b4f8a": {
+    "share": "6.0%",
+    "contrast_on_white": 8.4
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 18.0,
+    "right": 17.7,
+    "top": 13.4,
+    "bottom": 27.5
+   },
+   "p2": {
+    "left": 18.3,
+    "right": 17.7,
+    "top": 15.6,
+    "bottom": 24.1
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 94.8,
+    "lines": 39
+   },
+   {
+    "page": 2,
+    "vertical_fill_pct": 96.8,
+    "lines": 40
+   }
+  ],
+  "leading": {
+   "10.93": {
+    "median_pt": 16.4,
+    "ratio": 1.5,
+    "n": 53
+   }
+  },
+  "chars_per_full_line": {
+   "median": 94,
+   "max": 120
+  },
+  "distinct_sizes": 5,
+  "text_chars": 5093,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 863,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "‫نظام",
+     3
+    ],
+    [
+     "‫منصة",
+     2
+    ],
+    [
+     "‫دفتر",
+     2
+    ],
+    [
+     "‫معين",
+     1
+    ],
+    [
+     "‫مهندس",
+     1
+    ],
+    [
+     "‫صنعاء‪",
+     1
+    ],
+    [
+     "‫السعودية",
+     1
+    ],
+    [
+     "‫نبذة",
+     1
+    ]
+   ],
+   "section_order": []
+  },
+  "short_tail_lines": []
+ },
+ "services_ar.pdf": {
+  "file": "services_ar.pdf",
+  "pages": 1,
+  "page_size_mm": [
+   209.9,
+   297.0
+  ],
+  "fonts": {
+   "NotoNaskhArabic-Regular": "69.4%",
+   "NotoNaskhArabic-Bold": "21.8%",
+   "IBMPlexSans-Regular": "8.5%",
+   "IBMPlexSans-SemiBold": "0.4%",
+   "IBMPlexSans-Bold": "0.0%"
+  },
+  "sizes_pt": {
+   "8.96": "12.6%",
+   "10.05": "76.3%",
+   "11.75": "8.9%",
+   "12.74": "1.7%",
+   "21.9": "0.4%"
+  },
+  "colors": {
+   "#16202e": {
+    "share": "74.4%",
+    "contrast_on_white": 16.4
+   },
+   "#0b4f8a": {
+    "share": "11.1%",
+    "contrast_on_white": 8.4
+   },
+   "#566173": {
+    "share": "10.5%",
+    "contrast_on_white": 6.26
+   },
+   "#ffffff": {
+    "share": "4.1%",
+    "contrast_on_white": 1.0
+   }
+  },
+  "margins_mm": {
+   "p1": {
+    "left": 17.5,
+    "right": 14.5,
+    "top": 12.6,
+    "bottom": 32.9
+   }
+  },
+  "pages_detail": [
+   {
+    "page": 1,
+    "vertical_fill_pct": 92.6,
+    "lines": 59
+   }
+  ],
+  "leading": {
+   "10.05": {
+    "median_pt": 14.93,
+    "ratio": 1.49,
+    "n": 25
+   }
+  },
+  "chars_per_full_line": {
+   "median": 56,
+   "max": 132
+  },
+  "distinct_sizes": 5,
+  "text_chars": 2248,
+  "ats": {
+   "email_found": true,
+   "phone_found": true,
+   "broken_words": [],
+   "ligature_or_pua": [],
+   "words": 384,
+   "weak_phrases": [],
+   "first_word_counts": [
+    [
+     "‫‪",
+     11
+    ],
+    [
+     "‫نظام",
+     2
+    ],
+    [
+     "‫العباسي",
+     1
+    ],
+    [
+     "‫هندسة",
+     1
+    ],
+    [
+     "‫معين",
+     1
+    ],
+    [
+     "‫نبني",
+     1
+    ],
+    [
+     "‫خدماتنا‬",
+     1
+    ],
+    [
+     "‫المحلات‪",
+     1
+    ]
+   ],
+   "section_order": []
+  },
+  "short_tail_lines": []
+ }
+}
