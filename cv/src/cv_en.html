@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Moain Al-Abbasi — Software Engineer CV</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  body { font-family: 'Inter', 'IBM Plex Sans Arabic', sans-serif; }
+</style>
+</head>
+<body class="cv">
+
+<header class="hd">
+  <div>
+    <h1>Moain Al-Abbasi</h1>
+    <div class="role">Software Engineer · Full-Stack, Applied AI &amp; Security</div>
+  </div>
+  <ul class="contact">
+    <li>Remote · Sana'a, Yemen <span class="muted">(GMT+3, same as KSA)</span></li>
+    <li><a href="https://wa.me/967770941666">+967 770 941 666</a> (WhatsApp)</li>
+    <li><a href="mailto:info@alabbasi.tech">info@alabbasi.tech</a></li>
+    <li><a href="https://alabbasi.uk">alabbasi.uk</a> · <a href="https://github.com/MoTechSys">github.com/MoTechSys</a></li>
+  </ul>
+</header>
+
+<section>
+  <h2>Profile</h2>
+  <p>Software engineer who builds complete business systems end to end, from database design to the last screen, and ships them to production. I have built and delivered 10 systems, with <b>518 commits, 51 database migrations and 128 automated test files</b> that anyone can count in the repositories. My work includes POS/ERP, attendance, notification and remote-access platforms, offline-first mobile apps, and Arabic-first AI tools. I also build fast, SEO-focused websites for Saudi businesses. I have worked remotely with clients in Saudi Arabia and Yemen, write native Arabic RTL interfaces, and give clients full ownership of their code.</p>
+</section>
+
+<section>
+  <h2>Core Skills</h2>
+  <table class="skills">
+    <tr><th>Languages</th><td>TypeScript, JavaScript, Python, Go, Dart, Kotlin, PHP, SQL, PL/SQL</td></tr>
+    <tr><th>Backend</th><td>NestJS, Node.js, Hono, FastAPI, Prisma, Drizzle, REST APIs, BullMQ/Redis, Socket.IO, MCP servers</td></tr>
+    <tr><th>Frontend</th><td>React 19, Next.js, Angular 22, Vite, Tailwind CSS, PWA/offline-first (IndexedDB), RTL &amp; accessibility (WCAG AA)</td></tr>
+    <tr><th>Mobile</th><td>Flutter (Android, offline, barcode/ML Kit, Bluetooth printing), native Android with Kotlin + Jetpack Compose</td></tr>
+    <tr><th>Data</th><td>PostgreSQL, Oracle, MySQL, SQLite, data migration from legacy/closed systems</td></tr>
+    <tr><th>AI</th><td>LLM integration, LangGraph agents, Arabic NLP &amp; retrieval (BM25, n-grams, RRF), OCR pipelines, AI-assisted engineering</td></tr>
+    <tr><th>Security</th><td>SOC with Wazuh SIEM, Suricata, YARA, digital forensics (Autopsy, FTK Imager), Zero-Trust remote access</td></tr>
+    <tr><th>DevOps &amp; QA</th><td>Docker, GitHub Actions CI/CD, Cloudflare (Pages/Workers/R2), Vercel, VPS; Vitest, pytest, Playwright, mypy strict</td></tr>
+    <tr><th>Web growth</th><td>Technical SEO/GEO, Core Web Vitals, Google Search Console, Google Ads API, CRO, PDPL compliance</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-hd">
+      <div><b>Founder &amp; Lead Software Engineer</b> — Alabbasi Tech (software house)</div>
+      <div class="when">2026 – Present · Remote</div>
+    </div>
+    <p class="sub">I design, build and deliver custom systems that replace closed, per-seat software. Clients get the full source code, Arabic documentation and three months of support.</p>
+    <ul>
+      <li><b>POS / ERP (replaces YemenSoft Onyx Pro):</b> inventory, purchasing, accounting and cashier, with migration from the client's existing database. NestJS 10, React 19, Oracle PL/SQL. 170 commits, 33 migrations, 57 test files. Prints Arabic receipts on a Bixolon thermal printer over Bluetooth (Web Serial).</li>
+      <li><b>Multi-tenant notification platform:</b> queued, real-time message delivery with delivery reports and a native Android app. NestJS 11, Prisma 6, BullMQ, Redis, Socket.IO, Kotlin.</li>
+      <li><b>Enterprise attendance system:</b> reads ZKTeco iFace950 fingerprint devices directly instead of the vendor software, combines branches into one system and produces payroll-ready reports. Go, PostgreSQL.</li>
+      <li><b>Zero-Trust remote-access platform:</b> digitally signed agents, per-user access policies and a full audit log for every session, with no permanent keys. Go, SSH, NetBird mesh, cross-platform CLI.</li>
+      <li><b>Event &amp; hospitality management PWA:</b> events, staff, inventory, invoices and statements, and it keeps working at venues with no internet. Angular 22, IndexedDB. 32 services, 24 test files.</li>
+      <li><b>Legacy ERP modernisation:</b> analysed a PHP/MySQL accounting system and began building a modern NestJS/Prisma/React layer around it, so the business never has to stop for a rewrite.</li>
+      <li><b>AI business agent:</b> handles requests and connects internal systems using a state graph. FastAPI, LangGraph, OpenAI.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-hd">
+      <div><b>Web Engineer &amp; Growth</b> — Saudi hospitality clients, Jeddah (remote)</div>
+      <div class="when">2026 – Present</div>
+    </div>
+    <ul>
+      <li>Built and run production websites (<a href="https://keifaldiafa.com">keifaldiafa.com</a>, <a href="https://asoulaldiafa.com">asoulaldiafa.com</a>, <a href="https://qahwajeen.com">qahwajeen.com</a>) with Next.js and Hono, with technical SEO/GEO, CRO and PDPL compliance.</li>
+      <li><b>Results measured in Google Search Console:</b> click-through rate rose from 0.4% to 2.1%, and daily search impressions rose from 76 to 556. Lighthouse SEO score is 100 and CLS is 0.</li>
+      <li>Built a Google Ads + Search Console monitoring platform (Hono, Cloudflare) and an AI content-publishing pipeline in which every post needs approval before it goes live.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Selected Projects</h2>
+  <div class="proj">
+    <p><b>Basira</b> — <a href="https://basirapp.site">basirapp.site</a> · Checks Quran and Hadith quotations against licensed source texts (71,987 records), shows the exact source letter by letter, and uses an AI model only to propose matches. <b>150/150</b> on the evaluation set, <b>0/500</b> false alarms, <b>78.54%</b> on IslamicEval 2025 (subtask 1B), <b>487 tests</b>. Available as a REST API, an MCP server and a Telegram bot. Entry to the <i>AI in Service of Islamic Content Challenge 2026</i>. Python, FastAPI, React.</p>
+    <p><b>Idhaat</b> — Live-tutoring platform. Zoom rooms are assigned automatically, with a private Jitsi stream (JWT-protected) when rooms run out. Recordings upload to Cloudflare R2 during class, carry a moving watermark and are deleted after 48 hours. Includes homework, messaging and full course finances. Runs for about 25 SAR a month. TypeScript, PWA.</p>
+    <p><b>Grocery Ledger</b> (Flutter, Android) — Offline accounting app and POS for small shops, with camera, USB or Bluetooth barcode scanning and append-only ledgers. 157 passing tests, released as v2.2.1. <b>Sijil</b>: an offline debt ledger for shops (93 tests).</p>
+    <p><b>S-ACM</b> — Academic content-management system with AI summarisation and question generation. React 19, Hono, PostgreSQL, Drizzle. <b>Ghaida</b>: multilingual household guide with AI voice for domestic workers, as an offline PWA (API tests 27/27).</p>
+    <p><b>Security Operations Center</b> (graduation project) — Wazuh 4.14.7, Suricata, YARA, VirusTotal, auditd and MikroTik syslog, plus an AI analyst. 14 use cases verified on a live lab, including automatic blocking of SSH brute-force attacks. Also a <b>digital forensics lab</b> (Autopsy, FTK Imager, registry and event logs).</p>
+  </div>
+</section>
+
+<section class="two">
+  <div>
+    <h2>Languages</h2>
+    <p>Arabic: native · English: professional (technical)</p>
+  </div>
+  <div>
+    <h2>Working Style</h2>
+    <p>Fixed-scope written quotes · phased delivery · client owns the code · documentation in Arabic and English · available during Saudi business hours</p>
+  </div>
+</section>
+
+</body>
+</html>
